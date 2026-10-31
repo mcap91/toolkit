@@ -1,7 +1,7 @@
 {
-  "description": "Search index for the bioinfo-agent-toolkit catalog. Each entry is an assessed external tool, skill, framework, or reference with a decision_status (adopted/rejected/open) and security review.",
+  "description": "Search index for the catalog. Each entry is an assessed external tool, skill, framework, or reference with a decision_status (adopted/rejected/open) and security review.",
   "usage": "Search by tags, category, decision_status, or keywords in summary/body_summary. Follow the path field for the full entry with security analysis and mechanical details.",
-  "generated": "2026-10-30",
+  "generated": "2026-10-31",
   "count": 738,
   "decision_statuses": {
     "adopted": "in use",

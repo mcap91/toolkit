@@ -138,21 +138,3 @@ export const dirSchema = z.object({
   dir: z.string().optional().describe('Target repo directory (auto-resolved if omitted)'),
 });
 
-export const PROJECT_STATUSES = ['active', 'paused', 'completed'] as const;
-export const PRIORITIES = ['high', 'medium', 'low'] as const;
-
-export const projectSchema = z.object({
-  name: z.string().min(1),
-  status: z.enum(PROJECT_STATUSES),
-  workflows: z.array(z.string()).optional(),
-  priority: z.enum(PRIORITIES).default('medium'),
-  notes: z.string().optional(),
-});
-
-export type Project = z.infer<typeof projectSchema>;
-
-export const goalsSchema = z.object({
-  projects: z.array(projectSchema),
-});
-
-export type Goals = z.infer<typeof goalsSchema>;

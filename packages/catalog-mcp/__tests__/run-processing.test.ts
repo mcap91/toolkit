@@ -179,8 +179,8 @@ describe('buildClaudeArgs', () => {
     expect(allowed).not.toContain('mcp__catalog__index');
   });
 
-  it('denies every other catalog server tool, so the project settings allow list cannot reach scaffold/index/drain', () => {
-    // WK-0092: --allowedTools alone let a session call `scaffold` through .claude/settings.json.
+  it('denies every other catalog server tool, so the project settings allow list cannot reach index/lint/drain', () => {
+    // WK-0092: --allowedTools alone let a session call a disallowed tool through .claude/settings.json.
     const args = buildClaudeArgs('/tmp/mcp.json');
     const i = args.indexOf('--disallowedTools');
     const j = args.indexOf('--output-format');
@@ -189,7 +189,7 @@ describe('buildClaudeArgs', () => {
     // allowed + denied covers the whole server, with no overlap
     expect([...denied, ...CATALOG_MCP_TOOLS].sort()).toEqual(serverTools.sort());
     expect(denied.filter((d) => CATALOG_MCP_TOOLS.includes(d))).toEqual([]);
-    for (const name of ['scaffold', 'index', 'lint', 'drain', 'ingest', 'config']) {
+    for (const name of ['index', 'lint', 'drain', 'ingest', 'config']) {
       expect(denied).toContain(`mcp__catalog__${name}`);
     }
   });

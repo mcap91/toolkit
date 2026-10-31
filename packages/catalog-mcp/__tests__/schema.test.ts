@@ -94,7 +94,7 @@ describe('entrySchema decision_status migration', () => {
 });
 
 // deriveSource is the one deterministic source of truth for "where did this entry come from"
-// (OR-4, WK-0086) — every other producer (write-entry, scaffold, the schema refine below) relies
+// (OR-4, WK-0086) — every other producer (write-entry, the schema refine below) relies
 // on it, so its host-matching rules must be pinned by test, including subdomains.
 describe('deriveSource (OR-4 host mapping)', () => {
   it('maps instagram.com to instagram', () => {

@@ -124,7 +124,7 @@ export async function buildSearchIndex(dir: string): Promise<{ path: string; cou
   }
 
   const index = {
-    description: 'Search index for the bioinfo-agent-toolkit catalog. Each entry is an assessed external tool, skill, framework, or reference with a decision_status (adopted/rejected/open) and security review.',
+    description: 'Search index for the catalog. Each entry is an assessed external tool, skill, framework, or reference with a decision_status (adopted/rejected/open) and security review.',
     usage: 'Search by tags, category, decision_status, or keywords in summary/body_summary. Follow the path field for the full entry with security analysis and mechanical details.',
     generated: new Date().toISOString().slice(0, 10),
     count: entries.length,

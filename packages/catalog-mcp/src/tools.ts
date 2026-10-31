@@ -1,26 +1,18 @@
 // packages/catalog-mcp/src/tools.ts
 import { z } from 'zod';
-import { dirSchema, CATEGORIES } from './core/schema.js';
+import { dirSchema } from './core/schema.js';
 import { resolveDir, loadConfig, loadState, saveState } from './core/config.js';
 import { rebuildCatalogIndexes } from './core/rebuild-indexes.js';
 import { lint } from './core/lint.js';
-import { scaffoldEntry } from './core/scaffold.js';
 import { readQueue, removeFromQueue, returnToInbox, clearQueue } from './core/queue.js';
 import { ingest } from './core/ingest.js';
 import { fetchUrl } from './core/fetch-url.js';
-import { redditExtract } from './core/reddit.js';
 import { buildPrompt } from './core/prompt-builder.js';
 import { validateEntry } from './core/validate-entry.js';
 import { writeEntry } from './core/write-entry.js';
 import { annotateEntry } from './core/annotate-entry.js';
-import { listGoals, getGoal, addGoal, updateGoal, removeGoal } from './core/goals.js';
-import { PROJECT_STATUSES, PRIORITIES } from './core/schema.js';
 import { drainInbox } from './core/drain.js';
-import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { catalogPaths } from './core/config.js';
-import { buildAndWriteGraph, queryNeighbors, queryTopic } from './core/graph/index.js';
-import type { GraphExport } from './core/graph/types.js';
 import { runCatalogEmbedder, venvPythonPath, codeRoot } from './core/embedder-subprocess.js';
 
 export interface ToolDef {
@@ -109,67 +101,6 @@ export const tools: ToolDef[] = [
       } catch {
         return { error: 'Failed to parse search output', stdout: stdout.slice(0, 500) };
       }
-    },
-  },
-  {
-    name: 'graph-build',
-    description: 'Rebuild the catalog knowledge graph from current entries. Normally auto-runs via index; use this for on-demand rebuild.',
-    inputSchema: dirSchema,
-    handler: async (input) => {
-      const dir = resolveDir(input.dir as string | undefined);
-      return buildAndWriteGraph(dir);
-    },
-  },
-  {
-    name: 'graph-query',
-    description: 'Query the catalog knowledge graph. Use neighbors mode to explore connections from a known entry, or topic mode to discover entries by concept.',
-    inputSchema: dirSchema.extend({
-      mode: z.enum(['neighbors', 'topic']),
-      entry: z.string().optional().describe('Entry name (required for neighbors mode)'),
-      term: z.string().optional().describe('Search term (required for topic mode)'),
-      limit: z.number().int().positive().default(50),
-    }),
-    handler: async (input) => {
-      const dir = resolveDir(input.dir as string | undefined);
-      let graph: GraphExport;
-      try {
-        graph = JSON.parse(await readFile(catalogPaths(dir).graph, 'utf-8'));
-      } catch {
-        await buildAndWriteGraph(dir);
-        graph = JSON.parse(await readFile(catalogPaths(dir).graph, 'utf-8'));
-      }
-
-      const limit = input.limit as number;
-
-      if (input.mode === 'neighbors') {
-        const entry = input.entry as string | undefined;
-        if (!entry) return { error: 'entry is required for neighbors mode' };
-        return { mode: 'neighbors', query: entry, results: queryNeighbors(graph, entry, { limit }) };
-      }
-
-      const term = input.term as string | undefined;
-      if (!term) return { error: 'term is required for topic mode' };
-      return { mode: 'topic', query: term, results: queryTopic(graph, term, { limit }) };
-    },
-  },
-  {
-    name: 'scaffold',
-    description: 'Create a blank catalog entry from the template',
-    inputSchema: dirSchema.extend({
-      name: z.string(),
-      category: z.enum(CATEGORIES),
-      url: z.string().url().optional(),
-      source_url: z.string().url().optional(),
-    }),
-    handler: async (input) => {
-      const dir = resolveDir(input.dir as string | undefined);
-      return scaffoldEntry({
-        dir,
-        name: input.name as string,
-        category: input.category as string as import('./core/schema.js').Category,
-        url: input.url as string | undefined,
-        source_url: input.source_url as string | undefined,
-      });
     },
   },
   {
@@ -317,44 +248,6 @@ export const tools: ToolDef[] = [
     },
   },
   {
-    name: 'reddit-extract',
-    description: 'Extract tool URLs from Reddit posts or subreddits',
-    inputSchema: dirSchema.extend({
-      url: z.string().url().optional(),
-      subreddit: z.string().optional(),
-      sort: z.enum(['hot', 'new', 'top']).default('hot'),
-      time: z.enum(['hour', 'day', 'week', 'month', 'year', 'all']).default('week'),
-      limit: z.number().default(25),
-      extra_patterns: z.array(z.string()).optional(),
-      auto_ingest: z.boolean().default(false),
-    }),
-    handler: async (input) => {
-      const dir = resolveDir(input.dir as string | undefined);
-      const urls = await redditExtract({
-        dir,
-        url: input.url as string | undefined,
-        subreddit: input.subreddit as string | undefined,
-        sort: input.sort as 'hot' | 'new' | 'top',
-        time: input.time as 'hour' | 'day' | 'week' | 'month' | 'year' | 'all',
-        limit: input.limit as number,
-        extraPatterns: input.extra_patterns as string[] | undefined,
-      });
-      if (input.auto_ingest) {
-        const ingestResult = await ingest({
-          dir,
-          items: urls.map((u) => ({
-            url: u.url,
-            source: 'reddit' as const,
-            notes: `r/${u.subreddit}: "${u.post_title}" (${u.author}, ${u.score} upvotes)`,
-            context: u as unknown as Record<string, unknown>,
-          })),
-        });
-        return { extracted: urls, ingest: ingestResult };
-      }
-      return { extracted: urls };
-    },
-  },
-  {
     name: 'build-prompt',
     description: 'Build a structured research prompt for the calling agent: entry schema, body-section guide, and security checklist embedded in `prompt`. Result size does not grow with the catalog — it does not contain a catalog table; call `search` first for dedup/overlaps/related.',
     inputSchema: dirSchema.extend({
@@ -414,46 +307,6 @@ export const tools: ToolDef[] = [
         section: input.section as string,
         body: input.body as string,
       });
-    },
-  },
-  {
-    name: 'goals',
-    description: 'Read and update active projects and priorities',
-    inputSchema: dirSchema.extend({
-      action: z.enum(['list', 'get', 'add', 'update', 'remove']),
-      name: z.string().optional(),
-      status: z.enum(PROJECT_STATUSES).optional(),
-      project: z.object({
-        name: z.string().min(1),
-        status: z.enum(PROJECT_STATUSES).default('active'),
-        workflows: z.array(z.string()).optional(),
-        priority: z.enum(PRIORITIES).default('medium'),
-        notes: z.string().optional(),
-      }).optional(),
-      updates: z.record(z.string(), z.unknown()).optional(),
-    }),
-    handler: async (input) => {
-      const dir = resolveDir(input.dir as string | undefined);
-      const action = input.action as string;
-      if (action === 'list') return listGoals(dir, input.status as string | undefined);
-      if (action === 'get') {
-        if (!input.name) throw new Error('name required for get');
-        return getGoal(dir, input.name as string);
-      }
-      if (action === 'add') {
-        if (!input.project) throw new Error('project required for add');
-        return addGoal(dir, input.project as any);
-      }
-      if (action === 'update') {
-        if (!input.name) throw new Error('name required for update');
-        if (!input.updates) throw new Error('updates required for update');
-        return updateGoal(dir, input.name as string, input.updates as any);
-      }
-      if (action === 'remove') {
-        if (!input.name) throw new Error('name required for remove');
-        await removeGoal(dir, input.name as string);
-        return { removed: input.name };
-      }
     },
   },
 ];

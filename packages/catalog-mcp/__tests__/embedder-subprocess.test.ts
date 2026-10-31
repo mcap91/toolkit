@@ -6,11 +6,11 @@ import path from 'node:path';
 import { codeRoot, venvPythonPath } from '../src/core/embedder-subprocess.js';
 
 // Independently computed, the same way other tests in this package locate the real repo root
-// (e.g. __tests__/graph.test.ts, __tests__/index-gen.test.ts): three dirname-ups from __tests__.
+// (e.g. __tests__/index-gen.test.ts): three dirname-ups from __tests__.
 const REAL_REPO_ROOT = path.resolve(import.meta.dirname, '..', '..', '..');
 
-// rebuildCatalogIndexes' index.md/search-index/graph steps are exercised elsewhere
-// (index-gen.test.ts, graph.test.ts); mocked here so this file can isolate the one thing WK-0097
+// rebuildCatalogIndexes' index.md/search-index steps are exercised elsewhere
+// (index-gen.test.ts); mocked here so this file can isolate the one thing WK-0097
 // D2 changed: which root the vector-build step looks up its venv under. `codeRoot` defaults to
 // delegating to the real implementation (vi.mock is file-hoisted, so it also wraps the plain
 // `codeRoot` import above) — only the `rebuildCatalogIndexes` describe below overrides its
@@ -18,9 +18,6 @@ const REAL_REPO_ROOT = path.resolve(import.meta.dirname, '..', '..', '..');
 vi.mock('../src/core/index-gen.js', () => ({
   generateAndWriteIndex: vi.fn().mockResolvedValue({ path: '/idx', entryCount: 0, decisionStatusCounts: {} }),
   buildSearchIndex: vi.fn().mockResolvedValue({ path: '/search-idx', count: 0 }),
-}));
-vi.mock('../src/core/graph/index.js', () => ({
-  buildAndWriteGraph: vi.fn().mockResolvedValue({ path: '/graph', nodeCount: 0, edgeCount: 0 }),
 }));
 vi.mock('../src/core/embedder-subprocess.js', async () => {
   const actual = await vi.importActual<typeof import('../src/core/embedder-subprocess.js')>(
