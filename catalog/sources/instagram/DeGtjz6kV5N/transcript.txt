@@ -1,8 +1,0 @@
-[   0.0] Papermorph is the AI skill that turns static PDFs into living,
-[   4.1] narrated web experiences. It solves the problem of dry, unengaging textbooks by
-[   9.1] transforming flat pages into interactive lessons with voice narration and animated visuals.
-[  14.8] The most surprising part is that it does this entirely by generating code and storyboards
-[  19.6] without needing any image generation models. You just feed it a book and it builds a
-[  24.6] browsable website where you can watch lessons and take quizzes right in your browser.
-[  29.1] If you want to make your own course materials feel less like homework and more like a movie,
-[  34.1] this is the tool to check out.

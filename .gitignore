@@ -54,3 +54,27 @@ catalog/runs/
 
 # Semantic search vectors (derived, rebuilt locally)
 catalog/.vectors.json
+
+# DEC-0005: third-party captures and media never enter the public repo; they live in ../toolkit-workbench
+catalog/sources/
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.webp
+*.heic
+*.bmp
+*.tif
+*.tiff
+*.mp4
+*.mov
+*.webm
+*.mkv
+*.m4a
+*.mp3
+*.wav
+*.ogg
+*.opus
+*.flac
+*.pdf
+!docs/benchmarks/*.png

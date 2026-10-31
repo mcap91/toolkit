@@ -1,7 +1,0 @@
-[   0.0] Agent Trail is the local map that finally shows you what your AI coding agents are actually doing
-[   5.7] while they work. You kick off a task, walk away, and come back to a live dashboard that displays
-[  11.0] the agent's plan, its current tool calls, and exactly which files it is touching in real time.
-[  16.5] It is completely private, running entirely on your machine with no cloud servers or accounts
-[  21.7] required. The most surprising part is how it connects the dots between what the agent
-[  26.5] claims it is doing and the code it is actually editing, lighting up finished tasks if they
-[  31.9] suddenly need another pass.

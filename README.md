@@ -74,7 +74,7 @@ Replace `PATH/TO` with the absolute path to your local clone of this repo.
 | `graph-query` | Knowledge graph traversal. `neighbors` mode: explore connections from a known entry (overlaps, shared tags, shared category). `topic` mode: discover entries by concept (substring match on tags/categories). |
 | `graph-build` | Rebuild the knowledge graph on demand (normally auto-rebuilds via `index`). |
 
-![This repo's catalog search vs. plain substring search, by query style](packages/catalog-embedder/eval/search_eval.png)
+![This repo's catalog search vs. plain substring search, by query style](docs/benchmarks/search-eval.png)
 
 **Search eval: this repo's search vs. plain substring search** ([method](docs/semantic-search.md#evaluation)). 40 test queries in four styles (10 each), run through three engines on the same frozen copy of the catalog: **substring** search (the baseline, the repo's original lookup), this repo's **lexical** search alone, and its full **lexical+semantic** search. Each cell is the share of relevant entries the engine surfaced, with the count: found / should have found, summed over the style's 10 queries. Relevance comes from an answer key labeled by Claude Opus 5.5 without seeing the queries; calibration entries repeated in every labeling batch got identical labels 88% of the time.
 

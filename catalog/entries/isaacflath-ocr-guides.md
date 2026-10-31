@@ -26,10 +26,10 @@ Directly applicable to OCR pipeline design. Covers the decision matrix for self-
 
 Source: isaacflath.com, API at `/api/posts`. Full verbatim content archived locally:
 
-- `catalog/sources/isaacflath/reading-documents.md` — Speculative Decoding, OCR Examples Gallery, How to Choose an OCR Model, VLM OCR for Hard Documents
-- `catalog/sources/isaacflath/searching-documents-1.md` — What Actually Improves PDF Retrieval, Query Disambiguation, Quantization for ColBERT, RAG Context Problem
-- `catalog/sources/isaacflath/searching-documents-2.md` — mgrep, Keyword Search, Late Chunking, Retrieval 101
-- `catalog/sources/isaacflath/using-documents.md` — Document Answers You Can Check, How My RLM Tool Works
+- reading-documents — Speculative Decoding, OCR Examples Gallery, How to Choose an OCR Model, VLM OCR for Hard Documents
+- searching-documents-1 — What Actually Improves PDF Retrieval, Query Disambiguation, Quantization for ColBERT, RAG Context Problem
+- searching-documents-2 — mgrep, Keyword Search, Late Chunking, Retrieval 101
+- using-documents — Document Answers You Can Check, How My RLM Tool Works
 
 Key models/tools discussed: Chandra 2, Surya, LightOnOCR-2, PaddleOCR, MonkeyOCR, GLM-OCR, AWS Textract, Gemini 3.5 Flash, Mixedbread Wholembed, ColBERT, Jina, Voyage, vLLM, Modal.
 

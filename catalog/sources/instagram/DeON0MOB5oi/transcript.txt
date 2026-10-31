@@ -1,9 +1,0 @@
-[   0.0] This repo can turn any website into an API for your agents by reverse engineering the website's
-[   4.3] network traffic. You're no longer going to have paid to use the API for apps like LinkedIn,
-[   8.3] Reddit, or any other website you can think of. Just give this prompt to your agent and tell
-[  12.0] it what API you want to reverse engineer. But before you reverse engineer anything,
-[  15.7] make sure that your agent has browser access enabled. This is best used when you have automated
-[  20.1] workflows where your agent uses the browser. By turning browser actions into API calls,
-[  24.2] you can reduce the time your agent spent on a task by 50% and cut its cost by 50%.
-[  29.2] I personally use this to automate my LinkedIn outreach and help me do marketing on Reddit.
-[  33.2] You can find the repo in the link in my bio.

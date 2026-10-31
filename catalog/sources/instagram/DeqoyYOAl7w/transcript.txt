@@ -1,6 +1,0 @@
-[   0.0] What if your entire project timeline could be generated from JSON instead of code?
-[   5.7] JANT transforms structured JSON into interactive Gantt charts with draggable tasks and timelines.
-[  11.0] Its core engine has zero runtime dependencies and weighs under 14 kilobytes compressed.
-[  16.6] AI models can generate complete timeline data using 10 times fewer tokens than JSX.
-[  23.2] Critical paths glow against dark backgrounds, with right-angled connections showing task
-[  27.8] dependencies clearly. Can you see an AI agent generating your next project schedule automatically with JANT?

@@ -1,7 +1,0 @@
-[   0.0] ShaderSkills gives coding agents the coffins to write graphics code that actually runs.
-[   5.5] Instead of guessing it math, it feeds them a library of 186 pretested functions that compile
-[  11.7] perfectly on the first try. Think of it as a cheat sheet for digital artists,
-[  16.9] where every tool is verified to work before you use it. So when you ask an A, I,
-[  23.7] to build a swirling ocean or rocky mountain, it grabs the right pieces and snaps them
-[  28.2] together without breaking. It's like having a master craftsman whispering the correct formulas
-[  33.4] into the machine's ear. No more broken code, just beautiful, working art that looks intentional.

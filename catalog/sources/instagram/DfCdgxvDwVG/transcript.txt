@@ -1,7 +1,0 @@
-[   0.0] Did you know, if you open the VS Code terminal, then run your project in the browser, and
-[   4.8] copy the port number, then click on Ports, go to Forward a port, and paste it, within
-[  10.2] a few seconds a link will be generated.
-[  12.5] Now, if you make that link public and give it to any client or friend, they can see
-[  16.7] your project live.
-[  18.0] This method works for full stack, and the only condition is, the project must
-[  22.0] be running on your local machine.

@@ -1,7 +1,0 @@
-[   0.0] HV Core is the project kit that finally gives your AI assistant the specific job roles it needs
-[   5.2] to actually ship work. Microsoft built this open source collection to solve the problem of generic
-[  10.5] AI advice by providing pre-written instructions, prompts, and specialized agents for everything
-[  15.4] from security reviews to accessibility checks and sprint planning. You can drop these components
-[  20.1] into your existing GitHub co-pilot setup to instantly upgrade your workflow. It turns
-[  24.2] your coding assistant from a helpful buddy into a disciplined team that follows your
-[  27.8] company standards without you having to re-teach it every day.

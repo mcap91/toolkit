@@ -117,7 +117,7 @@ setup step rather than silently returning empty results.
 
 ## Evaluation
 
-`packages/catalog-embedder/eval/` holds a search eval that scores three engines — **substring**
+`../toolkit-workbench/semantic-bench/eval/` holds a search eval that scores three engines — **substring**
 (the baseline: the repo's original `search.ts` substring lookup, run verbatim via
 `eval/substring_search.ts`), **lexical** (`run_search`, keeping only
 `match.type == "lexical"` results), and **lexical+semantic** (the full `run_search`
@@ -156,11 +156,11 @@ Commands (run with the project venv, from the repo root):
 
 ```bash
 # Build the answer key (labels the current HEAD commit — commit catalog changes first)
-packages/catalog-embedder/.venv/bin/python packages/catalog-embedder/eval/label.py --dir .
+packages/catalog-embedder/.venv/bin/python ../toolkit-workbench/semantic-bench/eval/label.py --dir .
 
 # Run the eval and render the figure
-packages/catalog-embedder/.venv/bin/python packages/catalog-embedder/eval/run_eval.py --dir .
-packages/catalog-embedder/.venv/bin/python packages/catalog-embedder/eval/plot.py
+packages/catalog-embedder/.venv/bin/python ../toolkit-workbench/semantic-bench/eval/run_eval.py --dir .
+packages/catalog-embedder/.venv/bin/python ../toolkit-workbench/semantic-bench/eval/plot.py
 
 # Validate
 (cd packages/catalog-embedder && .venv/bin/python -m pytest && .venv/bin/python -m pytest eval/test_label.py)

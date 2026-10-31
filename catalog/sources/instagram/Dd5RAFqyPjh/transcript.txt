@@ -1,8 +1,0 @@
-[   0.0] Benzi is the code intelligence tool that stops guessing by actually reading your code before it speaks.
-[   6.0] Most AI agents just dump your files into a chat and hope for the best,
-[  10.0] but Benzi uses a compiler to map out every single function and connection in your project first.
-[  14.0] It creates a precise blueprint of your software,
-[  17.0] allowing it to answer complex questions about where bugs come from
-[  20.0] or how data flows through your app in a single instant step.
-[  23.0] It works across 10 different programming languages,
-[  26.0] turning a messy code base into a clean, searchable structure.

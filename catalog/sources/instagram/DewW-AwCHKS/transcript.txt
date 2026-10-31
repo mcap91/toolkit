@@ -1,5 +1,0 @@
-[   0.0] open source projects you should know. This project is called Flector Mail and it's a native
-[   5.1] lightweight email client built from the ground up in Rust for extreme performance. You can open
-[  10.8] your inbox instantly, manage your calendars and contacts and run full email workflows
-[  16.6] using as little as 20 megabytes of RAM. It's perfect for privacy conscious users and developers
-[  22.6] who want a fast local first email app that uses very little RAM.
