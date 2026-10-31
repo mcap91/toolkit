@@ -1,15 +1,16 @@
-"""Tests for `pricing.py` (WK-0094 Phase B review fix-up): the CLI-value >
-env-var > documented-default precedence `resolve_prices_path` implements, and
-`price_usage`'s "a missing table or an unknown model id yields `(None,
-reason)`, never a substitute rate" contract (OR-1.4).
+"""Tests for `pricing.py` (WK-0100: no implicit default into another
+checkout): the CLI-value > env-var > error precedence `resolve_prices_path`
+implements, and `price_usage`'s "a missing table or an unknown model id
+yields `(None, reason)`, never a substitute rate" contract (OR-1.4).
 
 The "real row prices tokens with the kb formula" test does not invent a row
 shape: it reads the real, vendored kb LiteLLM table at
-`pricing.DEFAULT_LITELLM_PRICES_PATH` and copies one real row (every field,
-verbatim) that happens to carry all four token-cost fields `price_usage`
-reads, into a tiny table file under `tmp_path`. If that real file is absent
-on this machine, the test is skipped rather than faking a row — report this
-if it happens, don't invent field names.
+`REAL_LITELLM_PRICES_PATH` (the kb checkout's pinned table, a read-only data
+mount in this environment — not a pricing.py default) and copies one real
+row (every field, verbatim) that happens to carry all four token-cost
+fields `price_usage` reads, into a tiny table file under `tmp_path`. If that
+real file is absent on this machine, the test is skipped rather than faking
+a row — report this if it happens, don't invent field names.
 """
 
 from __future__ import annotations
@@ -28,13 +29,18 @@ REQUIRED_FIELDS = (
     "cache_read_input_token_cost",
 )
 
+# The real kb-vendored LiteLLM table (WK-0094 Phase B's documented default, before WK-0100
+# removed it as a pricing.py fallback). Test-only: these tests still need a real row shape to
+# avoid inventing field names; pricing.py itself never references this path.
+REAL_LITELLM_PRICES_PATH = Path("/home/mcap91/projects/kb/packages/wiki-core/src/pricing/litellm-prices.json")
+
 
 def _find_real_row() -> tuple[str, dict] | None:
     """Returns (model_id, row) for the first real table entry that carries
     all four fields `price_usage` reads, or None if the real table is
     missing/unreadable/has no such row."""
     try:
-        table = json.loads(pricing.DEFAULT_LITELLM_PRICES_PATH.read_text())
+        table = json.loads(REAL_LITELLM_PRICES_PATH.read_text())
     except OSError:
         return None
     for model_id, row in table.items():
@@ -44,7 +50,8 @@ def _find_real_row() -> tuple[str, dict] | None:
 
 
 # --------------------------------------------------------------------------
-# resolve_prices_path: CLI value > env var > documented default.
+# resolve_prices_path: CLI value > env var > error (WK-0100: no implicit
+# default into another checkout).
 # --------------------------------------------------------------------------
 
 
@@ -53,14 +60,19 @@ def test_resolve_prices_path_cli_value_beats_env_var(monkeypatch):
     assert pricing.resolve_prices_path("/cli/table.json") == Path("/cli/table.json")
 
 
-def test_resolve_prices_path_env_var_beats_default(monkeypatch):
+def test_resolve_prices_path_env_var_beats_cli_absence(monkeypatch):
     monkeypatch.setenv(pricing.ENV_VAR, "/env/table.json")
     assert pricing.resolve_prices_path(None) == Path("/env/table.json")
 
 
-def test_resolve_prices_path_falls_back_to_documented_default(monkeypatch):
+def test_resolve_prices_path_raises_when_neither_cli_value_nor_env_var_set(monkeypatch):
+    """No implicit default into another checkout (WK-0100): the error names both
+    configuration routes (the env var and the CLI flag) so an operator knows how to fix it."""
     monkeypatch.delenv(pricing.ENV_VAR, raising=False)
-    assert pricing.resolve_prices_path(None) == pricing.DEFAULT_LITELLM_PRICES_PATH
+    with pytest.raises(ValueError) as exc_info:
+        pricing.resolve_prices_path(None)
+    assert pricing.ENV_VAR in str(exc_info.value)
+    assert "--prices-path" in str(exc_info.value)
 
 
 def test_resolve_prices_path_empty_cli_value_does_not_win(monkeypatch):
@@ -111,7 +123,7 @@ def test_price_usage_real_row_prices_tokens_with_kb_formula(tmp_path: Path):
     found = _find_real_row()
     if found is None:
         pytest.skip(
-            f"real kb LiteLLM table not found/usable at {pricing.DEFAULT_LITELLM_PRICES_PATH} "
+            f"real kb LiteLLM table not found/usable at {REAL_LITELLM_PRICES_PATH} "
             "(or it has no row with all of input/output/cache_creation/cache_read cost fields) "
             "— cannot build a non-invented row shape on this machine"
         )
@@ -143,7 +155,7 @@ def test_price_usage_missing_token_counts_default_to_zero(tmp_path: Path):
     found = _find_real_row()
     if found is None:
         pytest.skip(
-            f"real kb LiteLLM table not found/usable at {pricing.DEFAULT_LITELLM_PRICES_PATH} "
+            f"real kb LiteLLM table not found/usable at {REAL_LITELLM_PRICES_PATH} "
             "— cannot build a non-invented row shape on this machine"
         )
     model_id, real_row = found
@@ -168,7 +180,7 @@ def test_price_usage_missing_token_counts_default_to_zero(tmp_path: Path):
 
 def _find_claude_sonnet_5_row() -> dict | None:
     try:
-        table = json.loads(pricing.DEFAULT_LITELLM_PRICES_PATH.read_text())
+        table = json.loads(REAL_LITELLM_PRICES_PATH.read_text())
     except OSError:
         return None
     return table.get("claude-sonnet-5")
@@ -178,7 +190,7 @@ def test_price_usage_prices_1h_and_5m_cache_creation_at_their_own_rate(tmp_path:
     real_row = _find_claude_sonnet_5_row()
     if real_row is None or pricing.CACHE_CREATION_1H_FIELD not in real_row:
         pytest.skip(
-            f"real kb LiteLLM table not found/usable at {pricing.DEFAULT_LITELLM_PRICES_PATH}, or its "
+            f"real kb LiteLLM table not found/usable at {REAL_LITELLM_PRICES_PATH}, or its "
             f'"claude-sonnet-5" row has no "{pricing.CACHE_CREATION_1H_FIELD}" field — cannot build a '
             "non-invented row shape on this machine"
         )
@@ -262,8 +274,8 @@ GOLDEN_CAROUSEL_CASES = [
 def test_price_usage_matches_real_cli_costusd_for_the_carousel_goldens(shortcode: str, expected_cost_usd: float):
     from catalog_capture.stages.read import parse_claude_stream_result
 
-    if not pricing.DEFAULT_LITELLM_PRICES_PATH.exists():
-        pytest.skip(f"real kb LiteLLM table not found at {pricing.DEFAULT_LITELLM_PRICES_PATH}")
+    if not REAL_LITELLM_PRICES_PATH.exists():
+        pytest.skip(f"real kb LiteLLM table not found at {REAL_LITELLM_PRICES_PATH}")
 
     raw_stdout = (CAROUSEL_FIXTURES_DIR / shortcode / "read" / "raw_stdout.jsonl").read_text(encoding="utf-8")
     parsed = parse_claude_stream_result(raw_stdout)
@@ -275,7 +287,7 @@ def test_price_usage_matches_real_cli_costusd_for_the_carousel_goldens(shortcode
         "cache_creation_1h_tokens": parsed["cache_creation_1h_tokens"],
         "cache_creation_5m_tokens": parsed["cache_creation_5m_tokens"],
     }
-    usd, reason = pricing.price_usage(usage)
+    usd, reason = pricing.price_usage(usage, prices_path=REAL_LITELLM_PRICES_PATH)
 
     assert reason is None
     assert usd == pytest.approx(expected_cost_usd, abs=0.0001)

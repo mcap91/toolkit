@@ -1,7 +1,9 @@
 """USD pricing for a read call (OR-1.4), against kb's vendored, pinned
-LiteLLM table (WK-0094 Phase B: the table path is now configurable — CLI
-option and/or env var — with the current kb checkout path kept only as the
-*documented default*, never a hardcoded sole path or a substitute rate)."""
+LiteLLM table (WK-0100: the table path has no implicit default into another
+checkout — it must be configured explicitly via the `--prices-path` CLI
+option (cli.py) or the env var below; a missing table at whichever path is
+resolved still yields `(None, reason)` from `price_usage`, never a
+substitute rate)."""
 
 from __future__ import annotations
 
@@ -9,22 +11,24 @@ import json
 import os
 from pathlib import Path
 
-# Documented default (kb `pricing.ts:32`'s pin) — overridable via `--prices-path`
-# (cli.py) or the env var below. A missing table at whichever path is resolved
-# still yields `(None, reason)` from `price_usage`, never a substitute rate.
-DEFAULT_LITELLM_PRICES_PATH = Path("/home/mcap91/projects/kb/packages/wiki-core/src/pricing/litellm-prices.json")
 LITELLM_TABLE_PIN = "BerriAI/litellm@94a29e07085dd9d8f2269ee93e899ef0e374cdc7"  # pricing.ts:32
 ENV_VAR = "CATALOG_CAPTURE_LITELLM_PRICES_PATH"
+# Kept only so cli.py's --prices-path help text has something to reference; no longer used as a
+# resolve_prices_path fallback (WK-0100 — a hardcoded path into another checkout is not a safe
+# default for this repo).
+DEFAULT_LITELLM_PRICES_PATH = None
 
 
 def resolve_prices_path(cli_value: str | os.PathLike | None = None) -> Path:
-    """CLI option > env var > the documented kb-checkout default."""
+    """CLI option > env var > error. No implicit default into another checkout (WK-0100)."""
     if cli_value:
         return Path(cli_value)
     env = os.environ.get(ENV_VAR)
     if env:
         return Path(env)
-    return DEFAULT_LITELLM_PRICES_PATH
+    raise ValueError(
+        f"No LiteLLM price table path configured — set the {ENV_VAR} env var or pass --prices-path."
+    )
 
 
 def load_pricing_table(path: Path) -> dict:

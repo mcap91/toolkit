@@ -78,8 +78,9 @@ const TOOLS_FLAG = BUILTIN_TOOLS.join(',');
 const ALLOWED_TOOLS = [...BUILTIN_TOOLS, ...CATALOG_MCP_TOOLS];
 // Every other catalog server tool is denied outright. `--allowedTools` alone does not limit them:
 // the session still loads the project's .claude/settings.json allow list, which permits
-// scaffold/index/lint/drain/etc. (WK-0092: a processing session called `scaffold` and left an
-// empty entry that blocked every later write-entry). Captured 2026-10-30 on claude 2.1.281: with
+// index/lint/drain/etc., plus any destructive write tool the server used to expose (WK-0092: a
+// processing session called one such tool and left an empty entry that blocked every later
+// write-entry). Captured 2026-10-30 on claude 2.1.281: with
 // only `--allowedTools mcp__catalog__search`, a session asked to call `lint` ran it; adding
 // `--disallowedTools mcp__catalog__lint` removed `lint` from the session's tool list. Derived from
 // the server's own tool list, so a tool added to the server later is denied by default.
