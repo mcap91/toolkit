@@ -64,7 +64,6 @@ python -m catalog_embedder search --query "ocr" \
   --dir {YOUR_PROJECT} \
   [--term ocr --term "text extraction"] \
   [--semantic-n 10] \
-  [--decision-status adopted] \
   [--category "document-processing"]
 ```
 
