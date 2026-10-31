@@ -9,8 +9,8 @@
 # Private wiki (tracked in separate private repo)
 wiki/
 
-# Private workbench: benches and tool trials (tracked in separate private repo: toolkit-workbench)
-/toolkit-workbench/
+# Private workbench lives beside this repo: ../toolkit-workbench (DEC-0005)
+/toolkit-workbench
 
 # Internal docs (not public)
 docs/superpowers/

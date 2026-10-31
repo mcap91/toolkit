@@ -33,7 +33,7 @@ Python API — `WhisperModel.transcribe()` returns a generator of timestamped se
 
 The standard high-performance Whisper runtime. Massive community adoption — WhisperX, speaches, whisper-streaming, and 15+ other projects build on it. Benchmarks are solid and reproducible. SYSTRAN (the maintainer) is a commercial MT company with decades of NLP history — not a single-contributor hobby project.
 
-For the bioinfo-agent-toolkit context: this is the ASR engine for transcribing lectures, conference talks, and video tutorials that lack captions. Pairs with mcp-server-youtube-transcript (for captioned videos) to cover the full video-to-text pipeline.
+In this catalog's context: this is the ASR engine for transcribing lectures, conference talks, and video tutorials that lack captions. Pairs with mcp-server-youtube-transcript (for captioned videos) to cover the full video-to-text pipeline.
 
 GPU requirement note: CUDA 12 + cuDNN 9 required for current versions. RTX 50-series / Blackwell needs CUDA 12.8+ builds — verify ctranslate2 compatibility before deploying on newest hardware.
 

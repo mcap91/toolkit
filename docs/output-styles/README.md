@@ -8,7 +8,7 @@ Symlink the style from this repo, so a `git pull` updates it. Do not copy it; a 
 
 ```bash
 mkdir -p ~/.claude/output-styles
-ln -sfn ~/projects/bioinfo-agent-toolkit/docs/output-styles/direct.md ~/.claude/output-styles/direct.md
+ln -sfn ~/projects/toolkit/docs/output-styles/direct.md ~/.claude/output-styles/direct.md
 ```
 
 Activate it for all projects in `~/.claude/settings.json`:
@@ -27,7 +27,7 @@ The style asks for 200-300 word replies. The hook measures what you actually get
 
 ```bash
 mkdir -p ~/.claude/hooks
-ln -sfn ~/projects/bioinfo-agent-toolkit/docs/output-styles/hooks/reply-length.py ~/.claude/hooks/reply-length.py
+ln -sfn ~/projects/toolkit/docs/output-styles/hooks/reply-length.py ~/.claude/hooks/reply-length.py
 ```
 
 Add it to `~/.claude/settings.json`:
@@ -61,7 +61,7 @@ Output goes to `~/.claude/reply-length/`: `log.jsonl` (one line per reply), `cap
 Skills support symlinked folders. Symlink each skill folder so the frontmatter stays current:
 
 ```bash
-ln -sfn ~/bioinfo-agent-toolkit/skills/explain-me-this ~/.claude/skills/explain-me-this
+ln -sfn ~/projects/toolkit/skills/explain-me-this ~/.claude/skills/explain-me-this
 ```
 
 If `~/.claude/skills/explain-me-this` is already a real folder (an old copy), delete it first. `ln -sfn` does not replace a real folder; it puts the link inside it.
