@@ -40,6 +40,9 @@ Chromium must already be available to Playwright (shared download cache, or
   - `instagram_reel.py` — the `InstagramReelAdapter` (needs-link URL rule, the full
     probe→audio→transcribe→frames→read pipeline via `stages.*`, block/sources sections, OR-3's
     one-block-per-reel shape).
+  - `instagram_post.py` — the `InstagramPostAdapter` (needs-link URL rule for `/p/<shortcode>`,
+    instaloader fetch, carousel yt-dlp slide-count cross-check, the shared read over every slide
+    in order, block/sources sections, one-block-per-post).
 - `stages/` — shared capture-pipeline building blocks, called by adapters, never copied:
   - `browser.py` — headless-Chromium page capture with a per-site wait table (today: Reddit's
     `shreddit-post` poll).
@@ -71,10 +74,19 @@ labeled as unverified hints, and the agent decides what goes into the catalog. S
 `wiki/issues/WK-0080.md` ("OR-3 Operator ruling: capture captures, the processing agent
 decides") for the evidence and rulings.
 
-Instagram carousels (`/p/` multi-image posts) are **not** captured by this package yet — a `/p/`
-needs-link line stays `⚠ needs-link` until the carousel adapter lands (WK-0087). WK-0094 Phase A
-probed all 12 known `/p/` links and committed two golden fixtures
-(`tests/fixtures/instagram/carousel/`) for that adapter to build against.
+## Instagram posts (`/p/`)
+
+Pipeline (WK-0087, built on WK-0094 OR-6): anonymous instaloader fetch (no login, no cookies) at
+the largest `image_versions2.candidates` size, branching on `media_type` — `1` is a single image
+(one slide), `8` is a multi-image carousel (`GraphSidecar`). Carousels get an independent yt-dlp
+`-J` `playlist_count` cross-check against instaloader's own declared slide count (non-fatal if it
+disagrees or fails). Every slide, in swipe order, plus the caption, goes through one shared
+`stages.read` call; if that call errors or hits the budget cap, it falls back to chunks of at most
+10 slides (each chunk carrying the caption and its own slides' absolute position) and merges the
+result, retrying the chunked read once if the merged indices aren't exactly `1..N`. The block holds
+the caption, each slide's text under its slide number, then unverified tool/repo hints (same OR-3
+shape as reels). A video `/p/` post, or a carousel with any video slide, has no capture yet and
+becomes `⚠ capture-failed <url> — unsupported media_type <n>`.
 
 ## CLI
 
@@ -95,11 +107,12 @@ uv run python -m catalog_capture needs-link --inbox catalog/inbox.md --sources c
 Options:
 - `--limit N` — process at most N items across every adapter (useful for a dry run).
 - `--delay SECONDS` — seconds between captures, sequential, not applied before the first item
-  overall. Default: each matched line's own adapter delay (currently 3s for both Reddit and
-  Instagram reels) — pass `--delay` to override every adapter's delay for this run.
-- `--only NAME` — restrict the run to one registered adapter (`reddit` or `instagram_reel`),
-  leaving every other adapter's lines untouched. This replaces the old separate
-  `instagram-needs-link` command: run `--only instagram_reel` for the equivalent scope.
+  overall. Default: each matched line's own adapter delay (currently 3s for Reddit, Instagram
+  reels, and Instagram posts) — pass `--delay` to override every adapter's delay for this run.
+- `--only NAME` — restrict the run to one registered adapter (`reddit`, `instagram_reel`, or
+  `instagram_post`), leaving every other adapter's lines untouched. This replaces the old separate
+  `instagram-needs-link` command: run `--only instagram_reel` or `--only instagram_post` for the
+  equivalent scope.
 - `--prices-path PATH` — LiteLLM price table path for the Instagram read's USD estimate
   (default: the documented kb-checkout path, or the `CATALOG_CAPTURE_LITELLM_PRICES_PATH` env
   var). A missing table still yields `(None, reason)`, never a substitute rate.
@@ -156,8 +169,11 @@ The Instagram reel golden fixtures (`tests/fixtures/instagram/`) are the real go
 real Claude read response (`read_response.jsonl`) captured against that exact sheet/transcript/
 caption. The Instagram carousel golden fixtures
 (`tests/fixtures/instagram/carousel/De9SalRGOhy/`, `.../DeCKnW0DAGc/`) are real, unedited
-instaloader + yt-dlp probe captures (WK-0094 Phase A) for the carousel adapter (WK-0087) to build
-against — this package does not yet read them.
+instaloader + yt-dlp probe captures plus this slice's own real read responses (WK-0094 Phase A,
+WK-0087 steps 1-2); `InstagramPostAdapter`'s golden tests feed them through the real pipeline,
+mocking only the instaloader CLI call and the `claude --print` call. The single-image post fixture
+(`tests/fixtures/instagram/post/Deqni2Tic2N/`) is a real, unedited instaloader capture of one of
+the five single-image `/p/` links WK-0094 Phase A probed.
 
 `tests/test_output_snapshots.py` pins byte-exact output (rendered blocks, sources files, inbox
 rewrites, and the Reddit CLI stdout/stderr) from before the WK-0094 Phase B refactor. Never

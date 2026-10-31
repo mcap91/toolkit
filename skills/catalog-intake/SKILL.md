@@ -16,32 +16,39 @@ description: Full catalog pipeline — Gmail pull, inbox curation, drain, and he
      message's `date` against the cursor timestamp and discard any message dated at or before it.
    - Extract URLs from the remaining message bodies; capture prose bodies as fenced ```text
      blocks with a `source:` line. Append all to `catalog/inbox.md`.
-3. **Update cursor:** call `config { action: "set-state", key: "gmail_last_pull_iso", value: "<now ISO>" }`
-   with the current UTC timestamp. Do this **after** successfully appending to inbox, not before.
+3. **Update cursor:** call `config { action: "set-state", key: "gmail_last_pull_iso", value: "<newest ISO>" }`
+   with the `date` of the newest message you appended, not the current time: a message sent
+   between the search and this call would otherwise be skipped. If no message was new, leave the
+   cursor unchanged. Do this **after** successfully appending to inbox, not before.
 4. **Curate** `catalog/inbox.md` with the user: delete junk; for any `⚠ needs-link` item
-   (Instagram carousels, LinkedIn posts, X, paywalled), replace with the real fetchable URL or
-   paste the relevant prose as a ```text block. Reddit post/share links and Instagram reel links
-   need no manual link — the capture step (step 6) resolves them.
+   (LinkedIn posts, X, paywalled), replace with the real fetchable URL or paste the relevant prose
+   as a ```text block. Reddit post/share links, Instagram reel links, and Instagram `/p/` posts
+   (single images and image carousels) need no manual link — the capture step (step 6) resolves
+   them.
 5. **Drain:** call the `drain {}` MCP tool. It ingests ready items into the queue and marks
    unfetchable items `⚠ needs-link` (blocked domains, Reddit post/share links). Those stay in
    inbox until the user resolves them or the capture step (step 6) does.
-6. **Capture Reddit and Instagram reels:** one-time setup if Chromium isn't already available to
-   Playwright: `uv run --project packages/catalog-capture playwright install chromium`. Then,
-   from the repo root, with nothing else writing the inbox concurrently, run the one `needs-link`
-   command:
+6. **Capture Reddit, Instagram reels, and Instagram posts:** one-time setup if Chromium isn't
+   already available to Playwright: `uv run --project packages/catalog-capture playwright install
+   chromium`. Then, from the repo root, with nothing else writing the inbox concurrently, run the
+   one `needs-link` command:
    ```
    uv run --project packages/catalog-capture python -m catalog_capture needs-link --inbox catalog/inbox.md --sources catalog/sources
    ```
    Each `⚠ needs-link` Reddit line becomes a captured ```text block, `⚠ capture-failed <url> — <reason>`,
    or `⚠ pdf <url>`. Each `⚠ needs-link` Instagram reel line becomes one captured ```text block per
    reel (caption, transcript, on-screen text, and unverified tool/URL hints) or `⚠ capture-failed
-   <url> — <reason>`. Pass `--only reddit` or `--only instagram_reel` to run just one source type.
+   <url> — <reason>`. Each `⚠ needs-link` Instagram `/p/` line (a single image or an image
+   carousel) becomes one captured ```text block per post (caption, each slide's text under its
+   slide number, and unverified tool/URL hints) or `⚠ capture-failed <url> — <reason>`; a video
+   `/p/` post, or a carousel with a video slide, has no capture yet and becomes `⚠ capture-failed
+   <url> — unsupported media_type <n>`. Pass `--only reddit`, `--only instagram_reel`, or
+   `--only instagram_post` to run just one source type.
    A `capture-failed`/`pdf` line needs a manual reset (edit it back to `⚠ needs-link <url>`)
    before it will retry; same for a Reddit item returned from processing as
    `⚠ empty-fetch`/`⚠ fetch-error` — reset it to `⚠ needs-link <url>` to have this step recapture
-   it. Instagram carousels (`/p/`) are left untouched and stay `⚠ needs-link` for manual
-   resolution until the carousel adapter lands. The processing agent decides what each
-   captured block becomes — one entry, several, or annotations.
+   it. The processing agent decides what each captured block becomes — one entry, several, or
+   annotations.
 7. **Drain again:** call `drain {}` once more — the only items still ready are the fenced blocks
    the capture step just wrote.
 8. Report what was ingested, blocked, captured, and skipped.

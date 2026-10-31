@@ -16,12 +16,22 @@ tally format.
 
 from __future__ import annotations
 
+import os
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
 
 VERDICT_LINE_RE = re.compile(r'^\*\*Verdict:\*\*\s*(.*)$')
 COMMENT_RE = re.compile(r'<!--.*?-->')
+
+# Matches a markdown *image* link whose target is an absolute filesystem
+# path, e.g. `![slide 3](/abs/path/to/slide_03.jpg)` — never a plain link
+# (`[text](url)`) and never an image link that's already a relative path or
+# an http(s) URL (WK-0087 fix-up: adapters hand this module the slide/sheet
+# image's absolute path; this module is the one place that knows the sheet's
+# own on-disk location, so it's the one place that can make the link
+# resolve from there).
+IMAGE_LINK_RE = re.compile(r'(!\[[^\]]*\]\()(/[^)\s]+)(\))')
 
 # WK-0094 OR-5: the operator spot-checks at most 5 sheets total, not per
 # adapter — "I am not doing that for 12 ... I will do that for at most 5."
@@ -40,8 +50,24 @@ class ReviewItem:
     sections: list[tuple[str, str]] = field(default_factory=list)
 
 
-def render_sheet(item: ReviewItem) -> str:
+def _relativize_image_links(markdown: str, out_dir: Path) -> str:
+    """Rewrites every absolute-path image link in `markdown` to a path
+    relative to `out_dir` — the directory the sheet containing this markdown
+    is about to be written into (WK-0087 fix-up). An adapter hands
+    `review_items()` the slide/sheet image's absolute on-disk path baked
+    into the markdown precisely so this one spot, which is the only place
+    that knows the sheet's own write location, can make the link resolve
+    from there instead of from wherever the adapter happened to read the
+    image from (the sources dir, not necessarily `out_dir`)."""
+    def repl(m: re.Match[str]) -> str:
+        rel = os.path.relpath(m.group(2), out_dir)
+        return f"{m.group(1)}{rel}{m.group(3)}"
+    return IMAGE_LINK_RE.sub(repl, markdown)
+
+
+def render_sheet(item: ReviewItem, out_dir: Path) -> str:
     sections_md = "\n\n".join(f"## {heading}\n\n{body}" for heading, body in item.sections)
+    sections_md = _relativize_image_links(sections_md, out_dir)
     return f"""# {item.adapter} {item.item_id}
 
 [{item.url}]({item.url})
@@ -71,17 +97,53 @@ def _sample_reason(adapter_obj: object | None, item: ReviewItem) -> str | None:
 def suggest_sample(
     items: list[ReviewItem], *, adapters: dict[str, object] | None = None, cap: int = SAMPLE_CAP
 ) -> list[tuple[ReviewItem, str]]:
-    """Returns up to `cap` (ReviewItem, reason) pairs. Each registered
-    adapter may supply its own `sample_reason(item) -> str | None` to flag
-    items worth a spot-check; absent that, the default rule flags the first
-    item of each adapter ("first captured") so the sample is never empty
-    while still respecting the hard cap (WK-0094 OR-5)."""
+    """Returns up to `cap` (ReviewItem, reason) pairs.
+
+    An adapter gets first say over its own items via `sample_picks(items)`
+    (WK-0087 fix-up) — a whole-batch rule (e.g. "most slides", "lowest
+    cross-tool agreement") that a one-item-at-a-time hook can't express.
+    When an adapter's `sample_picks` returns non-`None`, those picks are
+    used verbatim (cap-limited) for every item of that adapter, and the
+    per-item fallback below never runs for it.
+
+    Absent that, each registered adapter may supply its own
+    `sample_reason(item) -> str | None` to flag items worth a spot-check;
+    absent that too, the default rule flags the first item of each adapter
+    ("first captured") so the sample is never empty while still respecting
+    the hard cap (WK-0094 OR-5). This fallback path is unchanged from
+    before `sample_picks` existed."""
     adapters = adapters or {}
+
+    # Resolve each present adapter's whole-batch picks once, up front, from
+    # its own item sublist only (first-seen order) — before the per-item
+    # sweep below, so a `sample_picks` adapter's items are never re-touched
+    # by the per-item fallback.
+    forced: dict[str, list[tuple[ReviewItem, str]]] = {}
+    for name in dict.fromkeys(item.adapter for item in items):  # first-seen order, deduped
+        adapter_obj = adapters.get(name)
+        if adapter_obj is None:
+            continue
+        sub_items = [i for i in items if i.adapter == name]
+        picks = adapter_obj.sample_picks(sub_items)
+        if picks is not None:
+            forced[name] = picks
+
     picked: list[tuple[ReviewItem, str]] = []
     seen_adapters: set[str] = set()
+    handled_forced: set[str] = set()
     for item in items:
         if len(picked) >= cap:
             break
+        if item.adapter in forced:
+            if item.adapter in handled_forced:
+                continue
+            handled_forced.add(item.adapter)
+            seen_adapters.add(item.adapter)
+            for pick_item, reason in forced[item.adapter]:
+                if len(picked) >= cap:
+                    break
+                picked.append((pick_item, reason))
+            continue
         reason = _sample_reason(adapters.get(item.adapter), item)
         if reason is None and item.adapter not in seen_adapters:
             reason = "first captured"
@@ -96,7 +158,7 @@ def write_sheets(items: list[ReviewItem], out_dir: Path) -> list[Path]:
     written = []
     for item in items:
         path = out_dir / sheet_filename(item)
-        path.write_text(render_sheet(item), encoding="utf-8")
+        path.write_text(render_sheet(item, out_dir), encoding="utf-8")
         written.append(path)
     return written
 

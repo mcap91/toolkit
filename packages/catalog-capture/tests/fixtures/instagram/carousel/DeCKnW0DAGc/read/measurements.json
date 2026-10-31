@@ -1,0 +1,19 @@
+{
+  "shortcode": "DeCKnW0DAGc",
+  "label": "single",
+  "slide_range": [
+    1,
+    11
+  ],
+  "n_images_sent": 11,
+  "declared_total_slides": 11,
+  "wall_s": 31.501710542012006,
+  "error": null,
+  "model": "claude-sonnet-5",
+  "input_tokens": 2,
+  "cache_read_tokens": 3289,
+  "cache_creation_tokens": 27053,
+  "output_tokens": 4355,
+  "usd": 0.11184430000000002,
+  "usd_reason": null
+}

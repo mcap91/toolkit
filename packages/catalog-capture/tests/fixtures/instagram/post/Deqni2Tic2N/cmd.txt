@@ -1,0 +1,1 @@
+instaloader --no-video-thumbnails --no-compress-json --dirname-pattern=../../../../toolkit-workbench/carousel/probe/instaloader/Deqni2Tic2N/dl -- -Deqni2Tic2N

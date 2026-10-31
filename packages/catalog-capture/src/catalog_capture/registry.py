@@ -150,6 +150,20 @@ class BaseAdapter:
         fallback)."""
         return None
 
+    def sample_picks(self, items: list[Any]) -> list[tuple[Any, str]] | None:
+        """Adapter-owned rule that picks its own suggested sample across its
+        *whole* batch of captured items at once (WK-0087 fix-up) — for a
+        rule that needs to compare items against each other (e.g. "the item
+        with the most slides", "the lowest cross-tool agreement"), which
+        `sample_reason`'s one-item-at-a-time signature can't express.
+        `items` is this adapter's own `review.ReviewItem` list (only), in
+        whatever order the caller's `items` list carries them. Returns an
+        ordered list of (item, reason) pairs this adapter wants in the
+        sample, or `None` (default) to defer entirely to
+        `review.suggest_sample`'s per-item `sample_reason` fallback. The
+        caller still applies its own overall cap."""
+        return None
+
 
 _REGISTRY: dict[str, SourceAdapter] = {}
 

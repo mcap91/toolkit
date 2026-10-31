@@ -1,0 +1,19 @@
+{
+  "shortcode": "De9SalRGOhy",
+  "label": "single",
+  "slide_range": [
+    1,
+    20
+  ],
+  "n_images_sent": 20,
+  "declared_total_slides": 20,
+  "wall_s": 94.03357916000823,
+  "error": null,
+  "model": "claude-sonnet-5",
+  "input_tokens": 2,
+  "cache_read_tokens": 3289,
+  "cache_creation_tokens": 73816,
+  "output_tokens": 12560,
+  "usd": 0.3108018,
+  "usd_reason": null
+}

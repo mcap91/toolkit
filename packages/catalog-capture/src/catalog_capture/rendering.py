@@ -21,3 +21,18 @@ def render_block(*, source: str, sections: list[str]) -> str:
     body = "\n\n".join(sections)
     safe_body = defuse_fence_breaks(body)
     return f"```text\nsource: {source}\n{safe_body}\n```"
+
+
+def render_hints_block(hints: list[dict]) -> str:
+    """`- <name>: <url or '(no url)'>` per hint, one per line, or
+    `(none mentioned)` if empty — the one shared "Mentioned (unverified
+    hints)" line format for every adapter that surfaces unverified
+    tool/repo/project hints straight from a read (OR-3): the Instagram reel
+    adapter, and the Instagram post adapter (WK-0087). Consolidates what
+    used to be two copies of this exact formatting rule (`instagram_rewrite.
+    py`'s and `instagram_sources.py`'s `_hint_line`, WK-0094's own finding)
+    back into a per-adapter private function each time a new adapter needs
+    it — one shared function instead."""
+    if not hints:
+        return "(none mentioned)"
+    return "\n".join(f"- {h.get('name')}: {h.get('url') or '(no url)'}" for h in hints)

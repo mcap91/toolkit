@@ -77,12 +77,23 @@ def parse_claude_stream_result(stdout_text: str) -> dict | None:
     usage = result_event.get("usage", {}) or {}
     model_usage = result_event.get("modelUsage", {}) or {}
     model_id = next(iter(model_usage.keys()), None)
+    # WK-0087 pricing fix: the CLI reports cache-creation tokens split by TTL
+    # under `usage.cache_creation` (`ephemeral_1h_input_tokens` /
+    # `ephemeral_5m_input_tokens`) and bills the 1-hour bucket at a higher
+    # rate than the generic (5-minute) rate `pricing.price_usage` used to
+    # apply to all of it. Real evidence (WK-0087 steps 1-2, De9SalRGOhy): the
+    # 20-slide golden's `cache_creation` is entirely `ephemeral_1h_input_tokens`
+    # (73816 of 73816), and only pricing that split at its own rate reproduces
+    # the CLI's own `modelUsage.*.costUSD` exactly.
+    cache_creation = usage.get("cache_creation", {}) or {}
     return {
         "is_error": result_event.get("is_error"),
         "input_tokens": usage.get("input_tokens"),
         "output_tokens": usage.get("output_tokens"),
         "cache_read_tokens": usage.get("cache_read_input_tokens"),
         "cache_creation_tokens": usage.get("cache_creation_input_tokens"),
+        "cache_creation_1h_tokens": cache_creation.get("ephemeral_1h_input_tokens"),
+        "cache_creation_5m_tokens": cache_creation.get("ephemeral_5m_input_tokens"),
         "model": model_id,
         "result_text": result_event.get("result", ""),
         "raw": result_event,
@@ -127,6 +138,8 @@ def run_claude_read(prompt: str, images: list[ReadImage] | None = None, *, timeo
             "output_tokens": parsed["output_tokens"],
             "cache_read_tokens": parsed["cache_read_tokens"],
             "cache_creation_tokens": parsed["cache_creation_tokens"],
+            "cache_creation_1h_tokens": parsed["cache_creation_1h_tokens"],
+            "cache_creation_5m_tokens": parsed["cache_creation_5m_tokens"],
             "model": parsed["model"],
         },
     )

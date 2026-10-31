@@ -57,6 +57,52 @@ def probe_caption(url: str, *, timeout: int = 120) -> ProbeResult:
     return ProbeResult(info_json_text=info_line, caption=data.get("description"))
 
 
+@dataclass
+class PlaylistProbeResult:
+    """yt-dlp `-J` (dump the whole playlist as one JSON object) used only as
+    an independent cross-check on an Instagram carousel's declared slide
+    count (WK-0087 step 4, `instaloader`'s `carousel_media_count`) — never
+    the primary slide fetch. WK-0094 Phase A evidence: yt-dlp returns no
+    slide images for an Instagram post (`No video formats found!` per
+    entry) and can exit non-zero for that reason while still printing a
+    usable `playlist_count` on stdout (the real De9SalRGOhy probe: exit 1,
+    `playlist_count` 20) — so a non-zero exit alone is not treated as a
+    failure to parse `playlist_count` from, but a failure here is always
+    recorded and never fatal to the post capture."""
+
+    raw_stdout: str
+    playlist_count: int | None
+    error: str | None
+
+
+def probe_playlist_count(url: str, *, timeout: int = 120) -> PlaylistProbeResult:
+    """Never raises — any failure (timeout, no stdout, unparsable JSON) is
+    recorded on `.error`, since this is a cross-check, not the adapter's
+    required fetch path."""
+    try:
+        proc = subprocess.run(
+            ["yt-dlp", "-J", "--no-warnings", "--sleep-requests", "2", url],
+            capture_output=True, text=True, timeout=timeout,
+        )
+    except Exception as e:  # noqa: BLE001 - a cross-check failure is recorded, not fatal
+        return PlaylistProbeResult(raw_stdout="", playlist_count=None, error=str(e))
+
+    stdout = proc.stdout or ""
+    if not stdout.strip():
+        err = proc.stderr.strip()[-800:] or f"yt-dlp -J exit {proc.returncode}, no output"
+        return PlaylistProbeResult(raw_stdout=stdout, playlist_count=None, error=err)
+    try:
+        data = json.loads(stdout)
+    except json.JSONDecodeError as e:
+        return PlaylistProbeResult(raw_stdout=stdout, playlist_count=None, error=f"invalid JSON: {e}")
+
+    count = data.get("playlist_count") if isinstance(data, dict) else None
+    if count is None:
+        err = proc.stderr.strip()[-800:] or "no playlist_count in yt-dlp -J output"
+        return PlaylistProbeResult(raw_stdout=stdout, playlist_count=None, error=err)
+    return PlaylistProbeResult(raw_stdout=stdout, playlist_count=count, error=None)
+
+
 def download_audio(url: str, outdir: Path, *, timeout: int = 180) -> Path:
     """yt-dlp bestaudio DASH download (I4: "video-only DASH: audio comes from
     the separate bestaudio download"). `--ffmpeg-location` pins this package's

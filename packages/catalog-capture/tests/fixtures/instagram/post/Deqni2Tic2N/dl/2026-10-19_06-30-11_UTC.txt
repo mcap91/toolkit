@@ -1,0 +1,34 @@
+Turn any codebase, knowledge base, or docs into an interactive knowledge graph 🦀
+
+100% open-source and 86k+ stars.
+
+Understand Anything is a Claude Code plugin that works with Codex, Cursor, Copilot, Gemini CLI, and more.
+
+Here's the problem it solves:
+
+You join a new team. The codebase is 200,000 lines of code. No documentation. You spend weeks reading files one by one, trying to figure out how things connect.
+
+Reading code file-by-file is like reading a dictionary to understand a language. You get the words, but you miss the story.
+
+Understand Anything runs a multi-agent pipeline that analyzes every file, function, class, and dependency, then builds a knowledge graph you can visually explore through an interactive dashboard.
+
+What makes it interesting:
+
+➡️ Combines Tree-sitter for deterministic parsing with LLMs for semantic understanding. Accurate structure and plain-English explanations.
+➡️ Runs incrementally. Only re-analyzes files that changed since the last run.
+➡️ Output is JSON. Commit it once and your entire team skips the pipeline.
+
+But it goes beyond visualization:
+
+➡️ Ask natural language questions about your codebase
+➡️ Analyze the impact of changes before committing
+➡️ Switch to a domain view that maps code to real business processes
+➡️ Generate onboarding guides for new team members automatically
+
+The philosophy behind it isn't a graph that shows you how complex your codebase is. It's a graph that quietly teaches you how every piece fits together.
+
+GitHub repo in the comments!
+
+👉 Over to you: How long does it usually take you to get comfortable in a new codebase?
+
+#opensource #claude #developer

@@ -29,6 +29,7 @@ from typing import Callable
 from .. import pricing
 from .. import versions as ver
 from ..registry import BaseAdapter, CaptureFailedError, CaptureOutcome
+from ..rendering import render_hints_block
 from ..stages import frames, media, transcribe
 from ..stages.read import ReadImage, run_claude_read
 
@@ -56,6 +57,78 @@ REEL_ID_RE = re.compile(r"/reel/([A-Za-z0-9_-]+)/?")
 def reel_id_from_url(url: str) -> str | None:
     m = REEL_ID_RE.search(url)
     return m.group(1) if m else None
+
+
+# --------------------------------------------------------------------------
+# Shared section-split helper (WK-0087 second fix-up): `review_items` on
+# both this adapter and `instagram_post.py` used to split a sources-file
+# body on a generic `\n##\s+` pattern — any line shaped like a markdown
+# heading. Real data broke this: a captured slide's own text legitimately
+# contained a Python comment line `## HOUSE_RULES`, which the generic split
+# mistook for a new section boundary and cut the real "Slides" section
+# short (slides 17-20 fell into a fake "HOUSE_RULES" section). Section
+# content (slide text, transcript, on-screen text, etc.) is untrusted,
+# verbatim capture text and can contain any line, including one that
+# exactly matches a real heading's text — so this helper only ever splits
+# on the exact, known heading list a writer emits, in the order it emits
+# them, never a generic pattern.
+# --------------------------------------------------------------------------
+
+
+def split_known_sections(body: str, headings: list[str]) -> dict[str, str]:
+    """Splits a sources-file `body` into the named sections in
+    `build_outcome`'s own `source_body` — the exact `## <heading>` lines a
+    writer emits, in the order it emits them (e.g. `["Caption", "Slides",
+    "Mentioned (unverified hints)"]` for the post adapter). Returns
+    {heading: content} for however many of `headings` are found; a heading
+    that never occurs (a differently-shaped or corrupt file) is simply
+    absent from the result.
+
+    Boundary rule: the *last* heading in `headings` is located by its
+    *last* occurrence in the whole text — nothing legitimate follows the
+    final section, so any earlier occurrence of that exact heading line
+    can only be inside an earlier section's own untrusted content (the
+    real WK-0087 case: a slide's text containing a line that reads exactly
+    like a section heading). Every other heading is located by its
+    *first* occurrence after the previous boundary already found, since
+    that heading's own real content has not started yet at that point."""
+    text = "\n" + body
+    markers = [f"\n## {h}\n" for h in headings]
+    positions: list[int] = []
+    search_from = 0
+    last = len(markers) - 1
+    for i, marker in enumerate(markers):
+        idx = text.rfind(marker) if i == last else text.find(marker, search_from)
+        positions.append(idx)
+        if idx != -1:
+            search_from = idx + len(marker)
+
+    sections: dict[str, str] = {}
+    for i, heading in enumerate(headings):
+        start = positions[i]
+        if start == -1:
+            continue
+        content_start = start + len(markers[i])
+        content_end = len(text)
+        for j in range(i + 1, len(headings)):
+            if positions[j] != -1:
+                content_end = positions[j]
+                break
+        sections[heading] = text[content_start:content_end].strip()
+    return sections
+
+
+# The exact heading order `InstagramReelAdapter.build_outcome` writes
+# (`source_body` below) — `review_items` splits on this list, never a
+# generic `## ` pattern.
+REEL_SECTION_HEADINGS = [
+    "Caption",
+    "Transcript",
+    "On-screen text",
+    "Key claims",
+    "Info channel",
+    "Mentioned (unverified hints)",
+]
 
 
 class InstagramCaptureError(RuntimeError):
@@ -264,11 +337,6 @@ def cleanup_sheet(cap: InstagramCaptureResult) -> None:
         Path(cap.sheet_path).unlink(missing_ok=True)
 
 
-def _hint_line(tool: dict) -> str:
-    url = tool.get("url")
-    return f"- {tool.get('name')}: {url if url else '(no url)'}"
-
-
 class InstagramReelAdapter(BaseAdapter):
     name = "instagram_reel"
     platform_dir = "instagram"
@@ -299,7 +367,7 @@ class InstagramReelAdapter(BaseAdapter):
 
     def build_outcome(self, raw: InstagramCaptureResult, *, captured_at: str) -> CaptureOutcome:
         claims_block = "\n".join(f"- {c}" for c in raw.key_claims) if raw.key_claims else "(none)"
-        hints_block = "\n".join(_hint_line(t) for t in raw.tools) if raw.tools else "(none mentioned)"
+        hints_block = render_hints_block(raw.tools)
 
         block_sections = [
             f"Caption:\n{raw.caption or '(no caption captured)'}",
@@ -354,15 +422,17 @@ class InstagramReelAdapter(BaseAdapter):
             return items
         for md_path in sorted(out_dir.glob("*.md")):
             text = md_path.read_text(encoding="utf-8")
+            if not text.startswith("reel: "):
+                # Not one of this adapter's own captures (WK-0087 fix-up):
+                # `catalog/sources/instagram/` also holds the post/carousel
+                # adapter's files, whose first header line is `post: <url>`,
+                # never `reel: `. Skip — the post adapter owns its own items.
+                continue
             lines = text.split("\n")
-            url = lines[0][len("reel: "):] if lines and lines[0].startswith("reel: ") else ""
+            url = lines[0][len("reel: "):]
             reel_id = md_path.stem
             body = text.split("\n\n", 1)[1] if "\n\n" in text else ""
-            parts = re.split(r"\n##\s+", "\n" + body)
-            parsed: dict[str, str] = {}
-            for part in parts[1:]:
-                heading, _, rest = part.partition("\n")
-                parsed[heading.strip()] = rest.strip()
+            parsed = split_known_sections(body, REEL_SECTION_HEADINGS)
 
             # Port of make_review.py's layout: a "What we captured" section
             # groups the read's own fields (info channel, on-screen text, key
@@ -384,6 +454,11 @@ class InstagramReelAdapter(BaseAdapter):
                 sections.append(("Transcript", parsed["Transcript"]))
             sheet_path = out_dir / reel_id / "sheet.jpg"
             if sheet_path.exists():
-                sections.append(("Contact sheet", f"![contact sheet]({reel_id}/sheet.jpg)"))
+                # Absolute path (WK-0087 fix-up): `review.render_sheet`
+                # relativizes this against the sheet's own `out_dir` at
+                # write time, which may differ from `sources_dir` (the bug
+                # this fixes — a link relative to `sources_dir` only
+                # resolved when `--out` happened to equal it).
+                sections.append(("Contact sheet", f"![contact sheet]({sheet_path.resolve()})"))
             items.append(ReviewItem(adapter=self.name, item_id=reel_id, url=url, sections=sections))
         return items

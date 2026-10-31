@@ -24,6 +24,10 @@ def yt_dlp_version() -> str:
     return pip_version("yt-dlp")
 
 
+def instaloader_version() -> str:
+    return pip_version("instaloader")
+
+
 def faster_whisper_version() -> str:
     return pip_version("faster-whisper")
 

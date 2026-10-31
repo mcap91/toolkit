@@ -155,3 +155,127 @@ def test_price_usage_missing_token_counts_default_to_zero(tmp_path: Path):
 
     assert reason is None
     assert usd == 0
+
+
+# --------------------------------------------------------------------------
+# WK-0087 pricing fix: cache-creation tokens split by TTL (1-hour vs the
+# generic/5-minute rate), each priced at its own rate. "claude-sonnet-5" is
+# the exact model id the real captures report (`modelUsage` key) and is the
+# one real row inspected for `pricing.CACHE_CREATION_1H_FIELD` — not an
+# invented field name (WK-0087 build step 8).
+# --------------------------------------------------------------------------
+
+
+def _find_claude_sonnet_5_row() -> dict | None:
+    try:
+        table = json.loads(pricing.DEFAULT_LITELLM_PRICES_PATH.read_text())
+    except OSError:
+        return None
+    return table.get("claude-sonnet-5")
+
+
+def test_price_usage_prices_1h_and_5m_cache_creation_at_their_own_rate(tmp_path: Path):
+    real_row = _find_claude_sonnet_5_row()
+    if real_row is None or pricing.CACHE_CREATION_1H_FIELD not in real_row:
+        pytest.skip(
+            f"real kb LiteLLM table not found/usable at {pricing.DEFAULT_LITELLM_PRICES_PATH}, or its "
+            f'"claude-sonnet-5" row has no "{pricing.CACHE_CREATION_1H_FIELD}" field — cannot build a '
+            "non-invented row shape on this machine"
+        )
+    table_path = tmp_path / "prices.json"
+    table_path.write_text(json.dumps({"claude-sonnet-5": real_row}), encoding="utf-8")
+
+    usage = {
+        "model": "claude-sonnet-5",
+        "input_tokens": 2,
+        "output_tokens": 100,
+        "cache_read_tokens": 10,
+        "cache_creation_1h_tokens": 1000,
+        "cache_creation_5m_tokens": 500,
+    }
+    usd, reason = pricing.price_usage(usage, prices_path=table_path)
+
+    assert reason is None
+    expected = (
+        usage["input_tokens"] * real_row["input_cost_per_token"]
+        + usage["output_tokens"] * real_row["output_cost_per_token"]
+        + usage["cache_read_tokens"] * real_row["cache_read_input_token_cost"]
+        + usage["cache_creation_1h_tokens"] * real_row[pricing.CACHE_CREATION_1H_FIELD]
+        + usage["cache_creation_5m_tokens"] * real_row["cache_creation_input_token_cost"]
+    )
+    assert usd == pytest.approx(expected)
+    # Sanity: the 1-hour rate really is higher than the generic/5-minute one
+    # — otherwise this test could pass by coincidence even with the two
+    # buckets swapped.
+    assert real_row[pricing.CACHE_CREATION_1H_FIELD] > real_row["cache_creation_input_token_cost"]
+
+
+def test_price_usage_reports_reason_when_1h_tokens_present_but_table_row_lacks_the_field(tmp_path: Path):
+    table_path = tmp_path / "prices.json"
+    table_path.write_text(
+        json.dumps({"some-model": {"input_cost_per_token": 1.0, "cache_creation_input_token_cost": 1.0}}),
+        encoding="utf-8",
+    )
+    usd, reason = pricing.price_usage(
+        {"model": "some-model", "cache_creation_1h_tokens": 100, "cache_creation_5m_tokens": 0},
+        prices_path=table_path,
+    )
+    assert usd is None
+    assert reason is not None
+    assert pricing.CACHE_CREATION_1H_FIELD in reason
+
+
+def test_price_usage_zero_1h_tokens_does_not_require_the_1h_field(tmp_path: Path):
+    """A model whose row genuinely has no 1-hour cache tier still prices
+    fine as long as the usage's 1-hour bucket is actually zero — only a
+    *non-zero* 1-hour bucket with no row field is reported as unpriceable."""
+    table_path = tmp_path / "prices.json"
+    table_path.write_text(
+        json.dumps({"some-model": {"input_cost_per_token": 1.0, "cache_creation_input_token_cost": 2.0}}),
+        encoding="utf-8",
+    )
+    usd, reason = pricing.price_usage(
+        {"model": "some-model", "input_tokens": 10, "cache_creation_1h_tokens": 0, "cache_creation_5m_tokens": 5},
+        prices_path=table_path,
+    )
+    assert reason is None
+    assert usd == 10 * 1.0 + 5 * 2.0
+
+
+# --------------------------------------------------------------------------
+# Golden test (WK-0087 build step 8): price_usage on both real carousel
+# captures equals the CLI's own modelUsage.*.costUSD within $0.0001 — proof
+# the 1h/5m split fix reproduces real billing, not just a plausible formula.
+# --------------------------------------------------------------------------
+
+CAROUSEL_FIXTURES_DIR = Path(__file__).parent / "fixtures" / "instagram" / "carousel"
+
+# (shortcode, raw_stdout filename, real CLI modelUsage.*.costUSD from the
+# WK-0087 "Steps 1-2 result" table / the raw captures themselves)
+GOLDEN_CAROUSEL_CASES = [
+    ("De9SalRGOhy", 0.4215258),
+    ("DeCKnW0DAGc", 0.1524238),
+]
+
+
+@pytest.mark.parametrize("shortcode,expected_cost_usd", GOLDEN_CAROUSEL_CASES)
+def test_price_usage_matches_real_cli_costusd_for_the_carousel_goldens(shortcode: str, expected_cost_usd: float):
+    from catalog_capture.stages.read import parse_claude_stream_result
+
+    if not pricing.DEFAULT_LITELLM_PRICES_PATH.exists():
+        pytest.skip(f"real kb LiteLLM table not found at {pricing.DEFAULT_LITELLM_PRICES_PATH}")
+
+    raw_stdout = (CAROUSEL_FIXTURES_DIR / shortcode / "read" / "raw_stdout.jsonl").read_text(encoding="utf-8")
+    parsed = parse_claude_stream_result(raw_stdout)
+    usage = {
+        "model": parsed["model"],
+        "input_tokens": parsed["input_tokens"],
+        "output_tokens": parsed["output_tokens"],
+        "cache_read_tokens": parsed["cache_read_tokens"],
+        "cache_creation_1h_tokens": parsed["cache_creation_1h_tokens"],
+        "cache_creation_5m_tokens": parsed["cache_creation_5m_tokens"],
+    }
+    usd, reason = pricing.price_usage(usage)
+
+    assert reason is None
+    assert usd == pytest.approx(expected_cost_usd, abs=0.0001)
