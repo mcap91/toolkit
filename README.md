@@ -1,189 +1,106 @@
-# bioinfo-agent-toolkit
+# toolkit
 
-Reusable Claude Code skills, tools, and guides for bioinformatics workflows. Pick and choose what you need.
+A hand-curated catalog of tools, techniques, and references for building with coding agents. Each
+entry is written so an agent can use it without re-fetching the source. The repo also ships a small,
+read-only MCP server (a background program that exposes callable tools to an agent over the Model
+Context Protocol) for searching the catalog, and a set of Claude Code skills.
+
+## Use the catalog
+
+Three ways to get at it:
+
+1. **Browse it on GitHub.** Open [`catalog/index.md`](catalog/index.md).
+2. **Point an agent at the raw file.** Fetch
+   `https://raw.githubusercontent.com/mcap91/toolkit/main/catalog/index.md` — no server, no MCP
+   registration required.
+3. **Run the MCP server** and let an agent call `search` and `index` directly:
+
+   ```bash
+   npx tsx packages/catalog-mcp/src/server.ts
+   ```
+
+   Register it in your project's `.mcp.json`:
+
+   ```json
+   {
+     "mcpServers": {
+       "toolkit-catalog": {
+         "type": "stdio",
+         "command": "npx",
+         "args": ["tsx", "PATH/TO/toolkit/packages/catalog-mcp/src/server.ts"],
+         "env": {}
+       }
+     }
+   }
+   ```
+
+   Replace `PATH/TO` with the path to your local clone.
+
+## What an entry looks like
+
+Every entry follows the same section order:
+
+- **What it is** — what the thing is, in a few sentences.
+- **How it works** — components, the core loop or algorithm, key data structures and config.
+- **How to use it** — install, run, and integration points.
+- **Evaluation and limits** — how it's measured, the numbers, failure modes, pushback.
+- **Context from the source** — what the original link added: claims, use case, discussion.
+- **Related** — other catalog entries and how they connect.
+- **Security** — a factual security read, not a verdict.
+
+[`catalog/recipe.md`](catalog/recipe.md) is today's working description of this template; a standalone
+template file is being extracted from it.
 
 ## Skills
 
-Copy any skill into your project:
+Copy any skill into a project:
 
 ```bash
-# From a clone of this repo
 cp -r skills/<name> <your-project>/.claude/skills/<name>
 ```
 
 | Skill | Description |
 |---|---|
-| [/blueprint](skills/blueprint/) | Create a portable architecture reference doc for reimplementation |
-| [/handoff](skills/handoff/) | Generate a handoff prompt for a fresh CLI agent or subagent |
-| [/plan-me-this](skills/plan-me-this/) | Package a spec into phase docs + readme_this_current_task.md |
-| [/scripts-reference](skills/scripts-reference/) | Generate a clickable script reference doc |
-| [/catalog-intake](skills/catalog-intake/) | Pull links from Gmail, curate, drain to queue, run headless processing |
-| [/agent-lockdown](skills/agent-lockdown/) | Lock down a coding agent CLI — version pin, model pin, env hardening, secrets deny, integrity checkup |
-| [/explain-me-this](skills/explain-me-this/) | Discuss-and-explain persona — explains, researches, and helps you decide; no code or plans. Manual-only. |
-| [/verticalizing-plans](skills/verticalizing-plans/) | Convert phase-shaped plans into thin vertical slices that prove the whole flow early |
-| [/spec-check](skills/spec-check/) | Surface open design decisions in a doc before handing work off for autonomous execution |
-| [/resolve](skills/resolve/) | Re-orient an agent that asked a question evidence could answer: search, choose, cold-check, record, continue |
-| [/write-plain](skills/write-plain/) | House style for all prose: no dashes, no AI tells, active voice, ASD-STE100 sentence limits |
+| [agent-lockdown](skills/agent-lockdown/) | Pin an interactive coding agent CLI to a reproducible state — version pin, model pin, env config, file-read deny rules, model selector, and integrity checkup. Modes — lockdown (default), checkup (integrity audit), upgrade-check (diff CLI versions). |
+| [blueprint](skills/blueprint/) | Create a portable, project-agnostic architecture reference document for a tool, module, or system. |
+| [catalog-intake](skills/catalog-intake/) | Full catalog pipeline — Gmail pull, inbox curation, drain, and headless processing. |
+| [explain-me-this](skills/explain-me-this/) | Discuss-and-explain mode — help me understand or decide, no building. Manual-only. |
+| [handoff](skills/handoff/) | Generate a self-contained prompt to hand off current work to a fresh CLI agent or a subagent. |
+| [plan-me-this](skills/plan-me-this/) | Package an approved spec into self-contained phase docs and a living readme_this_current_task.md. |
+| [resolve](skills/resolve/) | Re-orient an agent that asked the operator a question the evidence could answer. |
+| [scripts-reference](skills/scripts-reference/) | Generate a Markdown reference file listing production scripts in a project — name, namespace, brief description, and clickable absolute file path. |
+| [spec-check](skills/spec-check/) | Read doc(s) and surface open design decisions that need operator input before the work can be handed off for autonomous execution. |
+| [verticalizing-plans](skills/verticalizing-plans/) | Convert phase-shaped plans organized as sequential stages into thin vertical slices that prove the whole flow early. |
+| [wrap-up](skills/wrap-up/) | End-of-session housekeeping. Runs available checks (typecheck, wiki lint/generate), detects dual-repo setup, commits and pushes safely. |
+| [write-plain](skills/write-plain/) | House style for any prose an agent writes for a human reader — plain hyphens only, no AI tells, active voice, short sentences. |
 
-## Output style
+[`statusline/`](statusline/) is a separate tool, not a skill: a status bar for the Claude Code CLI
+that shows model name and context window usage.
 
-### [Direct](docs/output-styles/direct.md)
+## Benchmarks
 
-A Claude Code output style (not a skill) — action-first, terse, 23 rules across Voice, Shape, Coding Discipline, and Working constraints. Symlink `docs/output-styles/direct.md` into `~/.claude/output-styles/` (a copy goes stale) and set `"outputStyle": "direct"`. Ships with a reply-length Stop hook. Replaces the old `setup-behavioral-baseline.sh`. See [docs/output-styles/README.md](docs/output-styles/README.md).
+- [Search eval](docs/benchmarks/search-eval.png) — catalog search quality across query styles.
+- [Web capture benchmark](docs/benchmarks/web-capture.html) — three browser-capture engines compared on Reddit pages.
 
-## Tools
+More benchmark pages are published here as workbench projects finish.
 
-### [Status Line](statusline/)
-
-Context window usage bar for the Claude Code CLI. See [statusline/README.md](statusline/README.md) for setup.
-
-## Catalog
-
-The `catalog/` directory tracks external skills, plugins, hooks, MCP servers, agent patterns, CLI tools, frameworks, and reference material — 171 assessed entries with summaries, security reviews, and tags.
-
-### Using the catalog from another project
-
-Register the catalog MCP server in your project's `.mcp.json` to give your agent access to search, graph traversal, and topic discovery across all catalog entries.
-
-**Add to your project's `.mcp.json`:**
-
-```json
-{
-  "mcpServers": {
-    "bioinfo-catalog": {
-      "type": "stdio",
-      "command": "node",
-      "args": [
-        "--import",
-        "file:///PATH/TO/bioinfo-agent-toolkit/node_modules/tsx/dist/loader.mjs",
-        "PATH/TO/bioinfo-agent-toolkit/packages/catalog-mcp/src/server.ts"
-      ],
-      "env": {}
-    }
-  }
-}
-```
-
-Replace `PATH/TO` with the absolute path to your local clone of this repo.
-
-**Key tools for cross-repo use:**
-
-| Tool | Purpose |
-|---|---|
-| `search` | Survey search: returns every entry lexically matching your terms (word-prefix, uncapped), plus flagged semantic suggestions for concepts phrased differently. No scores exposed. |
-| `graph-query` | Knowledge graph traversal. `neighbors` mode: explore connections from a known entry (overlaps, shared tags, shared category). `topic` mode: discover entries by concept (substring match on tags/categories). |
-| `graph-build` | Rebuild the knowledge graph on demand (normally auto-rebuilds via `index`). |
-
-![This repo's catalog search vs. plain substring search, by query style](docs/benchmarks/search-eval.png)
-
-**Search eval: this repo's search vs. plain substring search** ([method](docs/semantic-search.md#evaluation)). 40 test queries in four styles (10 each), run through three engines on the same frozen copy of the catalog: **substring** search (the baseline, the repo's original lookup), this repo's **lexical** search alone, and its full **lexical+semantic** search. Each cell is the share of relevant entries the engine surfaced, with the count: found / should have found, summed over the style's 10 queries. Relevance comes from an answer key labeled by Claude Opus 5.5 without seeing the queries; calibration entries repeated in every labeling batch got identical labels 88% of the time.
-
-| query style | substring | lexical | lexical+semantic |
-|---|---|---|---|
-| exact name (e.g. "paddleocr") | 100% (10/10) | 100% (10/10) | 100% (10/10) |
-| keyword (e.g. "document parsing") | 18% (50/284) | 56% (158/284) | 65% (184/284) |
-| plain-language need | 0% (0/284) | 0% (0/284) | 14% (39/284) |
-| keyword list (e.g. "local llm inference gpu quantization") | 0% (0/284) | 4% (10/284) | 26% (75/284) |
-
-On exact-name queries the named tool was the first result 70% of the time for substring and 90% for lexical and lexical+semantic. Lexical search returned 48.6 entries per keyword query, 0.0 per plain-language query, and 1.3 per keyword-list query; on those last two styles, nearly all surfaced entries come from semantic suggestions (39 of 39 and 65 of 75). Semantic suggestions are limited to 10 per query by default, which caps how much of a large topic they can surface.
-
-**Add retrieval instructions to your project's CLAUDE.md:**
-
-```markdown
-## External tool catalog
-
-This project registers the bioinfo-agent-toolkit catalog MCP server as `bioinfo-catalog`.
-Use it to find tools, skills, frameworks, or MCP servers:
-
-- `search { query: "multi-agent orchestration" }` — keyword search
-- `graph-query { mode: "topic", term: "orchestration" }` — find entries by concept
-- `graph-query { mode: "neighbors", entry: "mycelium" }` — explore connections from a known entry
-```
-
-**Lightweight alternative (no MCP):** The catalog ships a search index at [`catalog/.search-index.json`](catalog/.search-index.json). Any agent can fetch it via raw GitHub URL and search in-context — no server, no MCP registration required.
-
-**Index URL:**
-```
-https://raw.githubusercontent.com/mcap91/bioinfo-agent-toolkit/main/catalog/.search-index.json
-```
-
-**How to use it:**
-
-1. **Fetch the index** — have your agent fetch the URL above. It returns a JSON array of all catalog entries (~193 entries) with searchable fields.
-2. **Search in-context** — each entry includes `name`, `title`, `url`, `category`, `decision_status`, `summary`, `body_summary`, `tags`, `workflows`, `license`, `security_flags`, and `path`. Search by keyword in `summary`/`body_summary`, filter by `tags`, `category`, or `decision_status` (`adopted`/`rejected`/`open`).
-3. **Read full entries** — the `path` field (e.g. `catalog/entries/faiss.md`) points to the full entry with security analysis and mechanical details. Fetch it at:
-   ```
-   https://raw.githubusercontent.com/mcap91/bioinfo-agent-toolkit/main/{path}
-   ```
-
-**Example agent prompt:**
-> Fetch the bioinfo-agent-toolkit search index from `https://raw.githubusercontent.com/mcap91/bioinfo-agent-toolkit/main/catalog/.search-index.json`. Find entries tagged "vector-database" with decision_status "adopted". For each match, fetch the full entry via its `path` field and summarize the security analysis.
-
-### Managing the catalog
-
-The catalog is managed by an MCP tool server in [`packages/catalog-mcp/`](packages/catalog-mcp/) — 17 tools for intake, research support, validation, knowledge graph, and data management. The server never makes LLM calls; the calling agent does all reasoning.
-
-| Group | Tools |
-|---|---|
-| Intake | `ingest`, `drain`, `fetch-url`, `reddit-extract`, `build-prompt` |
-| Entries | `validate-entry`, `write-entry`, `annotate-entry`, `scaffold` |
-| Data | `index`, `search`, `lint`, `queue`, `config`, `goals` |
-| Graph | `graph-build`, `graph-query` |
-
-Running `index` regenerates `catalog/index.md`, `catalog/.search-index.json`, and `catalog/.graph.json`.
-
-### Prerequisites
-
-Running the catalog MCP server requires:
-
-- Node.js
-- Python 3.10+
-- [uv](https://astral.sh/uv) — manages the Python environment for semantic search; never base/system Python, never plain pip
-- `fastembed`, installed via:
-  ```bash
-  cd packages/catalog-embedder && uv venv && uv pip install -r requirements.txt
-  ```
-
-The `search` tool runs a complete lexical sweep backstopped by flagged semantic
-suggestions, and requires this Python environment to be set up. See
-[docs/semantic-search.md](docs/semantic-search.md) for the full setup guide, matching
-semantics, and auto-rebuild behavior.
-
-Capturing Reddit links during intake (the capture step in
-[`skills/catalog-intake/SKILL.md`](skills/catalog-intake/SKILL.md)) uses headless Chromium via
-[`packages/catalog-capture/`](packages/catalog-capture/). One-time setup:
-
-```bash
-cd packages/catalog-capture && uv sync --extra dev && uv run playwright install chromium
-```
-
-## Structure
+## Layout
 
 ```
-skills/<name>/         Skills (just a SKILL.md)
-statusline/            Context window status bar tool
-catalog/               External tool/skill catalog (data + derived artifacts)
-packages/catalog-mcp/  Catalog MCP tool server (17 tools)
-packages/catalog-capture/  Headless-browser capture for links a plain fetch cannot read (Reddit)
-docs/                  Public documentation
-docs/output-styles/    Claude Code output styles (e.g. direct.md)
+catalog/                   The entries, the index, and the recipe
+packages/catalog-mcp/      Read-only MCP server: search and index
+packages/catalog-embedder/ Search backend: the lexical sweep, plus an optional semantic channel
+packages/catalog-capture/  Capture adapters (moving to the private workbench)
+skills/<name>/              Claude Code skills
+statusline/                 Context window status bar tool
+docs/                       Public documentation
 ```
 
-## Maintainer Setup
+## Status
 
-This repo uses the `kb` toolkit for project tracking. The wiki lives in a separate private repo and is cloned into the gitignored `wiki/` directory.
-
-```bash
-# Clone the private wiki into this repo
-git clone git@github.com:mcap91/bioinfo-agent-toolkit-wiki.git wiki
-
-# Run kb commands from the kb checkout
-cd ../kb
-npm run wiki -- lint --dir ../bioinfo-agent-toolkit
-npm run wiki -- generate --dir ../bioinfo-agent-toolkit
-```
-
-See `AGENTS.md` for the full kb workflow.
+738 entries as of 2026-10-31. Entries are being rewritten to a deeper template, and the public MCP
+server is being narrowed to a read-only surface (`search` and `index` only); the write and intake
+tools are moving to the private workbench.
 
 ## License
 

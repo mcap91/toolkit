@@ -1,4 +1,4 @@
-# kb Integration
+# Agent Operating Guide
 
 <!-- BEGIN kb-managed -->
 Managed by kb — edits inside this block are overwritten by `kb bootstrap` / `kb sync-contract`; edit outside the markers.
@@ -50,28 +50,75 @@ the initial retrieval pass.
 
 <!-- END kb-managed -->
 
-## Catalog pipeline
+## What this repo is
 
-The catalog tracks external tools, skills, and frameworks. The full operator flow is in
-`skills/catalog-intake/SKILL.md`. Quick reference:
+Three layers, from DEC-0005.
 
-1. **Intake:** pull links from Gmail or paste into `catalog/inbox.md`, then drain with the
-   `drain` MCP tool, capture Reddit and Instagram reel needs-link items (`catalog-capture`), and
-   drain again. Instagram reels are captured by `catalog-capture`; Instagram carousels (`/p/`)
-   still stay in inbox marked `⚠ needs-link`.
-2. **Processing:** run `npm run -w @catalog/mcp catalog:process` in the background. It processes
-   every pending queue item headless and writes entries to `catalog/entries/`.
-3. **After processing:** check `catalog/queue.json` for parked/errored items, commit new entries.
+**Catalog.** Public data: `catalog/entries/`, one template per entry, hand-curated by the operator. This
+is the product — a personal library of tools, techniques, and references, each entry written deep enough
+that an agent never has to re-fetch the source to answer a question about it.
 
-The MCP server provides 14 tools — see `CLAUDE.md` for the full list.
+**Reader.** Public code: an MCP server (a small background program that exposes callable tools to an
+agent over the Model Context Protocol) running `search` and `index`, a lint CLI for contributors, and
+`index.md` as a table of contents an agent can read straight off the raw GitHub URL.
 
-## Web-to-source compilation
+**Workbench.** A private sibling repo, `../toolkit-workbench`: the pipeline that writes the catalog,
+every project that uses the catalog to build or test something, raw runs, and third-party captures. It
+has no wiki of its own — every record for both repos lives in this repo's `wiki/`.
 
-To capture a collection of web articles as reference material for catalog entries, fetch each
-page with `fetch-url` (`clean: true`) and concatenate the raw content into a single file in
-`catalog/sources/<slug>.md` with `---` dividers between articles. Do not summarize — preserve
-the full fetched text verbatim. If an index/series page returns empty content (JS-rendered SPA),
-try discovering individual article URLs via the site's API (`/api/posts`, `/sitemap.xml`,
-`__NEXT_DATA__` in raw HTML) — the individual pages usually render server-side and fetch fine.
-To create a catalog entry from a compiled source, have an agent read the source file and use
-`validate-entry` → `write-entry` → `index`.
+No code in this repo writes a catalog entry. Intake — pulling links, curating the inbox, draining to the
+queue, running the headless processing loop — runs from the workbench now.
+
+## Working here
+
+Work-tracking records (`WK`, `IN`, `DEC`, and the rest) live in `wiki/`, a private, gitignored repo nested
+in this checkout. Start from `wiki/dashboard/chain.md`, the cross-initiative status surface the overseer
+maintains.
+
+Two settings carry the only paths that cross the repo boundary: `CATALOG_DIR` (default
+`../toolkit/catalog`) and `WORKBENCH_DIR` (default `../toolkit-workbench`). No repo name, operator name,
+or machine path goes into code or settings beyond these two.
+
+Media and third-party captures never enter this repo. The `.gitignore` backstops that rule.
+
+## Catalog entries
+
+Every entry follows the same section order: What it is, How it works, How to use it, Evaluation and
+limits, Context from the source, Related, Security.
+
+Entries are factual. No verdicts, no adoption recommendations, no notes on whether the operator should
+use the thing — those decisions happen outside the entry.
+
+Three frontmatter fields carry provenance: `url` (the subject itself — a repo, a tool's site),
+`source_url` (the link the item came in on, when different from `url`), and `source` (what that link
+derives to: `instagram`, `reddit`, `x`, `web`, or `text`).
+
+`catalog/recipe.md` is today's working description of the template. `catalog/template.md` (WK-0099) will
+replace it as the formal contract.
+
+## Reader MCP
+
+The catalog MCP server lives in `packages/catalog-mcp`. Run it directly with:
+
+```
+npx tsx packages/catalog-mcp/src/server.ts
+```
+
+As of WK-0100 it registers 12 tools: `index`, `lint`, `search`, `config`, `queue`, `drain`, `ingest`,
+`fetch-url`, `build-prompt`, `validate-entry`, `write-entry`, `annotate-entry`. The write tools move to
+the workbench pipeline package under WK-0101, after which the public server exposes `search` and `index`
+only.
+
+## Workbench projects
+
+- **ocr-bench** (IN-0002) — benchmark OCR and parser tools against a Sonnet agent on scientific PDFs; owes a
+  results page.
+- **semantic bench** (IN-0012) — embedding and reranking models for catalog search, measured on the sealed
+  operator-brief eval; owes a benchmark page and, if it passes, a pinned model in the reader.
+- **pipeline** (IN-0011) — intake (Gmail to inbox to queue), capture, one fresh session per queue item,
+  `upsert-entry`, lint, index, and the commit back into this repo.
+- **kb lab** (IN-0013) — wiki operations at scale and agent-rule experiments; results publish in the kb repo.
+
+Graduation rule: a workbench project owes one public artifact under `docs/benchmarks/` — a results page,
+a package, a recipe or template change, or a pinned-model change. The artifact moves into this repo; raw
+runs and captures stay in the workbench.
