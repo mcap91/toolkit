@@ -5,12 +5,10 @@ url: "https://github.com/AgricIDaniel/claude-seo"
 category: plugin
 summary: "Open-source SEO analysis plugin for Claude Code — 25 sub-skills and 18 specialist agents running in parallel across technical SEO, E-E-A-T content quality, Schema.org markup, AI search optimization (GEO), local SEO, e-commerce, and international SEO; falsifiable recommendations with leading indicators; 4-tier Google API integration; 8 optional MCP extensions (Ahrefs, DataForSEO, SE Ranking, etc.); MIT"
 tags: [claude-code-plugin, seo, technical-seo, schema-org, ai-search, e-e-a-t, local-seo, ecommerce-seo]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [claude-skills-rezvani]
 source: unknown
 ---

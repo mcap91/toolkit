@@ -15,14 +15,12 @@ tags:
   - enterprise
   - saas
   - mcp
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: proprietary
 security_flags:
   - closed-source
   - vendor-sits-in-request-path
-supersedes: []
 overlaps:
   - production-agentic-platforms-2026
 source_url: https://www.reddit.com/r/AI_Agents/comments/1xcqkgw/anthropics_own_data_suggests_were_becoming_middle/

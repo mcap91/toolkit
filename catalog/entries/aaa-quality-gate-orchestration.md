@@ -7,10 +7,8 @@ summary: "A prompt architecture for orchestrating multi-agent development with b
 tags: [multi-agent, orchestration, quality-gates, critic-loop, game-development, 3d-modeling, modular-architecture, verification]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 license: unknown
 security_flags: []
-workflows: [agent-orchestration, code-generation]
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://www.instagram.com/reel/DdMz98mI6AC/"
 category: reference
 summary: "Curated list of 5 hands-on AI engineering projects — LLM cost autopilot, semantic caching layer, model regression detector, failure forensics tool, self-healing technical docs; sourced from Instagram reel"
 tags: [ai-engineering, learning, project-ideas, llm-ops, caching, testing, observability]
-workflows: []
 reviewed: 2026-09-26
 acquired: 2026-09-26
 license: unknown
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

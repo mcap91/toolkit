@@ -5,12 +5,10 @@ url: "https://github.com/e2b-dev/e2b"
 category: framework
 summary: "Open-source cloud sandbox infrastructure for AI agents — Firecracker microVMs with ~150ms boot, Python/JS SDKs, Code Interpreter, self-hostable on AWS/GCP via Terraform; Apache-2.0, 8.9K stars"
 tags: [sandbox, code-execution, cloud, agent-infrastructure, microvm]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: Apache-2.0
 security_flags: [cloud-hosted, sends-code-externally, api-key-required]
-supersedes: []
 overlaps: [blaxel]
 source: unknown
 ---

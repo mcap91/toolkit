@@ -5,12 +5,10 @@ url: "https://github.com/cupy/cupy"
 category: framework
 summary: "NumPy/SciPy-compatible Python array library for GPU-accelerated computing — drop-in replacement on NVIDIA CUDA (12.x/13.x) and AMD ROCm 7.0 with low-level CUDA access (RawKernels, Streams, Runtime APIs); includes cuSignal; 11K stars, 127 contributors, MIT, Preferred Networks"
 tags: [gpu, numpy, scipy, cuda, rocm, array-computing, python, signal-processing]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

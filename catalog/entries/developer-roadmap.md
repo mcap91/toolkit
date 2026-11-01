@@ -5,12 +5,10 @@ url: "https://github.com/nilbuild/developer-roadmap"
 category: reference
 summary: "Content repository behind roadmap.sh — interactive, node-based learning roadmaps and topic guides for developer career paths (frontend, backend, DevOps, AI, etc.); each roadmap topic is a Markdown file (roadmaps/<slug>/content/<topic>@<node-id>.md) linked to an interactive graph on the website. This URL is a read-only fork of the canonical kamranahmedse/developer-roadmap; content is copyright-restricted (personal use only)"
 tags: [learning, roadmaps, career, curriculum, developer-education, reference]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: custom-restrictive
 security_flags: [fork-not-canonical-upstream, content-license-restrictive]
-supersedes: []
 overlaps: [build-your-own-x, ossu-computer-science]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://www.linkedin.com/feed/update/urn:li:share:7464580605327060992"
 category: reference
 summary: "Six-post series covering GraphRAG design, ontology modeling, and unified agent memory architecture — useful conceptual grounding for KG-backed agents."
 tags: [graphrag, knowledge-graph, ontology, agent-memory, reasoning, langgraph, crewai, memory]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://www.deeplearning.ai/the-batch/the-ai-engineering-skills-map"
 category: reference
 summary: "DeepLearning.AI/Andrew Ng taxonomy of four core AI-engineering skills — building & deploying AI applications, software-engineering fundamentals, using coding agents, and shaping the build — synthesized from 10,000+ job postings, expert interviews, and surveys; skill 1 later expanded into six sub-components."
 tags: [ai-engineering, skills-taxonomy, coding-agents, evals, careers, deeplearning-ai]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

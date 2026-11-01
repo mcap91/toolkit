@@ -14,14 +14,12 @@ tags:
   - blueprints
   - game-development
   - cpp
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
 security_flags:
   - skip-permissions-by-default
   - unsandboxed-script-execution-available
-supersedes: []
 overlaps: []
 ---
 

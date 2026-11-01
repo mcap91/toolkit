@@ -5,12 +5,10 @@ url: "https://github.com/karpathy/nanogpt"
 category: reference
 summary: "Karpathy's canonical minimal GPT training repo (~600 lines total); deprecated Nov 2025 in favor of nanochat but remains the clearest educational reference for transformer training loops"
 tags: [gpt, training, transformer, karpathy, deep-learning, educational]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: MIT
 security_flags: [deprecated]
-supersedes: []
 overlaps: [zero-to-mastery-ml]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/devoidfury/hotdog"
 category: cli-tool
 summary: "Zero-dependency TypeScript/Bun AI agent harness with tool calling — connects to any OpenAI-compatible chat-completions endpoint (local llama-swap/llama.cpp/vllm or cloud), with hook-driven extensions, profiles, skills, MCP client, subagent tasks, and an optional --sandbox mode restricting tools to non-destructive ones; MIT, single-maintainer hobby project"
 tags: [agent-harness, cli-tool, bun, typescript, mcp-client, local-llm, tool-calling]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: MIT
 security_flags: [single-maintainer, no-external-adoption-signal, minimal-guardrails-by-default]
-supersedes: []
 overlaps: []
 source: unknown
 ---

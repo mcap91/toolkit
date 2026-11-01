@@ -5,12 +5,10 @@ url: "https://github.com/vllm-project/llm-compressor"
 category: framework
 summary: "Transformers-compatible model quantization/compression library for optimized vLLM deployment — GPTQ, AWQ, SmoothQuant, AutoRound, rotation-based (SpinQuant, QuIP), and REAP expert pruning; weight/activation/KV-cache/attention quantization (INT8, FP8, NVFP4, MXFP4, MXFP8); saves in compressed-tensors format; DDP and disk offloading for large-model compression; maintained by Red Hat AI and the vLLM Project"
 tags: [quantization, compression, vllm, gptq, awq, fp8, nvfp4, mxfp4, inference-optimization, model-deployment, huggingface]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [unsloth, axolotl, llamafactory, turboquant]
 source: unknown
 ---

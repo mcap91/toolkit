@@ -5,12 +5,10 @@ url: "https://www.trychroma.com/products/chromadb"
 category: framework
 summary: "Open-source AI search infrastructure with vector, full-text, regex, and hybrid search — embedding-agnostic with Python/JS SDKs, serverless cloud option, and multi-modal retrieval; strong fit for literature/sequence RAG pipelines"
 tags: [vector-database, embeddings, search, RAG, AI-infrastructure, multi-modal]
-workflows: []
 reviewed: 2026-06-18
 acquired: 2026-06-18
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [claude-mem]
 source: unknown
 ---

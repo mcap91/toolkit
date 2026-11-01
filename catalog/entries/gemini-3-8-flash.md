@@ -5,12 +5,10 @@ url: "https://deepmind.google/models/model-cards/gemini-3-8-flash/"
 category: framework
 summary: "Google DeepMind's Gemini 3 family Flash-tier model (built on Gemini 3.7 Flash), published 2026-09-02 — 1M-token multimodal input context (text/image/audio/video), 64K text output, customizable inference effort levels, $0.75/$3.75 per 1M input/output tokens; targets cost-effective software engineering and agentic knowledge-work at production scale"
 tags: [google-deepmind, gemini, llm, multimodal, agentic, model-card, long-context, api-model]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: proprietary
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

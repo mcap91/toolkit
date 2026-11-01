@@ -5,12 +5,10 @@ url: "https://blaxel.ai/"
 category: framework
 summary: "Cloud infrastructure for autonomous agents — persistent microVM sandboxes with ~25ms resume, Agent Drive distributed filesystem, MCP server hosting, outbound firewalling, model gateway; SOC 2/HIPAA/ISO 27001, YC-backed, $7.3M seed from First Round"
 tags: [sandbox, cloud, agent-infrastructure, microvm, persistent-state, mcp]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: Proprietary
 security_flags: [cloud-hosted, sends-data-externally, api-key-required, proprietary]
-supersedes: []
 overlaps: [e2b]
 source: unknown
 ---

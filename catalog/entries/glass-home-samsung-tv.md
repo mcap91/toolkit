@@ -19,7 +19,6 @@ tags:
   - nodejs
   - python
   - camera-verification
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
@@ -27,7 +26,6 @@ security_flags:
   - no-prebuilt-binaries
   - agent-executes-device-commands
   - plaintext-local-http
-supersedes: []
 overlaps:
   - free-my-tv
   - coding-agent-adb-tv-debloat

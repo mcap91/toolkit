@@ -5,12 +5,10 @@ url: "https://github.com/anthropics/claude-plugins-official/tree/main/plugins/cl
 category: plugin
 summary: "Official Anthropic plugin that scans a codebase and recommends tailored Claude Code automations — top 1-2 recommendations per category (MCP servers, skills, hooks, subagents, slash commands); read-only analysis, no file modifications"
 tags: [claude-code-plugin, setup, automation, anthropic-official]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [dotclaude]
 source: unknown
 ---

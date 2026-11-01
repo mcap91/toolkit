@@ -5,12 +5,10 @@ url: "https://github.com/crowdsecurity/crowdsec"
 category: framework
 summary: "Production-ready crowdsourced IDS/IPS framework — valuable for hardening servers hosting agent infrastructure, outside direct agent/bioinformatics workflows."
 tags: [security, ids, ips, waf, threat-intelligence, crowdsourced, ip-blocklist, infrastructure]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

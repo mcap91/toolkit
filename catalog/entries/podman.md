@@ -5,12 +5,10 @@ url: "https://github.com/podman-container-tools/podman"
 category: framework
 summary: "Daemonless, rootless-capable container engine with a Docker-compatible CLI for managing OCI containers, pods, images, and volumes; uses Buildah for builds, Netavark/Aardvark for networking, and crun/runc as the OCI runtime; ships Podman Desktop as a GUI frontend"
 tags: [containers, oci, rootless, daemonless, docker-alternative, podman-desktop, cli, buildah, netavark]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: Apache-2.0
 security_flags: [org-migration-unclear-provenance]
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -13,14 +13,12 @@ tags:
   - closed-source
   - enterprise
   - langchain
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: Proprietary (platform); MIT (langsmith-sdk client only)
 security_flags:
   - closed-source
   - self-hosting-gated-enterprise
-supersedes: []
 overlaps:
   - langchain
   - langgraph

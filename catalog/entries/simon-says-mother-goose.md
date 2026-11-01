@@ -5,12 +5,10 @@ url: "https://github.com/jawsublime-byte/simon-says"
 category: skill
 summary: "Two companion MIT-licensed, explicit-invocation Agent Skills collections (SKILL.md-compatible) by a solo hobbyist author, targeting recurring AI-coding-agent failure modes — Simon Says covers scope/execution/investigation/testing/alignment drift (e.g. Patty Cake: diffs instructions vs plan vs completed work and stops on material drift); Mother Goose covers repair loops, verification, evidence, automation scope, and provenance (e.g. Pinocchio: requires evidence for completion claims; The Emperor's New Clothes: protected dissent against groupthink)"
 tags: [agent-skills, skill-collection, guardrails, verification, alignment, claude-code, codex]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: MIT
 security_flags: [single-maintainer, no-external-adoption-signal, unverified-by-web-search]
-supersedes: []
 overlaps: []
 source: unknown
 ---

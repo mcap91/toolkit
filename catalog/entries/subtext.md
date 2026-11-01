@@ -5,12 +5,10 @@ url: "https://github.com/ninjahawk/Subtext"
 category: framework
 summary: "Live Jacobian-lens viewer that renders a local model's internal 'global workspace' during chat — reads Anthropic's Jacobian lens at 9 layers per token over Qwen3.5-4B, showing verdicts/plans forming before they are spoken; browser canvas + per-token ledger, scrubbable GPU-free replays; validated against Anthropic's reference impl; Apache-2.0"
 tags: [interpretability, jacobian-lens, global-workspace, mechanistic-interpretability, qwen, local-inference, visualization, research]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: Apache-2.0
 security_flags: [single-contributor, unaudited-model-download]
-supersedes: []
 overlaps: []
 source: unknown
 ---

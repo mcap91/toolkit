@@ -5,12 +5,10 @@ url: "https://github.com/shepherd-agents/shepherd"
 category: framework
 summary: "Python runtime substrate that records agent runs as durable, inspectable, reversible execution traces — agent-written outputs land as retained proposals (changesets) that a human selects, applies, releases, or discards, with OS-level (Seatbelt/Landlock) enforcement of per-task read/write permission grants declared in function signatures"
 tags: [agent-framework, sandbox, reversible-execution, git, meta-agents, claude-code, permissions, python, landlock, seatbelt, research-paper]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT
 security_flags: [early-alpha-api-instability]
-supersedes: []
 overlaps: [deepseek-harness, landlock-lsm]
 source: unknown
 ---

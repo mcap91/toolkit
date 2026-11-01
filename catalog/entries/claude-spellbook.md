@@ -6,10 +6,8 @@ summary: "50 skills, 7 agents, 11 slash commands — use as pattern reference, n
 tags: [skills, agents, hooks, patterns]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

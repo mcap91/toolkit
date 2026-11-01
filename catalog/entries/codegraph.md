@@ -5,12 +5,10 @@ url: "https://github.com/colbymchenry/codegraph"
 category: mcp-server
 summary: "Pre-indexed code knowledge graph via MCP — tree-sitter extracts symbols/edges into SQLite, single codegraph_explore tool returns verbatim source + call paths + blast radius in one call; auto-syncs on file changes via native OS watcher; 34 languages, framework route detection (17 frameworks), cross-language bridging (Swift↔ObjC, React Native, Expo); 100% local, MIT"
 tags: [code-intelligence, knowledge-graph, mcp, tree-sitter, sqlite, static-analysis, impact-analysis, claude-code, cursor, codex]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [repomix]
 source: unknown
 ---

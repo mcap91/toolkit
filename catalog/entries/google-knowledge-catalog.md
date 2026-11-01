@@ -7,10 +7,8 @@ summary: "Google Cloud's Gemini-powered data catalog and metadata management pla
 tags: [data-catalog, metadata, google-cloud, gemini, mcp, knowledge-graph, data-governance, ai-agents]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: Apache-2.0
 security_flags: [cloud-hosted, requires-gcp-auth]
-workflows: [data-discovery, metadata-enrichment, agent-grounding]
 overlaps: []
 source: unknown
 ---

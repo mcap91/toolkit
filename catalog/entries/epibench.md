@@ -5,12 +5,10 @@ url: "https://latch.bio/epibench"
 category: reference
 summary: "Verifiable 106-task benchmark for AI agents on short-horizon epigenomics analysis (ATAC/ChIP/CUT&Tag/methylation); no model-harness pair passed a majority (best 45%), with failures concentrated in assay-specific scientific judgment."
 tags: [benchmark, epigenomics, evaluation, bioinformatics, agents]
-workflows: []
 reviewed: 2026-06-18
 acquired: 2026-06-18
 license: NOASSERTION
 security_flags: [license-unconfirmed, dataset-availability-unconfirmed]
-supersedes: []
 overlaps: [biomysterybench]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/hacksider/Deep-Live-Cam"
 category: framework
 summary: "Real-time face swap and video deepfake from a single image — webcam live mode, multi-face mapping, mouth mask, GPU acceleration (CUDA/CoreML/DirectML/OpenVINO); built on InsightFace/GFPGAN; viral 50K+ stars but no stated SPDX license and uses non-commercial research models"
 tags: [deepfake, face-swap, computer-vision, real-time, video]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: AGPL-3.0-only
 security_flags: [non-commercial-models, ethical-risk]
-supersedes: []
 overlaps: []
 source: unknown
 ---

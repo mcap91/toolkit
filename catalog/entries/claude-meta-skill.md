@@ -5,12 +5,10 @@ url: "https://github.com/YYH211/Claude-meta-skill"
 category: reference
 summary: "Curated collection of 11 Claude Code skills; mostly Chinese-language or general-dev focused, with significant overlap to existing catalog entries"
 tags: [claude-code, skills, collection, prompt-engineering, mcp, refactoring]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: Unlicense
 security_flags: [no-tests, no-ci, no-license-file]
-supersedes: []
 overlaps: [bmad-skill-forge, obsidian-skills-kepano, one-skill-to-rule-them-all, creating-claude-md]
 source: unknown
 ---

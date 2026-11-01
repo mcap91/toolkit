@@ -5,12 +5,10 @@ url: "https://platform.claude.com/cookbook/"
 category: reference
 summary: "Anthropic's official collection of 60+ practical guides covering agent patterns, tool use, RAG, managed agents, Agent SDK, evals, and multimodal — the authoritative how-to reference for Claude API development"
 tags: [claude-api, agent-patterns, rag, tool-use, managed-agents, agent-sdk, evals, multimodal, anthropic-official]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [claude-howto]
 source: unknown
 ---

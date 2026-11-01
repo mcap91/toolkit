@@ -17,12 +17,10 @@ tags:
   - onnx
   - vq-vae
   - siggraph
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: Apache-2.0 (code); NVIDIA Open Model Agreement (models); NVIDIA Sample Data Evaluation License (sample motions)
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

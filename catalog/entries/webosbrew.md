@@ -15,7 +15,6 @@ tags:
   - smart-tv
   - rooting
   - sideloading
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: NOASSERTION
@@ -24,7 +23,6 @@ security_flags:
   - unauthenticated-telnet-root-shell
   - hardware-modification-risk
   - voids-warranty
-supersedes: []
 overlaps: []
 ---
 

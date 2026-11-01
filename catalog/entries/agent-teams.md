@@ -7,10 +7,8 @@ summary: "primary interactive dispatch path; subscription billing, no API credit
 tags: [agents, teams, dispatch, orchestration]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: proprietary
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

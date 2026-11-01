@@ -7,11 +7,9 @@ summary: "Line-oriented recursive regex search tool — respects .gitignore by d
 tags: [grep, search, regex, cli, rust, performance, code-search, gitignore]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

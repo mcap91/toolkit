@@ -5,12 +5,10 @@ url: "https://git.wearein.space/elias/fable-agent-orchestration"
 category: plugin
 summary: "Apache-2.0 skill database for multi-agent orchestration — 24 reusable skills covering worktree-isolated parallel PR workflows, two-critic review loops, agent PR validation against real diffs/CI, fake-green test detection, orphaned WIP recovery, instruction-drift control, behavior-contract harnesses, and phase-aware engineering ladders"
 tags: [agent-orchestration, skills, multi-agent, code-review, worktree-isolation, pr-validation]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [architect-loop, agent-skills-addy-osmani, dotclaude]
 source: unknown
 ---

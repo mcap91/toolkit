@@ -17,7 +17,6 @@ tags:
   - vision
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - strata
   - polystrata
@@ -30,7 +29,6 @@ security_flags:
   - new-project
   - requires-manual-source-build
   - unauthenticated-api-by-default
-workflows: []
 source: reddit
 source_url: https://www.reddit.com/r/LocalLLM/comments/1wxn8r7/daily_driving_qwen_38_flash_instead_of_claude/
 ---

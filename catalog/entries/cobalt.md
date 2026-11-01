@@ -5,12 +5,10 @@ url: "https://github.com/imputnet/cobalt"
 category: cli-tool
 summary: "General-purpose media downloader with a self-hosted API; no agent, skill, or bioinformatics relevance."
 tags: [media-download, self-hosted, api, proxy, youtube, video]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: [agpl-copyleft]
-supersedes: []
 overlaps: []
 source: unknown
 ---

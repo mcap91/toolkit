@@ -5,12 +5,10 @@ url: "https://instagram.com/agenticengineering"
 category: agent-pattern
 summary: "Concept for an agent skill that generates structured AI work receipts — two arms: time-saved estimates (human baseline vs AI-assisted time) and artifact metrics (lines of code, functions/modules shipped, bugs logged/closed); aimed at giving managers and stakeholders visibility into AI productivity gains"
 tags: [productivity, metrics, time-tracking, agent-patterns, accountability]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [codeburn]
 source: unknown
 ---

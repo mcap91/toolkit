@@ -4,15 +4,12 @@ title: AI Job Search
 url: "https://github.com/MadsLorentzen/ai-job-search"
 category: framework
 summary: "AI-powered job application framework built on Claude Code. Fork-and-own workflow: /setup (self-profiling from documents or interview), /scrape (multi-portal search with fit scoring), /apply (drafter-reviewer pipeline producing tailored LaTeX CV + cover letter with PDF verification loop and ATS text-layer check). Also ships /interview prep, /rank batch scoring, /outcome tracking, /gmail-sync, /notion-sync, /html-report dashboard, /upskill gap analysis, /expand competency enrichment, /add-portal and /add-template generators. Danish job portals built-in; LinkedIn and freehire.me for other markets; /add-portal scaffolds new portals. MIT."
-install: gh repo fork MadsLorentzen/ai-job-search --clone
 license: MIT
 tags: [claude-code, job-search, cv, cover-letter, latex, skills, workflow, career, automation, drafter-reviewer]
 reviewed: 2026-07-28
 acquired: 2026-07-28
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -51,3 +48,7 @@ MIT licensed. Job postings are treated as untrusted input — the workflow follo
 ## Usage notes
 
 - ATS parsing (r/jobsearchhacks thread, Oct 2026): parsers commonly scramble multi-column layouts, text boxes, icons, and unusual fonts, so a single-column, one-font (11–12pt), plain-bullet PDF/DOCX survives better; check by pasting the PDF's text into a plain-text file and confirming reading order. Complements this framework's ATS text-layer check on generated LaTeX CVs.
+
+## How to use it
+
+gh repo fork MadsLorentzen/ai-job-search --clone

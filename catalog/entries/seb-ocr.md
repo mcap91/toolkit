@@ -5,12 +5,10 @@ url: "https://github.com/ALucek/seb-ocr"
 category: cli-tool
 summary: "Vision-language pipeline for turning scanned historical pages into structured datasets — Gemini-based OCR with adaptive rate limiting, sliding-window entity extraction via Pydantic-constrained JSON, incremental caching, and semantic deduplication via embedding cosine similarity; single-script Python, MIT"
 tags: [ocr, gemini, entity-extraction, historical-documents, vlm, pydantic, deduplication, embeddings, political-science]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

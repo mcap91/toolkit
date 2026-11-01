@@ -7,10 +7,8 @@ summary: lightweight HO consultation route within existing sessions; no separate
 tags: [agents, subagents, dispatch, consultation]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: proprietary
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

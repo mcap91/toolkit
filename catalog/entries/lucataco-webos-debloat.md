@@ -16,7 +16,6 @@ tags:
   - telemetry
   - acr
   - privacy
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
@@ -24,7 +23,6 @@ security_flags:
   - root-shell-required
   - unauthenticated-telnet-root-shell
   - single-device-tested
-supersedes: []
 overlaps:
   - free-my-tv
 ---

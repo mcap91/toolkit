@@ -5,12 +5,10 @@ url: "https://github.com/mattpocock/skills"
 category: skill
 summary: "Collection of 17 composable Claude Code skills for disciplined engineering — grilling sessions (alignment interviews before coding), domain modeling (CONTEXT.md + ADRs), TDD red-green-refactor loop, codebase architecture audits with HTML reports, issue triage state machine, PRD synthesis, bug diagnosis loop, code review (standards + spec axes); installable via npx skills"
 tags: [claude-code-skills, engineering-discipline, domain-modeling, tdd, code-review, grilling, architecture, triage]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [andrej-karpathy-skills, grill-with-docs]
 source: unknown
 ---

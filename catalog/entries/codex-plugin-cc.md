@@ -5,12 +5,10 @@ url: "https://github.com/openai/codex-plugin-cc"
 category: plugin
 summary: "Official OpenAI plugin enabling Codex usage from within Claude Code — code review (/codex:review), adversarial review, task delegation (/codex:rescue), session transfer, and background job management; requires ChatGPT subscription or OpenAI API key"
 tags: [claude-code-plugin, codex, openai, code-review, cross-agent, delegation]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf"
 category: reference
 summary: "Google's spec (v0.2) for agent-friendly knowledge representation using Markdown + YAML frontmatter; adds provenance/freshness/trust signals, reference agent with web-crawling enrichment, interactive graph visualizer; closely aligned with our wiki pattern"
 tags: [knowledge-management, specification, google, markdown, frontmatter, agent-friendly, wiki]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-06-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [karpathy-llm-wiki-pattern]
 source: unknown
 ---

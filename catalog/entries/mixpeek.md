@@ -5,12 +5,10 @@ url: "https://mixpeek.com/education/videos/multimodal-warehouse-vs-vector-databa
 category: framework
 summary: "Multimodal search/retrieval infrastructure ('multimodal data warehouse') running on object storage: typed feature-extraction pipelines turn video/files into queryable timestamped features (scenes, transcripts, faces, OCR, fingerprints), embeddings are generated/stored from 50+ models, and multi-stage retrievers compose filter/join/rerank (advertised <100ms). Integrations include S3, GCS, R2, Mux, LangChain, and MCP. Catalog source is a Mixpeek education video contrasting an 'extract once, upstream of every app' model against a plain vector database."
 tags: [multimodal, search, retrieval, embeddings, vector-database, video, object-storage, feature-extraction, mcp]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: [hosted-service-data-flow]
-supersedes: []
 overlaps: []
 source: unknown
 ---

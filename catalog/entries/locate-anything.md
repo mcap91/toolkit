@@ -6,10 +6,8 @@ category: framework
 summary: novel parallel box decoding for vision-language grounding; 3B model on HuggingFace; evaluate for spatial/histology image analysis when pipeline matures
 tags: [vision, grounding, object-detection, nvidia, spatial, histology, image-analysis]
 license: Apache-2.0 (code); NVIDIA non-commercial research license (model weights)
-workflows: [spatial]
 reviewed: 2026-05-27
 acquired: 2026-05-27
-supersedes: []
 overlaps: []
 security_flags: [trust_remote_code]
 source: unknown

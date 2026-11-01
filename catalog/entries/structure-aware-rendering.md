@@ -7,11 +7,9 @@ summary: "Eye-tracking study (n=53) comparing how code rendering strategies (sta
 tags: [eye-tracking, cognitive-load, code-rendering, ast, vibe-coding, hci, ai-assisted-coding, user-study]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -4,10 +4,8 @@ title: Isaac Flath — Documents in AI Products (OCR Pipeline Guides)
 category: reference
 summary: "14-post blog series covering OCR model selection, VLM OCR, speculative decoding, PDF retrieval, chunking, quantization, and document QA — practical guidelines for designing OCR pipelines"
 tags: [ocr, vlm, retrieval, chunking, quantization, colbert, rag, document-processing, pdf]
-workflows: [ocr-bench]
 reviewed: 2026-09-03
 acquired: 2026-09-03
-supersedes: []
 license: n/a
 security_flags: []
 overlaps: [ovisocr2, opendataloader-pdf]

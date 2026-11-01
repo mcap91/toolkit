@@ -5,12 +5,10 @@ url: "https://github.com/tt-a1i/archify"
 category: skill
 summary: "Agent skill that turns codebase descriptions or system architectures into polished, interactive HTML/SVG diagrams — five diagram types (architecture, workflow, sequence, data-flow, lifecycle), typed JSON IR, deterministic validation, delta comparison for PR review, share-card export; installs into Claude Code / Codex / Cursor / OpenCode; MIT"
 tags: [diagrams, architecture, visualization, skill, svg, html, code-review, delta-comparison]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

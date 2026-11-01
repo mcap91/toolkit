@@ -72,24 +72,28 @@ queue. Never call `queue {action:list}`.
    - **Tool or product:** its docs and any technical write-up.
    - **Technique or report:** the item itself first; `WebSearch` for the paper, the original post,
      or the method's name when the item cites one.
-7. **Write the entry** with these body sections, in this order:
-   - `## What it is` — 2-4 sentences.
-   - `## How it works` — the core of the entry. Components and how they connect; the loop or
-     algorithm step by step; key data structures, prompts, config and parameters; the design
-     choices and the reasons given.
-   - `## How to use it` — install and run, requirements, integration points. Omit for a pure idea.
-   - `## Evaluation and limits` — how it is measured, the numbers and who claims them, failure
-     modes, known issues, pushback.
-   - `## Context from the source` — what the reel, post or thread adds: the poster's use case and
-     claims; for Reddit, the substantive comments (agreement, disagreement, alternatives,
-     experience), attributed; the source link.
-   - `## Related` — the catalog entries your searches found, one line each on how they relate.
-   - `## Security` — per the build-prompt checklist, from observed evidence.
+7. **Write the entry** per `catalog/template.md` (the public entry contract), with these body
+   sections, in this order:
+   - `## What it is` — 2-4 sentences on what the thing is.
+   - `## How it works` — components and how they connect, the loop or algorithm step by step, key
+     data structures, prompts, config, parameters, commands, and the design choices and reasons
+     given.
+   - `## How to use it` — install/run, requirements, integration points; omit for a pure idea with
+     nothing to install.
+   - `## Evaluation and limits` — how it is measured, claimed numbers (attributed), failure modes,
+     known issues, community pushback.
+   - `## Context from the source` — what the reel/post/carousel adds beyond the subject itself: the
+     poster's use case and claims, top comments, attributed, with the source link.
+   - `## Where to look next` — required when `url` is set; one line per target:
+     `- <what you learn there> — <URL or repo path>`.
+   - `## Related` — catalog entries found by search, one line each on how they relate.
+   - `## Security` — license, dependency health, code quality signals, supply chain, dangerous
+     patterns, maintenance, from observed evidence.
 
-   No length cap. Base `summary` and `security_flags` on observed evidence. Do not set
-   `decision_status`. Set `source_url` to the item's link and `source` to what that link derives to
-   (instagram/reddit/x/web); for a url-less text item, leave `source_url` unset and use
-   `source: text`. For a repo-first entry, `url` is the repo and `source_url` is the item's link.
+   No length cap. Base `summary` and `security_flags` on observed evidence. Set `source_url` to
+   the item's link and `source` to what that link derives to (instagram/reddit/x/web); an
+   instagram/reddit/x/text source must carry `source_url` (the link it came in on). For a
+   repo-first entry, `url` is the repo and `source_url` is the item's link.
 8. **Validate and write.** `validate-entry {entry}`; fix and re-validate until valid; then
    `write-entry {entry, name}`.
 9. **Repeat** steps 5-8 for every new entry, and step 4's `annotate-entry` for every annotation,

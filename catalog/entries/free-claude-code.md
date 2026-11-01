@@ -5,12 +5,10 @@ url: "https://github.com/Alishahryar1/free-claude-code"
 category: framework
 summary: "Drop-in proxy routing Claude Code (Anthropic Messages API) and Codex (OpenAI Responses API) traffic to 24 provider backends — per-model-tier routing, Admin UI, Discord/Telegram bot wrapper, voice-note transcription via local Whisper or NVIDIA NIM; Python/FastAPI, MIT"
 tags: [proxy, claude-code, codex, model-routing, llm-gateway, multi-provider]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [litellm, openrouter]
 source: unknown
 ---

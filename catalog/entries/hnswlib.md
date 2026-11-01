@@ -5,12 +5,10 @@ url: "https://github.com/nmslib/hnswlib"
 category: framework
 summary: "Header-only C++ library (with Python bindings) implementing HNSW (Hierarchical Navigable Small World) graph search — the standalone reference implementation of the HNSW algorithm by Yury Malkov and Dmitry Yashunin; incremental index construction, element deletion/update, custom C++ distances, L2/inner-product/cosine spaces; Apache-2.0"
 tags: [similarity-search, nearest-neighbor, hnsw, embeddings, cpp, ann-search, header-only]
-workflows: []
 reviewed: 2026-10-13
 acquired: 2026-10-13
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [faiss, scann]
 source: unknown
 ---

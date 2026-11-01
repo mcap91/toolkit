@@ -5,12 +5,10 @@ url: "https://boltz.bio/boltzmol-boltzprot-api"
 category: framework
 summary: "Boltz's biomolecular design API — BoltzMol-1 (small-molecule hit discovery, 6/10 targets with <51 compounds each) and BoltzProt-1 (de novo nanobody design, 3x hit rate over BoltzGen); $0.025/prediction, Python/JS SDKs, first-party Claude Code integration"
 tags: [drug-discovery, protein-design, structure-prediction, api, nanobody, small-molecule, bioinformatics]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: Proprietary
 security_flags: [proprietary-saas, api-key-required]
-supersedes: []
 overlaps: []
 source: unknown
 ---

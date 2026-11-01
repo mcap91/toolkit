@@ -5,12 +5,10 @@ url: "https://github.com/deepseek-ai/deepseek-harness"
 category: framework
 summary: "Open-source agent harness from DeepSeek AI built on Cordis, a reversible plugin meta-framework — models, tools, skills, sessions, sandboxes, storage, loops, scheduling, and the UI are all swappable plugins composed via configuration. MIT-licensed developer preview, open-sourced August 13, 2026 alongside DeepSeek-V4-Pro; quick start is `npx @deepseek-ai/dsh web`."
 tags: [agent-harness, plugin-architecture, cordis, deepseek, coding-agent, model-agnostic, sandboxing, session-replay, open-source, developer-preview]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: MIT
 security_flags: [developer-preview-breaking-changes, partial-sandbox-enforcement-reported]
-supersedes: []
 overlaps: [harness-engineering, claw-code]
 source: unknown
 ---

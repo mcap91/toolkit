@@ -5,12 +5,10 @@ url: "https://github.com/chroma-core/chroma"
 category: framework
 summary: "AI-native open-source embedding database — 4-function core API, automatic tokenization/embedding/indexing, metadata filtering, in-memory or persistent modes, SIMD-accelerated maxscore, sharding, group-by aggregation, Python/JS/Go clients; Chroma Cloud for managed serverless; Apache-2.0"
 tags: [vector-database, embeddings, rag, python, javascript, similarity-search, developer-experience]
-workflows: []
 reviewed: 2026-09-29
 acquired: 2026-09-29
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [qdrant, weaviate, milvus, pgvector, lancedb]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/prassanna-ravishankar/repowire"
 category: framework
 summary: "Compelling multi-agent mesh for cross-repo coordination, but macOS/Linux only and default spawn config ships dangerous permission flags"
 tags: [multi-agent, orchestration, mcp, claude-code, codex, gemini-cli, daemon, mesh, tmux, telegram, slack]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [spawn-ships-dangerously-skip-permissions, optional-external-relay, curl-pipe-sh-installer, macos-linux-only]
-supersedes: []
 overlaps: [claude-peers-mcp]
 source: unknown
 ---

@@ -4,15 +4,12 @@ title: Pandera
 url: "https://github.com/unionai-oss/pandera"
 category: framework
 summary: "Union.ai's dataframe validation library: define schemas (object-based DataFrameSchema or class-based DataFrameModel) with typed columns, built-in and custom checks, and validate pandas/polars/pyspark and other dataframe-like objects for correctness in data pipelines. MIT."
-install: "pip install 'pandera[pandas]'"
 license: MIT
 tags: [data-validation, schema, pandas, polars, pyspark, dataframes, testing, union-ai]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -31,3 +28,7 @@ As of v0.24.0 the recommended import for pandas is `import pandera.pandas as pa`
 ## Security
 
 MIT licensed. Pandera is an in-process validation library with no network surface; custom checks execute user-provided Python. No security flags recorded from the observed material.
+
+## How to use it
+
+pip install 'pandera[pandas]'

@@ -5,12 +5,10 @@ url: "https://github.com/merijjeyn/jive"
 category: framework
 summary: "Terminal coding-agent harness (TypeScript/Bun) whose planner submits one DAG ('graph call') of bash and Jev-decision nodes per turn instead of one tool call at a time, executing the plan locally and returning to the LLM only when a node's accept predicate fails; author-published, single-run benchmarks across 6 tasks report a mean 2m31s/8.7k output tokens for Jive vs 12m12s/32.7k tokens for Claude Code and ~17m40s/16.2k tokens for Codex. MIT license, single contributor, repo created 2026-09-21."
 tags: [coding-agent, terminal, cli-tool, dag, graph-execution, typescript, bun, decision-model, jev, benchmarks]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: [curl-pipe-sh-install, single-contributor, new-repo, self-reported-benchmarks, third-party-decision-api-dependency]
-supersedes: []
 overlaps: [pi-coding-agent]
 source: unknown
 ---

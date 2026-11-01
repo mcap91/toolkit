@@ -14,14 +14,12 @@ tags:
   - branching-structures
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags:
   - unmaintained
   - single-maintainer
   - requires-manual-source-build
-workflows: []
 source: instagram
 source_url: https://www.instagram.com/reel/DemMV03uWzP/
 ---

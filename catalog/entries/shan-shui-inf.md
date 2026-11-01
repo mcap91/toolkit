@@ -7,11 +7,9 @@ summary: Procedurally-generated infinitely-scrolling Chinese landscape paintings
 tags: [procedural-generation, generative-art, svg, javascript, chinese-landscape, browser, creative-coding]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: unknown
 security_flags: []
-workflows: []
 source: unknown
 ---
 

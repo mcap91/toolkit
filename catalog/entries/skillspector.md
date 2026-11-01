@@ -5,12 +5,10 @@ url: "https://github.com/nvidia/skillspector"
 category: cli-tool
 summary: "NVIDIA open-source security scanner for AI agent skills — scans SKILL.md files, folders, repos, and libraries for prompt injection, credential theft, data exfiltration, remote scripts, hidden persistence, and MCP tool poisoning; returns 0–100 risk score; installable as MCP server"
 tags: [security, skills, scanning, mcp, nvidia, supply-chain]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

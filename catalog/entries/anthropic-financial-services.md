@@ -5,12 +5,10 @@ url: "https://github.com/anthropics/financial-services"
 category: plugin
 summary: "Official Anthropic reference agents and skills for financial services — 10 named workflow agents (Pitch Agent, Market Researcher, GL Reconciler, etc.), 7 vertical skill bundles (IB, equity research, PE, wealth management, fund admin, ops), 12 MCP data connectors (FactSet, S&P, Morningstar, PitchBook, LSEG, etc.); dual deployment as Cowork plugins or Managed Agents API; Apache-2.0"
 tags: [anthropic-official, financial-services, investment-banking, equity-research, private-equity, wealth-management, mcp-server, managed-agents]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

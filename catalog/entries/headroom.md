@@ -5,12 +5,10 @@ url: "https://github.com/chopratejas/headroom"
 category: framework
 summary: "Powerful context compression with real benchmarks, but proxy/MITM position and headroom learn's CLAUDE.md writes are significant trust risks for adoption without review"
 tags: [context-compression, token-reduction, mcp-server, proxy, memory, agent-wrap, claude-code]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [mitm-proxy, agent-instructions-write, single-author, unvetted-ml-model]
-supersedes: []
 overlaps: [headroom-desktop, rtk-cli-proxy, context-graph-compressor]
 source: unknown
 ---

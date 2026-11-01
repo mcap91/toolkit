@@ -4,15 +4,12 @@ title: Polars
 url: "https://github.com/pola-rs/polars"
 category: framework
 summary: "Rust-core columnar DataFrame library with a multi-threaded, vectorized (SIMD) query engine and lazy query optimizer; Python/Rust/Node/R APIs, Apache Arrow memory model, streaming out-of-core execution, and readers/writers for CSV/JSON/Parquet/Delta/Arrow/databases/cloud storage. MIT."
-install: pip install polars
 license: MIT
 tags: [dataframes, rust, apache-arrow, query-engine, simd, out-of-core, data-processing, python]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -34,3 +31,7 @@ A commercial managed offering, Polars Cloud, runs the same API with cloud or on-
 ## Security
 
 MIT licensed. Polars is a data-processing library with no network service surface of its own; it reads/writes files, databases, and cloud storage using credentials the calling process provides. No security flags recorded from the observed material.
+
+## How to use it
+
+pip install polars

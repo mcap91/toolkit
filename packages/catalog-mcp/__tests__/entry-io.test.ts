@@ -4,7 +4,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { persistEntry } from '../src/core/entry-io.js';
 
-const valid = `---\nname: t\ntitle: "T"\nurl: https://x.com/t\nsource: text\ncategory: skill\nsummary: ok\ntags: [a]\nreviewed: 2026-06-08\n---\nbody\n`;
+const valid = `---\nname: t\ntitle: "T"\nurl: https://x.com/t\nsource: text\nsource_url: https://example.com/post/1\ncategory: skill\nsummary: ok\ntags: [a]\nreviewed: 2026-06-08\n---\nbody\n`;
 
 describe('persistEntry', () => {
   let dir: string;

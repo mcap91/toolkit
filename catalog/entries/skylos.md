@@ -5,12 +5,10 @@ url: "https://github.com/duriantaco/skylos"
 category: cli-tool
 summary: "Local-first static analysis CLI (Python, TS/JS, Java, Go, Kotlin, PHP, Rust, Dart, C#, Shell) that scans for dead code, security flaws, secrets, CI/CD misconfig, quality regressions, and AI-generated code defects; ships as CLI, GitHub Action, VS Code extension, and MCP server"
 tags: [static-analysis, dead-code, sast, secrets-scanning, ci-cd, pr-gate, mcp-server, ai-code-verification, python, cli]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

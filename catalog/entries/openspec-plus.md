@@ -5,12 +5,10 @@ url: "https://github.com/sudokar/openspec-plus"
 category: framework
 summary: "Spec-driven engineering workflow with strict TDD, adversarial review agents, and self-fixing on failures; similar approach to SpecShip"
 tags: [spec-driven, tdd, adversarial-review, autonomous-engineering]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [specship]
 source: unknown
 ---

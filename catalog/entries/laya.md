@@ -5,12 +5,10 @@ url: "https://huggingface.co/convaiinnovations/laya"
 category: framework
 summary: "Multilingual, non-autoregressive 'System 1' decision model family from Convai Innovations — takes a state (text/email/ticket/JSON) plus typed questions (choice/score/noul) and returns typed answers with calibrated probabilities in one forward pass (~33ms); open-weight (Apache 2.0), self-hostable alternative to TypeSafe AI's closed Jev API, with a Jev-compatible HTTP endpoint; trained via RLCD so honest probability reporting is reward-maximizing"
 tags: [classification, inference, llm-alternative, open-weights, multilingual, rlcd, bert, jev-alternative, self-hosted, agent-routing]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: [no-auth-by-default]
-supersedes: []
 overlaps: [jev]
 source: unknown
 ---

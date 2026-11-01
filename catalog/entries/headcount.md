@@ -4,15 +4,12 @@ title: Headcount
 url: "https://github.com/cbrock84/headcount"
 category: plugin
 summary: "Claude Code plugin structured as a 16-department company org chart — 146 skills across CEO, Technology, Security (reviewer-class), IT Ops, Product, Marketing, Demand Gen, Revenue, Finance, Operations, PMO, Customer Experience, Data & Analytics, Corporate Strategy, People/HR, and Legal & Risk (reviewer-class); each department independently installable via marketplace, skills addressed as department:skill, agent charters for subagent delegation, exclusive write-surface enforcement; MIT"
-install: /plugin marketplace add cbrock84/headcount
 tags: [claude-code-plugin, skills-library, organizational, departments, agent-hierarchy, subagents, write-surface, reviewer-class, enterprise]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [claude-skills-rezvani, agent-skills-osmani]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -54,3 +51,7 @@ Requires Claude Code with plugin support. Interactive org chart at `docs/org-cha
 ## Security
 
 MIT licensed. All 146 skills written by a single author (Chris Brock). No external dependencies or third-party skill code. CI checks enforce that no third-party license text appears. The reviewer-class department pattern (Security, Legal) provides built-in review gates for security-sensitive work.
+
+## How to use it
+
+/plugin marketplace add cbrock84/headcount

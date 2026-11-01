@@ -19,7 +19,6 @@ tags:
   - verification
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - claude-howto
   - creating-claude-md
@@ -27,7 +26,6 @@ overlaps:
   - scrub-context-engineering
 license: proprietary
 security_flags: []
-workflows: []
 source: unknown
 ---
 

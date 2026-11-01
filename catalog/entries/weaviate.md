@@ -5,12 +5,10 @@ url: "https://github.com/weaviate/weaviate"
 category: framework
 summary: "Go-based AI-native vector database — stores objects with vectors, integrated vectorization via OpenAI/Cohere/HuggingFace modules, semantic + BM25 keyword + hybrid search, built-in RAG and reranking, ACORN filtered search, multi-tenancy with RBAC, object TTL, gRPC/REST/GraphQL APIs; BSD-3-Clause"
 tags: [vector-database, semantic-search, hybrid-search, rag, go, embeddings, multi-tenancy, reranking]
-workflows: []
 reviewed: 2026-09-29
 acquired: 2026-09-29
 license: BSD-3-Clause
 security_flags: []
-supersedes: []
 overlaps: [qdrant, milvus, pgvector, chroma, lancedb]
 source: unknown
 ---

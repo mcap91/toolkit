@@ -5,12 +5,10 @@ url: "https://github.com/browser-use/browser-use"
 category: framework
 summary: "MIT-licensed Python/Rust framework giving LLM agents real browser control — useful for web scraping, form automation, and accessing bioinformatics portals, but Rust-core beta is still experimental and full capability requires commercial cloud"
 tags: [browser-automation, web-scraping, agent, python, rust, claude-code-skill]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [curl-install-pattern, cloud-data-sharing-risk]
-supersedes: []
 overlaps: []
 source: unknown
 ---

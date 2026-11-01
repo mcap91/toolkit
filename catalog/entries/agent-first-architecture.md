@@ -5,12 +5,10 @@ url: "https://example.com"
 category: agent-pattern
 summary: "Architecture pattern where a general coding agent (Claude Code, Codex, OpenCode) running on a VPS is the orchestrator, calling deterministic scripts and connectors from a repo, inverting the usual app-calls-LLM relationship"
 tags: [agent-architecture, orchestration, vps, deterministic-code, general-agent, tool-calling]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

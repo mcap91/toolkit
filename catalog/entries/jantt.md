@@ -18,14 +18,12 @@ tags:
   - ai-native
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags:
   - new-project
   - single-maintainer
   - cloud-dependency
-workflows: []
 source: instagram
 ---
 

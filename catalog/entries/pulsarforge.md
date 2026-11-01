@@ -5,12 +5,10 @@ url: "https://github.com/siris9476/pulsarforge"
 category: framework
 summary: "CPU-only MoE inference engine in C11 — streams 744B-parameter models off SSD via expert-level LRU caching, cross-layer predictive prefetch (80.8% recall), and dynamic-k expert truncation; 21x speedup over naive on i7-8550U/32GB"
 tags: [inference, cpu, moe, streaming, c, local-llm]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

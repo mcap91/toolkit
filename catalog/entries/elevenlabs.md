@@ -16,14 +16,12 @@ tags:
   - deepfake-risk
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - voicestudio
 license: proprietary
 security_flags:
   - closed-source
   - biometric-data-handling
-workflows: []
 source: reddit
 ---
 

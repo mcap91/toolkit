@@ -5,12 +5,10 @@ url: "https://github.com/patchy631/ai-engineering-hub"
 category: reference
 summary: "Curated collection of 93+ hands-on tutorial projects for LLM/RAG/agent engineering, organized by difficulty (beginner/intermediate/advanced), covering OCR, chat UIs, RAG variants, MCP integrations, model comparisons, fine-tuning, and production agent systems"
 tags: [llm, rag, agents, mcp, tutorials, fine-tuning, multimodal, crewai, llamaindex]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

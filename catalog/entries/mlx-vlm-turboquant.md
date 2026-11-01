@@ -5,12 +5,10 @@ url: "https://github.com/Blaizzy/mlx-vlm/pull/858"
 category: framework
 summary: Production-quality Metal kernels implementing TurboQuant on Apple Silicon; benchmarked and ready for review but PR not yet merged
 tags: [quantization, kv-cache, apple-silicon, mlx, metal, inference, vision-language]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: [pr-not-merged]
-supersedes: []
 overlaps: [turboquant]
 source: unknown
 ---

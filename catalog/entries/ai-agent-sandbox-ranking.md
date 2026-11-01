@@ -5,12 +5,10 @@ url: "https://github.com/CelestoAI/SmolVM"
 category: reference
 summary: "Practitioner ranking of open-source sandboxes for AI agents by a SmolVM maintainer (disclosed bias) — criteria are ease of setup, snapshotting, fork/clone, pause/resume, Linux+macOS support, and computer-use/desktop workflows; ranks SmolVM > Microsandbox > OpenSandbox > E2B and argues 'best sandbox' depends on whether agents need persistent state, browsers, or desktops rather than just code execution"
 tags: [sandbox, agent-infrastructure, smolvm, microsandbox, opensandbox, e2b, snapshotting, computer-use, comparison]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: [author-affiliation-bias]
-supersedes: []
 overlaps: [e2b, opensandbox, docker-alternatives-for-ai-agents]
 source: unknown
 ---

@@ -7,10 +7,8 @@ summary: kb wiki + Claude Code built-in memory cover our needs; adds SQLite + Ch
 tags: [memory, persistence, vector-search, sessions, hooks, kb]
 license: Apache-2.0
 security_flags: []
-workflows: []
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 overlaps: [gbrain, third-brain-v5-wiki]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/sgl-project/sglang"
 category: framework
 summary: "High-performance LLM/VLM serving framework from UC Berkeley/LMSYS — RadixAttention automatically reuses KV cache across requests with shared prefixes via radix tree, achieving 75–95% cache hit rates on multi-turn agent workloads; structured generation language for constrained decoding; powers 400K+ GPUs in production (xAI, NVIDIA, AMD, LinkedIn); part of PyTorch ecosystem; Apache-2.0"
 tags: [inference, serving, kv-cache, radix-attention, structured-generation, llm-serving, vllm-alternative, gpu]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

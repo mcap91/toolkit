@@ -5,12 +5,10 @@ url: "https://github.com/GAIR-NLP/ASI-Evolve"
 category: framework
 summary: "Impressive autonomous research-loop results but arbitrary code execution per round, no stated license, and very new (2026 academic repo)"
 tags: [autonomous-research, agentic, evolutionary-search, experiment-automation, bioinformatics, llm-driven, multi-agent, orchestration]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-unknown
 security_flags: [arbitrary-code-execution, no-license-stated, no-tests-observed, no-ci-observed]
-supersedes: []
 overlaps: [era-empirical-research-assistant]
 source: unknown
 ---

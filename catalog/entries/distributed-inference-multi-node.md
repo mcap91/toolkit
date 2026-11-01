@@ -8,9 +8,7 @@ reviewed: 2026-09-25
 acquired: 2026-09-25
 license: N/A
 security_flags: []
-supersedes: []
 overlaps: [on-prem-llm-deployment-architecture, nvidia-pair]
-workflows: []
 source: unknown
 ---
 

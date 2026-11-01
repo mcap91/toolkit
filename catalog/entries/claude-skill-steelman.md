@@ -5,12 +5,10 @@ url: "https://github.com/techiejd/claude-skill-steelman"
 category: skill
 summary: "Single-purpose /steelman skill that pressure-tests decisions by arguing strongest alternatives at full strength — anti-sycophancy focused, context-specific; overlaps with doubt-driven-development (agent-skills) and superpowers:brainstorming"
 tags: [decision-making, anti-sycophancy, claude-code, skill]
-workflows: []
 reviewed: 2026-06-25
 acquired: 2026-06-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [agent-skills-osmani]
 source: unknown
 ---

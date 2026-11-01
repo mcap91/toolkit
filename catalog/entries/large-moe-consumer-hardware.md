@@ -6,11 +6,9 @@ summary: "Practitioner guide to running 176B MoE models (Qwen3.8-Flash-Next, 6B 
 tags: [moe, llama-cpp, local-inference, cpu-offload, speculative-decoding, n-gram, consumer-hardware, vram, gguf]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [on-prem-llm-deployment-architecture, kv-cache-vram-sizing]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

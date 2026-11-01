@@ -4,15 +4,12 @@ title: Orca (ADE)
 url: "https://github.com/stablyai/orca"
 category: cli-tool
 summary: "Agent Development Environment for running parallel coding agents (Claude Code, Codex, OpenCode, Pi, 30+ others) side-by-side — each in its own git worktree, tracked in one place; Ghostty-class terminal splits, Design Mode (Chromium click-to-prompt), annotate AI diffs, GitHub/Linear integration, SSH worktrees, mobile companion (iOS/Android), CLI for scripting; Electron, MIT"
-install: brew install --cask stablyai/orca/orca
 tags: [agent-orchestration, worktrees, parallel-agents, claude-code, codex, terminal, design-mode, github, linear, mobile, ssh, diff-review]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: [telemetry-opt-out]
-workflows: []
 source: unknown
 ---
 
@@ -39,3 +36,7 @@ Desktop app for macOS (Apple Silicon + Intel), Windows, Linux (AppImage). Also a
 ## Security
 
 MIT licensed. Collects anonymous usage telemetry with opt-out available (documented in privacy & telemetry docs). Windows builds signed via SignPath.io. The tool runs agents using the user's own CLI subscriptions — no API keys stored by Orca itself.
+
+## How to use it
+
+brew install --cask stablyai/orca/orca

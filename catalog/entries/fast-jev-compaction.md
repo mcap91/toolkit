@@ -5,12 +5,10 @@ url: "https://github.com/tamaratran/fast-jev-compaction"
 category: plugin
 summary: "Claude Code plugin/npm library that replaces the built-in compaction summary with a Jev (TypeSafe AI) scored prune of tool calls/results; depends on Claude Code's unshipped function-hooks feature and an early-access third-party API, and a filed issue shows its hook events go unrecognized (silent no-op) on a recent Claude Code build"
 tags: [token-reduction, compaction, claude-code, plugin, hooks, context-management]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: [external-api-dependency, api-key-required, unshipped-feature-dependency, known-compatibility-bug, unverified-stars]
-supersedes: []
 overlaps: [headroom, distill]
 source: unknown
 ---

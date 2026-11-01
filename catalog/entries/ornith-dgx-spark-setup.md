@@ -7,11 +7,9 @@ summary: "Deployment toolkit for serving Ornith-1.5-35B-A3B (35B MoE, 3B active)
 tags: [ornith, dgx-spark, vllm, moe, self-hosted, multi-user, local-inference, deployment, gpu, grafana, api-gateway]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: [on-prem-llm-deployment-architecture]
 license: unknown
 security_flags: []
-workflows: []
 source: unknown
 ---
 

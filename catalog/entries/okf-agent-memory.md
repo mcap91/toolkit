@@ -5,12 +5,10 @@ url: "https://github.com/okf-memory/okf-agent-memory"
 category: framework
 summary: "Git-native persistent memory framework for AI coding agents — a compact push-layer behavioral codex (AGENTS.md, ~100-150 tokens) enforced through Agent Action Grammar (AAG), plus a pull-layer knowledge bundle (OKF v0.2 Markdown+YAML) searched via a pure-Go embedded MCP server with sub-300us in-memory BM25; ships a linter enforcing AAG's token budget, ASCII-only syntax, and tool-signature parity rules"
 tags: [context-engineering, memory, mcp, prompt-optimization, agent-architecture]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT
 security_flags: [new-project, unverified-vendor-claims]
-supersedes: []
 overlaps: [ai-memory-comparison]
 source: unknown
 ---

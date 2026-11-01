@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Explainer of the DeepSeek Harness design shift as described by Stephen G. Pope — instead of defining an agent's tools, prompts, model, and loop in application code (requiring rebuild/redeploy to change), the harness moves that behavior into configuration the running system can hot-reload, letting a coding agent modify its own behavior and create/adjust tools without a release process; characterized as early but notable for agent builders"
 tags: [harness, deepseek, configuration, hot-reload, agent-architecture, self-modification, coding-agents]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: []
-supersedes: []
 overlaps: [agent-harness-meta-harness-terminology]
 source: unknown
 ---

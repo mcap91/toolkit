@@ -13,12 +13,10 @@ tags:
   - ide-plugin
   - continuous-inspection
   - devsecops
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: LGPL-3.0 (Community Build); bundled analyzers under Sonar Source-Available License v1 (SSALv1); commercial editions separately licensed
 security_flags: []
-supersedes: []
 overlaps:
   - semgrep
   - codeql

@@ -5,12 +5,10 @@ url: "https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct"
 category: framework
 summary: "Alibaba's 32.5B-parameter code-specialized open-weight LLM — 64-layer transformer with GQA (40Q/8KV), 128K context via YaRN, trained on 5.5T tokens including source code and synthetic data; coding abilities reported as matching GPT-4o; Apache-2.0"
 tags: [llm, code-generation, open-weights, qwen, alibaba, local-inference]
-workflows: []
 reviewed: 2026-06-26
 acquired: 2026-06-26
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [qwen36-27b]
 source: unknown
 ---

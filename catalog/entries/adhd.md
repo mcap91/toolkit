@@ -4,15 +4,12 @@ title: ADHD
 url: "https://github.com/UditAkhourii/adhd"
 category: skill
 summary: "parallel divergent ideation via isolated cognitive frames; overlaps with superpowers:brainstorming but the frame isolation and scoring mechanics are worth studying"
-install: npx skills add UditAkhourii/adhd
 tags: [ideation, brainstorming, parallel, divergent-thinking, cognitive-frames, subagents]
 reviewed: 2026-05-27
 acquired: 2026-05-27
-supersedes: []
 overlaps: [superpowers-brainstorming]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -35,3 +32,7 @@ Install: `npx skills add UditAkhourii/adhd` or manual curl of `SKILL.md`. Trigge
 Licensed MIT — permissive, no copyleft obligations. No security flags apply.
 
 This is a Claude Code skill (a SKILL.md prompt file) installed via `npx skills add`. It runs entirely as prompt instructions inside the agent harness — no external code execution, no network calls, no credential storage. The optional CLI (`npm install -g adhd-agent`) and library (`npm install adhd-agent`) are Node.js packages that make LLM API calls using the caller's existing API key; no new credential surface is introduced beyond what the host agent already holds. Dependency risk is low: the package is small and MIT-attributed by all known forks and adopters. Audit `package.json` before installing the npm package if that surface matters.
+
+## How to use it
+
+npx skills add UditAkhourii/adhd

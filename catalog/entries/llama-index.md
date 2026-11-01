@@ -4,15 +4,12 @@ title: LlamaIndex
 url: "https://github.com/run-llama/llama_index"
 category: framework
 summary: "Open-source Python data framework for building LLM/RAG and document-agent apps: data connectors, indices/graphs, retrievers, and query engines to augment LLMs with private data, with 300+ integration packages (LLMs, embeddings, vector stores) on LlamaHub. Pairs with the commercial LlamaParse/Parse agentic-OCR platform. MIT."
-install: pip install llama-index
 license: MIT
 tags: [rag, llm, data-framework, retrieval, vector-store, document-agents, ocr, llamaparse]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -38,3 +35,7 @@ MIT licensed. LlamaIndex orchestrates calls to third-party LLM/embedding/vector-
 - **LlamaAgents** (`run-llama/llama-agents`) is a separate repo for building and deploying document-centric agents; uses the Workflows primitive under the hood.
 - The `run-llama` org also ships a standalone Rust document parser (12k+ stars) and `llamactl` CLI for one-command agent deployment.
 - ACP (Agent Client Protocol) integration landed in 2026, enabling interop with other agent frameworks.
+
+## How to use it
+
+pip install llama-index

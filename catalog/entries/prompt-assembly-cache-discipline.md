@@ -4,12 +4,10 @@ title: Prompt Assembly and Cache Discipline
 category: agent-pattern
 summary: "Rules for LLM prompt assembly that preserve KV-cache efficiency — never rewrite the front of a prompt (invalidates cached tokens), avoid sliding windows that evict oldest turns (same cost), cap fat messages in-place to stay cacheable, put retrieval/per-query content last as a suffix so changes do not poison the cached prefix; includes five-layer assembler concept and ablation methodology"
 tags: [prompt-engineering, kv-cache, context-management, token-efficiency, prompt-assembly, caching]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

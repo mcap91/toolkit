@@ -7,11 +7,9 @@ summary: "Probabilistic programming language where programs are ordered lists of
 tags: [procedural-generation, rewrite-rules, constraint-propagation, markov-algorithms, wave-function-collapse, grid-generation, csharp, dotnet]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

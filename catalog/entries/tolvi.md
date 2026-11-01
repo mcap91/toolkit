@@ -5,12 +5,10 @@ url: "https://github.com/tolvi-labs/tolvi"
 category: framework
 summary: "Solid CAG/RAG dual-mode decision-capture design but pre-1.0, small project, and overlaps with kb already in use"
 tags: [decisions, knowledge-management, adr, vault, claude-code-skill, rag, cag, go-cli, agent-integration]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [pre-release, unverified-release-signing]
-supersedes: []
 overlaps: []
 source: unknown
 ---

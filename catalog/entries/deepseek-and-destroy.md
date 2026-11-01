@@ -5,12 +5,10 @@ url: "https://github.com/frozenpepper/deepseek-and-destroy"
 category: skill
 summary: "Portable, multi-harness coding-agent skill in which an expensive orchestrator model decomposes and gates a multi-phase implementation plan while routing survey, implementation, review, and verification work to cheap DeepSeek-v4-flash workers via OpenCode CLI, using a worker proof-obligation discipline meant to catch tests that pass for the wrong reason."
 tags: [multi-agent, orchestration, deepseek, opencode, cost-optimization, plan-execution, worker-pattern, codex, claude-code, kilocode]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [architect-loop]
 source: unknown
 ---

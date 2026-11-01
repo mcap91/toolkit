@@ -17,7 +17,6 @@ tags:
   - rag-alternative
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - karpathy-llm-wiki
   - nvk-llm-wiki
@@ -26,7 +25,6 @@ security_flags:
   - network-service
   - api-keys-required
   - copyleft-license
-workflows: []
 source: web
 ---
 

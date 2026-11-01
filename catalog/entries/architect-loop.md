@@ -5,12 +5,10 @@ url: "https://github.com/DanMcInerney/architect-loop"
 category: agent-pattern
 summary: "Research-backed cross-vendor agent loop with strong separation of concerns; excellent design patterns for gated, worktree-isolated multi-agent builds"
 tags: [multi-agent, cross-vendor, claude-code-skill, codex, worktree-isolation, gates, research, orchestration]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [claude-agent-teams, scheduled-multi-agent-coordinator]
 source: unknown
 ---

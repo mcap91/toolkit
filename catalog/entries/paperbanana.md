@@ -5,12 +5,10 @@ url: "https://github.com/dwzhu-pku/PaperBanana"
 category: framework
 summary: "Reference-driven multi-agent framework for automated academic illustration — five specialized agents (Retriever, Planner, Stylist, Visualizer, Critic) transform method descriptions and figure captions into publication-quality diagrams and plots via in-context learning, style guidelines, and iterative critic refinement; Gradio/Streamlit UIs, CLI, ClawHub skill; Google Research origin, Apache-2.0 (Google patents on core workflows restrict commercial use)"
 tags: [academic-illustration, multi-agent, image-generation, vlm, scientific-figures, in-context-learning, gradio, streamlit, research-tools]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: Apache-2.0
 security_flags: [patent-restricted-commercial]
-supersedes: []
 overlaps: []
 source: unknown
 ---

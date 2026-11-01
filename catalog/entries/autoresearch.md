@@ -5,12 +5,10 @@ url: "https://github.com/karpathy/autoresearch"
 category: framework
 summary: "Highly influential autonomous experimentation loop pattern, but ML-training-specific — transferable idea, not transferable code"
 tags: [autonomous-agents, ml-training, experimentation, karpathy, agent-loop]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

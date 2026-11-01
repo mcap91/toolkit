@@ -4,15 +4,12 @@ title: termDRAW
 url: "https://github.com/benvinegar/termdraw"
 category: cli-tool
 summary: "Agent-friendly ASCII diagram editor for the terminal — retained vector-style objects (lines, boxes, text) with rearranging, fenced Markdown export, native .td.json documents for re-editing, clipboard via OSC 52, embeddable OpenTUI components; Bun 1.3+, MIT"
-install: "npm install --global @termdraw/app"
 tags: [terminal, ascii-art, diagrams, drawing, agent-friendly, opentui, pi, bun, markdown-export]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -37,3 +34,7 @@ Requires Bun 1.3+ and a terminal with mouse support. Three npm packages: `@termd
 ## Security
 
 MIT licensed. No security flags. Terminal-local tool with no network calls, no telemetry, no credentials. The OSC 52 clipboard path is handled by the terminal emulator, not the host OS.
+
+## How to use it
+
+npm install --global @termdraw/app

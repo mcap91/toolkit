@@ -7,10 +7,8 @@ summary: superpowers verification-before-completion covers this; confidence mode
 tags: [verification, quality, confidence-model]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

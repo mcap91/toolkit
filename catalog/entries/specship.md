@@ -5,12 +5,10 @@ url: "https://github.com/aws-samples/sample-specship"
 category: framework
 summary: "AWS spec-driven autonomous engineering framework (Kiro Power) — brownfield recon, contract-first markdown specs, strict TDD gates, adversarial parallel validation with up to 7 subagents, and self-healing fix agents"
 tags: [spec-driven, tdd, adversarial-review, kiro, autonomous-engineering, aws]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

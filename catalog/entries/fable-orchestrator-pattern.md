@@ -4,12 +4,10 @@ title: Fable Orchestrator Pattern (Multi-Model Delegation)
 category: agent-pattern
 summary: "Workflow pattern using Claude Fable as principal orchestrator with cheaper models (Sonnet, Opus, Codex/GPT-5.6) as execution workers — Fable plans and judges, workers implement and review in loops; achieves ~92–96% of Fable-solo quality at 40–63% of the cost; implemented via Claude Code agents, Codex CLI persistent threads, or the advisor tool"
 tags: [claude-code, fable, orchestration, multi-model, cost-optimization, codex, sonnet, opus, delegation]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [advisor-strategy, frontier, native-subagents]
 source: unknown
 ---

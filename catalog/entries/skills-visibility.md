@@ -5,12 +5,10 @@ url: "https://github.com/evilmartians/agent-skills/blob/main/skills/skills-visib
 category: skill
 summary: "Agent skill (by Evil Martians) that walks through publishing a discoverable, installable catalog of agent skills: lay each skill out as skills/<name>/SKILL.md in a git repo, classify its shape (single-file / multi-file / bundle), re-host and hash the served bytes from a domain you control, build flat reproducible tar.gz archives, and publish a .well-known/agent-skills/index.json discovery index (agentskills.io schema / Cloudflare's RFC 8615 extension) so npx skills, gh skill, and Claude's plugin marketplace resolve them. Emphasizes sha256 integrity digests and offering multiple install commands."
 tags: [agent-skills, skill, distribution, discovery-index, well-known, packaging, claude-code, integrity, evil-martians]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

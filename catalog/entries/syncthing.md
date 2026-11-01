@@ -5,12 +5,10 @@ url: "https://github.com/syncthing/syncthing"
 category: cli-tool
 summary: "Mature, audited, decentralized file sync daemon — production-grade for agent artifact persistence and cross-machine data sharing."
 tags: [file-sync, decentralized, p2p, self-hosted, cross-platform, golang, tls, data-safety]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MPL-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

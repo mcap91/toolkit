@@ -5,12 +5,10 @@ url: "https://github.com/tomschimansky/customtkinter"
 category: framework
 summary: "Python UI library built on Tkinter providing modern, customizable widgets (CTkButton, CTkFrame, scrollable frames) with light/dark appearance modes, HighDPI scaling, and JSON-based theming across Windows, macOS, and Linux"
 tags: [python, gui, tkinter, desktop, cross-platform, theming, dark-mode]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: CC0-1.0
 security_flags: []
-supersedes: []
 overlaps: [tkinter]
 source: unknown
 ---

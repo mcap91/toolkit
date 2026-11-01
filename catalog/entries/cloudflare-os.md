@@ -5,12 +5,10 @@ url: "https://github.com/cloudflare/cloudflare-os"
 category: framework
 summary: "Cloudflare's open-sourced internal 'agent workspace' platform on Workers/Durable Objects — sandboxed per-user 'Gadgets' (AI-built mini-apps) governed by capability-based 'Gatekeeper' services that mediate external-API access and support async human-in-the-loop approval"
 tags: [cloudflare-workers, durable-objects, agent-workspace, sandboxing, capability-based-security, gadgets, mcp-alternative, apache-2.0]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

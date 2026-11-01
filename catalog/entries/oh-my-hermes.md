@@ -4,15 +4,12 @@ title: Oh My Hermes (OMH)
 url: "https://github.com/rlaope/oh-my-hermes"
 category: framework
 summary: "Operating layer for Hermes Agent — 101 installable workflow skills across six capability families (plan, build, research, code, create, operate) with deterministic routing, evidence boundaries, review-first project memory, and multi-language classification; Python-based, local-first control plane"
-install: "curl -fsSL https://raw.githubusercontent.com/rlaope/oh-my-hermes/main/install.sh | sh && omh setup"
 tags: [hermes-agent, workflow, skills, routing, evidence-gates, project-memory, multi-language, orchestration, coding-handoffs]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [agent-skills-addy-osmani, superpowers-brainstorming]
 license: UNLICENSED
 security_flags: [curl-pipe-sh-install]
-workflows: []
 source: unknown
 ---
 
@@ -35,3 +32,7 @@ A forked variant by Salomondiei08 exists with a different skill set (36 skills, 
 ## Security
 
 No license file identified in the repository — treated as UNLICENSED (all rights reserved by default). The curl-pipe-sh install pattern is a supply-chain risk surface: users execute arbitrary remote code before inspecting it. The `omh setup` command runs post-install configuration whose scope is not auditable without reading the script. Python-based with `uv` as the package manager. The project is developed in the open under "Team Art & Engineering" (@rlaope). Contributor count and release signing status are not documented.
+
+## How to use it
+
+curl -fsSL https://raw.githubusercontent.com/rlaope/oh-my-hermes/main/install.sh | sh && omh setup

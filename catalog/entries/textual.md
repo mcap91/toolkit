@@ -4,15 +4,12 @@ title: Textual
 url: "https://github.com/Textualize/textual"
 category: framework
 summary: "Textualize's Python TUI framework for building cross-platform terminal user interfaces with a simple, optionally-async API and a large widget library (buttons, trees, data tables, inputs, text areas); apps can also be served to a web browser via textual serve / Textual Web. MIT."
-install: pip install textual textual-dev
 license: MIT
 tags: [tui, terminal, python, ui-framework, textualize, async, widgets, cli]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -30,3 +27,7 @@ Textual is a Python framework for building cross-platform user interfaces that r
 ## Security
 
 MIT licensed. Textual apps run locally in the terminal; serving to the web (`textual serve` / Textual Web) exposes an app over HTTP and shares it beyond the local machine — treat served apps and their inputs accordingly. No security flags recorded from the observed material.
+
+## How to use it
+
+pip install textual textual-dev

@@ -15,7 +15,6 @@ tags:
   - creative-software
   - adobe-alternative
   - viral-growth
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: dual MIT/Apache-2.0 (ArtCraft repo; sibling Crafting Apps repos not individually verified)
@@ -23,7 +22,6 @@ security_flags:
   - single-developer-ai-generated-codebase
   - disputed-viral-star-growth
   - prebuilt-binary-distribution
-supersedes: []
 overlaps: []
 source_url: https://github.com/storytold
 source: web

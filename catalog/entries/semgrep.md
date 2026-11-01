@@ -13,12 +13,10 @@ tags:
   - security
   - ast-pattern-matching
   - code-quality
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: LGPL-2.1 (Community Edition engine); rules under Semgrep Rules License v1.0; commercial AppSec Platform separately licensed
 security_flags: []
-supersedes: []
 overlaps:
   - codeql
 ---

@@ -16,12 +16,10 @@ tags:
   - macos
   - local-network
   - open-source
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: GPL-2.0-or-later
 security_flags: []
-supersedes: []
 overlaps: []
 source: instagram
 source_url: https://www.instagram.com/reel/DeupHCKFS7F/

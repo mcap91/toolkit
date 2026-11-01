@@ -7,11 +7,9 @@ summary: Smarter cd command — learns which directories you use most frequently
 tags: [cd, directory-navigation, frecency, shell, cli, rust, fzf, productivity]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://github.com/Gaurav-Gosain/tuios"
 category: cli-tool
 summary: "Terminal multiplexer and window manager built in Go on Charm's Bubble Tea v2 — vim-like modal interface, BSP/scrolling/master-stack tiling, 9 workspaces, kitty graphics protocol passthrough (flicker-free video, sixel experimental), daemon mode with session resurrection, vim-style copy mode with 10K-line scrollback, tape scripting DSL for automation, command palette, app launcher, SSH server mode, web terminal mode; event-driven rendering (zero idle CPU); MIT"
 tags: [terminal-multiplexer, tui, go, bubble-tea, tiling, kitty-graphics, tmux-alternative, vim, daemon, session-management, automation]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

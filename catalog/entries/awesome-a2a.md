@@ -5,12 +5,10 @@ url: "https://github.com/ai-boost/awesome-a2a"
 category: reference
 summary: "Curated ecosystem list for Google's Agent2Agent protocol — SDKs, framework integrations, community implementations, tools, and tutorials; use as discovery source for A2A-compatible agent infrastructure"
 tags: [a2a, agent-interop, protocol, curated-list, multi-agent]
-workflows: []
 reviewed: 2026-06-18
 acquired: 2026-06-18
 license: CC0-1.0
 security_flags: []
-supersedes: []
 overlaps: [a2a-protocol]
 source: unknown
 ---

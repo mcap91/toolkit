@@ -5,12 +5,10 @@ url: "https://github.com/MemPalace/mempalace"
 category: framework
 summary: "Local-first AI memory with 96.6% R@5 retrieval, 33 MCP tools, verbatim storage, and pluggable backends; strong benchmarks and Claude Code integration make it worth trialing"
 tags: [memory, semantic-search, mcp-server, local-first, chromadb, knowledge-graph, claude-code]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [claude-mem, memstack, ai-memory-comparison]
 source: unknown
 ---

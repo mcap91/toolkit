@@ -5,12 +5,10 @@ url: "https://massgrave.dev/"
 category: cli-tool
 summary: "Open-source Windows and Office activator using HWID, Ohook, TSforge, and Online KMS methods — batch-script-based; HWID for permanent Windows 10/11 activation, Ohook for permanent Office activation, TSforge for permanent Windows/ESU/Office, Online KMS for 180-day renewable activation; includes edition changing and troubleshooting; v3.12 (July 2026)"
 tags: [windows, office, activation, batch-scripts, hwid, kms, open-source]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: [powershell-remote-execution]
-supersedes: []
 overlaps: []
 source: unknown
 ---

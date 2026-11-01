@@ -7,11 +7,9 @@ summary: "End-to-end document-to-Markdown OCR model (3.4B total / 570M active Mo
 tags: [ocr, document-parsing, speculative-decoding, moe, vision-language, markdown, vllm, transformers, jina]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: CC-BY-NC-4.0
 security_flags: [trust-remote-code, noncommercial-license]
-workflows: []
 source: unknown
 ---
 

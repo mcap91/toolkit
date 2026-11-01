@@ -5,12 +5,10 @@ url: "https://dspy.ai/"
 category: framework
 summary: "Stanford NLP framework for programming (not prompting) LLMs via typed signatures, composable modules, and automatic prompt optimization; 35k stars, 433+ contributors, production use at scale — relevant for building optimized LLM pipelines"
 tags: [llm, prompt-optimization, framework, python, signatures, modules, agents, rag, stanford]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

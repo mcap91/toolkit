@@ -4,15 +4,12 @@ title: Adeptly
 url: "https://github.com/ShopDevX/adeptlydev"
 category: cli-tool
 summary: "Plan-first companion GUI for Claude Code — drafts structured plans with inline Claude Code feature recommendations (subagents, skills, hooks, MCP, plan mode), scores feature coverage and token hygiene, then optionally executes plans as a role pipeline (Architect→Builder→Medic→Reviewer→Security→Pilot) via headless claude CLI; local-first Next.js app, MIT"
-install: npx adeptly
 tags: [claude-code, planning, orchestration, crew, subagents, skills, hooks, feature-discovery, local-first, next-js]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -39,3 +36,7 @@ No code leaves the machine except through the user's own `claude` CLI subprocess
 ## Security
 
 MIT licensed. No security flags — the tool is a thin local GUI over the user's existing `claude` CLI. No new trust surface beyond what Claude Code already requires. No telemetry, analytics, or accounts. Crew live-runs are double-gated (plan approval + env var). All execution is auditable via the run log files.
+
+## How to use it
+
+npx adeptly

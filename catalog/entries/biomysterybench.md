@@ -5,12 +5,10 @@ url: "https://huggingface.co/datasets/Anthropic/BioMysteryBench-full"
 category: reference
 summary: 99-problem bioinformatics research benchmark from Anthropic — directly useful for evaluating agent performance on real research tasks.
 tags: [benchmark, bioinformatics, evaluation, dataset, research, anthropic]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: CC-BY-4.0
 security_flags: [access-gated]
-supersedes: []
 overlaps: []
 source: unknown
 ---

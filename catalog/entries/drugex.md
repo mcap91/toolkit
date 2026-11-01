@@ -7,11 +7,9 @@ summary: "DrugEx generates novel drug-like small molecules using deep learning g
 tags: [de-novo-design, reinforcement-learning, multi-objective-optimization, drug-design, transformer, graph-transformer, scaffold-constrained, cheminformatics, generative-chemistry]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [reinvent4, gentrl]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

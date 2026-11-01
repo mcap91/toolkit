@@ -6,11 +6,9 @@ summary: "Explainer on agent gateways — a specialized gateway layer between AI
 tags: [agent-gateway, mcp, a2a, infrastructure, security, observability, routing, policy]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

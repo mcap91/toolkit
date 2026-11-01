@@ -6,10 +6,8 @@ summary: scan-for-escaped-items pattern worth noting for future kb lint rule or 
 tags: [deferred-work, scanner, todos, kb]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

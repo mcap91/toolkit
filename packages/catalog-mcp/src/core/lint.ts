@@ -20,7 +20,82 @@ const RETIRED_FIELDS: Record<string, string> = {
   verdict: 'decision_status',
   verdict_reason: 'summary',
   status: '(removed)',
+  decision_status: '(removed)',
+  workflows: '(removed)',
+  install: '(removed)',
+  supersedes: '(removed)',
 };
+
+// catalog/template.md body sections, in order. `## How to use it` and `## Where to look next`
+// are the only two allowed to be absent, and only when the entry has no `url` (WK-0099 OR, the
+// overseer's `## Where to look next` decision).
+const TEMPLATE_SECTIONS = [
+  'What it is',
+  'How it works',
+  'How to use it',
+  'Evaluation and limits',
+  'Context from the source',
+  'Where to look next',
+  'Related',
+  'Security',
+] as const;
+const OPTIONAL_WITHOUT_URL = new Set(['How to use it', 'Where to look next']);
+
+// Headings from the pre-WK-0099 recipe that carried a verdict ("## Assessment", "## What to
+// adopt") or restated the catalog's old mechanical-details framing ("## Differentiators",
+// "## Mechanical details") — the catalog records facts, not opinions (WK-0099, WK-0051 precedent).
+const REJECTED_HEADINGS = ['Assessment', 'What to adopt', 'Differentiators', 'Mechanical details'];
+
+// Entries reviewed on or after this date were written (or rewritten) under the WK-0099 template;
+// older entries predate it and fail these rules by design until the reprocess rewrites them —
+// so the rules are warnings there, not errors, and `lint` stays usable on the live catalog.
+const TEMPLATE_CUTOVER = '2026-10-31';
+
+// Provenance (WK-0099): a source traceable to a specific post/page must carry the link it came
+// in on. "web" (a bare link) and "unknown" (legacy, no recorded provenance) are exempt.
+const SOURCE_REQUIRES_SOURCE_URL = new Set(['instagram', 'reddit', 'x', 'text']);
+
+// WK-0097 OR-2: the operator's understanding goes into the entry itself, never a link to a
+// private capture file — those paths are not even readable by anyone outside this repo.
+const LOCAL_CAPTURE_PATTERNS = ['catalog/sources/', 'toolkit-workbench/'];
+
+function headingLines(body: string): { text: string; index: number }[] {
+  const lines = body.split('\n');
+  const out: { text: string; index: number }[] = [];
+  lines.forEach((line, index) => {
+    const m = line.match(/^##\s+(.+?)\s*$/);
+    if (m) out.push({ text: m[1], index });
+  });
+  return out;
+}
+
+function sectionContent(body: string, heading: string): string[] {
+  const lines = body.split('\n');
+  const headingRe = new RegExp(`^##\\s+${heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`);
+  let start = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (headingRe.test(lines[i])) {
+      start = i + 1;
+      break;
+    }
+  }
+  if (start === -1) return [];
+  let end = lines.length;
+  for (let i = start; i < lines.length; i++) {
+    if (/^##\s+/.test(lines[i])) {
+      end = i;
+      break;
+    }
+  }
+  return lines.slice(start, end).filter((l) => l.trim().length > 0);
+}
+
+// A line is "- <what you learn there> — <URL or repo path>" (WK-0099 overseer decision): accept
+// an http(s) URL anywhere on the line, or a repo-relative path token (has a "/" and no spaces).
+function hasUrlOrPath(line: string): boolean {
+  if (/https?:\/\/\S+/.test(line)) return true;
+  return /(?:^|\s)[\w.-]+(?:\/[\w.-]+)+(?:\s|$)/.test(line);
+}
 
 const EMPTY_TAX_INDEX: TaxonomyIndex = buildIndex({ canonical: {} });
 
@@ -79,8 +154,66 @@ export function lintEntry(
     warnings.push('missing acquired field (migration: backfill from git log)');
   }
 
-  if (!body.includes('## Security')) {
-    warnings.push('missing ## Security section (migration: not required for existing entries)');
+  // Provenance (WK-0099): instagram/reddit/x/text sources name a specific post or page, so the
+  // link it came in on must be recorded, not just implied by the derived source value.
+  const source = frontmatter.source as string | undefined;
+  if (source && SOURCE_REQUIRES_SOURCE_URL.has(source) && !frontmatter.source_url) {
+    errors.push(`source "${source}" requires source_url (the link this entry's content came in on)`);
+  }
+
+  // WK-0097 OR-2: never a link to a private capture file — the understanding goes into the
+  // entry itself.
+  for (const pattern of LOCAL_CAPTURE_PATTERNS) {
+    if (body.includes(pattern)) {
+      errors.push(`body links to a local capture path ("${pattern}") — put the understanding in the entry, not a link to the capture`);
+    }
+  }
+
+  // Body-section rules (template order, presence, rejected headings, Where-to-look-next line
+  // shape): errors once an entry is reviewed under the template (TEMPLATE_CUTOVER), warnings
+  // before, since the live catalog predates the template and the reprocess rewrites it.
+  const reviewed = frontmatter.reviewed as string | undefined;
+  const sectionIsError = Boolean(reviewed && reviewed >= TEMPLATE_CUTOVER);
+  const sectionIssues: string[] = [];
+  const hasUrl = Boolean(frontmatter.url);
+  const headings = headingLines(body);
+  const presentTemplateSections = headings
+    .map((h) => h.text)
+    .filter((t): t is (typeof TEMPLATE_SECTIONS)[number] =>
+      (TEMPLATE_SECTIONS as readonly string[]).includes(t),
+    );
+
+  for (const section of TEMPLATE_SECTIONS) {
+    if (OPTIONAL_WITHOUT_URL.has(section) && !hasUrl) continue;
+    if (!presentTemplateSections.includes(section)) {
+      sectionIssues.push(`missing required section "## ${section}"`);
+    }
+  }
+
+  const presentIndices = presentTemplateSections.map((s) => TEMPLATE_SECTIONS.indexOf(s));
+  for (let i = 1; i < presentIndices.length; i++) {
+    if (presentIndices[i] < presentIndices[i - 1]) {
+      sectionIssues.push('body sections are out of template order');
+      break;
+    }
+  }
+
+  for (const { text } of headings) {
+    if (REJECTED_HEADINGS.includes(text)) {
+      sectionIssues.push(`rejected heading "## ${text}" — the catalog records facts, not verdicts`);
+    }
+  }
+
+  if (presentTemplateSections.includes('Where to look next')) {
+    for (const line of sectionContent(body, 'Where to look next')) {
+      if (!hasUrlOrPath(line)) {
+        sectionIssues.push(`"## Where to look next" line carries no URL or repo path: "${line.trim()}"`);
+      }
+    }
+  }
+
+  for (const issue of sectionIssues) {
+    (sectionIsError ? errors : warnings).push(issue);
   }
 
   // Taxonomy audit: an alias tag should also carry its canonical umbrella.
@@ -163,7 +296,6 @@ function applyFixes(
   const fixed = { ...fm };
   if (fixed.url === '') delete fixed.url;
   if (fixed.tags && !Array.isArray(fixed.tags)) fixed.tags = [];
-  if (fixed.supersedes && !Array.isArray(fixed.supersedes)) fixed.supersedes = [];
   if (fixed.overlaps && !Array.isArray(fixed.overlaps)) fixed.overlaps = [];
   if (fixed.security_flags && !Array.isArray(fixed.security_flags)) fixed.security_flags = [];
   // Append missing canonical umbrella tags (dedup, preserve order).

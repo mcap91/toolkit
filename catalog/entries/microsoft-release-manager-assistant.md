@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/release-manager-assistant"
 category: framework
 summary: "Microsoft solution accelerator that augments release managers with a multi-agent system (Planner, JIRA Agent, Azure DevOps Agent via MCP, Visualization Agent, Fallback Agent) for cross-system release planning, scheduling, and readiness reporting; built on Azure AI Foundry + Microsoft Agent Framework + Redis; ships mock/synthetic-data MCP servers for JIRA and Azure DevOps so it can be evaluated without live system access; MIT"
 tags: [azure, multi-agent, mcp, azure-devops, jira, agent-framework, azure-ai-foundry, redis, release-management, solution-accelerator]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: [jira-http-basic-auth-not-for-production, byoai-only-no-shared-quota]
-supersedes: []
 overlaps: []
 source: unknown
 ---

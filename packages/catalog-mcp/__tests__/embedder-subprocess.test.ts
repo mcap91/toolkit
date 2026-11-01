@@ -16,7 +16,7 @@ const REAL_REPO_ROOT = path.resolve(import.meta.dirname, '..', '..', '..');
 // `codeRoot` import above) — only the `rebuildCatalogIndexes` describe below overrides its
 // return value, so the `codeRoot` describe above still exercises the real self-resolve logic.
 vi.mock('../src/core/index-gen.js', () => ({
-  generateAndWriteIndex: vi.fn().mockResolvedValue({ path: '/idx', entryCount: 0, decisionStatusCounts: {} }),
+  generateAndWriteIndex: vi.fn().mockResolvedValue({ path: '/idx', entryCount: 0 }),
   buildSearchIndex: vi.fn().mockResolvedValue({ path: '/search-idx', count: 0 }),
 }));
 vi.mock('../src/core/embedder-subprocess.js', async () => {

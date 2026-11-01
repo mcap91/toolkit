@@ -5,12 +5,10 @@ url: "https://nstarlive.com/"
 category: framework
 summary: "Commercial SaaS OSINT platform unifying nine intelligence sectors — a live 250,000+ camera globe with local YOLOv8 detection, username/breach-database lookup, multi-chain crypto wallet tracing, network/port/.onion scanning, photo geolocation, radio-spectrum monitoring, trackable-link visitor telemetry (Fisherman), and 100+-registry public-records search — behind a paid subscription with no self-hosting or open-source code"
 tags: [osint, geospatial, geolocation, crypto-tracing, network-scanning, saas, surveillance]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Proprietary
 security_flags: [closed-source, new-project, unverified-vendor-claims, third-party-data-capture]
-supersedes: []
 overlaps: [gods-eye-view]
 source: unknown
 ---

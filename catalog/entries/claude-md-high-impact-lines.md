@@ -14,12 +14,10 @@ tags:
   - workflow
   - hooks
   - scope-discipline
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: N/A
 security_flags: []
-supersedes: []
 overlaps:
   - boris-cherny-claude-md
   - creating-claude-md

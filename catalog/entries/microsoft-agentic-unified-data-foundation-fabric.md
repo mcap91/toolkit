@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/agentic-applications-for-unified-data-foundat
 category: framework
 summary: "Microsoft solution accelerator that layers Microsoft Foundry agents + Agent Framework orchestration over a Microsoft Fabric unified data foundation (SQL Database in Fabric), enabling natural-language querying across governed enterprise datasets via a web front-end; ships configurable scenario packs (retail sales analysis, financial-services client-meeting prep) with synthetic sample data; MIT"
 tags: [azure, microsoft-fabric, agent-framework, azure-ai-foundry, natural-language-query, solution-accelerator, data-foundation, scenario-packs]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: [synthetic-sample-data-only]
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://thedailyai.news/"
 category: agent-pattern
 summary: "Matt Pocock's argument (via thedailyai.news clip) that AI coding agents fail on horizontal layer-by-layer plans (database → API → frontend) for lack of an integrated feedback loop; the fix is the Pragmatic Programmer 'tracer bullet' idea — thin vertical tasks that cross database, service, and frontend to prove the whole flow, reframing work from 'complete phase 1' to 'ship one visible, testable slice'"
 tags: [planning, vertical-slices, tracer-bullets, agent-workflow, task-decomposition, feedback-loops, kanban, matt-pocock]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-news-content
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

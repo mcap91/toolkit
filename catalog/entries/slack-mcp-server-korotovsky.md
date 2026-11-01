@@ -5,12 +5,10 @@ url: "https://github.com/korotovsky/slack-mcp-server"
 category: mcp-server
 summary: "Feature-rich MCP server for Slack workspaces — 18 tools covering channel history, thread replies, message search, unread messages, DMs/group DMs, message posting, reactions, saved items, user search, user groups; stealth mode (no bot install required), OAuth mode, Enterprise/GovSlack support; Go, Stdio/SSE/HTTP transports; MIT"
 tags: [mcp-server, slack, messaging, workspace, enterprise]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

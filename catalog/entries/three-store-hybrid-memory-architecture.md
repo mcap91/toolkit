@@ -6,11 +6,9 @@ summary: "An architecture pattern arguing vector embeddings alone fail for AI ag
 tags: [agent-memory, vector-search, knowledge-graph, key-value-store, rag, hybrid-retrieval, architecture-pattern]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

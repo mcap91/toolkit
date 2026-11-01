@@ -5,12 +5,10 @@ url: "https://github.com/pgvector/pgvector"
 category: framework
 summary: "PostgreSQL extension for vector similarity search — HNSW and IVFFlat indexes, exact and approximate nearest neighbor, vector/halfvec/bit/sparsevec types, 6 distance functions (L2/IP/cosine/L1/Hamming/Jaccard), iterative index scans, binary quantization, multitenancy via partitioning, hybrid search with pg full-text; all Postgres guarantees (ACID, JOINs, WAL replication); PostgreSQL License"
 tags: [vector-database, postgresql, extension, hnsw, ivfflat, embeddings, sql, similarity-search]
-workflows: []
 reviewed: 2026-09-29
 acquired: 2026-09-29
 license: PostgreSQL
 security_flags: []
-supersedes: []
 overlaps: [qdrant, weaviate, milvus, chroma, lancedb]
 source: unknown
 ---

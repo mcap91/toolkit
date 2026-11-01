@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: reference
 summary: "Codex Desktop's logs_2.sqlite writes ~7MB/s continuously (~222TB/year annualized); disable analytics first, SQLite trigger workaround cuts 96.5% — cautionary reference for long-running AI tool resource costs"
 tags: [codex, operational, ssd, logging, resource-management]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: ""
 security_flags: []
-supersedes: []
 overlaps: [codex-memory-cleanup]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/onyx-dot-app/onyx"
 category: framework
 summary: "Full self-hostable AI platform with agentic RAG and MCP — notable architecture reference, but too deployment-heavy to adopt as a composable toolkit component"
 tags: [rag, agentic-rag, self-hosted, llm, mcp, knowledge-retrieval, enterprise, connectors]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [curl-pipe-install, large-attack-surface, code-execution-sandbox]
-supersedes: []
 overlaps: []
 source: unknown
 ---

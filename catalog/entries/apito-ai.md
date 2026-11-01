@@ -7,11 +7,9 @@ summary: "Vendor explainer of the MCP 2026-07-28 stateless spec, used as content
 tags: [claude-api, api-gateway, model-access, proxy, reseller, mcp, stateless, enterprise-architecture, vendor-blog, security-caution]
 reviewed: 2026-08-10
 acquired: 2026-08-10
-supersedes: []
 overlaps: [mcp-2026-07-28-spec]
 license: ""
 security_flags: [third-party-api-proxy, credential-exposure, data-exposure, unverified-vendor-claims]
-workflows: []
 source: unknown
 ---
 

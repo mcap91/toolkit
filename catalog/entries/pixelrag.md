@@ -16,14 +16,12 @@ tags:
   - claude-code-plugin
   - web-scraping-alternative
   - document-retrieval
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: Apache-2.0
 security_flags:
   - docker-root-sandbox-disabled
   - untested-docker-build
-supersedes: []
 overlaps: []
 source: instagram
 source_url: https://www.instagram.com/reel/Dbb38hFCPuc/

@@ -5,12 +5,10 @@ url: "https://github.com/vercel-labs/agent-browser"
 category: cli-tool
 summary: "Rust-native browser automation CLI for AI agents — snapshot-based accessibility tree with ref selectors, MCP server mode, annotated screenshots, multi-session isolation, plugin system, cloud provider integrations (Browserbase/Browserless/AWS AgentCore); Apache-2.0, Vercel-backed"
 tags: [browser-automation, cli, mcp, rust, web-scraping, testing, ai-agent]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [browser-use]
 source: unknown
 ---

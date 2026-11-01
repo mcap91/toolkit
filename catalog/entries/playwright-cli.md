@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/playwright-cli"
 category: cli-tool
 summary: "Microsoft-maintained CLI interface to Playwright browser automation (npm package @playwright/cli), pitched as more token-efficient than Playwright MCP for coding agents since it avoids loading MCP tool schemas and full accessibility trees into model context; installs as a Claude Code / GitHub Copilot skill"
 tags: [playwright, browser-automation, cli, testing, coding-agent, skill, screenshots, network-mocking, tracing]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [browser-use]
 source: unknown
 ---

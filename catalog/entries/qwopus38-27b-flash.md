@@ -4,12 +4,10 @@ title: Qwopus3.8-27B-Flash
 category: reference
 summary: "Post-trained efficiency variant of Qwen3.8-27B (hybrid DeltaNet + attention architecture) focused on reducing unnecessary reasoning while preserving capability — +12.8% decoder throughput, MTP acceptance 66.1% to 80.7%, ~9.9% less total output with significantly fewer P95 runaway-reasoning cases; trades 1.45pp on MMLU-Pro (92.73% to 91.28%); 13/14 agent tasks passed at 99 tok/s on RTX 5090; trained with high-quality SFT (top 10% of 1.5M samples) + NVIDIA NeMo-RL GSPO; GGUF format"
 tags: [qwen, local-inference, efficiency, mtp, speculative-decoding, reasoning, gguf, agent-workloads, post-training, deltanet]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: []
-supersedes: []
 overlaps: [qwen38-27b-200k-on-16gb]
 source: unknown
 ---

@@ -20,7 +20,6 @@ tags:
   - nodejs
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags:
@@ -29,7 +28,6 @@ security_flags:
   - Session login imports live cookies from the user's local browser profiles (Chrome, Arc, Brave, Edge, Chromium, Firefox) to authenticate operations; project states specs persist only cookie/token references, not values, and redacts live values in error output, but the import step itself handles sensitive session credentials
   - Calling an unlearned site pulls a community-contributed operation spec from a public shared catalog before any independent audit — promotion to 'live' is based on crowd-reported success/failure counts (2 confirming networks, 3 failing networks to demote), not a security review
   - By the project's own documentation, a write operation's '2xx accepted' response does not confirm the action was actually applied server-side; only an operation with an author-defined readback check reports 'applied', so a write can silently misreport success
-workflows: []
 source: instagram
 ---
 

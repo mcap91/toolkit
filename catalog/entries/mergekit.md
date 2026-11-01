@@ -5,12 +5,10 @@ url: "https://github.com/arcee-ai/mergekit"
 category: cli-tool
 summary: "Toolkit for merging pre-trained LLMs — 16+ merge methods (SLERP, TIES, DARE, DELLA, task arithmetic, linear, Karcher mean, etc.); out-of-core merging on CPU or with 8GB VRAM; MoE construction from dense models; LoRA extraction; evolutionary merge methods; multi-stage merging; tokenizer transplantation; Frankenmerging (layer assembly); EMNLP 2024 paper; LGPL-3.0"
 tags: [model-merging, weight-merging, lora, moe, slerp, ties, dare, llm-tools]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: LGPL-3.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

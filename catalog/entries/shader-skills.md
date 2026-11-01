@@ -5,7 +5,6 @@ url: https://github.com/gokayfem/shader-skills
 source_url: https://www.instagram.com/reel/Der53z2kchV/
 source: instagram
 category: skill
-install: npx skills add gokayfem/shader-skills
 license: MIT
 summary: Agent skill (gokayfem) teaching Claude Code, Codex, Cursor, Copilot, and Gemini CLI to write procedural GLSL/Shadertoy shaders that compile on the first try. Ships a 186-function GLSL library across 20 modules (hashing, noise, SDFs, raymarching, shading, water, volumetrics, color/tonemapping, cameras, debugging), each function WebGL2-compiled and GPU-tested (90 property tests across 16,384 samples), plus a Python bundler that inlines only the functions a given shader uses into one Shadertoy-ready file, and a checker that catches common WebGL-vs-desktop-GLSL mistakes. v2.0.0 tagged 2026-10-23; MIT; 410 stars, 36 forks at time of review.
 tags:
@@ -20,11 +19,9 @@ tags:
   - skill
 reviewed: 2026-10-30
 acquired: 2026-10-30
-supersedes: []
 overlaps:
   - threejs-skills
 security_flags: []
-workflows: []
 ---
 
 ## What it does
@@ -43,3 +40,7 @@ A Python bundler inlines only the dependency functions a given shader actually c
 ## Security
 
 MIT licensed. The library and skill are static GLSL source plus Python validation/bundler scripts; no network calls or runtime service are described. The bundler and checker are local scripts operating on shader text. No independent security audit found; no security flags observed from the fetched material.
+
+## How to use it
+
+npx skills add gokayfem/shader-skills

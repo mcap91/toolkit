@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/AI-For-Beginners"
 category: reference
 summary: "Microsoft's free 12-week, 24-lesson AI curriculum covering symbolic AI (GOFAI), neural networks and deep learning in PyTorch and TensorFlow, computer vision (CNNs, autoencoders, GANs, detection, segmentation), NLP (embeddings, RNNs, Transformers/BERT, NER, LLMs), genetic algorithms, deep RL, multi-agent systems, and AI ethics; lessons ship as executable Jupyter notebooks with quizzes and labs, in 50+ language translations"
 tags: [ai, learning, curriculum, deep-learning, pytorch, tensorflow, computer-vision, nlp]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [data-science-for-beginners, huggingface-llm-course, huggingface-agents-course]
 source: unknown
 ---

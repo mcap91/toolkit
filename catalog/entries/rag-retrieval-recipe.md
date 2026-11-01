@@ -5,12 +5,10 @@ url: "https://en.wikipedia.org/wiki/Retrieval-augmented_generation"
 category: agent-pattern
 summary: "Practitioner's RAG recipe — semantic chunking (500-1000 tokens, 100 overlap), embed once with nomic/mxbai, store in ChromaDB/Qdrant/LanceDB, retrieve top-20 → BGE rerank → top-5, cite source chunks in LLM output"
 tags: [rag, embeddings, vector-db, reranking, retrieval]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: ""
 security_flags: []
-supersedes: []
 overlaps: [chromadb]
 source: unknown
 ---

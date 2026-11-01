@@ -5,12 +5,10 @@ url: "https://github.com/reshadat/first-principles-destructor"
 category: skill
 summary: "6-stage assumption-destruction skill — inventories hidden assumptions, strips to physics/math/logic floor, calculates 'convention tax', removes non-load-bearing conventions, rebuilds from reality; multi-platform (Claude Code, Codex, Gemini, Cursor, Kiro); MIT"
 tags: [first-principles, reasoning, skill, multi-platform]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

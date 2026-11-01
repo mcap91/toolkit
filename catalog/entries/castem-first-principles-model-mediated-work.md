@@ -5,12 +5,10 @@ url: "https://www.linkedin.com/pulse/castem-first-principles-model-mediated-work
 category: reference
 summary: "Portable 6-criterion mnemonic (Credible, Auditable, Supervised, Traceable, Explainable, Monitored) for AI governance in regulated settings — good design checklist, no tooling."
 tags: [ai-governance, compliance, regulated-ai, mnemonic, audit, validation, oversight]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-copyright-author
 security_flags: []
-supersedes: []
 overlaps: [ai-needs-what-alcoa-gave-records]
 source: unknown
 ---

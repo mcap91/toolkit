@@ -5,12 +5,10 @@ url: "https://github.com/getmaxun/maxun"
 category: framework
 summary: "Capable no-code web data platform with MCP support and LLM extraction, but early-stage and AGPLv3 copyleft limits commercial embedding"
 tags: [web-scraping, data-extraction, no-code, mcp-server, llm, crawling, self-hosted]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: [early-stage, agpl-copyleft, handles-auth-credentials]
-supersedes: []
 overlaps: []
 source: unknown
 ---

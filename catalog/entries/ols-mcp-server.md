@@ -5,12 +5,10 @@ url: "https://github.com/seandavi/ols-mcp-server"
 category: mcp-server
 summary: "MCP server for EBI Ontology Lookup Service — search terms, explore hierarchies, find similar terms across GO, HPO, MONDO, ChEBI, UBERON and all EBI-hosted ontologies; directly addresses LLM ontology hallucination problem"
 tags: [mcp, ontology, bioinformatics, gene-ontology, hpo, ebi, ols]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: [single-contributor]
-supersedes: []
 overlaps: []
 source: unknown
 ---

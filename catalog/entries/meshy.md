@@ -17,7 +17,6 @@ tags:
   - mcp-server
   - claude-code-skill
   - game-development
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: proprietary
@@ -25,7 +24,6 @@ security_flags:
   - closed-source
   - cloud-asset-storage
   - free-tier-public-assets
-supersedes: []
 overlaps: []
 ---
 

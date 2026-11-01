@@ -4,14 +4,11 @@ title: n8n MCP Server
 url: "https://github.com/czlonkowski/n8n-mcp"
 category: mcp-server
 summary: powerful workflow automation bridge but heavy dependency; evaluate when pipeline orchestration needs outgrow kb dispatch
-install: "npx @czlonkowski/n8n-mcp"
 tags: [mcp, n8n, workflow-automation, orchestration, integrations]
-workflows: []
 reviewed: 2026-05-25
 acquired: 2026-05-25
 license: MIT
 security_flags: [api-key-required, credentials-exposure-risk, production-workflow-ai-edit-warning]
-supersedes: []
 overlaps: [gstack]
 source: unknown
 ---
@@ -37,3 +34,7 @@ kb dispatch already handles our orchestration needs (subagent dispatch, handoff 
 - **License:** MIT — no copyleft, no commercial restrictions on library or self-hosted use.
 - **API key exposure:** the management tool set requires `N8N_API_URL` and `N8N_API_KEY` in the MCP environment; any process that can invoke the MCP server inherits full n8n API access, including credential read/write and workflow deployment. Scope the API key to the minimum required permission and never pass it through shared environment variables in multi-user setups.
 - **Production workflow risk:** the upstream README carries an explicit safety warning — AI-generated workflow edits should always be tested in a development environment first, never applied directly to production. The `n8n_audit_instance` tool performs security scanning of the n8n instance itself, which is useful for hardening before connecting an AI agent. The project documents a dedicated "Security & Hardening" guide covering trust model and workflow restrictions.
+
+## How to use it
+
+npx @czlonkowski/n8n-mcp

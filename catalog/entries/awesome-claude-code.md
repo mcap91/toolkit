@@ -7,10 +7,8 @@ summary: curated Claude Code ecosystem list; use as discovery source for future 
 tags: [awesome-list, skills, agents, hooks, orchestrators, discovery]
 license: CC-BY-NC-ND-4.0
 security_flags: []
-workflows: []
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 overlaps: [claude-spellbook]
 source: unknown
 ---

@@ -12,12 +12,10 @@ tags:
   - pytorch
   - vocal-removal
   - signal-processing
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: instagram
 source_url: https://www.instagram.com/reel/DeecMf9nBBn/

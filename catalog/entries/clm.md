@@ -5,12 +5,10 @@ url: "https://github.com/Contrastive-LM/CLM"
 category: framework
 summary: "Open-weights, self-hostable classification model positioned as a drop-in alternative to TypeSafe AI's Jev — a frozen Qwen3-8B encoder plus two 20M-param trainable projection heads (state/action) trained with bidirectional InfoNCE contrastive loss; serves the same three typed-question primitives (Choice, Noul, Score) behind a TypeSafe-compatible API; reference head is ~75MB (Apache-2.0); reports up to 9x lower zero-shot latency and, with lightweight fine-tuning, SOTA verifier accuracy on Terminal-Bench 2.1 (87.6%) and DeepSWE (81.6%) at 4-6x Jev's speed"
 tags: [classification, inference, llm-alternative, open-weights, contrastive-learning, qwen3, verifier, agent-routing, self-hosted, jev-compatible]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [jev]
 source: unknown
 ---

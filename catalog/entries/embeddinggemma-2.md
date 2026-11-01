@@ -7,11 +7,9 @@ summary: "Google DeepMind's 740M-parameter open multimodal embedding model — m
 tags: [embeddings, multimodal, on-device, text, code, image, video, audio, vector-search, rag, google, gemma, apache-2]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

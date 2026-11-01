@@ -16,14 +16,12 @@ tags:
   - react
   - karpathy
   - vibe-coded
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: NOASSERTION
 security_flags:
   - unmaintained
   - no-support
-supersedes: []
 overlaps:
   - agent-teams
   - local-model-adversarial-workflow

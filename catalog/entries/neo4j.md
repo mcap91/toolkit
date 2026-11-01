@@ -15,12 +15,10 @@ tags:
   - graph-data-science
   - aura
   - acid
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: GPLv3 (Community Edition); commercial (Enterprise Edition, Graph Data Science Enterprise)
 security_flags: []
-supersedes: []
 overlaps:
   - knowledge-graph-construction-anthropic
   - three-store-hybrid-memory-architecture

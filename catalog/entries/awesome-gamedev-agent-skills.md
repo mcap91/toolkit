@@ -15,11 +15,9 @@ tags:
   - skill-library
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: instagram
 source_url: https://www.instagram.com/reel/De8q9xDETx-/
 ---

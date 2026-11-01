@@ -5,12 +5,10 @@ url: "https://github.com/ogulcancelik/herdr"
 category: cli-tool
 summary: "Terminal-based agent multiplexer (single Rust binary) — real terminal panes for many coding agents at a glance, detach/reattach across terminals or SSH with sessions surviving restarts, tmux-style keyboard + mouse, a plugin marketplace, and a pure socket API that lets agents themselves spawn panes and wait on each other; dual-licensed AGPL-3.0 / commercial"
 tags: [terminal-multiplexer, agent-orchestration, tui, rust, session-persistence, socket-api, plugins]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: AGPL-3.0-or-later
 security_flags: [curl-pipe-sh-installer, dual-license-commercial-required, windows-beta]
-supersedes: []
 overlaps: []
 source: unknown
 ---

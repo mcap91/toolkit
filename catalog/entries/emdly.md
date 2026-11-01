@@ -4,15 +4,12 @@ title: emdly
 url: "https://emdly.com/"
 category: framework
 summary: "Platform for discovering, comparing, and sharing SKILL.md files for AI agents — curated marketplace with human review and sandboxed safety screening; CLI installer (npx @emdly/cli add), synced to public GitHub repo (emdly-stack); ~24+ skills across engineering (PR review, debugging, commit messages, dependency upgrades), analytics (GA4 funnels, SQL explainer, dashboard metrics), content (SEO briefs, brand voice, landing pages), ops (incident postmortem, K8s triage, standup synthesis), commerce (product feeds, cart sequences), and gaming (balance review, playtest triage)"
-install: "npx @emdly/cli add <publisher>/<skill>"
 tags: [agent-skills, marketplace, skill-md, discovery, cli, curated, community, cross-platform]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [skills-cli, agent-skills-spec, community-skills-stack-2026]
 license: Unknown
 security_flags: [license-unclear]
-workflows: []
 source: unknown
 ---
 
@@ -40,3 +37,7 @@ Key capabilities:
 ## Security
 
 License unclear — not documented on the site. Skills are human-reviewed and sandboxed before publishing. The public GitHub sync provides transparency into published content. Individual skills should be reviewed before installation as with any third-party code.
+
+## How to use it
+
+npx @emdly/cli add <publisher>/<skill>

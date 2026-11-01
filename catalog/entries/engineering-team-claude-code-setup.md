@@ -18,12 +18,10 @@ tags:
   - verification
   - gitlab
   - case-study
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: N/A
 security_flags: []
-supersedes: []
 overlaps:
   - jev
   - boris-cherny-claude-md

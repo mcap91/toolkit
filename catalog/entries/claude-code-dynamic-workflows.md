@@ -5,12 +5,10 @@ url: "https://code.claude.com/docs/en/workflows"
 category: reference
 summary: "Anthropic docs page describing Claude Code's dynamic workflows feature, a JavaScript orchestration script that fans work out to many subagents in the background"
 tags: [claude-code, workflows, orchestration, subagents, documentation]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: proprietary
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

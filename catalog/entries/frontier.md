@@ -5,12 +5,10 @@ url: "https://github.com/WellDunDun/frontier"
 category: plugin
 summary: Well-architected multi-harness orchestration runtime for Claude Code; early preview but the token-economics argument and delegation model are sound
 tags: [claude-code, orchestration, multi-model, delegation, pi, codex, ollama, omlx]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [autoharness, claude-peers-mcp]
 source: unknown
 ---

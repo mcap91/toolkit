@@ -5,12 +5,10 @@ url: "https://research.nvidia.com/labs/nemotron/Nemotron-3-Ultra/"
 category: framework
 summary: "NVIDIA's most capable open model — 550B total / 55B active parameters, Mixture-of-Experts Hybrid Mamba-Attention architecture with LatentMoE and MTP speculative decoding; 1M context length; 5.9x throughput vs GLM-5.1, 4.8x vs Kimi K2.6; open checkpoints (base, post-trained, NVFP4 quantized, GenRM) and training datasets released"
 tags: [nvidia, open-weights, moe, mamba, large-language-model, inference, speculative-decoding]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [qwen3-6-27b]
 source: unknown
 ---

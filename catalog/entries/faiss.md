@@ -5,12 +5,10 @@ url: "https://github.com/facebookresearch/faiss"
 category: framework
 summary: "Meta's C++/Python library for efficient similarity search and clustering of dense vectors — billion-scale datasets, GPU acceleration (CUDA/ROCm), multiple index types (HNSW, NSG, IVF, PQ), L2/dot-product/cosine similarity; 40K+ stars, MIT"
 tags: [similarity-search, vector-search, clustering, gpu, embeddings, nearest-neighbor]
-workflows: []
 reviewed: 2026-10-13
 acquired: 2026-07-01
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [chromadb, hnswlib, scann]
 source: unknown
 ---

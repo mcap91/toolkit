@@ -5,12 +5,10 @@ url: "https://github.com/google/ax"
 category: framework
 summary: "Google's open-source declarative orchestrator for AI agent workloads on Kubernetes — four Kubernetes-style primitives (Task, Workspace, Gateway, Model) run agents as sandboxed, suspendable actors on top of Agent Substrate; Go, Apache-2.0, gRPC + Redis control plane, kubectl-shaped CLI; early-stage/pre-stable"
 tags: [agent-infrastructure, kubernetes, orchestrator, sandbox, suspend-resume, go, grpc, declarative, agent-substrate, google]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [opensandbox]
 source: unknown
 ---

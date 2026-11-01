@@ -5,12 +5,10 @@ url: "https://github.com/firecrawl/firecrawl"
 category: framework
 summary: "Production-grade web scraping/search/interaction API for AI agents — clean markdown output, JS rendering, anti-bot handling, Agent endpoint with Spark models, Map/Interact/Batch Scrape, MCP server mode; 9 SDKs, AGPL-3.0, YC-backed"
 tags: [web-scraping, mcp-server, rag, agent-infrastructure, markdown]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-06-19
 license: AGPL-3.0-only
 security_flags: []
-supersedes: []
 overlaps: [crawl4ai, browser-use]
 source: unknown
 ---

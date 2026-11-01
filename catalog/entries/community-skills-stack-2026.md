@@ -6,11 +6,9 @@ summary: "Practitioner-curated list of ~15 installable agent skills across engin
 tags: [agent-skills, curated-list, claude-code, community, skills-stack, discovery]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [agent-skills-osmani, obsidian-skills, agent-browser, skills-cli]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

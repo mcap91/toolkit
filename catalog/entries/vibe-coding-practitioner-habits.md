@@ -6,11 +6,9 @@ summary: "Experienced developer's framework for effective AI-assisted developmen
 tags: [vibe-coding, ai-development, best-practices, workflow, architecture, code-review]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [harness-engineering, staff-engineer-systems-thinking]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://arxiv.org/abs/2505.09343"
 category: reference
 summary: "DeepSeek V4.1 Flash transformer architecture redesign targeting KV cache reduction — Cross-layer Encoder-Decoder (CED) splits 20 encoder + 20 decoder layers so prompt tokens skip decoder entirely; cross-layer attention sharing (Full/Reindex/Reuse modes) shares KV across layers; global cache compressed to FP4 with 128-token bounded replay for local states; 4x smaller global cache, 8x smaller persistent cache vs V4 Flash"
 tags: [deepseek, kv-cache, transformer-architecture, inference-optimization, fp4, attention-sharing]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

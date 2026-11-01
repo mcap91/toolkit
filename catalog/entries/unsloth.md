@@ -5,12 +5,10 @@ url: "https://github.com/unslothai/unsloth"
 category: framework
 summary: "LLM fine-tuning and inference framework — trains 500+ models up to 2x faster with 70% less VRAM via custom Triton kernels; Unsloth Studio web UI for running/training text, audio, vision, embedding models; supports LoRA, full fine-tune, RL (GRPO), FP8, pretraining; GGUF/safetensors export; NVIDIA/AMD/Intel/Apple Silicon; API endpoint for Claude Code/Codex integration; Apache 2.0 (core) + AGPL-3.0 (Studio UI)"
 tags: [fine-tuning, lora, rl, grpo, quantization, gguf, local-inference, training, vram-optimization, triton]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [axolotl, llamafactory, trl]
 source: unknown
 ---

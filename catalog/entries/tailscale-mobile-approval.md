@@ -5,12 +5,10 @@ url: "https://tailscale.com/"
 category: agent-pattern
 summary: "Pattern for approving Claude Code permission prompts from a mobile device via Tailscale SSH + tmux — attach to a persistent session from any device on the tailnet, review diffs and approve remotely"
 tags: [tailscale, remote-access, tmux, mobile, workflow, claude-code]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: N/A
 security_flags: []
-supersedes: []
 overlaps: [remote-control]
 source: unknown
 ---

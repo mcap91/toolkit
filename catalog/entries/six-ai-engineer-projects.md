@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Curriculum-as-project-list framing six AI engineering skills as named, production-shaped builds: RAG (Fieldnote — answers from the chart on page 112, not its caption), Agents (Casefile — claims triage with typed handoffs, cost ceiling, human before payout), LLMOps (Warmstart — 3-layer cache over 400k questions/month with measured false-hit rate), Evals (Groundtruth — legal-research harness failing the PR when recall drops), Fine-tuning (Slotfill — LoRA on 40k freight invoices benchmarked against the prompt it replaces), Guardrails (Doorman — recruiting agent surviving resume-embedded injection)"
 tags: [learning-projects, rag, agents, llmops, evals, fine-tuning, guardrails, curriculum, portfolio]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

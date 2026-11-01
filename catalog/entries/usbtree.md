@@ -4,15 +4,12 @@ title: usbtree
 url: "https://github.com/gnomeria/usbtree"
 category: cli-tool
 summary: "Cross-platform Rust TUI for live USB device tree inspection — enumerates hubs/devices/classes/speeds via nusb (no root, no libusb), hot-plug watch with timestamped event log, live per-device activity sparklines and bandwidth graphs (Linux), safe eject, PCI view, filter/yank; single static binary (~1.5 MB), zero runtime deps; Linux/macOS/Windows; MIT"
-install: "cargo install --git https://github.com/gnomeria/usbtree"
 tags: [rust, tui, usb, hardware, device-tree, linux, macos, windows, cross-platform, cli]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -42,3 +39,7 @@ Config lives in `~/.config/usbtree/` (Linux/macOS) or `%APPDATA%\usbtree\` (Wind
 ## Security
 
 MIT licensed. No root required for basic operation. Root required only for usbmon real bandwidth metrics on Linux (`sudo modprobe usbmon`). macOS and Windows binaries are unsigned — verify sha256 or build from source. No network access during normal operation; `--updatelist` fetches from a public GitHub mirror.
+
+## How to use it
+
+cargo install --git https://github.com/gnomeria/usbtree

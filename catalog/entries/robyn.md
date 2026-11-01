@@ -4,15 +4,12 @@ title: Robyn
 url: "https://github.com/sparckles/Robyn"
 category: framework
 summary: "Async Python web framework with a Rust runtime (PyO3); sync/async handlers, dynamic routing, middleware, WebSockets, built-in OpenAPI generation, Jinja2 templating, hot reload, CLI scaffolding, plus built-in AI-agent routing and an MCP server mode. No external server needed. BSD-licensed."
-install: pip install robyn
 license: BSD-2-Clause
 tags: [web-framework, python, rust, async, api, websockets, mcp, high-performance]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -29,3 +26,7 @@ Robyn is an async Python web framework whose runtime is written in Rust (via PyO
 ## Security
 
 Robyn is released under a BSD license; sources that read the repository LICENSE report BSD 2-Clause ("Simplified"), while the PyPI package metadata lists BSD-3-Clause — verify against the repo LICENSE for a specific release. As a web framework it serves network-facing endpoints; the built-in MCP server and AI-agent routing expose additional surfaces that should be secured when enabled. No other security flags recorded from the observed material.
+
+## How to use it
+
+pip install robyn

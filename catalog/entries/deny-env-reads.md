@@ -5,12 +5,10 @@ url: "https://code.claude.com/docs/en/settings"
 category: reference
 summary: Useful security hygiene tip for Claude Code projects; documents a built-in feature rather than a new tool
 tags: [security, permissions, claude-code, env-files, secrets]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: UNLICENSED
 security_flags: []
-supersedes: []
 overlaps: [claude-code-remote-prompt-hardening]
 source: unknown
 ---

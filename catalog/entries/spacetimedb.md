@@ -5,12 +5,10 @@ url: "https://github.com/clockworklabs/spacetimedb"
 category: framework
 summary: "Relational database that is also the application server (Clockwork Labs, Rust) — schema + business logic compile into a WASM module running inside the database, clients connect directly and subscribe to tables with automatic real-time state sync; ACID with in-memory state plus commit log; modules in Rust/C#/TypeScript/C++, client SDKs for web/Unity/Unreal; powers the BitCraft Online MMORPG backend; BUSL-1.1 (→AGPL-3.0 with linking exception), ~25k stars"
 tags: [database, realtime, relational, rust, wasm, game-development, multiplayer, subscriptions, serverless-architecture, unity, unreal]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: BUSL-1.1
 security_flags: [busl-license-restrictions]
-supersedes: []
 overlaps: []
 source: unknown
 ---

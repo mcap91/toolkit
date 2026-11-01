@@ -5,12 +5,10 @@ url: "https://github.com/luongnv89/claude-howto"
 category: reference
 summary: "Well-structured tutorial guide with copy-paste templates, but it is a learning reference rather than an installable tool."
 tags: [claude-code, tutorial, learning-path, slash-commands, skills, hooks, mcp, subagents, templates]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [awesome-claude-code, claude-spellbook]
 source: unknown
 ---

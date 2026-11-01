@@ -4,15 +4,12 @@ title: ICCA Harness
 url: "https://github.com/BernhardJackiewicz/icca-harness"
 category: plugin
 summary: "Evidence-gated maker-checker-auditor workflow for Claude Code — separates Implementer, Checker, Control, and Auditor roles so the agent that writes code never decides whether it's accepted; mechanical enforcement via Git hooks (frozen acceptance tests, content-fingerprinted commit gates, bounded repair loops); measured 28% reduction in expensive-model tokens on implementation-heavy tasks at identical success rate (total tokens increase 37%); optional stage gates for static analysis, coverage, mutation testing, property tests, dependency structure, e2e scenarios; MIT"
-install: "git clone https://github.com/BernhardJackiewicz/icca-harness.git && cd icca-harness && ./install.sh"
 tags: [claude-code, maker-checker, evidence-gated, code-review, verification, delegation, token-optimization, git-hooks, testing, skill]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [fable-agent-orchestration, agent-skills-osmani]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -52,3 +49,7 @@ Inspired by Uncle Bob Martin's "gauntlet" concept (July 2026 tweet) — surround
 ## Security
 
 MIT licensed. Hooks are process CI, not a security boundary — they fail open on internal errors and can be disabled locally. Plain-terminal commits outside Claude Code are not intercepted. Repository resolution has shell-parsing limits for multi-repo scenarios.
+
+## How to use it
+
+git clone https://github.com/BernhardJackiewicz/icca-harness.git && cd icca-harness && ./install.sh

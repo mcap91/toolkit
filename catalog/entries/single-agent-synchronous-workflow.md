@@ -6,11 +6,9 @@ summary: "Argument and configuration for denying the Agent tool in Claude Code â
 tags: [single-agent, synchronous, anti-pattern, subagents, context, interruptibility, cost-optimization, code-review, claude-code]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [advisor-strategy, local-model-adversarial-workflow]
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

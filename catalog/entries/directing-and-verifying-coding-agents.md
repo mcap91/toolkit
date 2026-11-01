@@ -14,12 +14,10 @@ tags:
   - spec-quality
   - benchmark
   - human-skill
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: N/A
 security_flags: []
-supersedes: []
 overlaps:
   - verify-before-claim
   - superpowers-verification-before-completion

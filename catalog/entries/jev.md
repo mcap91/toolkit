@@ -5,12 +5,10 @@ url: "https://typesafe.ai"
 category: framework
 summary: "Non-generative 'System One' classification model from TypeSafe AI — evaluates state and returns typed answers with calibrated probabilities (choice, score, noul/boolean) instead of generating text; trained with RLCD; reports up to 200x faster inference and 400x lower cost than LLMs on classification tasks; parallel multi-question evaluation per request; LangChain integration via langchain-typesafe; use cases include model routing, agent guardrails (auto-mode safety classification), and ticket triage"
 tags: [classification, inference, llm-alternative, langchain, agent-routing, guardrails, model-routing, typesafe-ai]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

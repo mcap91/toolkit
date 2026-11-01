@@ -5,12 +5,10 @@ url: "https://opencode.ai/go"
 category: reference
 summary: "Low-cost subscription from the OpenCode team ($5 first month, then $10/month) giving access to popular open coding models — GLM-5.2/5.1, Kimi K2.7 Code/K2.6, Qwen3.7/3.6, MiniMax M2.7/M3, DeepSeek V4 Pro/Flash, MiMo — through OpenCode or any agent; dollar-value usage limits, models hosted US/EU/Singapore with a stated zero-retention policy; set up via OpenCode Zen + an API key"
 tags: [opencode, model-access, subscription, glm-5.2, open-models, coding-agent, llm-gateway, reference]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: proprietary
 security_flags: [proprietary-saas, api-key-required, data-leaves-to-third-party]
-supersedes: []
 overlaps: []
 source: unknown
 ---

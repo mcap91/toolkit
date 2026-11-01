@@ -5,12 +5,10 @@ url: "https://github.com/AKCodez/hackingtool-plugin"
 category: plugin
 summary: "Claude Code plugin wrapping 183 pentesting/OSINT tools from Z4nzu/hackingtool — auto-selects backend (native Bash, WSL, Docker with purpose-built images), 56 plug-and-play / 127 environment-dependent tools across 20+ categories; MIT"
 tags: [pentesting, osint, security, claude-code-plugin, docker, offensive-security]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: MIT
 security_flags: [runs-offensive-tools, requires-authorization, sudo-required-for-many]
-supersedes: []
 overlaps: [shannon]
 source: unknown
 ---

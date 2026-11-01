@@ -6,11 +6,9 @@ summary: "Pattern for persistent multi-session Claude Code cloud workflows — s
 tags: [claude-code, cloud-sessions, context, handoff, session-resume, git, orchestration, multi-repo]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [agent-session-resume]
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -4,12 +4,10 @@ title: "Software Cost Estimation Models (COCOMO II & Alternatives)"
 category: reference
 summary: "Reference on algorithmic software cost-estimation models — COCOMO II's three sub-models and effort/schedule formulas, plus alternatives (Putnam/SLIM, Function Point Analysis, SEER-SEM, story points, Wideband Delphi, analogy-based) — and their fit for git-derived, zero-touch size metrics."
 tags: [cost-estimation, cocomo-ii, putnam-slim, function-points, software-metrics, git-metrics]
-workflows: []
 reviewed: 2026-07-22
 acquired: 2026-07-22
 license: unknown
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

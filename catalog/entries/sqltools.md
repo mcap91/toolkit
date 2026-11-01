@@ -5,12 +5,10 @@ url: "https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools"
 category: framework
 summary: "VS Code extension for database management — connects to MySQL, PostgreSQL, SQL Server, SQLite, CockroachDB, MariaDB, TiDB via official drivers, plus 25+ community drivers (DuckDB, BigQuery, Snowflake, Oracle, ClickHouse, etc.); SQL formatter/beautifier, query runner with history and bookmarks, connection explorer, INSERT query generator; pluggable driver architecture; maintained by George James Software; MIT"
 tags: [vscode, database, sql, mysql, postgresql, sqlite, duckdb, snowflake, bigquery, extension, query-runner]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

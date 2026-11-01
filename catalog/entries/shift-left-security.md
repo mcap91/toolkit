@@ -7,11 +7,9 @@ summary: "Security testing practice — move checks earlier in the delivery pipe
 tags: [security, devsecops, sast, dast, pre-commit, ci-cd, sql-injection, shift-left]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: unknown
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -4,15 +4,12 @@ title: Meetily
 url: "https://github.com/Zackriya-Solutions/meetily"
 category: framework
 summary: "Privacy-first, self-hosted AI meeting assistant (Zackriya Solutions) that captures, transcribes, and summarizes meetings entirely on the local machine. Tauri desktop app (Rust backend, Next.js frontend) with live Whisper/Parakeet transcription, mic+system audio capture, and summaries via Ollama (local) or optional Claude/Groq/OpenRouter/OpenAI endpoints. MIT (Community Edition); a paid PRO tier exists."
-install: desktop installers (Windows .exe / macOS .dmg) from GitHub Releases
 license: MIT
 tags: [meeting-notes, transcription, whisper, parakeet, local-first, tauri, ollama, privacy]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: [optional-cloud-llm-egress]
-workflows: []
 source: unknown
 ---
 
@@ -29,3 +26,7 @@ Meetily is a privacy-first AI meeting assistant that runs on the local machine, 
 ## Security
 
 MIT licensed (Community Edition). By design all transcription and storage are local; recordings, transcripts, and models stay on the device. The summarization provider is configurable — the default/recommended Ollama runs locally, but selecting Claude, Groq, OpenRouter, or a custom OpenAI-compatible endpoint sends meeting content to that external service (`optional-cloud-llm-egress`). The README markets privacy/compliance benefits; those are vendor claims, and GDPR-compliance features are attributed to the separate paid PRO edition. Capturing system audio records all participants — recording-consent obligations apply.
+
+## How to use it
+
+desktop installers (Windows .exe / macOS .dmg) from GitHub Releases

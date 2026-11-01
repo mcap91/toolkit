@@ -5,12 +5,10 @@ url: "https://github.com/karakeep-app/karakeep"
 category: framework
 summary: "Self-hostable AI bookmark manager with REST API, official agent skills, and Ollama support — agent-friendly but self-described as under heavy development."
 tags: [bookmarks, knowledge-management, self-hosted, llm, tagging, search, rest-api, agent-friendly]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: [puppeteer-in-production, agpl-copyleft, heavy-development]
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -7,11 +7,9 @@ summary: "Open-weight decision models from Cloudflare — Clef (27B, Qwen 3.8-27
 tags: [decision-models, cloudflare, open-weights, classification, scoring, jev-competitor, vision, workers-ai, apache-2, non-autoregressive]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: [ollama-system-one-api]
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://github.com/sowhan/skill-search"
 category: mcp-server
 summary: "Semantic skill retrieval MCP for Claude Code — replaces per-turn skill listing tax (~7.3K tokens) with vector search over descriptions; saves 3.19% of 200K context window per turn at 117 skills, recall@3 of 0.79; MIT, service-free default"
 tags: [claude-code, skills, mcp-server, vector-search, token-optimization]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [skill-router]
 source: unknown
 ---

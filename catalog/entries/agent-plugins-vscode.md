@@ -5,12 +5,10 @@ url: "https://code.visualstudio.com/docs/agent-customization/agent-plugins"
 category: reference
 summary: "VS Code docs for Agent Plugins 1.0, an open vendor-neutral standard (Vercel, AWS, Cursor, GitHub, Microsoft, OpenAI) for packaging portable Agent Skills + MCP servers into one installable plugin folder, working across VS Code, GitHub Copilot, Cursor, ChatGPT/Codex, and Kiro; Claude Code is not a coalition member but plugins install into it via format translation"
 tags: [agent-plugins, open-standard, mcp, skills, vs-code, github-copilot, plugin-marketplace, interoperability]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: unlicensed
 security_flags: [implicit-trust-mcp-install, no-provenance-verification, spec-status-ambiguous]
-supersedes: []
 overlaps: [agent-skills-spec]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/documenso/documenso"
 category: framework
 summary: "Open-source DocuSign alternative for digital document signing — self-hostable TypeScript/React Router v7/Hono/Prisma stack with PDF signature support (@libpdf/core), i18n, Stripe billing, E2E tests (Playwright); Docker/K8s/Railway deployment; AGPL-3.0"
 tags: [document-signing, self-hosted, typescript, react, pdf, open-source, docusign-alternative]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: AGPL-3.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

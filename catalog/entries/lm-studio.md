@@ -4,15 +4,12 @@ title: LM Studio
 url: "https://lmstudio.ai/"
 category: framework
 summary: "Desktop application for downloading, managing, and running local LLMs with GUI chat, OpenAI/Anthropic-compatible API server (localhost:1234), MLX and llama.cpp engines, built-in model search with VRAM fit estimation, GPU offload controls, voice transcription, and Bionic agentic assistant; JS/Python SDKs, MCP client support, headless daemon (llmster), LM Link encrypted remote inference; free for personal and commercial use; macOS/Windows/Linux"
-install: "Download from https://lmstudio.ai/"
 tags: [local-inference, llm, api-server, openai-compatible, mlx, llama-cpp, gui, model-management, voice, agent, mcp-client, privacy, desktop]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [on-prem-llm-deployment-architecture]
 license: Proprietary (free for personal and commercial use)
 security_flags: [closed-source]
-workflows: []
 source: unknown
 ---
 
@@ -38,3 +35,7 @@ Privacy-first: all local inference stays on-device. Cloud features (frontier mod
 ## Security
 
 Proprietary closed-source application. Free for personal and commercial use. No telemetry details publicly documented. Local inference data stays on-device. Cloud ZDR policy for any server-routed requests. The closed-source nature means the privacy claims cannot be independently verified from source code.
+
+## How to use it
+
+Download from https://lmstudio.ai/

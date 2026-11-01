@@ -20,10 +20,8 @@ license: MIT
 security_flags:
   - executes-exploits
   - mutates-target-state
-supersedes: []
 overlaps:
   - shannon
-workflows: []
 source_url: https://www.instagram.com/reel/De2LjyNNS4H/
 source: instagram
 ---

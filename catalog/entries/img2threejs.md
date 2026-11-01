@@ -5,12 +5,10 @@ url: "https://github.com/img2threejs/img2threejs"
 category: skill
 summary: "Image-to-3D reconstruction skill for Claude Code/Codex/OpenCode that turns a single reference image into a quality-gated, animation-ready TypeScript THREE.Group factory via a staged sculpting pipeline, using stdlib-only Python scripts for validation/gating so model tokens are spent only on visual judgment"
 tags: [image-to-3d, threejs, procedural-generation, claude-code-skill, token-efficient, typescript, python, 3d-modeling]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [threejs-skills]
 source: unknown
 ---

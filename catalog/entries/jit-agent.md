@@ -5,12 +5,10 @@ url: "https://github.com/bingreeky/JIT"
 category: framework
 summary: "Research meta-agent (arXiv 2608.25593) that generates a task-specific agent harness on the fly — given a task spec, protocol, and tool registry it emits executable harness code factored into memory/planning/action/capability modules against shared HarnessFactory interfaces, revises it from execution traces, and selects among N candidates by judge or logprob; ships a JIT-27B meta-model checkpoint and 7 benchmark adapters; Python, ~440 stars"
 tags: [meta-agent, harness-generation, agent-research, harness, benchmark, vllm, code-generation, arxiv, model-as-a-harness]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: NOASSERTION
 security_flags: [generated-code-execution, unclear-license]
-supersedes: []
 overlaps: []
 source: unknown
 ---

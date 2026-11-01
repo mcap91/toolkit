@@ -12,12 +12,10 @@ tags:
   - token-budget
   - task-decomposition
   - pi-coding-agent
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: ""
 security_flags: []
-supersedes: []
 overlaps:
   - local-model-harness-patterns
   - pi-coding-agent

@@ -12,7 +12,6 @@ tags:
   - hybrid-search
   - closed-source
   - cost-optimization
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: Proprietary
@@ -20,7 +19,6 @@ security_flags:
   - closed-source
   - no-self-hosting
   - no-free-tier
-supersedes: []
 overlaps:
   - qdrant
   - weaviate

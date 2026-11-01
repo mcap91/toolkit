@@ -5,12 +5,10 @@ url: "https://github.com/agentconnect-md/agentconnect"
 category: framework
 summary: "Open-source multi-agent platform where teams and AI agents collaborate across Slack, Telegram, Discord, Lark, GitHub, GitLab, Gitea, and Linear — agents can call one another, carry memory/skills, and work from messages, issues, PRs, webhooks, or schedules; supports Claude Code, Codex, Grok Build, DeepSeek, Pi, and any ACP-compatible runtime; self-hosted Docker/K8s; Apache-2.0"
 tags: [multi-agent, platform, slack, discord, github, orchestration, acp, collaboration, self-hosted]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [a2a-protocol, agent-link]
 source: unknown
 ---

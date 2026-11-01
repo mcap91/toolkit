@@ -8,9 +8,7 @@ reviewed: 2026-09-25
 acquired: 2026-09-25
 license: N/A
 security_flags: [data-exfiltration, privacy-violation]
-supersedes: []
 overlaps: []
-workflows: []
 source: unknown
 ---
 

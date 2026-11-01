@@ -5,12 +5,10 @@ url: "https://github.com/omnigent-ai/omnigent"
 category: framework
 summary: "Open-source 'meta-harness' giving a common orchestration layer over Claude Code, Codex, Cursor, OpenCode, Hermes, Pi, and custom YAML agents — swap/combine harnesses, mix vendors in one session, drive from terminal/browser/phone, run in cloud sandboxes (Modal/E2B/Daytona/etc.), and enforce approval/spend/tool policies; Python 3.12+, degraded native Windows mode"
 tags: [meta-harness, orchestration, multi-agent, claude-code, codex, cursor, sandboxing, policies, mobile]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: ""
 security_flags: [curl-pipe-sh-installer, license-not-stated-in-readme, degraded-windows-sandbox, runs-multiple-coding-agents]
-supersedes: []
 overlaps: [frontier]
 source: unknown
 ---

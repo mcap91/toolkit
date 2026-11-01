@@ -5,12 +5,10 @@ url: "https://aws.amazon.com/bedrock/"
 category: framework
 summary: "AWS managed platform for building generative AI applications — 100+ foundation models (Amazon Nova, Anthropic Claude, OpenAI GPT-5.x, Meta Llama, DeepSeek, Mistral, etc.) through one API; AgentCore for production agent deployment with any framework (LangChain, OpenAI Agents SDK, Claude Agent SDK, Strands); Knowledge Bases for RAG; Guardrails; model distillation, prompt caching, intelligent routing; enterprise security (SOC, ISO, FedRAMP High, HIPAA eligible)"
 tags: [aws, cloud, model-gateway, agents, rag, guardrails, enterprise, multi-provider, agentcore, knowledge-bases]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: proprietary
 security_flags: []
-supersedes: []
 overlaps: [litellm, nvidia-build]
 source: unknown
 ---

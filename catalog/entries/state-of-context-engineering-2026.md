@@ -5,12 +5,10 @@ url: "https://redis.io/resources/state-of-context-engineering-2026/"
 category: reference
 summary: "Redis-published survey report on context-engineering maturity among IT/AI infrastructure leaders: defines context engineering as deciding what an agent sees at each step (navigable, fresh, fast, compounding); reports 79% call context 'very important' yet 81% sit at the two earliest maturity stages (ad hoc/exploratory) and only 4% report reaching the 'compounding' stage; cites Gartner ('context engineering is in, prompt engineering is out', July 2025) and Cognizant's plan to train/deploy 1,000 context engineers (Aug 2025); promotes Redis's own Iris product and a gated 'Context Engineering Maturity Model' self-assessment/full report."
 tags: [context-engineering, ai-agents, survey, maturity-model, redis, vendor-report, production-ai, semantic-data-model, context-graph]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

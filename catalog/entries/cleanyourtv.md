@@ -19,7 +19,6 @@ tags:
   - java
   - pm-disable-user
   - restore-script
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: MIT
@@ -27,7 +26,6 @@ security_flags:
   - no-prebuilt-binaries
   - network-adb-plaintext
   - agent-executes-device-commands
-supersedes: []
 overlaps:
   - dumbtv
 ---

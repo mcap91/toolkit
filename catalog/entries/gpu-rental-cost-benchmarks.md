@@ -6,11 +6,9 @@ summary: "A detailed cost and performance breakdown from renting 4x RTX 4080 Sup
 tags: [gpu-rental, cost-optimization, local-inference, vllm, benchmarking, vram, concurrency]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

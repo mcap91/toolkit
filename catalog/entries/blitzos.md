@@ -5,12 +5,10 @@ url: "https://github.com/blitzdotdev/blitzos"
 category: plugin
 summary: "Context-repo system for Claude Code cloud VMs — generates a private GitHub repo (CLAUDE.md map + git submodule references + sessions log) so every new cloud agent boots knowing your repos, conventions, and what previous agents did; one-click multi-repo launch via blitzos.com, self-hostable on Cloudflare; MIT"
 tags: [claude-code, cloud-sessions, context-management, multi-repo, github, session-persistence, self-hosted]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [claude-mem]
 source: unknown
 ---

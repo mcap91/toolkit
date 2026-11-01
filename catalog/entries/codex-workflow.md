@@ -5,12 +5,10 @@ url: "https://github.com/viettran-edgeAI/codex_workflow"
 category: agent-pattern
 summary: "Multi-agent orchestration architecture for Codex/Claude Code optimizing token usage within plan limits — 7 specialized roles (Main Agent, Companion/Luna, Investigator, Default Executor/Luna max, Senior Executor/Sol, Tester, Archivist) with fine-tuned batching, knowledge distribution via task-completion guides, and built-in per-agent token reporting; Sol xhigh ran 4h22m at 90% of 5h limit vs Astra at 260%; MIT"
 tags: [orchestration, multi-agent, codex, token-optimization, roles, subagents, sol, astra]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

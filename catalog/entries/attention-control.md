@@ -5,12 +5,10 @@ url: "https://github.com/aaddrick/attention-control"
 category: skill
 summary: "Output style / skill for coding agents applying air-traffic-control communication discipline (fixed message shape + controlled vocabulary) to agent prose, combining the shape rules from 'i-have-adhd' with the language rules from 'asd-ste100'; ships as a native Claude Code output style and as a skill/rules-file for Codex, Cursor, Gemini CLI, GitHub Copilot, and Zed."
 tags: [output-style, adhd, accessibility, prompt-engineering, claude-code, codex, simplified-technical-english, eval-harness]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

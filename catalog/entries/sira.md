@@ -4,15 +4,12 @@ title: SIRA (Superintelligent Retrieval Agent)
 url: "https://github.com/facebookresearch/sira"
 category: framework
 summary: "Meta (FAIR) research pipeline that uses LLMs to enrich both documents and queries to improve BM25 retrieval without training. Five stages: data prep, BM25 indexing, corpus enrichment (LLM indexing phrases), query expansion (LLM search terms), and LLM pointwise reranking; reports SOTA on BEIR using only inference-time compute. MIT."
-install: "conda create -n sira312 python=3.12 && pip install -e ."
 license: MIT
 tags: [information-retrieval, bm25, rag, reranking, query-expansion, llm, beir, meta]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -29,3 +26,7 @@ SIRA (Superintelligent Retrieval Agent) is a research codebase from Meta's FAIR 
 ## Security
 
 MIT licensed; the `src/sira/bm25x/` directory derives from LightOn's `bm25x` (Apache-2.0, see NOTICE). SIRA is research code that runs local LLM inference on a GPU; enrichment/reranking stages invoke an LLM server (auto-started locally by default). No security flags recorded from the observed material.
+
+## How to use it
+
+conda create -n sira312 python=3.12 && pip install -e .

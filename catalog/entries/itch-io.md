@@ -15,13 +15,11 @@ tags:
   - revenue-sharing
   - hosting-platform
   - game-development
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: proprietary
 security_flags:
   - unvetted-uploads
-supersedes: []
 overlaps: []
 ---
 

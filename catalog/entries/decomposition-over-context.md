@@ -5,12 +5,10 @@ url: "https://example.com"
 category: agent-pattern
 summary: "Argues larger context windows aren't the fix for agentic-coding limits — task decomposition with explicit ownership, dependencies, and file boundaries is; illustrated with a TESTER/FIXER agent split and an issue-based parallel-implementation workflow"
 tags: [context-engineering, decomposition, subagents, software-engineering-workflow, github-issues, agent-orchestration]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

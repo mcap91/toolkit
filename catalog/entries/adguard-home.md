@@ -5,12 +5,10 @@ url: "https://github.com/AdguardTeam/AdGuardHome"
 category: framework
 summary: "Production-ready network-wide DNS ad/tracker blocker — infrastructure tool, not an agent/dev workflow component"
 tags: [dns, privacy, ad-blocking, network, self-hosted, docker]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: GPL-3.0
 security_flags: [install-script-curl-pipe]
-supersedes: []
 overlaps: []
 source: unknown
 ---

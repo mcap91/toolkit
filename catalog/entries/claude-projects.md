@@ -5,12 +5,10 @@ url: "https://support.claude.com/en/articles/9517075-what-are-projects"
 category: reference
 summary: "Anthropic support documentation for Claude Projects — persistent workspaces with an uploaded-file knowledge base and custom instructions across claude.ai chat, Cowork, and Claude Code, plus a September 2026 beta redesign (Claude Code first) that turns a project into one coordinator conversation dispatching parallel cloud-hosted worker threads"
 tags: [claude, anthropic, projects, claude-code, rag, knowledge-base, documentation, cowork]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: proprietary
 security_flags: [proprietary-feature, hosted-saas-only]
-supersedes: []
 overlaps: []
 source: unknown
 ---

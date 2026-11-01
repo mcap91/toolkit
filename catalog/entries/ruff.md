@@ -4,15 +4,12 @@ title: Ruff
 url: "https://github.com/astral-sh/ruff"
 category: cli-tool
 summary: "Rust-written Python linter and formatter from Astral; re-implements 900+ rules (Flake8 + dozens of plugins, isort, pydocstyle, pyupgrade) and a Black-compatible formatter behind one interface, with built-in caching, autofix, pyproject.toml config, and editor/pre-commit/GitHub Action integrations. MIT."
-install: pip install ruff
 license: MIT
 tags: [python, linter, formatter, static-analysis, rust, code-quality, astral, pre-commit]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: [curl-pipe-sh-install]
-workflows: []
 source: unknown
 ---
 
@@ -31,3 +28,7 @@ Ruff is a Python linter and code formatter written in Rust, developed by Astral 
 ## Security
 
 MIT licensed. Primary install is via pip/uv/pipx/package managers; the project also documents a `curl … | sh` standalone installer that pipes a remote script to a shell (`security_flags: curl-pipe-sh-install`) — the package-manager paths avoid that pattern. Ruff is a static-analysis tool that reads source files locally and makes no network calls in normal linting/formatting.
+
+## How to use it
+
+pip install ruff

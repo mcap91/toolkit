@@ -5,12 +5,10 @@ url: "https://github.com/JasonColapietro/suede-creator-skills"
 category: plugin
 summary: "MIT-licensed pack of 25 Claude Code / Codex skills covering multi-agent orchestration (WIP collision detection, rollback trees), Codex worker fleets (Claude plans + parallel Codex CLI workers), A-F code review grading across 7 lanes with instant-F triggers, AI eval framework, design/copy/SEO audits, and consumer automation; ships MCP server with 7 tools"
 tags: [claude-code, codex, skills, code-review, multi-agent, orchestration, mcp-server, ai-eval, seo, design]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [get-shit-done, native-subagents]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/HKUDS/OpenSpace"
 category: meta-skill
 summary: "Compelling skill-evolution engine for Claude Code agents but very new (v0.1.0), self-published benchmark, and significant security surface from community skill ingestion"
 tags: [skill-evolution, mcp-server, claude-code, agent-learning, skill-sharing, token-efficiency, meta-skill, token-reduction]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-unknown
 security_flags: [untrusted-skill-execution, community-code-download, self-published-benchmark, license-not-stated]
-supersedes: []
 overlaps: []
 source: unknown
 ---

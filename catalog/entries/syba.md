@@ -7,11 +7,9 @@ summary: "SYBA classifies organic compounds as easy- or hard-to-synthesize using
 tags: [synthetic-accessibility, bayesian-classifier, fragment-based, cheminformatics, drug-discovery, rdkit]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [synfrag]
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

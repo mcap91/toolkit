@@ -17,14 +17,12 @@ tags:
   - gpl
   - blender-foundation
   - game-development
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: GPL
 security_flags:
   - python-scripting-arbitrary-code
   - third-party-mcp-code-execution-surface
-supersedes: []
 overlaps: []
 ---
 

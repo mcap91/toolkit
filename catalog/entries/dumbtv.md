@@ -20,7 +20,6 @@ tags:
   - bash
   - java
   - restore-script
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: MIT
@@ -29,7 +28,6 @@ security_flags:
   - agent-executes-device-commands
   - blocks-os-updates-while-dns-filter-runs
   - downloads-third-party-apks-on-request
-supersedes: []
 overlaps:
   - cleanyourtv
 ---

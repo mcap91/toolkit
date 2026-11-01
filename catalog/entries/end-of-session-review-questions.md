@@ -5,12 +5,10 @@ url: "https://example.com"
 category: agent-pattern
 summary: "Two standing end-of-session prompts ('what are you least confident about' and 'what am I probably missing') used to surface glossed-over assumptions and context gaps, with community variants and known failure modes"
 tags: [prompting, meta-prompting, confidence, verification, session-review, agent-pattern]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [confidence-probing-prompts]
 source: unknown
 ---

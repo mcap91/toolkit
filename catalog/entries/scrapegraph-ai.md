@@ -5,12 +5,10 @@ url: "https://github.com/ScrapeGraphAI/Scrapegraph-ai"
 category: framework
 summary: "Python web-scraping library that uses LLMs plus graph-based pipelines (SmartScraperGraph, SearchGraph, SpeechGraph, ScriptCreatorGraph, and multi-page variants) to extract structured data from websites and local documents (HTML, XML, JSON, Markdown); MIT-licensed open-source core with a separate paid managed cloud API/SDKs"
 tags: [web-scraping, llm, python, data-extraction, mcp-server, agent-tooling]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: MIT
 security_flags: [telemetry-enabled-by-default]
-supersedes: []
 overlaps: []
 source: unknown
 ---

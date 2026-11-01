@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Announcement of three Claude Code CLI features shipped alongside Claude Code Web: /ultraplan (beta, browser-based plan review), /powerup (interactive feature-discovery lessons), /insights (session-analysis reports)"
 tags: [claude-code, claude-code-web, ultraplan, powerup, insights, announcement]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

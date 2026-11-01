@@ -5,12 +5,10 @@ url: "https://github.com/louislva/claude-peers-mcp"
 category: mcp-server
 summary: "Novel multi-session peer messaging, but mandatory --dangerously-skip-permissions flag is a hard blocker for safe use"
 tags: [multi-agent, inter-session, messaging, coordination, broker, sqlite, bun, orchestration]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-unknown
 security_flags: [dangerously-skip-permissions-required, dangerously-load-development-channels-required, no-tests-observed, no-ci-observed, single-contributor, optional-openai-key-exfil-risk]
-supersedes: []
 overlaps: []
 source: unknown
 ---

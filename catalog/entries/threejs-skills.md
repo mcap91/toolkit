@@ -4,15 +4,12 @@ title: Three.js Skills
 url: "https://github.com/CloudAI-X/threejs-skills"
 category: skill
 summary: "Skill bundle (CloudAI-X) shipping 10 Three.js SKILL.md sub-skills for AI coding agents: fundamentals, geometry, materials, textures, lighting, loaders, animation, interaction, shaders, and post-processing — each triggering on the matching 3D/WebGL task. Installs via npx skills add. MIT."
-install: npx skills add CloudAI-X/threejs-skills
 license: MIT
 tags: [threejs, 3d, webgl, skill-bundle, web-development, claude-code, shaders, animation]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -42,3 +39,7 @@ The bundle is indexed on the agenticskills.io directory (MIT, ~2.3K stars on the
 ## Security
 
 MIT licensed. These are instructional Markdown skill files (guidance/patterns for writing Three.js code), with no runtime component of their own. As with any installed skill, review the `SKILL.md` contents before use. No security flags recorded from the observed material.
+
+## How to use it
+
+npx skills add CloudAI-X/threejs-skills

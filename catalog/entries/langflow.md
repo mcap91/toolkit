@@ -5,12 +5,10 @@ url: "https://github.com/langflow-ai/langflow"
 category: framework
 summary: Heavy visual-builder platform with native MCP-server export; too large for direct adoption but worth monitoring for MCP workflow integration patterns.
 tags: [visual-builder, agentic-workflows, mcp-server, llm-orchestration, multi-agent, python, open-source, orchestration]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [large-dependency-surface, exposes-local-http-server]
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/Unstructured-IO/unstructured"
 category: framework
 summary: "Open-source document ETL library — partitions 60+ file types (PDFs, Word, HTML, images, emails) into structured elements (Title, NarrativeText, Table, etc.) with layout ML enrichment, OCR, chunking, and embedding; connectors for 40+ sources/destinations; MCP server (Unstructured Transform) for agent-driven document processing; Apache-2.0, 15k+ stars"
 tags: [document-parsing, etl, ocr, pdf, chunking, embedding, rag, mcp-server, llm-preprocessing, python]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: Apache-2.0
 security_flags: [telemetry-default-on]
-supersedes: []
 overlaps: [docling-mcp]
 source: unknown
 ---

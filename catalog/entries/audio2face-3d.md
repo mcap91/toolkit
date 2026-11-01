@@ -16,13 +16,11 @@ tags:
   - maya-plugin
   - real-time
   - metahuman
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: mixed (MIT SDK/Maya/UE5 plugins, Apache-2.0 training framework, NVIDIA Software License NIM, NVIDIA Open Model / custom license on model weights)
 security_flags:
   - mixed-licensing
-supersedes: []
 overlaps: []
 ---
 

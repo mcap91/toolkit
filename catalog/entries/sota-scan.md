@@ -5,12 +5,10 @@ url: "https://github.com/MerlijnW70/sota-scan"
 category: skill
 summary: "Useful comparative benchmarking skill for Claude Code, but single-contributor, no tests, and high token cost for exhaustive mode"
 tags: [benchmarking, competitive-analysis, code-quality, claude-code, skill]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [no-tests, single-contributor]
-supersedes: []
 overlaps: []
 source: unknown
 ---

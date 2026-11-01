@@ -4,15 +4,12 @@ title: DuckDB
 url: "https://github.com/duckdb/duckdb"
 category: framework
 summary: "High-performance in-process analytical (OLAP) SQL database. Rich SQL dialect (window functions, correlated subqueries, nested types), zero-config, embeddable; runs as a standalone CLI and as clients for Python, R, Java, Wasm, etc., with direct querying of CSV/Parquet files and pandas/dplyr integration. MIT."
-install: pip install duckdb
 license: MIT
 tags: [database, sql, olap, analytics, embedded, parquet, columnar, in-process]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -29,3 +26,7 @@ DuckDB is an in-process analytical SQL database management system designed for f
 ## Security
 
 MIT licensed. DuckDB is an embedded database engine running in-process; it reads/writes local files and, via extensions, can reach remote/cloud data sources using the caller's credentials. No security flags recorded from the observed material.
+
+## How to use it
+
+pip install duckdb

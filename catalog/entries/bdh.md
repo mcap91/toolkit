@@ -5,12 +5,10 @@ url: "https://github.com/pathwaycom/bdh"
 category: framework
 summary: "Post-transformer neural architecture from Pathway — biologically inspired sparse graph of neuron-like nodes with Hebbian working memory, scale-free topology, and GPU-friendly state-space formulation; matches GPT-2-scale transformers at 10M-1B parameters with interpretable activations; 97.4% on Sudoku Extreme (internal implementation) without chain-of-thought; runs on NVIDIA AI infrastructure and AWS"
 tags: [neural-architecture, post-transformer, neuroscience, sparse-networks, hebbian-learning, interpretability, reasoning]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: unlicensed
 security_flags: [no-stated-license]
-supersedes: []
 overlaps: [nanogpt]
 source: unknown
 ---

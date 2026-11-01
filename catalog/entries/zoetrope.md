@@ -4,15 +4,12 @@ title: Zoetrope
 url: "https://github.com/furkankly/zoetrope"
 category: cli-tool
 summary: "Rust TUI that visualizes Claude Code sessions as live flow graphs — reads JSONL transcripts from ~/.claude/projects/, shows agents/subagents/workflows as nodes with tool calls, status, and token counts; time-travel scrubbing, live following, gap compression, agent detail panels with prompts and tool timings; also runs in-browser via WASM; zero network, read-only; MIT"
-install: brew install furkankly/tap/zoetrope
 tags: [claude-code, visualization, tui, rust, observability, session-replay, flow-graph, wasm, ratatui]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -44,3 +41,7 @@ Built on ratatui (TUI framework), rataflow (node-graph widget), ratzilla (WASM b
 ## Security
 
 MIT licensed. Read-only — never writes to transcripts or makes network requests. Zero network dependency is a verifiable property (`cargo tree`), not just a claim. Transcripts stay on-device; browser version runs fully local in WASM.
+
+## How to use it
+
+brew install furkankly/tap/zoetrope

@@ -5,12 +5,10 @@ url: "https://example.com"
 category: agent-pattern
 summary: "Four lessons from embedding an agent with persistent memory and tool access into a physical robot: reflexes must bypass the model, memory needs periodic consolidation and audit trails, tool access needs active restriction, and inline action-timing beats raw model capability for perceived intelligence"
 tags: [embodied-agent, robotics, reflexes, memory-consolidation, tool-restraint, latency, agent-pattern]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

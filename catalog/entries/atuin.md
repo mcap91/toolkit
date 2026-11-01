@@ -7,11 +7,9 @@ summary: "Shell history replacement backed by SQLite — records exit code, dura
 tags: [shell-history, search, sync, encryption, sqlite, cli, rust, productivity, cross-machine]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

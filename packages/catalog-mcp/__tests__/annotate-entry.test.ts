@@ -9,6 +9,7 @@ name: foo
 title: "Foo"
 url: https://github.com/o/foo
 source: text
+source_url: https://example.com/post/1
 category: cli-tool
 summary: "a tool"
 tags: [x]

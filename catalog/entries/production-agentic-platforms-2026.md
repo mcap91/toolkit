@@ -6,11 +6,9 @@ summary: "Practitioner evaluation of 5 agentic AI platforms for production use, 
 tags: [agentic-platforms, evaluation, production, orchestration, langgraph, crewai, n8n, enterprise, governance, observability]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [crewai, n8n-mcp, graph-engineering]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

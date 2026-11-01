@@ -6,11 +6,9 @@ summary: "Emerging paradigm for designing multi-agent AI systems as explicit dir
 tags: [multi-agent, orchestration, graph, deterministic, workflow, langgraph, autogen, architecture, agentic-design]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -4,15 +4,12 @@ title: PinchTab
 url: "https://github.com/pinchtab/pinchtab"
 category: framework
 summary: "Standalone Go HTTP server (~16MB single binary) that gives AI agents control of Chrome via a CLI and HTTP API: token-efficient text extraction (~800 tokens/page), headless/headed profiles, multi-instance orchestration, an MCP server, and a dashboard. Local-first by default (binds 127.0.0.1, sensitive endpoints off). MIT."
-install: npm install -g pinchtab
 license: MIT
 tags: [browser-automation, ai-agents, chrome, cdp, go, http-api, mcp, headless]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: [browser-use]
 security_flags: [privileged-control-surface, curl-pipe-sh-install, network-exposure-if-misconfigured]
-workflows: []
 source: unknown
 ---
 
@@ -29,3 +26,7 @@ PinchTab is a standalone HTTP server, distributed as a ~16MB self-contained Go b
 ## Security
 
 MIT licensed; no telemetry, local-first by default. The server binds `127.0.0.1`, disables sensitive endpoint families and `attach` by default, and restricts browsing to a local-only allowlist (IDPI) until the operator explicitly widens it. The project's own documentation flags the dashboard, HTTP API, MCP server, and remote CLI integrations as privileged operator control surfaces not designed for untrusted users, multi-tenant use, or public-internet exposure (`privileged-control-surface`); any non-local deployment (binding beyond loopback, publishing ports, remote bridges) is an operator-secured advanced setup requiring tokens, TLS, and network boundaries (`network-exposure-if-misconfigured`). One documented install path pipes a remote script to a shell (`curl … | bash`, `curl-pipe-sh-install`); npm/Homebrew/Docker paths avoid it. Optional CloakBrowser stealth support launches a user-supplied binary that is not bundled. Enabling headed profiles lets an agent act inside authenticated sessions.
+
+## How to use it
+
+npm install -g pinchtab

@@ -5,12 +5,10 @@ url: "https://gitlab.com/timo2026/opus-fable-mode"
 category: hook
 summary: "Data-driven behavioral governor + re-injection hook to steer Opus 4.8 toward Fable 5's terse, result-first working style; honest about limits (style not capability) and backed by 37K-message corpus analysis"
 tags: [behavioral-tuning, claude-code, hook, token-reduction, fable-5]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: MIT
 security_flags: [single-contributor, settings-json-modification]
-supersedes: []
 overlaps: [karpathys-12-rules-for-claudemd, rtk]
 source: unknown
 ---

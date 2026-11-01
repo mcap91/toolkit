@@ -5,12 +5,10 @@ url: "https://github.com/David-Crty/databasement"
 category: framework
 summary: "Self-hosted database backup manager with web UI — schedule, backup, and restore MySQL, PostgreSQL, MariaDB, SQL Server, MongoDB, SQLite, Firebird, and Redis to S3/SFTP/Samba/Azure Blob/local storage; SSH tunnels, remote agents, GFS retention, AES-256 encryption, cross-server restore, scheduled restores, built-in Adminer browser, multi-tenant RBAC with OAuth/SSO, REST API and MCP server; single Docker container; MIT"
 tags: [database, backup, restore, self-hosted, docker, mcp-server, mysql, postgresql, mongodb, sqlite, ssh-tunnel, s3, encryption]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

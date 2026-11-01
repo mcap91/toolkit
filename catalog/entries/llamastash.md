@@ -18,7 +18,6 @@ tags:
   - claude-code-integration
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - lm-studio
   - nvidia-pair
@@ -32,7 +31,6 @@ security_flags:
   - model-downloads-third-party
   - single-maintainer
   - config-patching-other-tools
-workflows: []
 source: reddit
 source_url: https://www.reddit.com/r/LocalLLM/comments/1wxn8r7/daily_driving_qwen_38_flash_instead_of_claude/
 ---

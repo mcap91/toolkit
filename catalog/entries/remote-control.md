@@ -6,11 +6,9 @@ summary: built-in feature; try for long sessions
 tags: [mobile, remote, sessions]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 url: "https://code.claude.com/docs/en/remote-control"
 license: proprietary
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

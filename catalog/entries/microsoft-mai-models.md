@@ -5,12 +5,10 @@ url: "https://microsoft.ai/news/building-a-hillclimbing-machine-launching-seven-
 category: reference
 summary: "Microsoft AI blog announcement (Build 2026) of seven in-house MAI models across image, voice, transcription, reasoning, and coding, distributed via Microsoft Foundry plus OpenRouter/Fireworks/Baseten; introduces 'Frontier Tuning', letting enterprise customers fine-tune model weights on their own workflow-trace data via reinforcement-learning environments, alongside a Mayo Clinic co-developed healthcare model."
 tags: [microsoft, mai, foundry, model-family, reasoning-model, fine-tuning, enterprise-ai, healthcare-ai, reinforcement-learning]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: LicenseRef-copyright-author
 security_flags: []
-supersedes: []
 overlaps: [model-sovereignty-data-flywheel]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/google-research/era"
 category: framework
 summary: "Interesting LLM+tree-search loop for scientific code generation, but Gemini-locked, research-grade, and not directly applicable to Claude Code workflows today"
 tags: [scientific-computing, code-generation, tree-search, llm-loop, bioinformatics, single-cell, python, google-research, research-paper]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [executes-generated-code, no-pinned-deps, not-officially-supported, api-key-required]
-supersedes: []
 overlaps: [autoresearch, asi-evolve]
 source: unknown
 ---

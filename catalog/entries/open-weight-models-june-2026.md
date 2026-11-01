@@ -5,12 +5,10 @@ url: "https://openrouter.ai/blog/insights/the-open-weight-models-that-matter-jun
 category: reference
 summary: "OpenRouter analysis of the four open-weight models that matter as of June 2026 — DeepSeek V4 Flash (best cost/performance, 79% SWE-bench, $0.05/$0.24 per M tokens), GLM 5.2 (#1 open-weight intelligence index, Opus-class planning), MiniMax M3 (multimodal image/video, 1M context, MiniMax Sparse Attention), NVIDIA Nemotron 3 Ultra (US-built, hybrid Mamba-2+Transformer MoE, 550B/55B-active, free route available)"
 tags: [open-weight-models, model-selection, deepseek, glm, minimax, nemotron, pricing, benchmarks]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [openrouter, local-model-picks-2026]
 source: unknown
 ---

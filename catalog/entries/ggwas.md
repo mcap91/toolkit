@@ -5,12 +5,10 @@ url: "https://github.com/bczech/ggwas"
 category: framework
 summary: "Modern ggplot2 GWAS visualization R package — 17 plot types (Manhattan, QQ, Miami, PheWAS, colocalization, fine-mapping, genetic correlations, karyogram, enrichment), journal themes (Nature/Science/Cell/PLOS), smart downsampling for 10M+ variants, auto-detects PLINK/REGENIE/GCTA/GEMMA; MIT"
 tags: [gwas, visualization, r-package, ggplot2, manhattan-plot, bioinformatics, genomics, publication-ready]
-workflows: []
 reviewed: 2026-06-25
 acquired: 2026-06-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

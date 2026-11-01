@@ -15,14 +15,12 @@ tags:
   - local-llm
   - cli-tool
   - orchestration
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
 security_flags:
   - single-maintainer
   - unsandboxed-worker-execution
-supersedes: []
 overlaps:
   - local-model-harness-patterns
   - blueprint4llm

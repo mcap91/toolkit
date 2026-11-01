@@ -5,12 +5,10 @@ url: "https://github.com/voltagent/awesome-design-md"
 category: reference
 summary: "Curated collection of 60+ DESIGN.md files — plain-text design-system documents (a Google Stitch concept) analyzed from real company websites — intended to be dropped into a project so AI coding/design agents generate UI consistent with that brand's visual language"
 tags: [design-system, design-md, ui-generation, brand-design, google-stitch, curated-list, frontend]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [impeccable, ui-ux-pro-max-skill]
 source: unknown
 ---

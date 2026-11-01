@@ -7,11 +7,9 @@ summary: "Community-maintained simplified man pages — practical examples for c
 tags: [man-pages, cheatsheets, cli, documentation, examples, community, cross-platform]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: CC-BY-4.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

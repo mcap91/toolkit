@@ -7,11 +7,9 @@ summary: "AiZynthFinder performs retrosynthetic planning — given a target mole
 tags: [retrosynthesis, synthesis-planning, monte-carlo-tree-search, reaction-templates, drug-discovery, astrazeneca, cheminformatics]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

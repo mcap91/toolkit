@@ -14,7 +14,6 @@ tags:
   - apple-tv-style
   - python
   - homebrew-channel
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
@@ -22,7 +21,6 @@ security_flags:
   - root-shell-required
   - default-ssh-password
   - voids-warranty
-supersedes: []
 overlaps:
   - free-my-tv
 ---

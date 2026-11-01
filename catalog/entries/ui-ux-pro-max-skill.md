@@ -4,14 +4,11 @@ title: UI/UX Pro Max Skill
 url: "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill"
 category: skill
 summary: comprehensive design system generation but focused on general web/mobile UI; evaluate when dashboard/report aesthetics become a priority
-install: "npm install -g uipro-cli && uipro init --ai claude"
 tags: [ui, ux, design-system, typography, color-palettes, dashboards, visualization]
 license: MIT
-workflows: []
 security_flags: []
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 overlaps: [web-artifacts-builder]
 source: unknown
 ---
@@ -37,3 +34,7 @@ We already have Web Artifacts Builder for interactive HTML reports/dashboards. U
 UI/UX Pro Max is MIT-licensed and ships no server-side components — all design intelligence is bundled as local CSV data files and a Python search script. The `uipro-cli` npm package performs a one-time download from GitHub to install skill assets into the project's `.claude/skills/` directory; after that initial fetch the skill runs fully offline and makes no network calls during normal use. The `--offline` flag can be passed to `uipro init` to skip the GitHub download entirely and use the bundled assets from the npm package.
 
 The main supply-chain surface is the `uipro-cli` npm package itself and the Python script it installs (`scripts/search.py`). No credentials, tokens, or environment secrets are read or exposed by the skill. The skill does not execute arbitrary code at install time beyond copying files; however, as with any third-party Claude Code skill, the installed SKILL.md is loaded into the agent context on every session, so any prompt-injection payload embedded in a malicious update would be in-context. Pin to a reviewed version (`uipro versions`) and audit updates before upgrading in sensitive environments.
+
+## How to use it
+
+npm install -g uipro-cli && uipro init --ai claude

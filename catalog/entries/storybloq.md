@@ -7,10 +7,8 @@ summary: PolyForm Noncommercial license + heavy overlap with kb wiki
 tags: [project-state, wiki, tickets, kb]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: PolyForm Noncommercial 1.0.0
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

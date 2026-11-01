@@ -5,12 +5,10 @@ url: "https://github.com/elder-plinius/OBLITERATUS"
 category: framework
 summary: "Mechanistic interpretability research toolkit for refusal removal — notable as a reference for alignment geometry, but not safe to adopt in agent pipelines and irrelevant to bioinformatics workflows"
 tags: [llm, mechanistic-interpretability, abliteration, alignment, safety-bypass, research, gradio, python]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: [safety-bypass-tool, telemetry-opt-out-required, adversarial-prompting-content, trust-remote-code, dual-license-commercial-required]
-supersedes: []
 overlaps: []
 source: unknown
 ---

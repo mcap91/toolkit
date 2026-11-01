@@ -5,12 +5,10 @@ url: "https://code.claude.com/docs/en/skills"
 category: agent-pattern
 summary: "Claude Code SKILL.md feature — `!`<command>`` (inline) or fenced ` ```! ` blocks (multi-line) run shell commands before the skill body reaches Claude, splicing stdout into the prompt; enables deterministic, non-LLM routing of which instructions get loaded instead of prose like 'if X, read file Y'"
 tags: [claude-code, skills, skill-md, shell-injection, determinism, context-engineering, allowed-tools, prompt-construction]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [agent-skills-spec]
 source: unknown
 ---

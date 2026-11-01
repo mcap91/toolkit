@@ -4,12 +4,10 @@ title: Docker-Isolated Agent Sandbox Pattern
 category: agent-pattern
 summary: "Architecture pattern for running multiple AI coding agents in Docker containers with filesystem isolation — agents access only explicitly shared files and connections, work in git worktrees, all changes visible and reviewable in git; includes port collision prevention, resource exhaustion guards, zombie process cleanup, and merge conflict prevention; reported 38% token savings vs uncontained agents"
 tags: [agents, docker, isolation, sandbox, worktrees, multi-agent, resource-management, security]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/langchain-ai/openwiki"
 category: cli-tool
 summary: "LangChain CLI that generates and maintains agent-oriented codebase documentation in an openwiki/ directory; auto-updates via CI (GitHub Actions / GitLab CI) on each push; appends references to AGENTS.md/CLAUDE.md so coding agents discover the wiki; supports OpenRouter, Fireworks, Baseten, OpenAI, Anthropic, and OpenAI-compatible endpoints"
 tags: [documentation, codebase-wiki, langchain, ci-cd, agent-context, cli]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

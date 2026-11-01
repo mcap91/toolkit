@@ -5,12 +5,10 @@ url: "https://github.com/3b1b/manim"
 category: framework
 summary: "Grant Sanderson's (3Blue1Brown) Python animation engine for explanatory math videos — scenes are Python classes composing Mobjects (LaTeX, shapes, graphs, 3D surfaces) with animations rendered via OpenGL, including an interactive live-preview mode; this is the original personal version, distinct from the community-maintained fork ManimCE; MIT, ~94k stars"
 tags: [animation, mathematics, visualization, python, latex, opengl, education, video-generation, 3blue1brown]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: MIT
 security_flags: [personal-project-api-instability]
-supersedes: []
 overlaps: []
 source: unknown
 ---

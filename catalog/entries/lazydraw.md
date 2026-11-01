@@ -5,12 +5,10 @@ url: "https://www.npmjs.com/package/lazydraw"
 category: cli-tool
 summary: "Terminal ASCII diagram/sketch editor modeled on ASCIIFlow — mouse-driven box/arrow/line/text/eraser tools in a full-screen TUI (OpenTUI), multi-format export (basic/extended chars, 11 comment styles, Markdown fence), undo/redo, autosaving named drawings; Bun runtime, MIT, single-maintainer, npm-only (GitHub repo unavailable)"
 tags: [terminal, tui, ascii-art, diagram-editor, drawing, bun, opentui, cli-tool]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: [github-repo-unavailable, very-new-package, single-maintainer, no-external-adoption-signal]
-supersedes: []
 overlaps: []
 source: unknown
 ---

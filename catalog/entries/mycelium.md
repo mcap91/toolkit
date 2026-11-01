@@ -5,12 +5,10 @@ url: "https://github.com/SoftBacon-Software/mycelium"
 category: framework
 summary: "Self-hosted Node.js/SQLite coordination server for multi-agent teams — persistent agent identity, work queues, messaging, approval gates, context store, spend tracking, GPU drone queue, 79-tool MCP server, plugin system; runtime/LLM-agnostic (HTTP API + SDK + MCP); Apache-2.0"
 tags: [multi-agent, coordination, self-hosted, mcp-server, agent-orchestration, local-inference, approval-gates]
-workflows: []
 reviewed: 2026-06-25
 acquired: 2026-06-25
 license: Apache-2.0
 security_flags: [readme-prompt-injection]
-supersedes: []
 overlaps: [repowire, scheduled-multi-agent-coordinator]
 source: unknown
 ---

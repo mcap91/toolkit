@@ -9,7 +9,6 @@ reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: [bus-factor-1, young-project, hook-requires-trust-review]
-supersedes: []
 overlaps: []
 source: unknown
 ---

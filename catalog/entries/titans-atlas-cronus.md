@@ -5,12 +5,10 @@ url: "https://github.com/titans-tools"
 category: framework
 summary: "Local-first, agent-first infrastructure pair from a solo AI-assisted builder — Atlas is persistent project memory (knowledge packages, typed graph, evidence/provenance, SQL, blobs, audit history; retrieval blends lexical + vector + graph + evidence, scoped per project/tenant), Cronus is durable execution (DAG workflows, scheduling, checkpoints, at-least-once retries with lease fencing, dead-letter, approval gates); shared MCP server over stdio plus REST/gRPC; free binaries, proprietary source, signed releases (SHA-256 + Ed25519); Windows/Linux"
 tags: [agent-infrastructure, persistent-memory, durable-execution, mcp-server, scheduling, provenance, local-first, workflow-engine, proprietary]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-proprietary
 security_flags: [closed-source, single-maintainer, curl-pipe-sh-installer]
-supersedes: []
 overlaps: [claude-mem, memstack, mempalace]
 source: unknown
 ---

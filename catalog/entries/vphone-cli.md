@@ -4,15 +4,12 @@ title: vphone-cli
 url: "https://github.com/Lakr233/vphone-cli"
 category: cli-tool
 summary: "Virtual iPhone on Apple Silicon Mac — uses Apple's Virtualization.framework and PCC research VM infrastructure to boot full iOS (up to iOS 27) as a VM; firmware patching, restore, and VM lifecycle management; GUI window with app/file browsing, clipboard, screenshots, recording; local HTTP/WebSocket API for automation (screenshots, touch, swipes, hardware keys); guest control daemon with Irisin package manager; macOS 15+, Apple Silicon only; MIT, ~12k stars"
-install: Download vphone-launchpad from GitHub releases
 tags: [ios, virtualization, apple-silicon, macos, mobile-testing, automation, api, swift]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: [requires-sip-modification]
-workflows: []
 source: unknown
 ---
 
@@ -41,3 +38,7 @@ Written primarily in Swift (58.6%), Objective-C (17%), Shell (11.6%), and Python
 ## Security
 
 MIT licensed. Requires SIP modification (`csrutil enable --without debug` + research guest allowance) — this relaxes macOS security restrictions, which is the primary security consideration. The AMFI allowlisting ensures only verified VM binaries execute. API access is token-authenticated and refuses requests from web pages. Creates substantial disk usage for firmware images. The tool leverages Apple's own Virtualization.framework rather than hardware emulation, staying within Apple's intended research VM infrastructure.
+
+## How to use it
+
+Download vphone-launchpad from GitHub releases

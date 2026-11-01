@@ -5,12 +5,10 @@ url: "https://docs.anthropic.com/en/docs/claude-code"
 category: agent-pattern
 summary: "Shell alias technique for swapping Claude Code between cloud Anthropic, local Ollama/LM Studio, and API-based OSS models (OpenRouter/DeepSeek) via ANTHROPIC_BASE_URL and ANTHROPIC_AUTH_TOKEN environment variables; includes KV cache fix (CLAUDE_CODE_ATTRIBUTION_HEADER=0) and Qwen 3.6 35B config"
 tags: [claude-code, local-inference, ollama, lm-studio, openrouter, model-switching, env-vars]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [free-claude-code, openrouter, local-model-picks-2026]
 source: unknown
 ---

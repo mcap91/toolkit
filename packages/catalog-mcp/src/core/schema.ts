@@ -14,9 +14,6 @@ export const CATEGORIES = [
   'reference',
 ] as const;
 
-export const DECISION_STATUSES = ['adopted', 'rejected'] as const;
-export type DecisionStatus = (typeof DECISION_STATUSES)[number];
-
 export const SOURCES = ['manual', 'reddit', 'slack', 'email', 'other'] as const;
 
 export type Category = (typeof CATEGORIES)[number];
@@ -58,6 +55,10 @@ export function deriveSource(sourceUrl?: string): EntrySource {
   return 'web';
 }
 
+// Schema v2 (WK-0099): exactly 15 fields, the public entry contract in catalog/template.md.
+// `decision_status`, `workflows`, `install` and `supersedes` are retired (lint.ts RETIRED_FIELDS);
+// the catalog records what a tool is, not an adoption decision. `source_url` is optional here —
+// lint enforces it is set when `source` is instagram/reddit/x/text (provenance, not schema shape).
 export const entrySchema = z
   .object({
     name: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/, 'Must be kebab-case'),
@@ -66,30 +67,17 @@ export const entrySchema = z
     source_url: z.string().url().optional(),
     source: z.enum(ENTRY_SOURCES),
     category: z.enum(CATEGORIES),
-    decision_status: z.enum(DECISION_STATUSES).optional(),
     summary: z.string().min(1),
-    install: z.string().optional(),
     tags: z.array(z.string()).min(1),
-    workflows: z.array(z.string()).optional(),
-    reviewed: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    topics: z.array(z.string()).default([]),
+    related: z.array(z.string()).default([]),
+    overlaps: z.array(z.string()).optional(),
     acquired: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+    reviewed: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
     license: z.string().optional(),
     security_flags: z.array(z.string()).optional(),
-    supersedes: z.array(z.string()).optional(),
-    overlaps: z.array(z.string()).optional(),
   })
-  .strict()
-  .refine(
-    (entry) => {
-      if (!entry.source_url) return entry.source === 'text' || entry.source === 'unknown';
-      return entry.source === deriveSource(entry.source_url);
-    },
-    {
-      message:
-        'source must equal the derivation from source_url (instagram/reddit/x/web); "unknown" is legacy-only and requires no source_url',
-      path: ['source'],
-    },
-  );
+  .strict();
 
 export type CatalogEntry = z.infer<typeof entrySchema>;
 

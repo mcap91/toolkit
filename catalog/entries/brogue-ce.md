@@ -15,12 +15,10 @@ tags:
   - sdl2
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: AGPL-3.0
 security_flags:
   - requires-manual-source-build
-workflows: []
 source: instagram
 source_url: https://www.instagram.com/reel/DegQ9xiIESl/
 ---

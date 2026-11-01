@@ -5,12 +5,10 @@ url: "https://huggingface.co/unsloth/Qwen3.8-27B-GGUF"
 category: agent-pattern
 summary: "Practitioner recipe for running Qwen 3.8 27B UD-IQ4_XS at ~196K context and 50 t/s on a single RTX 5070 Ti (16GB) — prune non-ASCII rows from the embedding table and LM head (~700MB, ASCII-condensed variant published), offload the embedding table to CPU, disable MTP, use adaptive-KV streaming (llama.cpp fork) to page KV cache from host RAM, and quantize cache Q8 K / Q4 V"
 tags: [qwen, local-inference, llama-cpp, quantization, kv-cache, long-context, vram-optimization, gguf, unsloth, embedding-pruning]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: [community-modified-weights]
-supersedes: []
 overlaps: [kv-cache-vram-sizing, qwen3-8-27b-uncensored-hauhaucs-aggressive-gguf]
 source: unknown
 ---

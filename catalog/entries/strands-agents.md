@@ -5,12 +5,10 @@ url: "https://github.com/strands-agents/harness-sdk"
 category: framework
 summary: "Open-source Python/TypeScript SDK for building and running AI agents in-process — agent loop with lifecycle controls, tools, MCP, multi-agent patterns, memory/sessions, guardrails, tracing, and evals; defaults to Amazon Bedrock with Anthropic, OpenAI, Gemini, and Ollama provider support"
 tags: [agent-framework, agent-harness, agent-loop, multi-agent, model-agnostic, mcp, python, typescript, guardrails, tracing, bedrock]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [crewai, smolagents, deepseek-harness, harnessx]
 source: unknown
 ---

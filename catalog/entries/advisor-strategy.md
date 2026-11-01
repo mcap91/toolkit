@@ -7,10 +7,8 @@ summary: architectural concept for cost-effective agent orchestration; executor/
 tags: [agents, cost-optimization, dispatch, patterns]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: proprietary
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

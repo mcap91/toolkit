@@ -15,7 +15,6 @@ tags:
   - cli-tool
   - python
   - llm-tooling
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
@@ -23,7 +22,6 @@ security_flags:
   - tos-violation-risk
   - undocumented-api-dependency
   - mixed-data-licensing
-supersedes: []
 overlaps: []
 source: instagram
 source_url: https://www.instagram.com/reel/DeyBZyUDLg9/

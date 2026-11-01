@@ -5,12 +5,10 @@ url: "https://github.com/addyosmani/agent-skills"
 category: plugin
 summary: "Production-grade 24-skill engineering pack for AI coding agents — full SDLC lifecycle (define/plan/build/verify/review/ship) with anti-rationalization tables, verification gates, and 8 slash commands; 65K+ stars, Claude Code marketplace-installable, multi-platform (Cursor/Gemini/Windsurf/Copilot/Kiro); MIT"
 tags: [skills, sdlc, engineering-practices, claude-code, plugin, tdd, code-review, planning]
-workflows: []
 reviewed: 2026-06-25
 acquired: 2026-06-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [dotclaude, claude-spellbook]
 source: unknown
 ---

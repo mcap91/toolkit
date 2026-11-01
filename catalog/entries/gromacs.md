@@ -7,11 +7,9 @@ summary: "GROMACS is a widely used molecular dynamics simulation package for pro
 tags: [molecular-dynamics, simulation, gpu-computing, hpc, force-field, protein-simulation, free-energy, structural-biology, parallel-computing]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [openmm]
 license: LGPL-2.1
 security_flags: []
-workflows: []
 source: unknown
 ---
 

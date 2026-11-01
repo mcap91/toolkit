@@ -4,15 +4,12 @@ title: Awesome Claude Code Subagents (VoltAgent)
 url: "https://github.com/VoltAgent/awesome-claude-code-subagents"
 category: reference
 summary: "Curated collection of 161+ Claude Code subagent definitions across 10 categories (core dev, language specialists, infrastructure, quality/security, data/AI, developer experience, specialized domains, business/product, meta-orchestration, research/analysis); installable via Claude Code plugin marketplace, interactive shell script, or manual copy to ~/.claude/agents/; each subagent is a Markdown file with YAML frontmatter (name, description, tools, model); includes a /subagent-catalog skill for browsing and fetching agents; MIT, 6.4k stars"
-install: claude plugin marketplace add VoltAgent/awesome-claude-code-subagents
 tags: [claude-code, subagents, agents, curated-list, plugin, orchestration, developer-tools, awesome-list]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: [awesome-claude-code, agent-dispatcher, awesome-design-md]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -40,3 +37,7 @@ Subagent files install to `~/.claude/agents/` (global, lower precedence) or `.cl
 ## Security
 
 MIT licensed. The subagent definitions are Markdown files containing system prompts and tool permission lists — they do not execute code themselves. The tool permission model (`tools:` field) follows Claude Code's built-in permissions system. The repository does not audit or guarantee the security or correctness of community-contributed subagent definitions. 6.4k GitHub stars, 691 forks, actively maintained with recent PRs as of September 2026.
+
+## How to use it
+
+claude plugin marketplace add VoltAgent/awesome-claude-code-subagents

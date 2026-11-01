@@ -5,12 +5,10 @@ url: "https://github.com/CodeAbra/iai-personal-memory-engine"
 category: framework
 summary: "Fully local MCP-based personal memory engine for AI assistants — ambient capture, three-tier memory (episodic/semantic/procedural), custom storage engine (Hippo), clustering (MOSAIC), HD substrate (LilliHD), Rust embedder; macOS-only, English-only, MIT"
 tags: [memory, mcp-server, claude-code, local-first, rust, embeddings]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: [macos-only, hooks-modify-settings]
-supersedes: []
 overlaps: [mempalace, claude-mem]
 source: unknown
 ---

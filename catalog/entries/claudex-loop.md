@@ -7,11 +7,9 @@ summary: "Claudex-loop enforces a cross-model review invariant where Claude plan
 tags: [cross-model-review, adversarial-review, plan-hardening, codex, claude-code-plugin, multi-model, planning]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [local-model-adversarial-workflow]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -4,15 +4,12 @@ title: GSAP Animation Expert Skill
 url: "https://mcpmarket.com/tools/skills/gsap-animation-expert"
 category: skill
 summary: "Claude Code skill providing GSAP (GreenSock Animation Platform) animation expertise — timelines, ScrollTrigger, SVG morphing, stagger patterns, easing, and React integration via the useGSAP hook. Covers basic tweens, position parameters, horizontal scroll sections, text split animations, and scroll-reveal patterns. Single SKILL.md file. Attributed to Brookside BI."
-install: ""
 license: ""
 tags: [gsap, greensock, animation, javascript, react, scrolltrigger, skill, claude-code, web-development]
 reviewed: 2026-07-28
 acquired: 2026-07-28
-supersedes: []
 overlaps: [motion-design-skill]
 security_flags: []
-workflows: []
 source: unknown
 ---
 

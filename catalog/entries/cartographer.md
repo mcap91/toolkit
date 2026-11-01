@@ -5,12 +5,10 @@ url: "https://github.com/kingbootoshi/cartographer"
 category: plugin
 summary: "Claude Code plugin plus companion Bun CLI for codebase mapping/documentation: the plugin's legacy skill orchestrates parallel Sonnet subagents into docs/CODEBASE_MAP.md and a CLAUDE.md summary, while the v2 CLI indexes a repo into a local SQLite graph for bounded agent briefs, removal/completeness audits, and evidence-backed notes"
 tags: [claude-code-plugin, codebase-mapping, documentation, subagents, code-graph, sqlite, cli, mcp]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT
 security_flags: [no-license-file, single-contributor, stale-4-months]
-supersedes: []
 overlaps: [repowise, understand-anything, openwiki]
 source: unknown
 ---

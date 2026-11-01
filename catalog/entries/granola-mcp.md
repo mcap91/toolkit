@@ -5,12 +5,10 @@ url: "https://www.granola.ai/blog/granola-mcp"
 category: mcp-server
 summary: "MCP server from Granola that gives AI tools (Claude, ChatGPT, Cursor, Claude Code) access to meeting notes — search conversations, pull context, create follow-ups from what was discussed; remote server at mcp.granola.ai/mcp; requires paid Granola plan"
 tags: [mcp-server, meetings, notes, context, granola]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: proprietary
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

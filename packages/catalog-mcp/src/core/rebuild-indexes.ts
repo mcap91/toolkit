@@ -10,14 +10,13 @@ import { runCatalogEmbedder, venvPythonPath, codeRoot } from './embedder-subproc
 
 export interface RebuildCatalogIndexesOptions {
   dir: string;
-  format?: 'full' | 'decision_status' | 'workflow' | 'category';
+  format?: 'full' | 'category';
 }
 
 export interface RebuildCatalogIndexesResult {
   path: string;
   searchIndexPath: string;
   entryCount: number;
-  decisionStatusCounts: Record<string, number>;
   vectorResult: { status: string; reason?: string; stderr?: string };
 }
 
@@ -45,7 +44,6 @@ export async function rebuildCatalogIndexes(
     path: result.path,
     searchIndexPath: searchResult.path,
     entryCount: result.entryCount,
-    decisionStatusCounts: result.decisionStatusCounts,
     vectorResult,
   };
 }

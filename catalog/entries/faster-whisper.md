@@ -5,12 +5,10 @@ url: "https://github.com/SYSTRAN/faster-whisper"
 category: framework
 summary: "CTranslate2-based Whisper reimplementation — 4x faster than openai/whisper at same accuracy, int8 quantization, batched inference, VAD filtering, word-level timestamps; core ASR runtime for caption-less audio/video ingestion"
 tags: [asr, whisper, transcription, audio, speech-to-text, ctranslate2, gpu]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

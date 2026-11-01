@@ -7,11 +7,9 @@ summary: "OpenMM runs molecular dynamics simulations as a standalone engine or e
 tags: [molecular-dynamics, gpu-computing, simulation, force-field, protein-simulation, custom-forces, machine-learning-potentials, structural-biology]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

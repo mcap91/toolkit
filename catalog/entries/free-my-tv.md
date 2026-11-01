@@ -24,7 +24,6 @@ tags:
   - pm-disable-user
   - restore-script
   - auto-update
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: MIT
@@ -34,7 +33,6 @@ security_flags:
   - accessibility-service-notification-listener
   - embedded-credentials-in-apk
   - self-updating-binary
-supersedes: []
 overlaps:
   - cleanyourtv
   - dumbtv

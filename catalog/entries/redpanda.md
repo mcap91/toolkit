@@ -5,12 +5,10 @@ url: "https://www.redpanda.com"
 category: framework
 summary: "Kafka-compatible data streaming platform in C++ — single-binary deployment (broker + schema registry + HTTP proxy + Raft consensus), 10x lower latency than Kafka, 3-6x cost efficiency, no JVM/ZooKeeper dependency; Redpanda Connect ships 300+ connectors including AI connectors; tiered storage and cloud topics; BSL 1.1 (source-available)"
 tags: [data-streaming, kafka, event-streaming, real-time, infrastructure]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: BSL-1.1
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

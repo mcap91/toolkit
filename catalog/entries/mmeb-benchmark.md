@@ -5,12 +5,10 @@ url: "https://github.com/TIGER-AI-Lab/VLM2Vec"
 category: reference
 summary: "Comprehensive benchmark for evaluating omni-modality embedding models — V1 covers 36 image-text datasets across classification/VQA/retrieval/grounding; V2 adds video and visual document tasks (78 total); V3 extends to audio, text retrieval, and agent-centric tasks (190 total); introduced alongside VLM2Vec; TIGER-AI-Lab, ICLR 2025 → TMLR/COLM 2026"
 tags: [benchmark, embeddings, multimodal, retrieval, vlm2vec, evaluation, video, audio, agent-retrieval]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

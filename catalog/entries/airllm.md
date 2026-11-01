@@ -5,12 +5,10 @@ url: "https://github.com/lyogavin/airllm"
 category: framework
 summary: "Clever layer-shard inference to run 70B models on 4GB VRAM, but maintenance has stalled since August 2024 while better-maintained alternatives (Ollama/llama.cpp) have matured."
 tags: [llm-inference, low-vram, memory-optimization, python, huggingface, quantization]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [no-ci-evidence, stale-since-2024, community-contributed-cpu-backend]
-supersedes: []
 overlaps: []
 source: unknown
 ---

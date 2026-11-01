@@ -5,12 +5,10 @@ url: "https://supabase.com/"
 category: framework
 summary: "Open-source Postgres development platform (Firebase alternative) with built-in auth, storage, realtime, edge functions, REST/GraphQL APIs, and pgvector AI toolkit — massive community (36K+ commits), self-hostable, Apache-2.0"
 tags: [postgres, database, auth, storage, vector, BaaS, API, realtime]
-workflows: []
 reviewed: 2026-06-18
 acquired: 2026-06-18
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

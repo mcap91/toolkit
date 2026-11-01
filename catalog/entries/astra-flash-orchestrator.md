@@ -5,12 +5,10 @@ url: "https://github.com/ethanplusai/astra-flash-orchestrator"
 category: skill
 summary: "Codex skill that reserves GPT-6 Astra for planning/architecture/review and routes discovery, implementation, testing, and reporting to DeepSeek V4.1 Flash via a native astra_flash_builder subagent role and an existing Codex Router route; author's one field build measured 98.9% less Astra input per 1K implementation lines ($10/$50 per-1M-token Astra pricing vs $0.15-0.30/$0.60-1.20 for Flash); installs a skill under ~/.agents/skills/, a pinned agent role under $CODEX_HOME/agents/, and a scoped policy block in $CODEX_HOME/AGENTS.md, with preview/apply, backups, and an undo receipt; MIT"
 tags: [codex, astra, deepseek, orchestration, cost-optimization, multi-agent, model-routing, subagents, codex-router]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: [writes-to-user-home, api-key-required, self-reported-benchmarks, single-maintainer]
-supersedes: []
 overlaps: [codex-workflow, deepseek-and-destroy, pilotfish]
 source: unknown
 ---

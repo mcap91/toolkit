@@ -5,12 +5,10 @@ url: "https://github.com/opensandbox-group/OpenSandbox"
 category: framework
 summary: "General-purpose sandbox runtime platform for AI applications (Alibaba-originated) — multi-language SDKs (Python, Java/Kotlin, JS/TS, C#/.NET, Go), unified sandbox lifecycle/execution APIs, Docker and Kubernetes runtimes, and an osb CLI plus MCP server for coding agents, GUI agents, agent evaluation, code execution, and RL training; Apache-2.0"
 tags: [sandbox, code-execution, agent-infrastructure, kubernetes, docker, mcp-server, isolation]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

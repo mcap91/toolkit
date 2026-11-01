@@ -5,12 +5,10 @@ url: "https://arxiv.org/abs/2605.06647"
 category: agent-pattern
 summary: "Meta research framework that compresses multi-round agentic retrieval into a single corpus-discriminative BM25 action — LLM enriches documents offline with missing vocabulary, predicts query-side evidence terms, validates via IDF tool calls, then issues one weighted sparse retrieval; outperforms dense retrievers and multi-round agents on BEIR/NQ/HotpotQA with no fine-tuning"
 tags: [retrieval, RAG, BM25, query-expansion, corpus-enrichment, sparse-retrieval, meta-ai]
-workflows: []
 reviewed: 2026-06-26
 acquired: 2026-06-26
 license: unlicensed
 security_flags: [no-code-release]
-supersedes: []
 overlaps: [contextual-retrieval-anthropic, rag-retrieval-recipe]
 source: unknown
 ---

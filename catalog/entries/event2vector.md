@@ -17,13 +17,11 @@ tags:
   - python
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps: []
 license: MIT
 security_flags:
   - single-maintainer
   - small-community
-workflows: []
 source: unknown
 ---
 

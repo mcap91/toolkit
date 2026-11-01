@@ -5,12 +5,10 @@ url: "https://github.com/unusual-whales/unusual-whales-official-mcp"
 category: mcp-server
 summary: "Official Unusual Whales MCP server — 100+ market data endpoints covering options flow, dark pool, congressional trading, Greek exposure, volatility, earnings, ETFs, shorts, fundamentals, and technicals; 30+ analysis prompts; remote or local mode; MIT"
 tags: [mcp-server, finance, options, market-data, dark-pool, congressional-trading]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: MIT
 security_flags: [api-key-required, cloud-hosted]
-supersedes: []
 overlaps: []
 source: unknown
 ---

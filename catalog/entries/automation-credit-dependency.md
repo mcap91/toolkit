@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: agent-pattern
 summary: Map who gets credit for the work before automating it — treat visibility as a technical dependency; invisible automation can damage careers even when it works perfectly
 tags: [automation, human-factors, workflow-design, agent-pattern]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

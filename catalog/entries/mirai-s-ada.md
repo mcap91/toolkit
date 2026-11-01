@@ -20,7 +20,6 @@ tags:
   - consumer-gpu
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - qwen38-27b-200k-on-16gb
   - llama-cpp-adaptive-kv-streaming
@@ -30,7 +29,6 @@ security_flags:
   - custom-llama-cpp-fork
   - single-maintainer
   - new-project
-workflows: []
 source: unknown
 ---
 

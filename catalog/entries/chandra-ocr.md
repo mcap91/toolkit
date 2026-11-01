@@ -7,11 +7,9 @@ summary: "Chandra OCR 2 is a vision-language model for document parsing that con
 tags: [ocr, document-parsing, vlm, multilingual, pdf-extraction, table-recognition, handwriting, math-recognition, vllm]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [paddleocr]
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

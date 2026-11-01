@@ -13,12 +13,10 @@ tags:
   - code-scanning
   - security
   - ci-cd
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: GitHub CodeQL Terms and Conditions (source-available); query packs MIT
 security_flags: []
-supersedes: []
 overlaps:
   - semgrep
 ---

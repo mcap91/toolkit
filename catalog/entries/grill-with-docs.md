@@ -5,12 +5,10 @@ url: "https://github.com/mattpocock/skills/blob/main/skills/engineering/grill-wi
 category: skill
 summary: "Well-structured DDD design-review skill that enforces domain language, but relies on companion format files (CONTEXT-FORMAT.md, ADR-FORMAT.md) not bundled with the skill."
 tags: [domain-driven-design, design-review, documentation, adr, glossary, planning]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-unknown
 security_flags: [no-license-stated]
-supersedes: []
 overlaps: [advise-project-approach, context-graph-compressor]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extr
 category: reference
 summary: Foundational Google Research algorithm (ICLR 2026) for 3-4 bit KV cache compression with zero accuracy loss; growing downstream ecosystem but no single canonical package yet
 tags: [quantization, kv-cache, compression, inference, memory-optimization, google-research]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [airllm, rtk]
 source: unknown
 ---

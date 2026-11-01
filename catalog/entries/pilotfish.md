@@ -7,10 +7,8 @@ summary: "Multi-model orchestration layer for Claude Code — six agent roles (h
 tags: [claude-code, multi-model, orchestration, subagents, cost-optimization, fable, skill]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: MIT
 security_flags: [writes-to-user-home]
-workflows: [code-generation, code-review, agent-orchestration]
 overlaps: [claude-code-fable-cost-playbook, advisor-strategy, native-subagents]
 source: unknown
 ---

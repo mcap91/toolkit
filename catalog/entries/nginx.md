@@ -5,12 +5,10 @@ url: "https://nginx.org/"
 category: framework
 summary: "HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy, and mail proxy — originally by Igor Sysoev, 2-clause BSD license; enterprise distributions and commercial support from F5; mature infrastructure for hosting agent services and API gateways"
 tags: [web-server, reverse-proxy, load-balancer, infrastructure]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: BSD-2-Clause
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

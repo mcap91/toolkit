@@ -5,12 +5,10 @@ url: "https://github.com/theDakshJaitly/mex"
 category: cli-tool
 summary: "Structured markdown scaffold + 11-checker drift-detection CLI for persistent AI agent memory; provider-neutral, ~60% token reduction claims, but single-contributor and overlaps with kb wiki + built-in memory"
 tags: [agent-memory, context-management, drift-detection, scaffold, cli]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: MIT
 security_flags: [telemetry-default-on, single-contributor]
-supersedes: []
 overlaps: [claude-mem, mempalace, gbrain]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/firecracker-microvm/firecracker"
 category: framework
 summary: "AWS-developed open-source VMM (KVM-based) that creates minimal-overhead 'microVMs' for secure multi-tenant workload isolation — ~125ms boot, <5MiB overhead per VM; powers every AWS Lambda/Fargate invocation and underlies sandbox platforms like E2B and Vercel Sandbox; Apache-2.0, Rust"
 tags: [microvm, virtualization, kvm, sandbox, isolation, vmm, aws, agent-infrastructure, code-execution]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [e2b, opensandbox, ai-agent-sandbox-ranking]
 source: unknown
 ---

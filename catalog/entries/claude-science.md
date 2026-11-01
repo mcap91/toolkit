@@ -5,12 +5,10 @@ url: "https://www.anthropic.com/news/claude-science-ai-workbench"
 category: framework
 summary: "Anthropic's AI workbench for scientists — generalist coordinating agent with 60+ curated skills for genomics/proteomics/structural-biology/cheminformatics, native 3D molecular rendering, HPC/GPU compute management via Modal, reviewer agent for citation/calculation checking, NVIDIA BioNeMo integration (Evo 2, Boltz-2, OpenFold3); runs on existing Claude models; Pro/Max/Team/Enterprise beta"
 tags: [scientific-computing, genomics, proteomics, structural-biology, cheminformatics, single-cell, hpc, anthropic, claude, bioinformatics]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: Proprietary
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

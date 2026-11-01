@@ -5,12 +5,10 @@ url: "https://github.com/latent-spaces/brag"
 category: plugin
 summary: "Claude Code skill/plugin that generates short shareable launch videos from any project — analyzes the codebase, creates a product story with music/motion/share copy, renders via Hyperframes; one command; works with Claude Code, Codex CLI, opencode, Gemini CLI, Cursor via skills CLI; optional AI voiceover via Kokoro; MIT"
 tags: [claude-code-plugin, video, launch, marketing, hyperframes, skill, multi-platform]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

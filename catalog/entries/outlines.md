@@ -4,15 +4,12 @@ title: Outlines
 url: "https://github.com/dottxt-ai/outlines"
 category: framework
 summary: "Structured generation library by .txt — guarantees LLM outputs conform to JSON Schema, Pydantic models, regex, grammars, or Python types via constrained decoding (FSM-based token masking); works with transformers, llama.cpp, vLLM, Ollama, OpenAI, Gemini; Jinja prompt templates, function calling inference, batch generation; Rust core (outlines-core) for performance; 65M+ downloads; trusted by NVIDIA, Cohere, HuggingFace, vLLM; Apache-2.0"
-install: pip install outlines
 tags: [structured-generation, constrained-decoding, json-schema, pydantic, regex, grammar, llm, python, rust, vllm, ollama]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [dspy]
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -38,3 +35,7 @@ Install via `pip install outlines`. Core FSM algorithms extracted to `outlines-c
 ## Security
 
 Apache-2.0 licensed. 65M+ PyPI downloads. Backed by .txt company. Used in production by NVIDIA, Cohere, HuggingFace, vLLM. Pure computation library — no network access or side effects beyond what the underlying model provider requires. Rust core has no unsafe code concerns documented.
+
+## How to use it
+
+pip install outlines

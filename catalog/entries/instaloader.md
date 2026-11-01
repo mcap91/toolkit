@@ -12,7 +12,6 @@ tags:
   - media-download
   - metadata-extraction
   - osint
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: MIT
@@ -21,7 +20,6 @@ security_flags:
   - platform-tos-violation-risk
   - account-ban-risk
   - stores-session-cookies-on-disk
-supersedes: []
 overlaps: []
 source: web
 source_url: https://github.com/instaloader/instaloader

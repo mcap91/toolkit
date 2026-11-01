@@ -7,10 +7,8 @@ summary: "Beginner tutorial for building a working AI agent ($0, no credit card)
 tags: [tutorial, langchain, langgraph, groq, gemini, agents, beginner, free-tier, python]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: unknown
 security_flags: []
-workflows: [agent-development, learning]
 overlaps: []
 source: unknown
 ---

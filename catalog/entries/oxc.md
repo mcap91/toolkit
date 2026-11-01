@@ -4,15 +4,12 @@ title: Oxc (Oxidation Compiler)
 url: "https://github.com/oxc-project/oxc"
 category: cli-tool
 summary: "Rust-based JavaScript/TypeScript toolchain from VoidZero (Evan You) providing a shared parser, linter (Oxlint), formatter (Oxfmt), transformer, minifier, and module resolver; Oxlint targets ESLint compatibility with 870+ built-in rules, claims 50-100x ESLint's speed, and offers type-aware linting via tsgo (the Go port of the TypeScript compiler). MIT."
-install: "npm add -D oxlint (linter); npx oxfmt@latest (formatter)"
 license: MIT
 tags: [javascript, typescript, rust, linter, formatter, parser, compiler-toolchain, eslint-alternative, voidzero, static-analysis]
 reviewed: 2026-09-25
 acquired: 2026-09-25
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -36,3 +33,7 @@ Per Oxc's own docs, the parser and Oxlint are production-ready and widely used; 
 ## Security
 
 MIT licensed. Oxlint and Oxfmt are static-analysis/formatting CLIs that run locally against source files, with no network calls in normal linting/formatting operation. Distributed via npm with no unusual install pattern.
+
+## How to use it
+
+npm add -D oxlint (linter); npx oxfmt@latest (formatter)

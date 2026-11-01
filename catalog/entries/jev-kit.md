@@ -5,12 +5,10 @@ url: "https://github.com/jonathanavis96/jev-kit"
 category: plugin
 summary: "Multi-component Claude Code integration kit wiring TypeSafe's Jev (a ~0.3s typed-decision model) into the agent loop: a PreToolUse tool-call guard ('Airlock', code rules first + one Jev question for the ambiguous ~7%), sub-agent tier right-sizing, a 'Belay' check that sends unverified 'done' claims back to the agent, plocate/Everything-based file search, a Jev-driven browser agent (vendored fork of browser-use's jev-ultrafast), plus installer/doctor/warm-daemon tooling; MIT, requires a TypeSafe API key, Linux/WSL2-first with a reduced-feature native Windows port"
 tags: [claude-code, hook, pretooluse, guardrails, agent-routing, sub-agent, typesafe-ai, model-routing, file-search, browser-automation, installer]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [jev, browser-use, agent-browser, playwright-cli]
 source: unknown
 ---

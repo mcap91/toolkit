@@ -5,12 +5,10 @@ url: "https://www.reddit.com"
 category: reference
 summary: "Practitioner-compiled list of faster (mostly Rust-based) drop-in replacements for common bioinformatics and Unix CLI tools — Falco for FastQC, grit for bedtools/deeptools, sambamba for samtools, rust-bio-tools/alignoth for GATK-Picard/IGV, crabz for pigz, plus general Unix speedups (sd, ripgrep, dust, dysk, aria2c)"
 tags: [bioinformatics, performance, rust, cli-tools, fastqc, samtools, bedtools, gatk]
-workflows: []
 reviewed: 2026-06-26
 acquired: 2026-06-26
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -18,7 +18,6 @@ tags:
   - restore-script
   - handoff
   - device-automation
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: unlicensed
@@ -27,7 +26,6 @@ security_flags:
   - root-shell-required
   - blocks-firmware-updates-permanently
   - voids-warranty
-supersedes: []
 overlaps:
   - coding-agent-adb-tv-debloat
   - free-my-tv

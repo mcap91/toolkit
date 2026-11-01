@@ -13,10 +13,8 @@ tags:
   - image-to-text
   - cli
   - open-source
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 security_flags: []
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/Egonex-AI/Understand-Anything"
 category: plugin
 summary: Interactive knowledge graph plugin for codebases with multi-agent pipeline and broad platform support; impressive but heavy — watch for maturity and real-world performance on large repos
 tags: [claude-code, knowledge-graph, codebase-analysis, visualization, tree-sitter, onboarding, plugin]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [graphify, codebase-reasoning-topology]
 source: unknown
 ---

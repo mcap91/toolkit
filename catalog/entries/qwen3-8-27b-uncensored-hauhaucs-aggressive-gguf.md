@@ -5,7 +5,6 @@ url: "https://huggingface.co/HauhauCS/Qwen3.8-27B-Uncensored-HauhauCS-Aggressive
 category: framework
 summary: "Community-produced GGUF quantization of Qwen3.8-27B with safety-refusal behavior deliberately stripped ('uncensored'/abliterated 'Aggressive' profile, publisher-claimed 0/465 refusals), published by pseudonymous Hugging Face contributor HauhauCS; ships multiple quant levels plus a vision projector and a custom 'FastMTP' speculative-decoding sidecar requiring a llama.cpp patch"
 tags: [gguf, quantization, uncensored, abliteration, qwen, llama-cpp, local-inference, vision-language-model, speculative-decoding, mtp]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: Apache-2.0
@@ -14,7 +13,6 @@ security_flags:
   - "Unverified community artifact from a pseudonymous, non-affiliated publisher (HauhauCS): not the original Qwen/Alibaba release; publisher self-signs its own release manifest with an Ed25519 key it also generated, which authenticates file integrity against HauhauCS's own claims but does not constitute third-party verification"
   - "Independent third-party benchmarking (Nathan Sapwell, Uncensored LLM Abliteration Benchmarked) of other HauhauCS releases found the 0/N refusals marketing claim only partially accurate — some soft/truncated refusals remained under adversarial testing — so the 0/465 figure for this specific release should be treated as an unverified publisher claim"
   - "Running the bundled HauhauCS FastMTP acceleration sidecar requires downloading and applying a third-party patch file to a llama.cpp source checkout and compiling it (git apply of HauhauCS-FastMTP-llama.cpp.patch) — review the patch before applying, as with any third-party build patch"
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -7,11 +7,9 @@ summary: "Scientific Agent Skills is a library of 163 curated Agent Skills that 
 tags: [agent-skills, scientific-computing, bioinformatics, cheminformatics, drug-discovery, clinical-research, lab-automation, multi-domain, claude-code-plugin]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

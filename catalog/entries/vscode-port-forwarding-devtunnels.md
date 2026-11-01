@@ -15,14 +15,12 @@ tags:
   - networking
   - remote-access
   - demo-sharing
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: N/A
 security_flags:
   - public-visibility-removes-auth
   - exposes-whatever-runs-on-port
-supersedes: []
 overlaps: []
 ---
 

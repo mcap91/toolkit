@@ -20,13 +20,11 @@ tags:
   - speculative-decoding
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - nemotron-3-ultra
   - nvidia-pair
 license: OpenMDW-1.1
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://github.com/elder-plinius/CL4R1T4S"
 category: reference
 summary: Collection of leaked AI system prompts; useful security-awareness reference but README contains embedded prompt injection
 tags: [system-prompts, ai-transparency, security-awareness, prompt-injection]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: NOASSERTION
 security_flags: [prompt-injection-in-readme, no-license-file]
-supersedes: []
 overlaps: [claude-code-remote-prompt-hardening]
 source: unknown
 ---

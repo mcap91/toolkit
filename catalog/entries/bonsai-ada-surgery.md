@@ -19,7 +19,6 @@ tags:
   - consumer-gpu
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - mirai-s-ada
 license: MIT
@@ -27,7 +26,6 @@ security_flags:
   - custom-llama-cpp-fork
   - single-maintainer
   - new-project
-workflows: []
 source: reddit
 ---
 

@@ -7,11 +7,9 @@ summary: "Lightweight command-line JSON processor — slice, filter, map, and tr
 tags: [json, cli, data-processing, filter, transform, c, unix, pipe]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

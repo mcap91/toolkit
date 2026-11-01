@@ -4,15 +4,12 @@ title: netscanner
 url: "https://github.com/Chleba/netscanner"
 category: cli-tool
 summary: "Rust TUI network scanner and diagnostic tool — lists hardware interfaces, WiFi scanning with signal strength charts, IPv4 CIDR ping with hostname/OUI/MAC resolution, TCP/UDP/ICMP/ARP packet dump with pause/filter, open port scanning, traffic counting with DNS records, CSV export; requires root; built on Ratatui + libpnet; Linux/macOS/Windows (Npcap); MIT, ~1.8k stars"
-install: cargo install netscanner
 tags: [rust, tui, network, scanner, packet-capture, wifi, port-scanner, diagnostics, security, ratatui]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: [requires-root]
-workflows: []
 source: unknown
 ---
 
@@ -39,3 +36,7 @@ Built on Ratatui (TUI framework) and libpnet (cross-platform packet capture). ~5
 ## Security
 
 MIT licensed. Requires root privileges for packet capture — the primary security consideration. On Linux, can use setuid bit to limit root exposure. On Windows, depends on Npcap (third-party packet capture library). The tool performs passive and active network scanning, which should only be used on networks the operator controls or has authorization to scan.
+
+## How to use it
+
+cargo install netscanner

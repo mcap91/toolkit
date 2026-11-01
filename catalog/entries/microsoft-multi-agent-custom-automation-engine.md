@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/Multi-Agent-Custom-Automation-Engine-Solution
 category: framework
 summary: "Microsoft solution accelerator where specialized AI agents plan, execute, and validate multi-step business tasks from natural-language input, built on Microsoft Agent Framework + Azure AI Foundry + Cosmos DB + Container Apps; ships reference scenario packs (product marketing, employee onboarding, retail remediation, RFP/contract review, content generation); MIT, explicitly marked proof-of-concept"
 tags: [azure, multi-agent, agent-framework, azure-ai-foundry, cosmos-db, azure-container-apps, solution-accelerator, task-automation, semantic-kernel]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: [vendor-marked-poc-not-production, requires-openai-quota]
-supersedes: []
 overlaps: []
 source: unknown
 ---

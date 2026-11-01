@@ -18,12 +18,10 @@ tags:
   - remotion-alternative
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - brag
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: reddit
 ---
 

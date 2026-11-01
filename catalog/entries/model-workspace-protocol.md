@@ -5,12 +5,10 @@ url: "https://arxiv.org/abs/2603.16021"
 category: reference
 summary: Research paper proposing filesystem structure as agent orchestration; numbered folders + markdown prompts replace multi-agent frameworks for sequential workflows
 tags: [research, orchestration, filesystem, agent-architecture, unix-philosophy, markdown]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [claude-meta-skill]
 source: unknown
 ---

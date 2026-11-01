@@ -19,14 +19,12 @@ tags:
   - pytorch
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - engraft-ngram
 license: Apache-2.0
 security_flags:
   - single-maintainer
   - research-code
-workflows: []
 source: unknown
 ---
 

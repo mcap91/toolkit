@@ -5,12 +5,10 @@ url: "https://tenzen.studio/photon/"
 category: framework
 summary: "Free proprietary desktop image editor (macOS/Windows 11/Linux) from Tenzen Studio positioned as a Photoshop alternative — layers, masks, smart objects, curves, liquify, local (on-device) background removal, and native PSD read/write; local-first with no upload or account required; reported by press as built largely via AI-assisted ('vibe-coded') development for roughly $2,000 in model tokens"
 tags: [photo-editing, image-editor, photoshop-alternative, desktop-app, psd, vibe-coded, local-first, proprietary, closed-source]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Proprietary
 security_flags: [closed-source, unverified-user-claims]
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -15,12 +15,10 @@ tags:
   - education
   - video-generation
   - mit-license
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: instagram
 source_url: https://www.instagram.com/reel/DeGtjz6kV5N/

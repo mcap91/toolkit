@@ -6,11 +6,9 @@ summary: "Practitioner cheat sheet comparing 5 ANN vector-index methods by mecha
 tags: [ann-search, vector-search, hnsw, ivf, ivf-pq, product-quantization, scann, faiss]
 reviewed: 2026-10-13
 acquired: 2026-10-13
-supersedes: []
 overlaps: [vector-distance-metrics-cheatsheet, vector-database-basics-hnsw, faiss]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

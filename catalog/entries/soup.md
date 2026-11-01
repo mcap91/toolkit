@@ -4,15 +4,12 @@ title: Soup
 url: "https://github.com/MakazhanAlpamys/Soup"
 category: framework
 summary: "LLM fine-tuning CLI — one YAML config, one command; supports SFT, DPO, GRPO, PPO, KTO, ORPO, SimPO, IPO, BCO, pre-training, distillation, vision/audio; layer streaming trains an 8B model on a 4 GB GPU by streaming frozen base from host RAM one decoder layer at a time (bit-exact); auto batch size, GPU detection, quantization (4-bit/8-bit/FP8/QAT); backends: transformers, Unsloth, MLX; web UI dashboard; export to GGUF/ONNX/TensorRT/AWQ; 100+ model recipes; Python 3.10-3.12; Apache-2.0"
-install: 'pipx install "soup-cli[train]"'
 tags: [llm, fine-tuning, lora, qlora, sft, dpo, grpo, training, cli, yaml, layer-streaming, python]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: [unsloth, torchtune, trl, axolotl, llamafactory]
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -47,3 +44,7 @@ Data formats: Alpaca, ShareGPT, ChatML, preference pairs, vision, audio, ASR, pl
 ## Security
 
 Apache-2.0. Telemetry strictly opt-in (`SOUP_TELEMETRY=1`, default off). Built and maintained by a single developer on a 4 GB laptop — all performance numbers measured rather than claimed. v0.75 hardens the web UI: read endpoints and SSE require auth with short-lived single-use tickets, `--public` no longer exposes API docs to the LAN. Community-driven: v0.75 contained 60 pull requests from 22 external contributors.
+
+## How to use it
+
+pipx install "soup-cli[train]"

@@ -5,12 +5,10 @@ url: "https://github.com/mudler/localai"
 category: framework
 summary: "Open-source local AI engine — drop-in OpenAI/Anthropic/ElevenLabs API compatibility across 60+ backends (llama.cpp, vLLM, whisper.cpp, stable-diffusion, MLX, etc.); supports LLMs, vision, voice, image, video on any hardware (NVIDIA/AMD/Intel/Apple/Vulkan/CPU); multi-user auth with quotas, built-in agents with MCP/RAG/tool use, distributed cluster mode, fine-tuning UI, WebRTC realtime audio; MIT"
 tags: [local-inference, openai-compatible, multi-modal, self-hosted, llm-server, mcp, agents, tts, asr, image-generation]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [ollama, open-webui]
 source: unknown
 ---

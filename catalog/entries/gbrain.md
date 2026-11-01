@@ -7,10 +7,8 @@ summary: kb wiki already provides persistent typed records with relationships an
 tags: [memory-graph, vector-search, kb, memory]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

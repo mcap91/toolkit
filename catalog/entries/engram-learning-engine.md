@@ -5,12 +5,10 @@ url: "https://github.com/nagisanzenin/engram"
 category: plugin
 summary: "Evidence-based Claude Code learning plugin — FSRS spaced repetition, free-recall verification with blind assessor grading, first-principles concept graphs, interactive HTML explorables; three commands (/learn, /review, /coach); Python 3 stdlib only, local JSON storage"
 tags: [claude-code-plugin, spaced-repetition, learning, fsrs, retrieval-practice]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

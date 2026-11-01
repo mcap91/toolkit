@@ -7,10 +7,8 @@ summary: kb dispatch covers the relevant orchestration patterns; browser/deploym
 tags: [workflow, orchestration, browser, kb]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---
