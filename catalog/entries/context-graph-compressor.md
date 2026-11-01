@@ -5,12 +5,10 @@ url: "https://github.com/Adityapal67/context-graph-compressor"
 category: skill
 summary: Structured JSON graph handoff with importance tagging and cross-LLM portability beats plain-text handoff skills; too new/single-contributor to adopt outright
 tags: [context-management, handoff, token-reduction, json, claude-ai, cross-llm, session-resume]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [no-tests, no-ci, single-contributor, new-repo]
-supersedes: []
 overlaps: [agent-session-resume]
 source: unknown
 ---

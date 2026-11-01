@@ -5,12 +5,10 @@ url: "https://github.com/poshan0126/dotclaude"
 category: plugin
 summary: "Turnkey .claude/ folder setup — 7 specialist agents (code/security/perf/doc reviewers, silent-failure-hunter, frontend-designer), 12 workflow skills (/ship, /pr-review, /tdd, /debug-fix, etc.), 6 modular rules, 8 safety/productivity hooks; marketplace-installable, evidence-based setup scan; MIT"
 tags: [claude-code, plugin, agents, skills, hooks, workflow]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [claude-spellbook, ecc-everything-claude-code]
 source: unknown
 ---

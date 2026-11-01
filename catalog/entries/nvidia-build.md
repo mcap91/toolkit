@@ -5,12 +5,10 @@ url: "https://build.nvidia.com/models"
 category: framework
 summary: "NVIDIA's model API catalog and NIM inference microservices; broad model access but enterprise-focused with GPU-heavy deployment requirements"
 tags: [nvidia, nim, model-api, inference, gpu, enterprise]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [openrouter]
 source: unknown
 ---

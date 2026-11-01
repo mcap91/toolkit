@@ -13,13 +13,11 @@ tags:
   - ffmpeg
   - extractor-plugins
   - public-domain
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: Unlicense
 security_flags:
   - copyright-dual-use
-supersedes: []
 overlaps: []
 source_url: https://github.com/yt-dlp/yt-dlp
 source: web

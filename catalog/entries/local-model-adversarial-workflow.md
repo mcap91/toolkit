@@ -6,11 +6,9 @@ summary: "Multi-model orchestration pattern — local 27B model (Qwen) handles d
 tags: [multi-model, local-inference, adversarial-review, qwen, cost-optimization, code-review, domain-tools, orchestration]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [advisor-strategy]
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

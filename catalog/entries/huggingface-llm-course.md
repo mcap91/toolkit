@@ -5,12 +5,10 @@ url: "https://huggingface.co/learn/llm-course/en/chapter1/1"
 category: reference
 summary: "Free 12-chapter course covering transformers, fine-tuning, datasets, tokenizers, and reasoning models using the HuggingFace ecosystem; useful learning path but not a tool or workflow component"
 tags: [llm, transformers, fine-tuning, huggingface, educational, nlp, deep-learning]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [zero-to-mastery-ml, nanogpt]
 source: unknown
 ---

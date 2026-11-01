@@ -7,11 +7,9 @@ summary: "Vectorless reasoning-based RAG engine — replaces vector index with h
 tags: [rag, document-retrieval, tree-index, vectorless, reasoning, pdf, financial, legal, python, llm]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: [rag-retrieval-recipe]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

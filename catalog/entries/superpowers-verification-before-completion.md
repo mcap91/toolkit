@@ -5,12 +5,10 @@ url: "https://github.com/obra/superpowers/blob/main/skills/verification-before-c
 category: skill
 summary: "canonical 'evidence before claims' gate skill — already active in this project and referenced by other catalog entries as the standard"
 tags: [verification, quality, agent-discipline, completion-gate, tdd]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-unknown
 security_flags: []
-supersedes: []
 overlaps: [verify-before-claim]
 source: unknown
 ---

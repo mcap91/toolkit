@@ -7,10 +7,8 @@ summary: "ExtractBench evaluates document extraction systems on 370 enterprise-g
 tags: [benchmark, document-extraction, ocr, enterprise, llamaindex, kaggle, evaluation, structured-output]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 license: MIT
 security_flags: []
-workflows: [document-processing, evaluation]
 overlaps: []
 source: unknown
 ---

@@ -7,10 +7,8 @@ summary: "Six-technique playbook for reducing Claude Fable 5 spend inside Claude
 tags: [claude-code, cost-optimization, fable, effort-levels, subagents, prompt-caching, budget]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: n/a
 security_flags: []
-workflows: []
 overlaps: [advisor-strategy, claude-code-local-model-switching, native-subagents]
 source: unknown
 ---

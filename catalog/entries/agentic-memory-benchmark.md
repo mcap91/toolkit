@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Benchmark of 8 AI agent memory systems across 2176 tasks (272 scored per system: 200 fact-recall + 72 never-stored hallucination checks), in which a plain curated markdown wiki outscored all commercial memory products tested"
 tags: [memory, benchmark, agent-memory, evaluation, markdown, mem0, rag-alternative]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [karpathy-llm-wiki]
 source: unknown
 ---

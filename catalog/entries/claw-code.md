@@ -5,12 +5,10 @@ url: "https://github.com/ultraworkers/claw-code"
 category: framework
 summary: Rust reimplementation of a CLI agent harness; self-described museum exhibit maintained by agents rather than a production tool
 tags: [rust, cli-agent, claude-code-alternative, agent-harness, ultraworkers]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: [deprecated-crate-name-collision]
-supersedes: []
 overlaps: [openclaw]
 source: unknown
 ---

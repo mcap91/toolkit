@@ -5,12 +5,10 @@ url: "https://github.com/Tatlatat/ultimate-deepseek-ultracode"
 category: framework
 summary: "Claude Code extension routing Workflow/UltraCode fan-out lanes to DeepSeek v4-flash via a local Reasonix gateway — keeps Claude as main agent, runs subagent work on cheaper DeepSeek inference with ephemeral sessions and server-side cache optimization reaching 99%+ hit rates"
 tags: [claude-code, deepseek, workflow, ultracode, fan-out, cost-optimization, mcp, inference-gateway]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: unlicensed
 security_flags: [no-stated-license, hook-injection, subagent-policy-override]
-supersedes: []
 overlaps: [frontier]
 source: unknown
 ---

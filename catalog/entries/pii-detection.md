@@ -6,11 +6,9 @@ summary: HIPAA/CCPA/PCI-DSS coverage; pilot if handling sensitive data
 tags: [pii, compliance, hipaa, ccpa, security]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 url: "https://github.com/gosprinto/compliance-skills"
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

@@ -12,12 +12,10 @@ tags:
   - unity
   - game-development
   - csharp
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

@@ -4,15 +4,12 @@ title: tiktoken
 url: "https://github.com/openai/tiktoken"
 category: cli-tool
 summary: "OpenAI's fast BPE tokenizer library — 3-6x faster than HuggingFace tokenizers; supports all OpenAI model encodings (o200k_base, cl100k_base, etc.); Python API for encode/decode, model-to-encoding lookup, custom encoding extension via plugin mechanism; educational submodule for visualizing BPE procedure; MIT"
-install: pip install tiktoken
 tags: [tokenizer, bpe, openai, python, nlp, token-counting, encoding]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -37,3 +34,7 @@ Pure Python API with Rust core (via PyO3). Install from PyPI with `pip install t
 ## Security
 
 MIT licensed. Official OpenAI project with active maintenance. No known security concerns — pure computation library with no network access, file writes, or side effects beyond tokenization.
+
+## How to use it
+
+pip install tiktoken

@@ -7,11 +7,9 @@ summary: "SynFrag predicts whether a molecule is easy or hard to synthesize usin
 tags: [synthetic-accessibility, fragment-assembly, drug-discovery, cheminformatics, pretraining, attentivefp, interpretability]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

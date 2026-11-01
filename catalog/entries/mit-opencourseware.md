@@ -5,12 +5,10 @@ url: "https://ocw.mit.edu/search/"
 category: reference
 summary: "MIT's free online course catalog — 2,500+ courses across all disciplines including linear algebra, statistics, biology, computer science; useful as source material for learning-vault ingestion and structured self-study"
 tags: [education, courses, learning, mit, open-access]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: CC-BY-NC-SA-4.0
 security_flags: []
-supersedes: []
 overlaps: [data-science-for-beginners, huggingface-llm-course, zero-to-mastery-ml]
 source: unknown
 ---

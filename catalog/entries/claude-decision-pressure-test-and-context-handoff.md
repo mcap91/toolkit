@@ -4,12 +4,10 @@ title: "Claude Decision Pressure-Test & Context Handoff Prompts"
 category: reference
 summary: Two reusable prompting patterns — steelman/red-team verdict loop and structured context handoff — worth keeping as copy-paste references
 tags: [prompting, decision-making, context-management, red-teaming, handoff]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -7,11 +7,9 @@ summary: "Agentic text-to-3D modeling pipeline — turns a text prompt into an e
 tags: [3d-modeling, procedural-generation, openscad, text-to-3d, agent, llm, parametric, cad, blender, usd, urdf]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -16,12 +16,10 @@ tags:
   - microsoft
   - rpi-methodology
   - open-source
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: MIT (core); CC BY-SA 4.0 (OWASP-derived skill content)
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

@@ -5,12 +5,10 @@ url: "https://github.com/leonxlnx/taste-skill"
 category: skill
 summary: "Collection of portable SKILL.md files (design-taste-frontend and variants) that give AI coding agents layout/typography/motion/spacing guidance intended to reduce generic-looking generated UI, plus separate image-generation skills for design reference boards"
 tags: [frontend, design, anti-slop, ui-generation, claude-code-skill, codex, motion-design, typography, skill-bundle]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: [sponsored-content]
-supersedes: []
 overlaps: [impeccable, suede-creator-skills, ui-ux-pro-max-skill]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/docling-project/docling-mcp"
 category: mcp-server
 summary: "MCP server for document conversion, processing, and generation via the Docling library — converts PDFs and other documents into structured DoclingDocument JSON with OCR, table structure detection, and image handling; supports local, remote (Docling Serve), and hybrid modes; RAG integrations with Milvus, LlamaIndex, and LlamaStack; LF AI & Data project from IBM Research Zurich, MIT, 730+ stars"
 tags: [document-parsing, mcp-server, ocr, pdf, table-extraction, docling, ibm, rag, document-generation, python]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [unstructured]
 source: unknown
 ---

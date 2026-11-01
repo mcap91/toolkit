@@ -5,12 +5,10 @@ url: "https://github.com/immich-app/immich"
 category: framework
 summary: Production-ready self-hosted Google Photos alternative with AI search; not agent tooling but solid self-hosted media infrastructure.
 tags: [self-hosted, photo-management, video, mobile, ai-search, facial-recognition, oauth, docker]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

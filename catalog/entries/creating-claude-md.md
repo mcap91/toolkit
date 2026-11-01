@@ -7,10 +7,8 @@ summary: /init skill already covers repo-scanning CLAUDE.md generation
 tags: [claude-md, repo-scanning, code-quality]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://www.tomshardware.com/how-to/enable-god-mode-windows-11"
 category: reference
 summary: "Windows 10/11 trick — create a folder named GodMode.{ED7BA470-8E54-465E-825C-99712043E01C} to get a flat list of 200+ Control Panel shortcuts; useful for quick access to buried settings like environment variables, audio devices, power options"
 tags: [windows, tips, productivity]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

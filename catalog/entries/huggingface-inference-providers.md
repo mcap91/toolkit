@@ -5,12 +5,10 @@ url: "https://huggingface.co/docs/inference-providers/index"
 category: framework
 summary: "Unified API gateway routing inference to 15+ backend providers (Groq, Together AI, Cerebras, Replicate, etc.) via a single HF token; OpenAI-compatible, multi-task (LLM, VLM, image gen, embeddings, speech), with provider selection policies (:fastest, :cheapest, :preferred)"
 tags: [huggingface, inference, model-api, gateway, openai-compatible, multi-provider, serverless]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [openrouter, nvidia-build]
 source: unknown
 ---

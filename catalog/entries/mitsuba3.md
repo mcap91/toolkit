@@ -15,12 +15,10 @@ tags:
   - jit-compilation
   - spectral-rendering
   - vfx
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: BSD-3-Clause
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

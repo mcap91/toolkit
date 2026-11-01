@@ -20,7 +20,6 @@ tags:
   - claude-code
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags:
@@ -28,7 +27,6 @@ security_flags:
   - "Copycat/trojan risk from its own virality: a fake 'rea-tools' org distributed an 82.6MB Windows executable flagged as Wacatac-family malware (8/45 VirusTotal engines) before takedown, downloaded 172 times (discovered 2026-10-13); official distribution is only github.com/morluto/rea, rea.tools, or the npm package rea-agents"
   - Setup writes persistent global agent configuration (~/.claude.json, ~/.claude/skills) affecting all future projects for the chosen agent, not just the current one
   - Project's own SECURITY.md states REA is not a sandbox and cannot protect against a malicious target process during runtime capture (process behavior capture, website/Electron analysis run the target using the user's own permissions)
-workflows: []
 source: web
 ---
 

@@ -15,13 +15,11 @@ tags:
   - virtual-printer
   - freeware
   - offline
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: proprietary-freeware
 security_flags:
   - "CVE-2023-49147: local privilege escalation via the MSI installer's repair function (msiexec.exe spawns a visible SYSTEM-level cmd.exe); fixed in 11.15.2 (Dec 2023) — update past that version"
-supersedes: []
 overlaps:
   - stirling-pdf
 source: instagram

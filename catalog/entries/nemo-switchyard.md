@@ -5,12 +5,10 @@ url: "https://github.com/NVIDIA-NeMo/Switchyard"
 category: framework
 summary: "Model-routing layer that selects which LLM serves each request (efficient vs. capable) per call, embeddable as a library, run through a standalone OpenAI/Anthropic-compatible proxy, or loaded as a NeMo Relay / LiteLLM plugin"
 tags: [model-routing, llm-gateway, cost-optimization, proxy, nvidia, nemo, litellm, openai-api, anthropic-api, rust, python]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [litellm, headroom]
 source: unknown
 ---

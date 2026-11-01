@@ -5,12 +5,10 @@ url: "https://grigio.org/docker-alternatives-for-ai-agents-podman-bwrap-and-fire
 category: reference
 summary: "Blog comparison (grigio.org, Jul 2026) of Podman, Bubblewrap, and Firejail as agent-sandboxing alternatives to Docker — decision matrix over startup time, isolation strength, attack surface, profiles, and portability; recommends Podman for production agent services, bwrap for per-command local sandboxes, Firejail for desktop agents"
 tags: [sandbox, podman, bubblewrap, firejail, agent-security, linux, isolation, comparison, docker-alternative]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-blog-content
 security_flags: []
-supersedes: []
 overlaps: [firejail, bubblewrap-containers]
 source: unknown
 ---

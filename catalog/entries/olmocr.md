@@ -4,15 +4,12 @@ title: olmOCR
 url: "https://github.com/allenai/olmocr"
 category: cli-tool
 summary: "AI2's VLM-based PDF/image-to-Markdown toolkit — 7B parameter model converts PDFs with equations, tables, handwriting, multi-column layouts into clean Markdown; <$200/M pages; multi-node S3-coordinated batch pipeline; ships comprehensive benchmark (7K+ test cases); Apache 2.0"
-install: "pip install olmocr[gpu] --extra-index-url https://download.pytorch.org/whl/cu128"
 tags: [ocr, pdf, markdown, vlm, document-processing, allen-ai, vllm, batch-pipeline, benchmark, bioinformatics]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -39,3 +36,7 @@ Reusable code components: GPT-4o prompting strategy for silver data generation (
 ## Security
 
 Apache 2.0 licensed. Developed by AI2 (non-profit). No security flags. The pipeline processes documents locally or via user-specified inference endpoints. Model weights hosted on Hugging Face. Docker images available on Docker Hub. No telemetry or external data collection.
+
+## How to use it
+
+pip install olmocr[gpu] --extra-index-url https://download.pytorch.org/whl/cu128

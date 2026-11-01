@@ -7,11 +7,9 @@ summary: "Open-source durable execution platform (ex-Netflix) for microservices,
 tags: [workflow-engine, durable-execution, orchestration, ai-agents, mcp, llm, microservices, java, polyglot, netflix, orkes]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

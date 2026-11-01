@@ -17,9 +17,7 @@ reviewed: 2026-10-30
 acquired: 2026-10-30
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
-workflows: []
 source_url: https://www.instagram.com/reel/De2LjyNNS4H/
 source: instagram
 ---

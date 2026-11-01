@@ -5,12 +5,10 @@ url: "https://github.com/ossu/computer-science"
 category: reference
 summary: "Open Source Society University's free, self-taught CS curriculum modeled on undergraduate degree requirements (ACM/IEEE CS 2013 guidelines), assembled from free online courses (MIT, Harvard, Princeton, etc.); organized into Intro CS, Core CS (programming, math, tools, systems, theory, security, applications, ethics), Advanced CS electives, and a peer-evaluated final project; ~2 years at 20 hrs/week"
 tags: [computer-science, learning, curriculum, self-taught, mooc, open-education]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [build-your-own-x, data-science-for-beginners]
 source: unknown
 ---

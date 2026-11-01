@@ -15,12 +15,10 @@ tags:
   - debugging
   - firmware
   - computer-vision
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

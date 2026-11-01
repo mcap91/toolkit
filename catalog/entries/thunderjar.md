@@ -4,15 +4,12 @@ title: Thunderjar
 url: "https://github.com/dwjohnston/thunderjar"
 category: cli-tool
 summary: "Comparative testing framework for coding agents — holds three of four variables (codebase state, prompt configuration, model, harness) constant and varies the fourth, then applies objective measurements (compilation, test pass, file assertions, token consumption, lint compliance, correctness). For evaluating whether prompt/model/harness changes actually improve agent output. Early-stage project by dwjohnston."
-install: ""
 license: ""
 tags: [agent-testing, evaluation, benchmarking, prompts, claude-code, codex, measurement, comparison]
 reviewed: 2026-07-28
 acquired: 2026-07-28
-supersedes: []
 overlaps: [trigger-tree]
 security_flags: []
-workflows: []
 source: unknown
 ---
 

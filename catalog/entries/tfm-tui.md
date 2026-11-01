@@ -5,12 +5,10 @@ url: "https://github.com/clarkarch/tfm-tui"
 category: cli-tool
 summary: "Mouse-first terminal file manager with places sidebar, grid view, drag-and-drop, image/video thumbnails (kitty graphics protocol), dual pane, embedded terminal, network locations (sftp/smb/WebDAV/FTP via gvfs), XDG trash, archive operations, tabs, 30+ themes, TypeScript plugin system; Linux only, built with Bun; MIT"
 tags: [file-manager, tui, terminal, kitty-graphics, dual-pane, drag-and-drop, bun, linux, plugins]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: MIT
 security_flags: [install-script-curl-pipe]
-supersedes: []
 overlaps: []
 source: unknown
 ---

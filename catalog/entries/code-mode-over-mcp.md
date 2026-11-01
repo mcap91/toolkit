@@ -4,12 +4,10 @@ title: Code Mode over MCP (execute_code pattern)
 category: agent-pattern
 summary: "Architecture pattern where an agent exposes a single execute_code tool instead of N MCP tools — the agent writes code against an SDK/API to perform actions, keeping token cost constant per turn instead of scaling linearly with tool count; 78–99% token savings at scale (benchmarked at 500+ tools); Cloudflare, Anthropic, and Bifrost implementations"
 tags: [mcp, token-optimization, code-execution, agent-architecture, cost-reduction, tool-scaling]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

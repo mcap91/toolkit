@@ -4,15 +4,12 @@ title: Motion Design Skill
 url: "https://github.com/LottieFiles/motion-design-skill"
 category: skill
 summary: "LottieFiles agent skill teaching universal, implementation-agnostic motion-design principles — timing, easing, choreography, and Disney's 12 principles adapted for UI — so agents choose motion intent before writing animation code. Works with any system (CSS, Framer Motion, GSAP, Lottie, Spring); ships philosophy, pattern recipes, and reference tables. Installs via npx skills add. MIT."
-install: npx skills add LottieFiles/motion-design-skill
 license: MIT
 tags: [motion-design, animation, ui, skill, claude-code, css, framer-motion, gsap]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -36,3 +33,7 @@ The skill activates for UI animations, micro-interactions/feedback, loading/succ
 ## Security
 
 MIT licensed. The skill is instructional Markdown (motion-design guidance and recipes) with no runtime component of its own; review the files before use. No security flags recorded from the observed material.
+
+## How to use it
+
+npx skills add LottieFiles/motion-design-skill

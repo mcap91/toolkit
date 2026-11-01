@@ -5,12 +5,10 @@ url: "https://floci.io/"
 category: framework
 summary: "Local cloud emulators for AWS (119 services, port 4566), Azure (28 services), GCP (25 services), and OCI (8 services) — native binaries compiled with GraalVM Mandrel, 24ms cold start, 13 MiB idle; drop-in LocalStack replacement (same port, zero code changes); real engines (Lambda in Docker, RDS with real PostgreSQL/MySQL, ElastiCache with real Redis); no auth tokens, no accounts, no telemetry; unified CLI and visual dashboard; MIT"
 tags: [cloud-emulator, aws, azure, gcp, oci, localstack-alternative, local-development, docker, lambda, s3, ci, terraform, mit]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

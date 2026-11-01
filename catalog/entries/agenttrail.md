@@ -17,7 +17,6 @@ tags:
   - cli
   - npx
   - developer-tools
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: MIT
@@ -26,7 +25,6 @@ security_flags:
   - experimental-preview-kitchen
   - dormant-repo-no-recent-pushes
   - optional-claude-code-hooks-require-trust-review
-supersedes: []
 overlaps: []
 ---
 

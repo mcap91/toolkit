@@ -5,12 +5,10 @@ url: "https://github.com/FluidForm-ai/fluiddocs-deck-builder"
 category: plugin
 summary: Well-built skill/plugin pack for HTML slide decks; interesting multi-reviewer architecture but outside bioinformatics workflows
 tags: [presentation, slides, skill-pack, claude-code-plugin, html, pdf-import, meta-skill, pdf]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

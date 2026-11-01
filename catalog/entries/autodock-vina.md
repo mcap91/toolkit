@@ -7,11 +7,9 @@ summary: "AutoDock Vina predicts how small molecules bind to protein targets by 
 tags: [molecular-docking, virtual-screening, protein-ligand, drug-discovery, scoring-function, autodock, structural-biology]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

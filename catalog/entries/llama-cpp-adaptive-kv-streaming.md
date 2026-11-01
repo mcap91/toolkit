@@ -7,11 +7,9 @@ summary: "llama.cpp fork that streams KV cache pages from pinned host RAM to GPU
 tags: [llama-cpp, kv-cache, long-context, vram-optimization, cuda, streaming, local-inference, speculative-decoding, mtp, phase-arena]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: [qwen38-27b-200k-on-16gb]
 license: MIT
 security_flags: [experimental, single-config-qualified]
-workflows: []
 source: unknown
 ---
 

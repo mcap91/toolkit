@@ -5,12 +5,10 @@ url: "https://www.nvidia.com/en-us/ai-on-rtx/personal-ai-router/"
 category: framework
 summary: "Open-source local inference router (public beta) that proxies AI app/agent requests to a single endpoint and schedules them across NVIDIA DGX Spark, RTX Windows/Linux PCs, and Apple Silicon Macs on the same LAN — infrastructure tool, not an agent/dev workflow component"
 tags: [inference-routing, local-inference, llm-serving, ollama, lm-studio, rtx, dgx-spark, macos, self-hosted, proxy, nvidia, lan-discovery]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: [beta-software, new-project, binds-local-network-endpoints]
-supersedes: []
 overlaps: []
 source: unknown
 ---

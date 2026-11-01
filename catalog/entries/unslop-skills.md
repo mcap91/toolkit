@@ -5,12 +5,10 @@ url: "https://github.com/JCarterJohnson/vibecoded-design-tells"
 category: skill
 summary: "Three Claude skills that flag and remove AI 'tells' — unslop-ui (vibe-coded website patterns), unslop-text (AI prose cadences), unslop-code (AI code artifacts); backed by 3.2M-post Reddit analysis across 47 subreddits, with standalone CI-gating scanners; MIT"
 tags: [design, writing, code-quality, ai-detection, skill, claude-code]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

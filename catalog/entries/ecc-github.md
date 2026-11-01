@@ -5,12 +5,10 @@ url: "https://github.com/affaan-m/ecc"
 category: framework
 summary: massive cross-harness skill/hook/agent system worth monitoring but high adoption complexity and scope overlap with existing stack
 tags: [skills, hooks, agents, rules, security, cross-harness, plugin, claude-code]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [hook-system-broad-scope, third-party-install-scripts, pro-tier-upsell]
-supersedes: []
 overlaps: [ecc-plugin]
 source: unknown
 ---

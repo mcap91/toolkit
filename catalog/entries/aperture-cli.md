@@ -5,12 +5,10 @@ url: "https://github.com/tailscale/aperture-cli"
 category: cli-tool
 summary: "Tailscale's CLI launcher for coding agents (Claude Code, Gemini CLI, Codex, Copilot CLI, OpenCode) preconfigured for Aperture — manages installation, config, env vars, and model/provider routing; Go, alpha"
 tags: [agent-launcher, tailscale, multi-agent, developer-tools, networking]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: UNLICENSED
 security_flags: [alpha-software, no-stated-license]
-supersedes: []
 overlaps: []
 source: unknown
 ---

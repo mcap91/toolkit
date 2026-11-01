@@ -5,12 +5,10 @@ url: "https://github.com/rustdesk/rustdesk"
 category: framework
 summary: "Open-source remote desktop application (Rust core, Flutter UI) designed for self-hosting as a TeamViewer/AnyDesk alternative — end-to-end encrypted P2P with relay fallback, cross-platform (Windows/macOS/Linux incl. Wayland, iOS, Android, web), self-hostable rendezvous/relay server (hbbs/hbbr) so no traffic touches vendor infrastructure; AGPL-3.0, ~123k stars"
 tags: [remote-desktop, self-hosted, rust, flutter, p2p, encryption, teamviewer-alternative, cross-platform, wayland]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: AGPL-3.0
 security_flags: [remote-access-tool-abuse-surface]
-supersedes: []
 overlaps: [remote-control]
 source: unknown
 ---

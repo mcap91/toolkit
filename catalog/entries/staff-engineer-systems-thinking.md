@@ -7,11 +7,9 @@ summary: "LeadDev article (Monzo staff engineer) on the four moves that distingu
 tags: [staff-engineering, systems-thinking, leadership, architecture, alignment, problem-framing]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: []
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

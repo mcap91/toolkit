@@ -15,13 +15,11 @@ tags:
   - quantization
   - huggingface
   - mtp
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: Swift Open License v1.0 (derivative of Apache-2.0 Qwen3.8-27B)
 security_flags:
   - "Custom, revenue-gated license (Swift Open License v1.0): free for personal/research/educational/evaluation/commercial use only up to US$1,000,000 gross annual revenue (including affiliates); above that threshold requires a separate paid Swift Enterprise License from UkisAI — not a standard OSI license despite being built on the Apache-2.0 base model"
-supersedes: []
 overlaps:
   - strata
   - qwen38-27b-200k-on-16gb

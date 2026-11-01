@@ -7,11 +7,9 @@ summary: "Six-phase coding-agent skill for structured security audits — reconn
 tags: [security-audit, vulnerability-discovery, agent-skill, multi-agent, adversarial-validation, coverage-tracking, cloudflare, pen-testing]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

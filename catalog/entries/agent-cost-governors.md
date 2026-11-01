@@ -4,12 +4,10 @@ title: "Agent Cost Governors & Circuit Breakers"
 category: agent-pattern
 summary: "Three-layer cost governance pattern for autonomous agents — hard token leases per step, circuit breakers on retry-without-progress, and step cost degradation (frontier → local model fallback) to prevent denial-of-wallet from recursive error loops"
 tags: [cost-control, circuit-breaker, agent-safety, token-budget, denial-of-wallet]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

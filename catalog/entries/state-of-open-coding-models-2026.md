@@ -5,12 +5,10 @@ url: "https://pub.towardsai.net/the-state-of-open-coding-ai-models-in-august-202
 category: reference
 summary: "Opinion snapshot (Aug 2026) arguing the best open coding models no longer fit regular consumer hardware, so 'open' no longer implies 'local.' Cites Kimi K3 (~2.8T params, ~1.56 TB on HF), GLM 5.2 (the one people called safe to leave running unattended; complaints about verbosity, not wrong answers), and DeepSeek V4 (vendor claims open-source SOTA on agentic coding, but the preview checkpoint felt rough and headline numbers came from the vendor's own agent harness). Thesis: the interesting engineering has shifted from training these models to serving them faster/cheaper. Author discloses a bias (works for a GPU cloud provider)."
 tags: [open-models, coding-models, llm, local-inference, kimi, glm, deepseek, hardware, serving]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

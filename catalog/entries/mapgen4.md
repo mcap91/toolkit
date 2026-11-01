@@ -7,11 +7,9 @@ summary: "Procedural wilderness map generator — real-time terrain regeneration
 tags: [procedural-generation, map-generation, terrain, voronoi, delaunay, rivers, biomes, typescript, creative-coding, game-dev]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

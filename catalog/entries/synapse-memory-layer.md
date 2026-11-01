@@ -5,12 +5,10 @@ url: "https://github.com/rickymm3/memory-layer/"
 category: framework
 summary: "Early-stage, self-hosted persistent memory backend for LLMs (Claude Desktop, Claude Code/VS Code via MCP) that stores structured 'memory atoms' plus immutable evidence 'signals' in Postgres+pgvector behind a write-quality/critic/risk-gate commit pipeline; roadmap includes routing low-confidence questions to specific human experts and folding their answers back into memory."
 tags: [memory, mcp-server, postgres, pgvector, rag-alternative, knowledge-graph, self-hosted, prototype, human-in-the-loop]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: LicenseRef-unknown
 security_flags: [no-license-stated, early-prototype, single-author, requires-anthropic-api-key, no-tests-evident]
-supersedes: []
 overlaps: [claude-mem, gbrain, memstack, mempalace, ai-memory-comparison]
 source: unknown
 ---

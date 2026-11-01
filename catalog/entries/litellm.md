@@ -5,12 +5,10 @@ url: "https://github.com/BerriAI/litellm"
 category: framework
 summary: "Open-source Python SDK and self-hosted AI gateway (proxy server) providing a unified OpenAI-compatible interface to 100+ LLM providers — model routing, automatic fallbacks, cost tracking, per-team budgets, Redis caching, guardrails, MCP/A2A support; ~40K stars, 1300+ contributors, YC-backed; MIT"
 tags: [llm-gateway, api-proxy, model-routing, cost-tracking, openai-compatible, multi-provider]
-workflows: []
 reviewed: 2026-06-26
 acquired: 2026-06-26
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [openrouter, hugging-face-inference-providers]
 source: unknown
 ---

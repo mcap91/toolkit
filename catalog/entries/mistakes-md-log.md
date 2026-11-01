@@ -4,12 +4,10 @@ title: MISTAKES.md — a self-accumulating agent error log
 category: agent-pattern
 summary: "Lightweight Claude Code technique: keep a MISTAKES.md in the repo plus one CLAUDE.md line ('Log mistakes in MISTAKES.md (what happened, root cause, prevention).'). Whenever the agent breaks something or is corrected, it appends an entry (what happened / root cause / consequence / the rule that prevents a repeat), newest first — no tooling, plugin, or vector store. Two reported effects: the agent starts citing and avoiding past mistakes, and a failure that recurs 4–5 times graduates from a logged mistake into a hard rule in CLAUDE.md. MISTAKES.md accumulates evidence; CLAUDE.md enforces it."
 tags: [claude-code, claude-md, memory, self-improvement, error-log, workflow, agent-pattern]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [creating-claude-md]
 source: unknown
 ---

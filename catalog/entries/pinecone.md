@@ -12,14 +12,12 @@ tags:
   - rag
   - embeddings
   - byoc
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: Proprietary
 security_flags:
   - closed-source
   - no-self-hosting
-supersedes: []
 overlaps:
   - qdrant
   - weaviate

@@ -7,10 +7,8 @@ summary: "Open-source project management system designed for non-project manager
 tags: [project-management, self-hosted, kanban, gantt, php, docker, neurodivergent, adhd, open-source]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: AGPL-3.0
 security_flags: [self-hosted, requires-database]
-workflows: [project-planning, task-management, time-tracking]
 overlaps: []
 source: unknown
 ---

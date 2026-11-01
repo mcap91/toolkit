@@ -6,10 +6,8 @@ summary: OAuth-based CLI automation; adds auth complexity without solving durabi
 tags: [oauth, automation, cli, dispatch]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: [oauth-token-handling, no-stable-package-source]
-workflows: []
 overlaps: []
 source: unknown
 ---

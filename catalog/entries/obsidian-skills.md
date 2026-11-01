@@ -7,11 +7,9 @@ summary: Obsidian-specific; Defuddle (web→clean markdown) and skill packaging 
 tags: [obsidian, skills, markdown, canvas, defuddle, web-extraction]
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 source: unknown
 ---
 

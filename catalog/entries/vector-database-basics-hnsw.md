@@ -5,12 +5,10 @@ url: "https://www.tigerdata.com/blog/vector-database-basics-hnsw"
 category: reference
 summary: "Tiger Data (Timescale) blog explainer on HNSW (Hierarchical Navigable Small World) vector indexing: describes HNSW's skip-list-inspired multi-layer graph (sparse long-edge upper layers for coarse navigation, dense lower layers for fine-grained search), and its use with pgvector/Timescale Vector on Postgres via the m (max connections per layer) and ef_construction (build-time candidate list size) parameters that trade index size/build time for search accuracy."
 tags: [hnsw, vector-database, pgvector, timescale, ann-search, postgres, indexing]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

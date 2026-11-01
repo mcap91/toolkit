@@ -14,12 +14,10 @@ tags:
   - effort-tiering
   - task-classification
   - scikit-learn
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: N/A
 security_flags: []
-supersedes: []
 overlaps:
   - swe-bench
   - engineering-team-claude-code-setup

@@ -5,10 +5,8 @@ url: "https://github.com/glittercowboy/get-shit-done"
 category: framework
 summary: deprecated (moved to GSD Redux); superpowers skill system already covers meta-prompting and spec-driven development
 tags: [meta-prompting, context-engineering, spec-driven, claude-md, workflow, kb]
-workflows: []
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 overlaps: [claude-spellbook]
 license: MIT
 security_flags: []

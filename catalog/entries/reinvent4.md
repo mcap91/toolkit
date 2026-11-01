@@ -7,11 +7,9 @@ summary: "REINVENT 4 generates optimized small molecules matching a user-defined
 tags: [molecular-design, de-novo-design, reinforcement-learning, generative-chemistry, smiles, drug-design, scaffold-hopping, astrazeneca, cheminformatics]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

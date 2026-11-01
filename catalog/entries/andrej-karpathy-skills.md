@@ -7,11 +7,8 @@ summary: "CLAUDE.md + Cursor rules implementing 4 of Karpathy's coding principle
 tags: [claude-md, cursor-rules, best-practices, karpathy, claude-code-plugin]
 reviewed: 2026-07-06
 acquired: 2026-07-06
-decision_status: open
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: [karpathy-12-rules]
 source: unknown
 ---

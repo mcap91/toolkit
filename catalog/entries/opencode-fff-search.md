@@ -5,12 +5,10 @@ url: "https://github.com/ozgurulukir/opencode-fff-search"
 category: plugin
 summary: "Drop-in OpenCode grep/glob replacement with Rust-backed in-memory index, frecency ranking, and SIMD literal matching — 3-10x faster than process-spawning ripgrep at scale."
 tags: [opencode, search, grep, glob, rust, performance, fuzzy-search, lmdb, frecency, simd]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

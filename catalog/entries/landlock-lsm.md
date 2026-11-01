@@ -5,12 +5,10 @@ url: "https://github.com/landlock-lsm"
 category: reference
 summary: "GitHub org for Landlock, the Linux security module (kernel 5.13+) letting unprivileged processes irreversibly restrict their own filesystem/network access — hosts rust-landlock and go-landlock libraries, the island CLI sandboxing tool (Rust, Apache-2.0), landlockconfig, kernel dev tree, test tools, and the landlock.io site"
 tags: [landlock, linux, sandbox, lsm, kernel, security, rust, go, unprivileged, isolation]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [firejail, bubblewrap-containers]
 source: unknown
 ---

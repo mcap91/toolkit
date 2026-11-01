@@ -6,11 +6,9 @@ summary: "Practitioner cheat sheet on choosing vector distance metrics for RAG: 
 tags: [vector-search, embeddings, rag, cosine-similarity, distance-metrics, matryoshka, optimization]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [vector-database-basics-hnsw, faiss, rag-retrieval-recipe]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

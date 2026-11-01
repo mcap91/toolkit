@@ -5,12 +5,10 @@ url: "https://github.com/uditgoenka/autoresearch"
 category: plugin
 summary: "Claude Code / OpenCode / Codex skill+command pack generalizing Karpathy's autoresearch loop (constraint + mechanical metric + autonomous iteration + git rollback) to any domain — 14 commands (autoresearch, plan, debug, fix, security, ship, scenario, predict, learn, reason, probe, improve, evals, regression), a v2.2 orchestrator that derives a success predicate from a plain-language goal, and 9 always-on safety hooks; MIT"
 tags: [autoresearch, karpathy, agent-loop, claude-code, opencode, codex, hooks, iteration, autonomous-agents]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: MIT
 security_flags: [always-on-session-hooks, tool-call-interception, npx-or-plugin-install, ephemeral-db-migration-command]
-supersedes: []
 overlaps: [autoresearch, andrej-karpathy-skills]
 source: unknown
 ---

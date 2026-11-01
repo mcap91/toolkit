@@ -7,11 +7,9 @@ summary: "Anthropic's stage-by-stage playbook for AI-native software development
 tags: [sdlc, claude-code, anthropic, planning, skills, hooks, software-engineering, agent-workflow, governance]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

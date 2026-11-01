@@ -5,12 +5,10 @@ url: "https://github.com/getagentseal/codeburn"
 category: cli-tool
 summary: "Cross-tool AI spend observability dashboard — reads local session files from 31+ tools (Claude Code, Codex, Cursor, Gemini CLI, etc.), breaks down tokens and cost by task/model/project, waste detection with copy-paste fixes, model comparison, git-correlated yield tracking; MIT, fully local"
 tags: [cost-tracking, token-analytics, observability, tui, claude-code]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [headroom-desktop, rtk]
 source: unknown
 ---

@@ -7,11 +7,9 @@ summary: "Fully decentralized distributed LLM inference engine by Gradient — p
 tags: [distributed-inference, local-inference, pipeline-parallelism, decentralized, cross-platform, mlx, vllm, sglang, model-sharding, cluster]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

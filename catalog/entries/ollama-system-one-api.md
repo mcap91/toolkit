@@ -7,11 +7,9 @@ summary: "Local decision-model endpoint in Ollama 0.35+ — Jev-compatible /v1/s
 tags: [decision-models, local-inference, ollama, classification, scoring, jev-compatible, nimble, tev1, typed-output]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: [laya-decision-model]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

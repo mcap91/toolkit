@@ -8,10 +8,8 @@ license: ""
 tags: [multi-agent, orchestration, reinforcement-learning, llm-coordination, agent-topology, prompt-engineering, reasoning, sakana-ai]
 reviewed: 2026-09-04
 acquired: 2026-09-04
-supersedes: []
 overlaps: [agent-teams, scheduled-multi-agent-coordinator]
 security_flags: []
-workflows: []
 source: unknown
 ---
 

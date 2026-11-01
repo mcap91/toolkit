@@ -5,12 +5,10 @@ url: "https://overcut.ai"
 category: framework
 summary: "Commercial orchestration layer for multi-agent SDLC; addresses real coordination gap but closed-source, early-stage, and not yet individually usable"
 tags: [agent-orchestration, sdlc, multi-agent, devops, workflow-automation, orchestration]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: Proprietary
 security_flags: [closed-source]
-supersedes: []
 overlaps: [n8n-mcp-server]
 source: unknown
 ---

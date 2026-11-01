@@ -4,12 +4,10 @@ title: Skill Orchestrator Shell (Instruction-Shell Pattern)
 category: agent-pattern
 summary: "Composition pattern: group thematically related agent skills and add a thin orchestrator skill that only routes and sequences between them and enforces explicit sign-off checkpoints, keeping the actual task instructions inside the individual skills rather than the orchestrator."
 tags: [agent-pattern, skill-composition, orchestration, sign-off-guardrail, sequencing, thin-orchestrator]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: LicenseRef-copyright-author
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/soirihiroka/shrimply"
 category: cli-tool
 summary: "Cross-platform GPU-accelerated video editor in Rust — GTK 4 / libadwaita UI, Skia + wgpu + Slang + CUDA rendering, FFmpeg media, PipeWire audio, Python compute server; requires NVIDIA or Apple Silicon GPU; pre-alpha; GPL-3.0+"
 tags: [video-editor, rust, gtk4, gpu, cuda, ffmpeg, cross-platform]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: GPL-3.0-or-later
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/pi-hole/pi-hole"
 category: reference
 summary: "Network-wide DNS ad blocker — mature infrastructure tool, informational for lab network hygiene"
 tags: [dns, ad-blocking, privacy, self-hosted, network, sinkhole, dhcp]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: EUPL-1.2
 security_flags: [curl-pipe-bash-install]
-supersedes: []
 overlaps: []
 source: unknown
 ---

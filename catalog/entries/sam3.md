@@ -5,12 +5,10 @@ url: "https://github.com/facebookresearch/sam3"
 category: framework
 summary: "Meta's 848M-param unified foundation model for promptable segmentation in images and video; adds open-vocabulary detection/segmentation of all instances of a concept from a short text phrase or visual exemplars, on top of SAM 2's point/box/mask tracking. Checkpoints are gated (access request + HF auth)."
 tags: [segmentation, computer-vision, foundation-model, open-vocabulary, video, image, pytorch, meta]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

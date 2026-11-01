@@ -15,12 +15,10 @@ tags:
   - jev-competitor
   - hosted-api
   - multimodal
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: ""
 security_flags: []
-supersedes: []
 overlaps:
   - jev
   - cloudflare-clef

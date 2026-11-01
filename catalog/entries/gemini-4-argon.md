@@ -18,9 +18,7 @@ acquired: 2026-10-30
 license: Proprietary
 security_flags:
   - closed-source
-supersedes: []
 overlaps: []
-workflows: []
 source_url: https://www.instagram.com/reel/De2LjyNNS4H/
 source: instagram
 ---

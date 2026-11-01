@@ -7,10 +7,8 @@ summary: "Obsidian-specific schema, heavy; staleness and contradiction detection
 tags: [wiki, knowledge-os, ingest, lint, kb]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

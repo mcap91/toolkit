@@ -20,7 +20,6 @@ tags:
   - pure-c
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - strata
   - polystrata
@@ -32,7 +31,6 @@ license: apache-2.0
 security_flags:
   - new-project
   - unauthenticated-by-default
-workflows: []
 source: web
 source_url: https://github.com/JustVugg/colibri
 ---

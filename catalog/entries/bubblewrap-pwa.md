@@ -5,12 +5,10 @@ url: "https://github.com/googlechromelabs/bubblewrap"
 category: cli-tool
 summary: "Google Chrome Labs CLI for wrapping Progressive Web Apps as Android Trusted Web Activity (TWA) APKs — Node.js toolchain with core library, CLI, and validator; Apache-2.0"
 tags: [pwa, android, twa, mobile, google]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

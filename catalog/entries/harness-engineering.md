@@ -5,12 +5,10 @@ url: "https://martinfowler.com/articles/harness-engineering.html"
 category: reference
 summary: "Martin Fowler article defining Agent = Model + Harness — taxonomy of agent controls: guides (feedforward) vs sensors (feedback), computational (deterministic) vs inferential (LLM-based), across three regulation levels (maintainability, architecture fitness, behavior); behavior verification identified as largely unsolved"
 tags: [harness, agent-architecture, testing, linting, feedforward, feedback, controls-taxonomy]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

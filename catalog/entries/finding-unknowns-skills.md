@@ -5,12 +5,10 @@ url: "https://github.com/Neeeophytee/finding-unknowns-skills"
 category: skill
 summary: "8 installable SKILL.md skills distilled (with attribution) from Thariq Shihipar's essay on finding your unknowns — blindspot-pass, brainstorm-prototypes, interview-me, reference-hunt, implementation-plan (before), implementation-notes (during), pitch-packager and change-quiz (after); each keys its trigger on the situation and the essay's literal phrases; MIT, cross-agent (Claude Code / Codex / any agentskills.io reader)"
 tags: [skills, claude-code, codex, planning, unknowns, prompt-clarification, multi-platform, community]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: MIT
 security_flags: [single-maintainer, community-distillation]
-supersedes: []
 overlaps: [agent-skills-spec, skills-cli]
 source: unknown
 ---

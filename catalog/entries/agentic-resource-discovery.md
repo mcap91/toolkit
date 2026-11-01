@@ -5,12 +5,10 @@ url: "https://huggingface.co/blog/agentic-resource-discovery-launch"
 category: reference
 summary: "Draft open specification (contributors from Microsoft, Google, GoDaddy, Hugging Face, and others) for a discovery layer in front of MCP/Skills/A2A: agents search federated registries in natural language to find tools, skills, and other agents at runtime instead of pre-installing them. Defines a static ai-catalog.json manifest at a well-known URL and a dynamic POST /search registry API. Hugging Face's 'Discover' tool (hf discover CLI + REST + MCP endpoint) is a reference implementation over Hub Spaces, Agent Skills, and MCP servers."
 tags: [agent-discovery, specification, mcp, skills, a2a, registry, huggingface, federation, tool-discovery]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

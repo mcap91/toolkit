@@ -7,11 +7,9 @@ summary: "CReM generates chemically valid molecular structures by swapping, addi
 tags: [molecular-generation, fragment-based, matched-molecular-pairs, cheminformatics, drug-design, guacamol, rdkit]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [reinvent4]
 license: BSD-3-Clause
 security_flags: []
-workflows: []
 source: unknown
 ---
 

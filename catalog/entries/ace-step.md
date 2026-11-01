@@ -15,12 +15,10 @@ tags:
   - gradio
   - lora
   - open-source
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

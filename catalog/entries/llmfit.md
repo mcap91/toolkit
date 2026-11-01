@@ -5,12 +5,10 @@ url: "https://github.com/AlexsJones/llmfit"
 category: cli-tool
 summary: "Terminal tool that detects local hardware (RAM/CPU/GPU/VRAM) and scores LLM models across fit, speed, quality, and context to report which will run well locally; ships an interactive TUI and a JSON-emitting CLI for agent/script use."
 tags: [llm-inference, hardware-detection, model-selection, rust, tui, ollama, llama-cpp, mlx, local-llm]
-workflows: []
 reviewed: 2026-07-22
 acquired: 2026-07-22
 license: MIT
 security_flags: [curl-pipe-sh-install, community-submitted-benchmark-data]
-supersedes: []
 overlaps: []
 source: unknown
 ---

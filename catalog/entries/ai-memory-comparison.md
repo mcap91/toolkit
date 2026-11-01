@@ -5,12 +5,10 @@ url: "https://github.com/carsteneu/ai-memory-comparison"
 category: reference
 summary: Definitive source-backed survey of 73 open-source AI agent memory systems across 79 features — every claim cites public code or docs.
 tags: [memory, agents, comparison, survey, mcp, rag, vector-db]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: CC0-1.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

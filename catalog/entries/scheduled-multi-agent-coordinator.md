@@ -5,12 +5,10 @@ url: "https://github.com/nanocoai/nanoclaw"
 category: agent-pattern
 summary: Useful architecture pattern for persistent scheduled agents with coordinator + messaging; NanoClaw and Hermes are mature implementations
 tags: [multi-agent, scheduling, coordinator, persistent-agent, messaging-integration, codex, nanoclaw, hermes, orchestration]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [overcut, odysseus]
 source: unknown
 ---

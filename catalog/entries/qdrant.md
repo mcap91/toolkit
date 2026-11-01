@@ -5,12 +5,10 @@ url: "https://github.com/qdrant/qdrant"
 category: framework
 summary: "Rust-based vector similarity search engine and database — HNSW with inline payload filtering, dense/sparse/multi-vector search, hybrid search with RRF/DBSF fusion, TurboQuant 4-bit/8-bit compression, GPU-accelerated indexing, distributed sharding and replication, gRPC and REST APIs, Edge variant for in-process use; Apache-2.0"
 tags: [vector-database, similarity-search, rust, hnsw, embeddings, rag, hybrid-search, quantization, gpu]
-workflows: []
 reviewed: 2026-09-29
 acquired: 2026-09-29
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [weaviate, milvus, pgvector, chroma, lancedb]
 source: unknown
 ---

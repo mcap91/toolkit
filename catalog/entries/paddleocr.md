@@ -7,11 +7,9 @@ summary: "PaddleOCR provides three product lines for document understanding — 
 tags: [ocr, document-parsing, vision-language-model, multilingual, pdf-extraction, text-recognition, table-recognition, rag, paddlepaddle]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: []
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

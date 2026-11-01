@@ -5,12 +5,10 @@ url: "https://github.com/containers/bubblewrap"
 category: cli-tool
 summary: "Low-level unprivileged Linux sandboxing tool using user namespaces — used by Flatpak, creates empty mount namespaces with selective filesystem binding; C, LGPL-2.0+, mature and auditable"
 tags: [sandbox, linux, security, namespaces, isolation]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: LGPL-2.0+
 security_flags: [linux-only]
-supersedes: []
 overlaps: []
 source: unknown
 ---

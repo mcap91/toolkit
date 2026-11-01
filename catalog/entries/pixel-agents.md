@@ -5,12 +5,10 @@ url: "https://github.com/pixel-agents-hq/pixel-agents"
 category: framework
 summary: "Animated pixel-art office that visualizes AI coding agents as characters — renders live activity (editing, reading, waiting for input) via Claude Code hooks or transcript heuristics; ships as VS Code extension and standalone CLI (npx pixel-agents); agent-agnostic HookProvider interface with Claude Code as reference integration; office layout editor, sub-agent/team visualization, areas mapped to workspace folders; React 19 + Canvas 2D; MIT"
 tags: [visualization, claude-code, vscode-extension, hooks, pixel-art, agent-orchestration]
-workflows: []
 reviewed: 2026-09-26
 acquired: 2026-09-26
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

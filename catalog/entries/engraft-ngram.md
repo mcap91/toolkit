@@ -7,11 +7,9 @@ summary: "Technique for writing facts into an LLM's n-gram (Engram) lookup table
 tags: [engram, n-gram, knowledge-editing, qwen, llama-cpp, model-editing, overlay, local-inference]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: ""
 security_flags: [early-stage, single-model-validated]
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://github.com/gglucass/headroom-desktop"
 category: plugin
 summary: "Solid local-first Claude Code cost optimizer with hook injection into ~/.claude/settings.json — worth monitoring given agent-lockdown relevance, but macOS-only stable and single-contributor"
 tags: [token-optimization, cost-reduction, claude-code, proxy, compression, tauri, hook, token-reduction]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [modifies-claude-settings, anthropic-base-url-redirect, telemetry-aptabase, telemetry-sentry, single-contributor, private-backend-repo, 2gb-runtime-download]
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,13 +5,11 @@ url: "https://github.com/anthropics/skills/blob/main/skills/web-artifacts-builde
 category: skill
 summary: "use when markdown isn't enough for interactive reports/dashboards"
 tags: [html, reports, dashboards, visualization]
-workflows: [scRNA-seq, spatial]
 overlaps: []
 security_flags: []
 license: Apache-2.0
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 source: unknown
 ---
 

@@ -13,13 +13,11 @@ tags:
   - performance
   - game-development
   - csharp
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: custom (source-available; free use in apps/games, no repackaging or resale)
 security_flags:
   - non-standard-license
-supersedes: []
 overlaps: []
 ---
 

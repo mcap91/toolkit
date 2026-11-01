@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/data-science-for-beginners"
 category: reference
 summary: "Microsoft's free 10-week, 20-lesson data science curriculum covering ethics, statistics, Python/pandas, SQL, visualization (Matplotlib), cloud ML, and the DS lifecycle; project-based with quizzes, 50+ language translations"
 tags: [data-science, learning, python, statistics, visualization]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [zero-to-mastery-ml, huggingface-llm-course]
 source: unknown
 ---

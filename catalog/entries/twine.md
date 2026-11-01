@@ -16,12 +16,10 @@ tags:
   - game-development
   - open-source
   - gpl
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: GPL-3.0
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

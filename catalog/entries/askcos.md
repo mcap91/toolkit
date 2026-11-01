@@ -7,11 +7,9 @@ summary: "ASKCOS is an integrated platform for computer-aided synthesis planning
 tags: [synthesis-planning, retrosynthesis, forward-prediction, reaction-conditions, scscore, drug-discovery, cheminformatics, casp, docker]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [aizynthfinder]
 license: MPL-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

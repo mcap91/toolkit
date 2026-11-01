@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: reference
 summary: "Former VCF spec maintainer explains why VCF persists: the real problem is representing complex variation (SVs, translocations, ploidy changes), not the container format — Parquet wouldn't solve schema complexity; VRS is the ongoing effort"
 tags: [vcf, parquet, genomic-variants, file-formats, bioinformatics, vrs, ga4gh]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

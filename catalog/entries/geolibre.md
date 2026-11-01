@@ -4,15 +4,12 @@ title: GeoLibre
 url: "https://github.com/opengeos/GeoLibre"
 category: framework
 summary: "Lightweight, cloud-native open-source GIS platform (opengeos) for visualizing, exploring, and analyzing geospatial data locally. Built on Tauri v2, React, MapLibre GL JS, DuckDB-WASM Spatial, and deck.gl; the same workspace runs as a native desktop app, native Android app, in the browser, and inside Jupyter, with 700+ browser-side GIS tools and Earth + planetary basemaps. MIT."
-install: geolibre.app (web) / desktop installers / pip (Jupyter package)
 license: MIT
 tags: [gis, geospatial, mapping, duckdb-wasm, deck-gl, maplibre, tauri, jupyter]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -33,3 +30,7 @@ MIT licensed. GeoLibre is described as local-first — data stays on the user's 
 ## Usage notes
 
 - Tool count has grown to 1,000+ geoprocessing tools (up from 700+ recorded above), and GeoLibre now ships a Model Builder + AI assistant for building reusable geoprocessing workflows from plain-English descriptions (source: https://www.instagram.com/reel/DcZJhbjxXoB/)
+
+## How to use it
+
+geolibre.app (web) / desktop installers / pip (Jupyter package)

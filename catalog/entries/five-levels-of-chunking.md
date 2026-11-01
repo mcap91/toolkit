@@ -5,12 +5,10 @@ url: "https://medium.com/@anuragmishra_27746/five-levels-of-chunking-strategies-
 category: agent-pattern
 summary: "Taxonomy of RAG text-splitting strategies, from Greg Kamradt's '5 Levels of Text Splitting' (these are notes on that video): Level 1 fixed-size (character/sentence splitters), Level 2 recursive (hierarchical separators), Level 3 document/structure-based (respect headings, tables, code), Level 4 semantic (split at embedding-similarity breakpoints), Level 5 agentic (an LLM decides chunk boundaries from propositions). Higher levels trade cost/complexity for chunks that better match meaning; match the strategy to the data."
 tags: [rag, chunking, text-splitting, embeddings, retrieval, semantic-chunking, langchain, llamaindex]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

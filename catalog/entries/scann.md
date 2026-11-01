@@ -5,12 +5,10 @@ url: "https://github.com/google-research/google-research/tree/master/scann"
 category: framework
 summary: "Google Research library for efficient large-scale vector similarity search — anisotropic vector quantization (AVQ) for Maximum Inner Product Search plus SOAR indexing, partition/score/rescore search pipeline, native Python and optional TensorFlow APIs, AVX/NEON-optimized x86/ARM wheels; powers Vertex AI Vector Search; Apache-2.0"
 tags: [similarity-search, nearest-neighbor, quantization, embeddings, ann-search, python, tensorflow]
-workflows: []
 reviewed: 2026-10-13
 acquired: 2026-10-13
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [faiss, hnswlib]
 source: unknown
 ---

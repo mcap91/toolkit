@@ -5,12 +5,10 @@ url: "https://github.com/ergon-automation-labs/ergon-wrong-turn-logger"
 category: cli-tool
 summary: "CLI that logs development 'wrong turns' (bad assumptions, missed edge cases, broken designs) to a searchable local SQLite database, with list/stats/search commands; framed for solo, team, and AI-assisted workflows."
 tags: [decision-log, knowledge-capture, sqlite, retrospective, lessons-learned, bash, cli]
-workflows: []
 reviewed: 2026-07-22
 acquired: 2026-07-22
 license: MIT
 security_flags: [install-sh-script]
-supersedes: []
 overlaps: []
 source: unknown
 ---

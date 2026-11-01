@@ -5,7 +5,6 @@ url: "https://huggingface.co/ATH-MaaS/OvisOCR2"
 category: framework
 summary: "Compact 0.8B-parameter vision-language model for end-to-end page-level document parsing — given a document page image, generates a single structured Markdown document (plain text, LaTeX formulas, HTML tables, and visual regions in natural reading order) without a multi-stage OCR pipeline; scores 96.58 overall on OmniDocBench v1.6 and 75.06 Avg3 on PureDocBench per the publisher's technical report"
 tags: [ocr, vision-language-model, document-parsing, markdown, huggingface, qwen, vllm, table-extraction, formula-recognition]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: Apache-2.0
@@ -13,7 +12,6 @@ security_flags:
   - "Published by Hugging Face org 'ATH-MaaS'; third-party analysis (note.com/ai_driven) identifies ATH-MaaS as a rebranding of the former Alibaba AIDC-AI team (publisher of the earlier 'Ovis' VLM series) following an internal reorg — not independently confirmed by Alibaba itself"
   - 'Model card provides only publisher-reported benchmark numbers (OmniDocBench v1.6, PureDocBench); no independent third-party benchmark reproduction found'
   - "Publisher's own disclaimer: due to real-world document diversity/complexity, the model may still produce incorrect or incomplete outputs (repeated text, invalid table/formula structures, reading-order errors); manual verification recommended for critical applications"
-supersedes: []
 overlaps: [olmocr, opendataloader-pdf, locate-anything]
 source: unknown
 ---

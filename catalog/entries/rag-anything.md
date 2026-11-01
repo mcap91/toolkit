@@ -4,7 +4,6 @@ title: RAG-Anything
 url: https://github.com/HKUDS/RAG-Anything
 category: framework
 summary: All-in-one multimodal RAG framework from HKU's Data Intelligence Lab, built on LightRAG — parses PDFs/Office/images/audio/video via MinerU, Docling, or PaddleOCR, then builds a multimodal knowledge graph linking text, tables, equations, and images; three query modes (text, VLM-enhanced, direct multimodal); 23,500+ GitHub stars; MIT
-install: pip install raganything
 tags:
   - rag
   - multimodal
@@ -18,11 +17,9 @@ tags:
   - vlm
 reviewed: 2026-10-28
 acquired: 2026-10-28
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: web
 source_url: https://github.com/hkuds/rag-anything
 ---
@@ -66,3 +63,7 @@ Academic paper: "RAG-Anything: All-in-One RAG Framework" (arXiv:2510.12323), aut
 ## Security
 
 MIT license. 23,500+ GitHub stars as of October 2026, grown from 1k stars in July 2025. Markdown ingestion resolves local image references on disk and sends them to the configured vision model — the README itself warns to "only ingest Markdown whose image references you trust." LibreOffice-based Office-to-PDF conversion can fetch remote URLs and embed local files referenced in the document, which is why HTML files are rejected by the MinerU/PaddleOCR parsers rather than silently converted. No CVEs or published security audits found.
+
+## How to use it
+
+pip install raganything

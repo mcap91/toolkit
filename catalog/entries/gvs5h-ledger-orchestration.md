@@ -5,12 +5,10 @@ url: "https://github.com/slee-persis/GVS5H"
 category: agent-pattern
 summary: "Training-free multi-agent coding method where fresh instances of one model decompose problems and coordinate through a shared filesystem (plan, notes, current solution); Qwen3.8-27B rises from 69.2% to 92.4% pass@1 on LiveCodeBench Hard (exceeding Fable 5's 90.4%); GPT-5.6-Terra reaches 88.0% at 19% of Fable 5's cost; gains attributed to decomposition and persistent context; MIT/CC-BY-4.0"
 tags: [multi-agent, self-orchestration, coding-benchmark, livecode-bench, zero-shot, qwen, cost-optimization]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

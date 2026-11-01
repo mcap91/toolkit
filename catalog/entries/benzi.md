@@ -15,7 +15,6 @@ tags:
   - closed-source
   - swe-bench
   - runtime-tracer
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: Proprietary
@@ -24,7 +23,6 @@ security_flags:
   - requires-account
   - byok-sends-code-to-third-party-model
   - runtime-tracer-executes-target-code
-supersedes: []
 overlaps:
   - codegraph
   - repowise

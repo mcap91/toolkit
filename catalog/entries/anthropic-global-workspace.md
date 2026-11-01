@@ -7,10 +7,8 @@ summary: 'Anthropic interpretability research identifying the "J-space" — a sm
 tags: [interpretability, anthropic, consciousness, j-space, j-lens, global-workspace-theory, model-internals, safety-monitoring]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: proprietary
 security_flags: []
-workflows: [model-monitoring, safety-evaluation]
 overlaps: []
 source: unknown
 ---

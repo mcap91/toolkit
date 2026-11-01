@@ -4,15 +4,12 @@ title: MinerU
 url: "https://github.com/opendatalab/MinerU"
 category: framework
 summary: "Open-source document parsing engine by OpenDataLab — converts PDFs, images, Office docs (Word/PPT/Excel), EPUB, OFD, HTML/MHTML, CSV into LLM-ready Markdown/JSON with four quality tiers (flash/basic/standard/advanced); VLM+OCR dual engine supporting 109 languages; local-first with optional remote API; CLI with agent-oriented continuation/locator system; local document library with search/watch/scan; MCP server; integrations with LangChain, RAGFlow, Dify, FastGPT; Python >=3.10; Apache-2.0 with commercial threshold (100M MAU or $20M revenue); ~80k stars"
-install: 'uv tool install "mineru>=4.0,<5"'
 tags: [document-parsing, pdf, ocr, markdown, json, vlm, rag, agent, mcp, python, office, epub]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: [unstructured]
 license: Apache-2.0
 security_flags: [commercial-threshold-license]
-workflows: []
 source: unknown
 ---
 
@@ -46,3 +43,7 @@ MinerU ecosystem includes MinerU-Diffusion (ECCV 2026, diffusion-based OCR), Min
 ## Security
 
 Apache-2.0 with additional commercial terms: free for commercial use unless the entity exceeds 100M monthly active users or $20M monthly revenue, at which point a separate commercial license is required. Optional anonymous usage telemetry (no document content, filenames, or paths collected) — can be disabled via `mineru telemetry disable`. Remote parsing sends documents to OpenDataLab servers only when explicitly authorized with `--remote`. ~80k GitHub stars, 6.7k forks, backed by OpenDataLab (Shanghai AI Laboratory).
+
+## How to use it
+
+uv tool install "mineru>=4.0,<5"

@@ -5,12 +5,10 @@ url: "https://www.hacksplaining.com/"
 category: reference
 summary: "Interactive secure coding education platform with 45 lessons covering OWASP vulnerabilities and AI-era threats (prompt injection) — 15-30 minute lessons with vulnerable/secure code examples in Python, JavaScript, Java, Go; quizzes and progress tracking; free for personal use, paid team plans with SSO and dashboards; 500K+ registered users"
 tags: [security, education, owasp, secure-coding, interactive-learning, web-security, xss, sql-injection, csrf]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

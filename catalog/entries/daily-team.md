@@ -17,13 +17,11 @@ tags:
   - role-rotation
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps: []
 license: MIT
 security_flags:
   - ci-secrets-required
   - llm-generated-artifacts-unreviewed
-workflows: []
 source: unknown
 ---
 

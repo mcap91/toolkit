@@ -7,10 +7,8 @@ summary: direct inspiration for kb graph; concepts like confidence-tagged edges 
 tags: [knowledge-graph, ast, visualization, kb]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

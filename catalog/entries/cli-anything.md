@@ -5,12 +5,10 @@ url: "https://github.com/HKUDS/CLI-Anything"
 category: skill-generator
 summary: "Generates production-grade, agent-native CLI harnesses from any codebase via a 7-phase pipeline; directly integrates with Claude Code as a plugin and emits SKILL.md files for skill discovery."
 tags: [cli-generation, agent-native, skill-generation, claude-code-plugin, python, bioinformatics-adjacent, meta-skill]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [runs-arbitrary-codegen, upstream-software-required]
-supersedes: []
 overlaps: []
 source: unknown
 ---

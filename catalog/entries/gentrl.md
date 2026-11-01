@@ -7,11 +7,9 @@ summary: "GENTRL generates novel small molecules optimized for synthetic feasibi
 tags: [generative-chemistry, variational-autoencoder, reinforcement-learning, de-novo-design, drug-discovery, tensor-decomposition, ddr1, insilico-medicine]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [reinvent4]
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

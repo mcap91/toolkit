@@ -5,12 +5,10 @@ url: "https://github.com/comfy-org/comfyui"
 category: framework
 summary: "Node-graph GUI, API, and backend for diffusion/generative-media models (Python/PyTorch) — build image/video/audio/3D pipelines visually from modular nodes (samplers, ControlNet, LoRA, upscalers), with smart partial re-execution, low-VRAM offloading, workflows saved as reproducible JSON (embedded in generated PNGs), a headless API mode, custom-node ecosystem via ComfyUI-Manager, and a cross-platform desktop app; GPL-3.0, ~132k stars, Comfy-Org backed"
 tags: [diffusion, stable-diffusion, image-generation, video-generation, node-graph, pytorch, python, workflow, low-vram, api]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: GPL-3.0
 security_flags: [custom-node-supply-chain, workflow-json-code-execution-history]
-supersedes: []
 overlaps: []
 source: unknown
 ---

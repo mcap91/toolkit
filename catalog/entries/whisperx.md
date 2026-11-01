@@ -5,12 +5,10 @@ url: "https://github.com/m-bain/whisperX"
 category: framework
 summary: Whisper + wav2vec2 forced alignment + pyannote speaker diarization — 70x realtime batched transcription with accurate word-level timestamps and speaker IDs; builds on faster-whisper; ideal for lecture/interview transcripts
 tags: [asr, whisper, transcription, diarization, word-timestamps, speaker-id, audio]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: BSD-4-Clause
 security_flags: [hf-token-required-for-diarization]
-supersedes: []
 overlaps: [faster-whisper]
 source: unknown
 ---

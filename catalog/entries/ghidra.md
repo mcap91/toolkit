@@ -5,12 +5,10 @@ url: "https://github.com/nationalsecurityagency/ghidra"
 category: framework
 summary: "Open-source software reverse engineering (SRE) framework from NSA's Research Directorate — disassembly, decompilation, graphing, and scripting for compiled code on Windows, macOS, and Linux"
 tags: [reverse-engineering, security, disassembler, decompiler, malware-analysis]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: Apache-2.0
 security_flags: [known-vulnerabilities-in-some-versions]
-supersedes: []
 overlaps: []
 source: unknown
 ---

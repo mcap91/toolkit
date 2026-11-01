@@ -8,9 +8,7 @@ reviewed: 2026-09-25
 acquired: 2026-09-25
 license: N/A
 security_flags: []
-supersedes: []
 overlaps: []
-workflows: []
 source: unknown
 ---
 

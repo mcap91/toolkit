@@ -5,12 +5,10 @@ url: "https://docs.python.org/3/library/tkinter.html"
 category: framework
 summary: "Python's standard library interface to the Tcl/Tk GUI toolkit, bundled with CPython on Windows, macOS, and Linux"
 tags: [gui, python, tcl-tk, standard-library, desktop, cross-platform]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: PSF-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/Azure-Samples/get-started-with-ai-chat"
 category: framework
 summary: "Microsoft starter template that deploys a RAG-capable chat web app to Azure Container Apps using Microsoft Foundry models and Azure AI Search for file-grounded, cited responses; deployable via azd up or a guided Copilot CLI /up skill; explicitly marked not production-ready without added security hardening"
 tags: [azure, ai-foundry, rag, chat, azd, azure-container-apps, azure-ai-search, starter-template, application-insights]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: [vendor-marked-not-production-ready]
-supersedes: []
 overlaps: []
 source: unknown
 ---

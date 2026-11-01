@@ -5,12 +5,10 @@ url: "https://github.com/lancedb/lancedb"
 category: framework
 summary: "Embedded serverless vector database built on Lance columnar format — runs in-process with no server, IVF/HNSW/PQ/RQ vector indexes + BM25 full-text, multimodal columns (text/image/video/audio), Git-style versioning, zero-copy reads, object storage backend (S3/GCS/AZ), DuckDB SQL integration, Python/TypeScript/Rust/REST SDKs; Apache-2.0"
 tags: [vector-database, embedded, serverless, lance, multimodal, versioning, similarity-search, duckdb, arrow]
-workflows: []
 reviewed: 2026-09-29
 acquired: 2026-09-29
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [qdrant, weaviate, milvus, pgvector, chroma]
 source: unknown
 ---

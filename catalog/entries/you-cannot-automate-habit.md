@@ -4,12 +4,10 @@ title: You cannot automate a habit (discovery before automation)
 category: agent-pattern
 summary: "Practitioner reflection on building business automations/agents: the hard part is rarely the model or framework — it's that the target process only exists as an undocumented habit. Ask three people how it works and you get three answers (owner's original design, manager's exception-laden version, the operator's notebook-based reality); even 'the menu' has no single answer (per-outlet prices, time-of-day availability, duplicate names). The reusable practice: before automating, sit with people, force the business to write its own rules down for the first time, and get someone with authority to sign off on the version that will be encoded."
 tags: [automation, agents, requirements, process-discovery, elicitation, consulting, workflow]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

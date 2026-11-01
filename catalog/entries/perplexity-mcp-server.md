@@ -5,12 +5,10 @@ url: "https://docs.perplexity.ai/docs/getting-started/integrations/mcp-server"
 category: mcp-server
 summary: "Official Perplexity MCP server providing real-time web search, conversational AI, and advanced reasoning tools to MCP-compatible clients; one-click install for Claude Code, Cursor, Codex; npm package @perplexity-ai/mcp-server; requires Perplexity API key"
 tags: [mcp-server, perplexity, web-search, reasoning, ai-search]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: proprietary
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

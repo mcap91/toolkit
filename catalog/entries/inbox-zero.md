@@ -5,12 +5,10 @@ url: "https://github.com/elie222/inbox-zero"
 category: framework
 summary: "AI-powered self-hostable email management app — strong open-source email assistant, not a developer/agent toolkit."
 tags: [email, ai-assistant, gmail, productivity, self-hosted, open-source]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: [requires-oauth-credentials, processes-email-content, cloud-or-self-hosted]
-supersedes: []
 overlaps: []
 source: unknown
 ---

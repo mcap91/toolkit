@@ -12,12 +12,10 @@ tags:
   - multiplayer
   - tree-sitter
   - acp
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: mixed (GPL-3.0/Apache-2.0 core; paid Zed-hosted AI tiers)
 security_flags: []
-supersedes: []
 overlaps:
   - attention-control
 source_url: https://www.reddit.com/r/Qwen_AI/comments/1x7u4kd/self_hosted_qwen_38_27b_for_real_work_my_1_month/

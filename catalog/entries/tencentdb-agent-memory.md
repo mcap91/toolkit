@@ -5,12 +5,10 @@ url: "https://github.com/TencentCloud/TencentDB-Agent-Memory"
 category: framework
 summary: "Tencent-built team-level memory hub for AI agents providing four asset types — layered Chat Memory (L0-L3), versioned Skills, linked Wiki pages, and a CodeGraph — managed through a human-reviewable Memory Hub panel with ACL-based sharing"
 tags: [agent-memory, memory-hub, knowledge-graph, wiki, skills, codegraph, acl, tencent, docker]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [codegraph, mex, claude-mem]
 source: unknown
 ---

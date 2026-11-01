@@ -7,11 +7,9 @@ summary: "Fully managed AWS service that converts REST APIs and Lambda functions
 tags: [aws, bedrock, mcp, agent-tools, gateway, enterprise, oauth, lambda, openapi, semantic-search]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [a2a-protocol]
 license: proprietary
 security_flags: []
-workflows: []
 source: unknown
 ---
 

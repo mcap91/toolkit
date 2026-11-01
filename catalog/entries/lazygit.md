@@ -7,11 +7,9 @@ summary: "Terminal UI for git — interactive staging (hunks/lines), interactive
 tags: [git, tui, terminal, interactive-rebase, staging, go, productivity, version-control]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

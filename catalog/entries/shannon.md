@@ -5,12 +5,10 @@ url: "https://github.com/KeygraphHQ/shannon"
 category: framework
 summary: "Autonomous white-box AI pentester that analyzes source code and executes real exploits against web apps/APIs; AGPL-3.0, proof-by-exploitation reports, but actively mutates target state and requires authorization context"
 tags: [security, pentesting, web-security, exploitation, owasp, ai-agent, docker, anthropic]
-workflows: []
 reviewed: 2026-06-17
 acquired: 2026-06-17
 license: AGPL-3.0-only
 security_flags: [executes-exploits, mutates-target-state, agpl-copyleft, llm-cost-significant]
-supersedes: []
 overlaps: []
 source: unknown
 ---

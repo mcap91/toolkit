@@ -5,12 +5,10 @@ url: "https://en.wikipedia.org/wiki/Retrieval-augmented_generation"
 category: agent-pattern
 summary: "Diagnostic framework for choosing among 8 RAG architectures (Naive, Hybrid, Reranked, Multi-Query, Hierarchical, Corrective, Graph, Agentic) based on observed failure modes — treat RAG like debugging: let Naive fail first, watch how it fails, then pick the architecture that fixes that specific symptom; measure retrieval separately from generation"
 tags: [rag, retrieval, architecture, debugging, decision-tree, agent-pattern]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

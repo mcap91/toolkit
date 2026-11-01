@@ -5,12 +5,10 @@ url: "https://github.com/fastapi/fastapi"
 category: framework
 summary: "High-performance async Python web framework built on Starlette + Pydantic — declares request/response contracts via standard Python type hints, generating validation, serialization, and OpenAPI/JSON Schema docs (Swagger UI, ReDoc) automatically; dependency-injection system, WebSockets, background tasks; MIT, ~102k stars, created 2018 by Sebastián Ramírez, actively maintained"
 tags: [web-framework, python, async, rest-api, openapi, pydantic, starlette, type-hints, dependency-injection]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

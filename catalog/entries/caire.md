@@ -14,11 +14,9 @@ tags:
   - face-detection
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: instagram
 source_url: https://www.instagram.com/reel/Deb3bVkHBLV/
 ---

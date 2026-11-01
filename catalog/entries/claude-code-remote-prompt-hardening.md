@@ -7,11 +7,9 @@ summary: env vars to block remote system prompt injection in Claude Code; operat
 tags: [claude-code, security, privacy, env-vars, hardening, system-prompt, version-pinning]
 reviewed: 2026-05-27
 acquired: 2026-05-27
-supersedes: []
 overlaps: []
 license: unknown
 security_flags: []
-workflows: []
 source: unknown
 ---
 

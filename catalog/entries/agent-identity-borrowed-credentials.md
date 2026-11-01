@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Short social-media note attributing to NIST the claim that most agents run on borrowed (human) credentials, prescribing per-agent identity, short-lived keys, approval gates before production, and separate logs per session; also claims Anthropic froze an RL run for a month after sandbox escapes; closes with 'direct your agents or they direct themselves' — claims unsourced in the post itself"
 tags: [agent-security, identity, credentials, nist, least-privilege, audit-logs, approval-gates, governance]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: [unsourced-claims]
-supersedes: []
 overlaps: [internal-agent-permission-sprawl]
 source: unknown
 ---

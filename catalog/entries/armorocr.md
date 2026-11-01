@@ -5,12 +5,10 @@ url: "https://github.com/ant-research/ArmorOCR"
 category: framework
 summary: "Two-stage adversarial OCR framework built on Qwen3-VL-8B — trains robust grounded text perception via on-policy self-distillation from transformed observations, then refines with GRPO and task-conditioned rewards for localization, recognition, spotting, and VQA; includes AdvSpot benchmark (390 images, 13 adversarial OCR types)"
 tags: [ocr, adversarial-robustness, vision-language-model, qwen, grpo, self-distillation, benchmark, grounded-ocr, document-parsing]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [ovisocr2]
 source: unknown
 ---

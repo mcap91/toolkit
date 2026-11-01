@@ -5,12 +5,10 @@ url: "https://github.com/aquasecurity/trivy"
 category: cli-tool
 summary: "Aqua Security's all-in-one security scanner (Go) — finds vulnerabilities (OS packages + language dependencies), IaC misconfigurations, secrets, and licenses across container images, filesystems, git repos, VM images, Kubernetes clusters, and AWS accounts; generates and scans SBOMs (SPDX/CycloneDX); single static binary, offline-capable DB, CI-native; Apache-2.0, ~38k stars"
 tags: [security-scanner, vulnerabilities, containers, sbom, secrets-detection, iac, kubernetes, devsecops, supply-chain, go]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [crowdsec]
 source: unknown
 ---

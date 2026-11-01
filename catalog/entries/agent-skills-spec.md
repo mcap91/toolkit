@@ -5,12 +5,10 @@ url: "https://agentskills.io/home"
 category: reference
 summary: "Anthropic's open SKILL.md specification for packaging agent capabilities — adopted by 32+ tools (Claude Code, Codex, Cursor, Gemini CLI, Kiro, Junie, Goose); progressive-disclosure format (name/description → full instructions → scripts/assets); 100K+ stars on anthropics/skills; the cross-vendor standard our skills are built on"
 tags: [specification, open-standard, skill-format, anthropic, interoperability]
-workflows: []
 reviewed: 2026-06-25
 acquired: 2026-06-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

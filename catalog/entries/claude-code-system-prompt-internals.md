@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Reverse-engineering investigation showing Claude Code ships two different system prompt presets (~11k chars for Opus 5, ~29k chars for Sonnet 5), gated by CLAUDE_CODE_SIMPLE_SYSTEM_PROMPT and a server-side CLAUDE_CODE_BASALT_COVE rollout flag; forcing the long preset on Opus 5 stacks ~20k redundant tokens rather than helping"
 tags: [claude-code, system-prompt, reverse-engineering, env-vars, opus, sonnet, verbosity]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [claude-code-remote-prompt-hardening]
 source: unknown
 ---

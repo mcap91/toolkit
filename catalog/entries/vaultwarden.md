@@ -5,12 +5,10 @@ url: "https://github.com/dani-garcia/vaultwarden"
 category: framework
 summary: Production-grade self-hosted Bitwarden-compatible password server in Rust; fraction of the resource footprint of the official server
 tags: [password-manager, self-hosted, bitwarden, rust, docker, security, secrets]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: AGPL-3.0
 security_flags: [stores-credentials, requires-https, backup-critical]
-supersedes: []
 overlaps: []
 source: unknown
 ---

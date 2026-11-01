@@ -5,12 +5,10 @@ url: "https://github.com/coleam00/second-brain-skills"
 category: plugin
 summary: "Claude Code skill collection for knowledge work — MCP client with progressive disclosure, PPTX/carousel generator with brand system, SOP/runbook creator, Remotion video creator, skill creator guide, and brand & voice generator; by Cole Medin"
 tags: [claude-code-plugin, skills, knowledge-work, presentations, video, documentation, mcp-client]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

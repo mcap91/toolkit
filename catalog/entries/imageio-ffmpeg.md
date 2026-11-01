@@ -12,12 +12,10 @@ tags:
   - pipes
   - video-io
   - imageio
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: BSD-2-Clause
 security_flags: []
-supersedes: []
 overlaps: []
 source: web
 source_url: https://github.com/imageio/imageio-ffmpeg

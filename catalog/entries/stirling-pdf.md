@@ -5,12 +5,10 @@ url: "https://github.com/Stirling-Tools/Stirling-PDF"
 category: cli-tool
 summary: Self-hosted REST API for 50+ PDF operations enables privacy-preserving agentic PDF workflows without external services
 tags: [pdf, self-hosted, rest-api, docker, ocr, document-processing, automation]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [open-core-commercial-features]
-supersedes: []
 overlaps: [open-data-loader-pdf, markitdown]
 source: unknown
 ---

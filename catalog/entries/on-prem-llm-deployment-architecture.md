@@ -4,12 +4,10 @@ title: On-Prem LLM Deployment Architecture (Hardware + Inference Stack Selection
 category: reference
 summary: "Community-sourced reference on selecting hardware (NVIDIA DGX Spark, RTX multi-GPU, Apple Silicon Mac Studio Ultra, AMD Instinct) and inference stacks (vLLM, SGLang, llama.cpp, MLX, Ollama, Open WebUI) for self-hosted LLM serving at 10–20 concurrent users; covers memory sizing, throughput data, and real deployment reports"
 tags: [self-hosted, local-inference, gpu, hardware, vllm, ollama, inference, deployment, privacy, dgx-spark, apple-silicon]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [parallel-local-inference, open-webui]
 source: unknown
 ---

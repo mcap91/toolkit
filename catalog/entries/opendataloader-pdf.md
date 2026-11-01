@@ -5,12 +5,10 @@ url: "https://github.com/opendataloader-project/opendataloader-pdf"
 category: cli-tool
 summary: "Top-benchmarked open-source PDF parser with bounding boxes, formula extraction, and RAG-ready output — worth piloting for bioinformatics literature ingestion before committing."
 tags: [pdf, rag, ocr, markdown, json, bioinformatics, langchain, accessibility]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [java-runtime-required, self-reported-benchmarks, pii-sanitization-opt-in, local-server-process]
-supersedes: []
 overlaps: [markitdown]
 source: unknown
 ---

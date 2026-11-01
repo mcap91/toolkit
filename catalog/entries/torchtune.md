@@ -5,12 +5,10 @@ url: "https://github.com/meta-pytorch/torchtune"
 category: framework
 summary: "PyTorch-native post-training library by Meta — composable building blocks (not trainers) for SFT, LoRA, QLoRA, DPO, GRPO, quantization, evaluation; YAML-driven recipes under 600 LOC; composable parallelism (FSDP2, TP, SP, CP, expert parallel for MoE); in-backward optimizer fusion; works on single 24GB GPU to multi-node clusters; v0.6 stable; Apache 2.0"
 tags: [fine-tuning, pytorch, lora, qlora, dpo, fsdp, distributed-training, post-training, meta]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [unsloth, axolotl, llamafactory, trl]
 source: unknown
 ---

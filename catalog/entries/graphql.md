@@ -5,12 +5,10 @@ url: "https://graphql.org/"
 category: reference
 summary: "Open-source query language for APIs with strongly-typed schemas — request exactly the data needed, retrieve multiple resources in one request, evolve without versioning; governed by the GraphQL Foundation under the Linux Foundation; libraries available in most languages"
 tags: [api, query-language, schema, web-development, linux-foundation]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -13,14 +13,12 @@ tags:
   - bedrock
   - managed-service
   - cloud
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: Proprietary (AWS managed service)
 security_flags:
   - closed-source
   - no-self-hosting
-supersedes: []
 overlaps:
   - qdrant
   - weaviate

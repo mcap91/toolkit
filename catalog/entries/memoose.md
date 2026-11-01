@@ -5,12 +5,10 @@ url: "https://github.com/AndrewNgo-ini/memoose"
 category: framework
 summary: "Local, no-API-key dual-path memory system for coding agents — SQLite knowledge graph, CLI + 26 MCP tools + skills/hooks harness; procedures stored as self-evolving 'procedural graphs' (steps as nodes, edges carrying conditions/advice/pitfalls) after Google's Procedural Graphs paper (arXiv 2609.09153)"
 tags: [memory, procedural-graph, knowledge-graph, mcp-server, cli-tool, sqlite, local-first, no-api-key, claude-code, hooks]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: Apache-2.0
 security_flags: [unverified-vendor-claims]
-supersedes: []
 overlaps: [ai-memory-comparison, okf-agent-memory, mempalace, claude-mem]
 source: unknown
 ---

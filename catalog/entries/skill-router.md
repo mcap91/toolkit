@@ -7,10 +7,8 @@ summary: superpowers using-superpowers already handles skill routing
 tags: [meta-skill, routing, skill-discovery]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

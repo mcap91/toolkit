@@ -5,12 +5,10 @@ url: "https://github.com/bilawalsidhu/gods-eye-view"
 category: framework
 summary: "Browser-based open-source spatial-intelligence globe (vanilla JS + CesiumJS + Vite) fusing live public feeds — 11k+ aircraft, ships, satellites, earthquakes, fires, ~800 public CCTV cameras, radio, launches — onto a photorealistic 3D Earth, with an OpenAI Realtime voice agent (28 tools) for hands-free control; keyless baseline, MIT per README; ~24k stars, #1 GitHub Trending Aug 2026"
 tags: [osint, geospatial, spatial-intelligence, cesiumjs, 3d-globe, flight-tracking, voice-agent, openai-realtime, satellite-tracking, javascript, local-first]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: MIT
 security_flags: [lan-sharing-key-exposure, metered-api-spend, data-source-terms-vary]
-supersedes: []
 overlaps: []
 source: unknown
 ---

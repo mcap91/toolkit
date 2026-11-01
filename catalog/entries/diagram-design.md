@@ -7,11 +7,9 @@ summary: "Editorial-quality diagram skill for Claude Code, Codex, Copilot, Facto
 tags: [diagrams, visualization, svg, html, skill, claude-code, codex, copilot, brand-design, editorial, agent-skill, import-export, accessibility]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

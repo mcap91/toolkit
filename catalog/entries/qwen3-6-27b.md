@@ -5,12 +5,10 @@ url: "https://huggingface.co/Qwen/Qwen3.6-27B"
 category: framework
 summary: Strong open-weight 27B model with near-frontier coding scores and 262K context; promising local worker model but requires multi-GPU or quantization for practical use
 tags: [llm, open-weights, coding, agentic, multimodal, qwen, local-inference, llama-cpp]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [openrouter, airllm]
 source: unknown
 ---

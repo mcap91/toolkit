@@ -4,15 +4,12 @@ title: pdf-mcp
 url: "https://github.com/jztan/pdf-mcp"
 category: mcp-server
 summary: "MCP server for surgical PDF access by AI agents — 13 tools for hybrid search (BM25 + semantic), selective page reading, table/image/chart extraction, OCR via Tesseract, corpus-wide multi-document search, and multi-column/CJK layout support; SQLite cache persists across restarts. MIT."
-install: pip install pdf-mcp
 license: MIT
 tags: [pdf, mcp-server, search, ocr, rag, tables, charts, corpus, hybrid-search, cjk, tesseract]
 reviewed: 2026-09-04
 acquired: 2026-09-04
-supersedes: []
 overlaps: [opendataloader-pdf]
 security_flags: [exposes-local-filesystem-paths]
-workflows: []
 source: unknown
 ---
 
@@ -40,3 +37,7 @@ pdf-mcp addresses a real gap: large PDFs overwhelm agent context windows and nai
 ## Security
 
 MIT licensed. The server accesses local filesystem paths specified by the agent or user; path restrictions can be configured. The HTTP transport (`pdf-mcp-http`) fails closed: without an auth token and path allow-list, the process exits rather than serving an open endpoint. Content-trust detection flags hidden text that a human reader cannot see (e.g., invisible text layers, prompt injection attempts) — flagged per page, not stripped. A published `SECURITY.md` documents the threat model and reporting channel. The primary risk is filesystem exposure: the server reads whatever paths the calling agent provides, bounded only by OS permissions and optional configuration.
+
+## How to use it
+
+pip install pdf-mcp

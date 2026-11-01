@@ -5,12 +5,10 @@ url: "https://github.com/AKCodez/seo-god"
 category: skill
 summary: "Claude Code skill that turns the agent into an SEO operator for a site you own — five-phase pipeline (setup → audit → measure → ai_visibility → schedule) using a local OpenSEO Docker container for crawling, Google Search Console for metrics, and a daily act loop that fixes regressions and improves near-ranking pages; no SERP scraping, no paid API keys required on the free path; MIT"
 tags: [seo, claude-code-skill, docker, google-search-console, site-audit, scheduling, ai-visibility, automation]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

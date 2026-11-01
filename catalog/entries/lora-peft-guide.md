@@ -5,12 +5,10 @@ url: "https://huggingface.co/docs/peft/main/en/conceptual_guides/lora"
 category: reference
 summary: "Hugging Face PEFT conceptual guide to LoRA (Low-Rank Adaptation): fine-tune large models by training two small low-rank update matrices while the original weights stay frozen — drastically fewer trainable parameters, portable per-task adapters, and no added inference latency once merged. Covers LoraConfig parameters, merge/unmerge/unload utilities, and initialization options (Gaussian, LoftQ for QLoRA, rank-stabilized rsLoRA)."
 tags: [lora, peft, fine-tuning, parameter-efficient, qlora, transformers, huggingface, adapters]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

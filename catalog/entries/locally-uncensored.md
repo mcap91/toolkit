@@ -21,10 +21,8 @@ license: AGPL-3.0-only
 security_flags:
   - agpl-copyleft
   - unsigned-installer
-supersedes: []
 overlaps:
   - lm-studio
-workflows: []
 source_url: https://www.instagram.com/reel/De2LjyNNS4H/
 source: instagram
 ---

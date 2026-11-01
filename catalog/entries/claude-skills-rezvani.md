@@ -5,12 +5,10 @@ url: "https://github.com/alirezarezvani/claude-skills"
 category: plugin
 summary: "355-skill library for 13 AI coding tools — 18 domains (engineering, marketing, product, compliance, C-level advisory, research, finance, business ops), 602 stdlib-only Python CLI tools, 711 reference templates; cross-platform (Claude Code, Codex, Gemini CLI, Cursor, Aider, Windsurf, and 7 more); MIT"
 tags: [claude-code-plugin, skills-library, multi-platform, engineering, marketing, compliance, research]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [agent-skills-addy-osmani, dotclaude, claude-spellbook]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: reference
 summary: "Community-recommended YouTube creators for practical agentic-workflow content — Cody Schneider (outreach automation breakdowns), David Ondrej (n8n/make.com step-by-step with error handling), Matthew Berman (self-hosting agent frameworks incl. Docker setup and failure points), Nick Saraev (obscure automation triggers turned into business processes); requester also names Bilawal Sidhu, Greg Isenberg, Ras Mic as the desired non-salesy style"
 tags: [youtube, creators, agentic-workflows, n8n, automation, self-hosting, learning-resources, community-picks]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

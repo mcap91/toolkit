@@ -5,12 +5,10 @@ url: "https://github.com/paperless-ngx/paperless-ngx"
 category: framework
 summary: Mature self-hosted document management system — useful for archiving research docs but not an agent tool or developer library
 tags: [document-management, self-hosted, ocr, search, archive, docker, paperless]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: GPL-3.0
 security_flags: [cleartext-storage, no-encryption-at-rest, curl-pipe-bash-install]
-supersedes: []
 overlaps: []
 source: unknown
 ---

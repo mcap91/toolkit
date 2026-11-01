@@ -5,12 +5,10 @@ url: "https://github.com/Panniantong/agent-reach"
 category: cli-tool
 summary: "Capability-layer CLI that gives AI agents internet access — routes to best backend per platform (Twitter/Reddit/YouTube/Bilibili/Xiaohongshu/GitHub/LinkedIn/RSS/web/search), auto-installs tools, health-checks with doctor command; cookie-based auth, self-described vibe-coded, agent-self-install pattern carries supply-chain risk; MIT"
 tags: [web-access, twitter, reddit, youtube, bilibili, xiaohongshu, agent-capability, cli, internet-access]
-workflows: []
 reviewed: 2026-06-25
 acquired: 2026-06-25
 license: MIT
 security_flags: [agent-self-install, cookie-handling, vibe-coded, pip-install-from-git]
-supersedes: []
 overlaps: [crawl4ai, firecrawl]
 source: unknown
 ---

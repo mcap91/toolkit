@@ -16,7 +16,6 @@ tags:
   - harness-design
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - anthropic-prompt-caching-guide
   - prompt-assembly-cache-discipline
@@ -25,7 +24,6 @@ overlaps:
   - claude-code-fable-cost-playbook
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

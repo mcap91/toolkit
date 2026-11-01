@@ -5,12 +5,10 @@ url: "https://github.com/daisybio/drevalpy"
 category: framework
 summary: "Python cancer cell line drug response prediction benchmark suite — maintained baseline model catalog, gold standard datasets (CTRPv2, GDSC1/2, CCLE, BeatAML2), application-driven evaluation splits (LPO/LCO/LDO/LTO), ablation studies, cross-study generalization, nf-core Nextflow pipeline; Nature Comms published, TUM/FU Berlin"
 tags: [drug-response, cancer, benchmarking, nextflow, bioinformatics]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: GPL-3.0-only
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

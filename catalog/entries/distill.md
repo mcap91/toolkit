@@ -5,12 +5,10 @@ url: "https://github.com/samuelfaj/distill"
 category: cli-tool
 summary: Local 1.7B model pipe-filter for CLI output compression is a real problem but requires 8–16 GB RAM and relies on an unaudited HuggingFace model; overlaps with rtk.
 tags: [token-reduction, cli, pipe, local-model, output-compression]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: NOASSERTION
 security_flags: [no-license-in-readme, single-contributor, unaudited-hf-model, npm-global-install]
-supersedes: []
 overlaps: [rtk]
 source: unknown
 ---

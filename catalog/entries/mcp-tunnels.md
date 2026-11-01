@@ -7,11 +7,9 @@ summary: "Anthropic research-preview feature connecting Claude to MCP servers in
 tags: [mcp, anthropic, tunnels, enterprise, private-network, firewall, cloudflare, managed-agents, security]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [a2a-protocol, bedrock-agentcore-gateway]
 license: proprietary
 security_flags: []
-workflows: []
 source: unknown
 ---
 

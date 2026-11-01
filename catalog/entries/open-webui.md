@@ -5,12 +5,10 @@ url: "https://github.com/open-webui/open-webui"
 category: framework
 summary: "Leading self-hosted LLM web UI with RAG, pipelines, and enterprise auth — relevant infrastructure context but custom non-SPDX license limits adoption"
 tags: [llm-ui, self-hosted, rag, ollama, openai-compatible, pipelines, enterprise, docker, python]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-OpenWebUI
 security_flags: [custom-license, byof-code-execution, pipeline-code-execution]
-supersedes: []
 overlaps: [onyx-ai-platform]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: agent-pattern
 summary: "Collection of meta-prompting patterns that surface agent blind spots — 'what are you least confident about' (forces enumeration of uninvestigated areas), 'what's the biggest thing I'm missing' (Altman), plus future-proofing, hidden-bias, and session-improvement variants"
 tags: [prompting, meta-prompting, agent-patterns, confidence, verification]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [claude-decision-pressure-test]
 source: unknown
 ---

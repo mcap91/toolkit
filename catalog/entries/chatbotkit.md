@@ -5,12 +5,10 @@ url: "https://chatbotkit.com/"
 category: framework
 summary: "Commercial AI agent platform with enterprise security (GDPR/CCPA), MCP integration, OAuth flows, observability dashboards, policy management, and modular architecture for composable datasets/skillsets/integrations; Forward Deployment platform for rapid AI product prototyping"
 tags: [agent-platform, chatbot, enterprise, mcp, oauth, observability, governance]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: Proprietary
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

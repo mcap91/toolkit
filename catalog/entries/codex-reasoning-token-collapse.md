@@ -5,12 +5,10 @@ url: "https://github.com/NickalasLight/codex-reasoning-bug-516-token"
 category: reference
 summary: "Public-safe evidence repo investigating a suspected Codex (gpt-5.5) failure where some turns terminate at exact 512-family reasoning-token counts (516/1034/1552); ships Python analyzers plus a blind multi-reviewer audit harness; across manual, rule-assisted, and blind audits, removing the suspected instruction section did not meaningfully reduce concerning clustered hits"
 tags: [codex, gpt-5.5, reasoning-tokens, evidence, analysis-scripts, model-behavior, reference]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: ""
 security_flags: [no-license-stated, single-maintainer, reads-local-transcripts]
-supersedes: []
 overlaps: [codex-memory-cleanup, codex-ssd-write-bug]
 source: unknown
 ---

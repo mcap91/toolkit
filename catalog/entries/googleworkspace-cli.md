@@ -5,12 +5,10 @@ url: "https://github.com/googleworkspace/cli"
 category: cli-tool
 summary: Rust CLI with agent-first JSON output and 100+ bundled SKILL.md files covering all Workspace APIs; pre-v1.0 with breaking changes expected
 tags: [google-workspace, gmail, drive, calendar, sheets, agent-skills, oauth, json-output, rust, meta-skill]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [pre-v1.0-breaking-changes, unverified-app-scope-limit, runtime-discovery-fetch]
-supersedes: []
 overlaps: []
 source: unknown
 ---

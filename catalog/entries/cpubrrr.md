@@ -4,15 +4,12 @@ title: cpubrrr
 url: "https://github.com/arizqi/cpubrrr"
 category: cli-tool
 summary: "From-scratch CPU-only LLM inference engine in Rust that beats llama.cpp's CPU path on MoE models. Hand-written NEON/SME kernels, quad-interleaved weight layout, integer-accumulation Q8_K, worker-driven execution. Runs gpt-oss:20b at ~77 tok/s and Qwen3-Coder-30B at ~92 tok/s on Apple M4 Max (CPU only). OpenAI-compatible API server included. Dual MIT/Apache-2.0."
-install: cargo build --release
 license: MIT
 tags: [llm-inference, cpu, rust, neon, arm, apple-silicon, moe, quantization, performance, llama-cpp-alternative]
 reviewed: 2026-07-28
 acquired: 2026-07-28
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -43,3 +40,7 @@ Key techniques: hand-written ARM NEON SIMD integer kernels (sdot/tbl for exact 4
 ## Security
 
 Dual MIT/Apache-2.0. No model weights included or redistributed. Research engine with no serving hardening. The extensive benchmark-integrity documentation (contaminated baselines, unverified GPU placement, thermal throttling, unreproducible peaks) is unusually thorough and transparent. No security flags observed.
+
+## How to use it
+
+cargo build --release

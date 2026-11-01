@@ -5,12 +5,10 @@ url: "https://pandastutor.com/"
 category: reference
 summary: "Browser-based tool that visualizes step-by-step how Python pandas code transforms DataFrames across chained operations like filtering, sorting, grouping, and joining."
 tags: [pandas, data-visualization, python, education, debugging, dataframes]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/Darwin-Agent/HarnessX"
 category: framework
 summary: "Python agent-harness foundry from the Darwin Agent Team separating model (ModelConfig) from behavior (HarnessConfig): a 9-dimension processor pipeline (context, control, evaluation, memory, multi-model, observability, tools, plus providers/plugins) composed with a `|` operator, plus two self-reported evolution loops — a meta-harness that auto-searches processor/config combinations, and RL fine-tuning (via VERL) on reward-annotated run trajectories. MIT-licensed, v0.1.0/Beta. Companion papers: HarnessX (arXiv:2606.14249) and a follow-on, DarwinX (arXiv:2608.07545)."
 tags: [agent-harness, harness-foundry, composable, processors, self-evolution, reinforcement-learning, python, benchmarks, mit]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: MIT
 security_flags: [install-script-curl-pipe, self-reported-benchmarks, early-stage-v0.1-beta]
-supersedes: []
 overlaps: [deepseek-harness, harness-engineering]
 source: unknown
 ---

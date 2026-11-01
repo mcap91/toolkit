@@ -5,11 +5,9 @@ url: "https://code.claude.com/docs/en/commands"
 category: reference
 summary: "Anthropic's official reference documentation for every Claude Code CLI slash command, covering description, parameters, aliases, and minimum CLI version per command as of v2.1.224"
 tags: [claude-code, documentation, slash-commands, cli-reference, anthropic-official]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 security_flags: []
-supersedes: []
 overlaps: [claude-code-commands-announcement, claude-howto, awesome-claude-code]
 source: unknown
 ---

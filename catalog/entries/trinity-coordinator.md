@@ -8,10 +8,8 @@ license: ""
 tags: [multi-agent, orchestration, evolutionary-strategy, llm-coordination, role-assignment, cma-es, reasoning, sakana-ai]
 reviewed: 2026-09-04
 acquired: 2026-09-04
-supersedes: []
 overlaps: [conductor-orchestration, agent-teams]
 security_flags: []
-workflows: []
 source: unknown
 ---
 

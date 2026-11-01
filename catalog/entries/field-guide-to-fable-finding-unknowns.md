@@ -5,12 +5,10 @@ url: "https://x.com/trq212/status/2073100352921215386"
 category: agent-pattern
 summary: "Anthropic engineer Thariq Shihipar's framework for working with capable AI models — the bottleneck shifts from model ability to specification quality; five techniques (blind-spot pass, interviews, references, rough mockups, brainstorms) for surfacing assumptions before they compound into costly rework; 2M views in 3 days"
 tags: [prompting, workflow, fable, claude-code, specification, unknowns, anthropic, agent-pattern]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

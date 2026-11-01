@@ -13,12 +13,10 @@ tags:
   - open-source
   - yahoo
   - self-hosted
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps:
   - qdrant
   - weaviate

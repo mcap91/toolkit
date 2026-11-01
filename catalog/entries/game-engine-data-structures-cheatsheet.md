@@ -16,12 +16,10 @@ tags:
   - spatial-hashing
 reviewed: 2026-10-30
 acquired: 2026-10-30
-supersedes: []
 overlaps:
   - navmesh-plus
 license: N/A
 security_flags: []
-workflows: []
 source: instagram
 source_url: https://www.instagram.com/reel/Dez02K2qND3/
 ---

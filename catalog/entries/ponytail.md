@@ -5,12 +5,10 @@ url: "https://github.com/DietrichGebert/ponytail"
 category: plugin
 summary: "YAGNI enforcement plugin with strong benchmarks (80-94% less code, 47-77% cheaper); multi-platform support and clean design make it worth trialing"
 tags: [claude-code, codex, plugin, yagni, minimalism, code-quality, over-engineering]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

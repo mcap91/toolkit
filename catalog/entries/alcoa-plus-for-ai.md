@@ -5,12 +5,10 @@ url: "https://bryandownie.substack.com/p/ai-needs-what-alcoa-gave-records"
 category: reference
 summary: Useful framing for regulated-AI governance but no actionable tool or framework yet — CASTEM teased but unpublished
 tags: [ai-governance, gxp, regulatory, data-integrity, pharma]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: UNLICENSED
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

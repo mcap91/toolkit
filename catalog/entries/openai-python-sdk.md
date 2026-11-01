@@ -5,12 +5,10 @@ url: "https://github.com/openai/openai-python"
 category: framework
 summary: "Official Python client for the OpenAI API — GPT, o-series, Codex, DALL-E, Whisper, embeddings; typed Pydantic models, async support, streaming, function calling; MIT, PyPI"
 tags: [openai, python, sdk, llm, api-client]
-workflows: []
 reviewed: 2026-06-22
 acquired: 2026-06-22
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -7,10 +7,8 @@ summary: needs eval benchmarks first; pilot when we have eval criteria for our s
 tags: [harness, optimization, eval, benchmarks]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

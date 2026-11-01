@@ -5,12 +5,10 @@ url: "https://github.com/unclecode/crawl4ai"
 category: framework
 summary: "Best-in-class async web-to-Markdown crawler for agent/RAG pipelines, but Docker API has had dense critical CVEs; library mode is safe to pilot"
 tags: [web-scraping, markdown, rag, agents, async, playwright, docker, llm-extraction]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: Apache-2.0
 security_flags: [docker-api-rce-history, ssrf-history, unaudited-litellm-fork, hook-sandbox-escape-history]
-supersedes: []
 overlaps: []
 source: unknown
 ---

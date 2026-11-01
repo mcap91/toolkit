@@ -7,10 +7,8 @@ summary: Practitioner philosophy arguing that production AI agents succeed with 
 tags: [agents, mcp, integration-strategy, production-patterns, architecture, philosophy]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: n/a
 security_flags: []
-workflows: [agent-design]
 overlaps: [advisor-strategy]
 source: unknown
 ---

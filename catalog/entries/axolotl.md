@@ -5,12 +5,10 @@ url: "https://github.com/axolotl-ai-cloud/axolotl"
 category: framework
 summary: "Open-source LLM post-training framework — YAML-driven pipeline for SFT, LoRA/QLoRA, DPO/KTO/ORPO, GRPO, reward modeling, pretraining, multimodal (vision/audio); ND parallelism (CP+TP+FSDP), ScatterMoE fused LoRA, MoE expert quantization, QAT, sequence parallelism; built-in agent docs CLI; Apache 2.0"
 tags: [fine-tuning, lora, qlora, dpo, grpo, moe, multimodal, distributed-training, post-training]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [unsloth, llamafactory, trl]
 source: unknown
 ---

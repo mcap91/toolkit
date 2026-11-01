@@ -15,13 +15,11 @@ tags:
   - early-access
 reviewed: 2026-10-29
 acquired: 2026-10-29
-supersedes: []
 overlaps:
   - cold-cache-session-resume
   - anthropic-prompt-caching-guide
 license: MIT
 security_flags: []
-workflows: []
 source: reddit
 source_url: https://www.reddit.com/r/ClaudeCode/comments/1x1ybwb/best_way_to_handle_cold_cache_hits_you_overpay_5x/
 ---

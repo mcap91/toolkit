@@ -12,12 +12,10 @@ tags:
   - risk-tiering
   - governance
   - review-load
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: N/A
 security_flags: []
-supersedes: []
 overlaps:
   - agent-software-engineering-fundamentals
   - governance-first-multi-agent-architecture

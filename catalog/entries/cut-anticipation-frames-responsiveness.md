@@ -17,12 +17,10 @@ tags:
   - frame-data
   - silhouette
   - game-development
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: N/A
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

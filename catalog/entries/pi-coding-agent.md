@@ -4,15 +4,12 @@ title: Pi Coding Agent
 url: "https://github.com/earendil-works/pi"
 category: framework
 summary: "Minimal, extensible terminal coding agent harness by Mario Zechner (Earendil Works). Four core tools (read, write, edit, bash), ~200-token system prompt, 37+ models across 20+ providers (Anthropic, OpenAI, Google, Bedrock, etc.). Extensible via TypeScript extensions, skills, prompt templates, themes, and packages — deliberately omits MCP, sub-agents, plan mode, and permission popups in favor of user-built alternatives. Tree-structured sessions with branching, compaction, and forking. SDK/RPC modes for embedding. MIT. ~78k GitHub stars."
-install: "npm install -g --ignore-scripts @earendil-works/pi-coding-agent"
 license: MIT
 tags: [coding-agent, terminal, cli-tool, extensible, multi-provider, sdk, typescript, sessions, skills, themes]
 reviewed: 2026-07-28
 acquired: 2026-07-28
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -57,3 +54,7 @@ MIT licensed. Extensions execute arbitrary code with full system access. Skills 
 - **Local Qwen 3.8 as Opus replacement**: Practitioner report using Pi with llama.cpp backend on Strix Halo 128GB — Qwen 3.8 27B replaces Opus 4.6–4.8 for agentic coding if 2–3x longer task times are acceptable. $0/month, fully offline. LlamaStash manages llama.cpp launches and presets.
 
 - Practitioner report (r/LocalLLM, Oct 2026): a user running Pi on a 65K-context local model reports Pi needs about 1.5K tokens to start a session, vs an estimated 10-14K for Codex/Claude Code out of the box — a gap of 15-20% of a 65K window before any work starts. They add local OpenAI-compatible backends (e.g. LM Studio) via a `providers` block in `~/.pi/agent/models.json` (`baseUrl`, `api: "openai-completions"`, `apiKey`, and a per-model `id`/`contextWindow`/`maxTokens`/`input` list). (source: https://www.reddit.com/r/LocalLLM/comments/1xgqyz4/125_tokens_per_second_on_an_rtx_4070_ti_super_how/)
+
+## How to use it
+
+npm install -g --ignore-scripts @earendil-works/pi-coding-agent

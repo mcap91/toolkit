@@ -5,12 +5,10 @@ url: "https://example.com"
 category: reference
 summary: "Explainer resolving why Claude Code and Codex are called both 'agents' and 'harnesses' — model is the reasoning engine, agent is the emergent goal-directed behavior, harness is the operational machinery (context assembly, tools, execution, sessions, approvals, sandboxing); introduces 'meta-harness' as Omnigent's term for a layer wrapping multiple harnesses behind one interface with shared orchestration, policy, state, and cost controls"
 tags: [terminology, harness, agents, meta-harness, claude-code, codex, subagents, omnigent, architecture]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -17,7 +17,6 @@ tags:
   - incident-report
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - deny-env-reads
   - agent-identity-borrowed-credentials
@@ -25,7 +24,6 @@ overlaps:
   - docker-isolated-agent-sandbox
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

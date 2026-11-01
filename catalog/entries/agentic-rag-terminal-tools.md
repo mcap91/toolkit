@@ -5,12 +5,10 @@ url: "https://mixpeek.com/agentic-rag"
 category: agent-pattern
 summary: "Research pattern where LLM agents with terminal tool access (grep, find, head, cat) outperform embedding-based retrieval across 13+ benchmarks — Direct Corpus Interaction (DCI) removes embedding model, vector index, and top-k retrieval entirely; adopted by Anthropic (Claude Code), Windsurf, Cline, Devin, Sourcegraph Amp"
 tags: [rag, retrieval, grep, terminal-tools, benchmarks, vector-search, information-retrieval, direct-corpus-interaction]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [sira]
 source: unknown
 ---

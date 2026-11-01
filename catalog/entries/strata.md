@@ -7,11 +7,9 @@ summary: "One-click inference engine for Qwen3.8-Flash-Next (125B MoE) on consum
 tags: [local-inference, qwen, moe, expert-offloading, speculative-decoding, one-click, nvidia, cuda, openai-compatible, consumer-gpu]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: [llama-cpp-adaptive-kv-streaming, qwen38-27b-200k-on-16gb]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

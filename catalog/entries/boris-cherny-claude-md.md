@@ -7,10 +7,8 @@ summary: "A widely-shared CLAUDE.md (attributed to Boris Cherny) codifying a Cla
 tags: [claude-md, workflow, agent-configuration, plan-mode, subagents, verification, claude-code]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: [creating-claude-md]
 security_flags: []
-workflows: []
 source: unknown
 ---
 

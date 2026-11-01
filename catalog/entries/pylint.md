@@ -5,12 +5,10 @@ url: "https://github.com/pylint-dev/pylint"
 category: cli-tool
 summary: "Static code analyzer for Python that checks for errors, enforces coding standards, and flags code smells and refactoring opportunities without executing the code."
 tags: [python, linter, static-analysis, code-quality]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: GPL-2.0-or-later
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://github.com/ruvnet/RuView"
 category: framework
 summary: "Interesting hardware+agent integration with a Claude Code plugin and MCP server, but beta software requiring physical ESP32 hardware for core capabilities"
 tags: [wifi-sensing, esp32, mcp-server, claude-code-plugin, edge-ai, vital-signs, presence-detection, iot, physiological-signals]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: MIT
 security_flags: [beta-software, hardware-dependent, readme-benchmark-corrections-noted]
-supersedes: []
 overlaps: []
 source: unknown
 ---

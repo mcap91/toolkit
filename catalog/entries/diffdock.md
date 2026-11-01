@@ -7,11 +7,9 @@ summary: "DiffDock predicts protein-ligand binding poses with a generative diffu
 tags: [molecular-docking, diffusion-model, protein-ligand, drug-discovery, deep-learning, structural-biology, esmfold]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [autodock-vina]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

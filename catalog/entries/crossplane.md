@@ -5,12 +5,10 @@ url: "https://github.com/crossplane/crossplane"
 category: framework
 summary: "CNCF framework for building cloud-native control planes without writing code: an extensible Kubernetes-based backend that orchestrates applications and infrastructure wherever they run, plus a configurable frontend that lets you define the schema of the declarative API it offers. v2.x is current (v2.3, May 2026); v1.20 is the final v1 minor release on extended critical-fix-only support."
 tags: [kubernetes, control-plane, infrastructure-as-code, cncf, cloud-native, composition, declarative-api, platform-engineering]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -14,12 +14,10 @@ tags:
   - browser-automation
   - human-in-the-loop
   - agent-harness
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps:
   - agentic-rag-terminal-tools
   - local-model-adversarial-workflow

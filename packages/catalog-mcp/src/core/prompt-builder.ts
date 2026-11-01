@@ -35,7 +35,8 @@ ${content}
 ${metadataSection}
 ## Entry Schema
 
-Write a catalog entry with this exact frontmatter format and these body sections:
+Write a catalog entry per \`catalog/template.md\` (the public entry contract), with this exact
+frontmatter format and these body sections:
 
 ${entrySchemaTemplate}
 
@@ -49,12 +50,11 @@ ${securityChecklist}
 2. Before writing, call \`search\` for the subject's name and synonyms. There is no catalog table in
    this prompt — \`search\` is the only source of truth for duplicates: an existing entry for the same
    subject gets an \`annotate-entry\` note, not a new entry. Use the same search results to set
-   \`overlaps\`/\`supersedes\` in the frontmatter and to write the \`## Related\` section.
-3. Write a complete catalog entry with frontmatter and the seven body sections below (omit "## How
-   to use it" only for a pure idea with nothing to install).
+   \`overlaps\`/\`related\` in the frontmatter and to write the \`## Related\` section.
+3. Write a complete catalog entry with frontmatter and the body sections below (omit "## How to
+   use it" only for a pure idea with nothing to install).
 4. Write a factual one-line summary describing what it is — no value judgments, relevance claims, or
-   recommendations. Do not assign a status — entries default to open (the user marks adopted/rejected
-   later).
+   recommendations.
 5. Complete the security assessment.
 6. Return ONLY the entry markdown (frontmatter + body), no other text.
 
@@ -74,40 +74,38 @@ function buildSchemaTemplate(): string {
 ---
 name: kebab-case-slug
 title: "Display Name"
-url: https://source-url
-source_url: https://the-queue-item's-source-link  # reel/post/page/repo link; omit for a url-less text item
-source: instagram | reddit | x | web | text  # must match source_url's host; "text" only when source_url is omitted
+url: https://the-subject-itself  # the repo, tool site, paper, or page this entry is about
+source_url: https://the-queue-item's-source-link  # the link the item came in on; omit when same as url or absent
+source: instagram | reddit | x | web | text | unknown  # what source_url derives to
 category: ${CATEGORIES.join(' | ')}
 summary: "factual one-line description — no recommendations or value judgments"
-# leave decision_status unset (open); the user marks adopted/rejected later
 tags: [tag1, tag2]
-workflows: []
+topics: []
+related: []
+overlaps: []
 reviewed: YYYY-MM-DD
 acquired: YYYY-MM-DD
 license: SPDX-identifier
 security_flags: []
-supersedes: []
-overlaps: []
 ---
 \`\`\`
 
-Body sections, in order (no length cap):
+Body sections, in order (no length cap; per catalog/template.md):
 
-- \`## What it is\` — 2-4 sentences.
-- \`## How it works\` — the core of the entry: components and how they connect; the loop or
-  algorithm step by step; key data structures, prompts, config, parameters, commands; the design
-  choices and the reasons given. Target: a competent engineer could rebuild or adopt it without the
-  original. No line-by-line code; a short snippet only where it defines an interface (a prompt
-  template, a config schema, a CLI command).
-- \`## How to use it\` — install/run, requirements, integration points (tools and repos it connects
-  to); omit for a pure idea with nothing to install.
-- \`## Evaluation and limits\` — how it is measured, claimed numbers (attributed to who claims them),
-  failure modes, known issues, community pushback.
+- \`## What it is\` — 2-4 sentences on what the thing is.
+- \`## How it works\` — components and how they connect, the loop or algorithm step by step, key
+  data structures, prompts, config, parameters, commands, and the design choices and reasons given.
+- \`## How to use it\` — install/run, requirements, integration points; omit for a pure idea with
+  nothing to install.
+- \`## Evaluation and limits\` — how it is measured, claimed numbers (attributed), failure modes,
+  known issues, community pushback.
 - \`## Context from the source\` — what the reel/post/carousel adds beyond the subject itself: the
-  poster's use case and claims; for Reddit, the top comments (agreement, disagreement,
-  alternatives), attributed, with the source link. Never link to a private capture file.
+  poster's use case and claims, top comments, attributed, with the source link. Never link to a
+  private capture file.
+- \`## Where to look next\` — required when \`url\` is set; one line per target:
+  \`- <what you learn there> — <URL or repo path>\`.
 - \`## Related\` — catalog entries found by \`search\`, one line each on how they relate. Set
-  \`overlaps\`/\`supersedes\` above from the same search results.
+  \`overlaps\`/\`related\` above from the same search results.
 - \`## Security\` — per the checklist below, from observed evidence.`;
 }
 

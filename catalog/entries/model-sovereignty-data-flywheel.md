@@ -4,12 +4,10 @@ title: Model Sovereignty and Data Flywheel Strategy
 category: reference
 summary: "Practitioner argument for organizations owning fine-tuned models rather than depending on closed API providers — cites GPT 5.6 Sol government-approval access restriction, declining GPU costs, competitive data flywheels as moat, and negative-example datasets for hallucination reduction"
 tags: [fine-tuning, model-sovereignty, data-flywheel, open-source-models, self-hosted, vendor-independence, hallucination-reduction]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -7,10 +7,8 @@ summary: "An architecture pattern for solo-use multi-agent systems built governa
 tags: [multi-agent, governance, oversight, approval-gates, delegation, audit, least-privilege, agent-architecture]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 license: unknown
 security_flags: []
-workflows: [agent-orchestration]
 overlaps: [openclaw, agent-teams]
 source: unknown
 ---

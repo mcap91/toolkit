@@ -7,11 +7,9 @@ summary: "Unified real-time computer vision framework — object detection, inst
 tags: [computer-vision, object-detection, segmentation, pose-estimation, classification, tracking, real-time, edge-inference, yolo, deep-learning, python]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: AGPL-3.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

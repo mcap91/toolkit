@@ -7,11 +7,9 @@ summary: "Practitioner workflow for building an AI-native personal knowledge bas
 tags: [obsidian, knowledge-management, second-brain, claude-code, workflow, markdown, personal-knowledge-base]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [obsidian-skills, second-brain-skills, third-brain-v5-wiki]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

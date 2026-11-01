@@ -14,12 +14,10 @@ tags:
   - pytorch-foundation
   - open-source
   - gpu
-workflows: []
 reviewed: 2026-10-29
 acquired: 2026-10-29
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps:
   - sglang
   - localai

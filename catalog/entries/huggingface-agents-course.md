@@ -5,12 +5,10 @@ url: "https://huggingface.co/learn/agents-course/unit1/dummy-agent-library"
 category: reference
 summary: "Free framework-agnostic course on AI agent fundamentals — covers tool-calling loop mechanics (Thought/Action/Observation), stop-token control to prevent hallucinated observations, system prompt construction, and hands-on progression from dummy agents to smolagents/LangGraph/LlamaIndex"
 tags: [agents, course, huggingface, smolagents, tutorial, tool-calling]
-workflows: []
 reviewed: 2026-06-26
 acquired: 2026-06-26
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [smolagents, huggingface-llm-course]
 source: unknown
 ---

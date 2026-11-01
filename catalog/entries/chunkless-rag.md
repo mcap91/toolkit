@@ -5,12 +5,10 @@ url: "https://note.com/tam2_sys/n/n2d9c200fb19d?hl=en"
 category: agent-pattern
 summary: "RAG architecture that preserves document tree structure instead of splitting into fixed-size chunks — AI agents navigate the document hierarchy (table of contents, headings, sections) like a human reader, reading short section summaries to locate relevant content, then drilling into specific sections; requires structural document parsing (e.g. Docling) to reconstruct logical hierarchy from PDFs; trades higher latency and compute for better cross-section reasoning, context preservation, and reduced hallucination on complex documents"
 tags: [rag, retrieval, document-structure, chunking-alternative, docling, ibm, pdf, agent-navigation]
-workflows: []
 reviewed: 2026-09-18
 acquired: 2026-09-18
 license: ""
 security_flags: []
-supersedes: []
 overlaps: [five-levels-of-chunking, docling-mcp, agentic-rag-terminal-tools]
 source: unknown
 ---

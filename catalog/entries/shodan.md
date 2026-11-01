@@ -4,15 +4,12 @@ title: Shodan
 url: "https://www.shodan.io/"
 category: cli-tool
 summary: "Search engine for internet-connected devices — crawls all public IPv4 addresses weekly, indexes service banners/vulnerabilities/exposed services; search filters for ports, protocols, products, OS, geo, vulns; CLI and REST API for programmatic access; Shodan Monitor for real-time network exposure alerts; data streaming firehose; 3M+ registered users including 89% of Fortune 100; free tier, one-time $49 membership, subscriptions from $69/mo; proprietary"
-install: pip install shodan
 tags: [security, osint, network-scanning, iot, vulnerability, api, cli, reconnaissance, attack-surface]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: [revealer-us]
 license: Proprietary
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -49,3 +46,7 @@ Grandfathered pricing: existing customers keep their rate even if prices increas
 ## Security
 
 Proprietary SaaS platform. 3M+ registered users, used by 89% of the Fortune 100, 5 of the top 6 cloud providers, and 1,000+ universities. Shodan is a reconnaissance tool — its data is publicly observable (service banners from internet-facing devices), but the aggregation and searchability create an attack-surface discovery capability. Intended for defensive security, penetration testing, and research. API data must be attributed to Shodan when integrated into products.
+
+## How to use it
+
+pip install shodan

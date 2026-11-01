@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: reference
 summary: "Practitioner-curated list of open-source models for local/offline use with RAM requirements — Llama 4 Scout (32GB Q4), Qwen 3.6 7B (16GB, coding), DeepSeek R1 8B (16GB, reasoning), Phi-4 3.8B (8GB, reasoning), Kimi K2.6 1T (API-only, 32B active, matches Claude), Pixtral (VLM), Granite 3 (enterprise/compliance), GPT-OSS 20B/120B"
 tags: [local-inference, open-source-models, quantization, offline, model-selection]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [qwen3-6-27b, qwen2-5-coder-32b-instruct, bitnet]
 source: unknown
 ---

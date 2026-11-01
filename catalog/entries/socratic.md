@@ -4,15 +4,12 @@ title: Socratic
 url: "https://github.com/m4vic/socratic"
 category: skill
 summary: "Self-interrogation skill packaging 697 engineering questions across 15 domains — agent silently works through relevant questions, reads codebase, applies defaults, and only escalates genuine authority decisions to user; Core (90 questions) and Full (697) modes; knowledge-backed packs for specialist depth; MIT"
-install: cp -r socratic ~/.claude/skills/
 tags: [self-interrogation, engineering-review, requirements, pre-implementation, questions, planning, verification, multi-domain]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [superpowers-brainstorming, advise-project-approach]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -40,3 +37,7 @@ Interactive mode (one question at a time) is opt-in — user says "interview me"
 ## Security
 
 MIT licensed. No security flags. The skill is a prompt file — no code execution, no network calls, no credential handling. The question bank runs entirely within the agent's existing context.
+
+## How to use it
+
+cp -r socratic ~/.claude/skills/

@@ -5,12 +5,10 @@ url: "https://github.com/microsoft/BitNet"
 category: framework
 summary: "Microsoft's official inference framework for 1-bit LLMs (BitNet b1.58) — runs 100B models on a single CPU at human reading speed (5-7 tok/s), 2-6x faster than FP16 with 55-82% energy reduction; optimized kernels for x86/ARM CPU and GPU"
 tags: [llm-inference, quantization, 1-bit, cpu-inference, edge-ai, local-llm]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: [qwen3-6-27b]
 source: unknown
 ---

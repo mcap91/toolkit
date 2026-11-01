@@ -4,15 +4,12 @@ title: Advise Project Approach
 url: "https://github.com/AaravKashyap12/advise-project-approach"
 category: skill
 summary: "structured project-level architecture research with comparable analysis, cost checks, and tradeoff discipline; complements /catalog (tool-level) with project-level advisory"
-install: "npx skills@latest add AaravKashyap12/advise-project-approach --skill advise-project-approach"
 tags: [architecture, stack-selection, comparables, cost-analysis, project-strategy, decision-methodology]
 reviewed: 2026-06-02
 acquired: 2026-06-02
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
-workflows: []
 source: unknown
 ---
 
@@ -33,3 +30,7 @@ Install: `npx skills@latest add AaravKashyap12/advise-project-approach --skill a
 License: MIT. The repository includes a `SECURITY.md`, indicating the author has considered a responsible disclosure process. No known CVEs or security advisories are associated with this project.
 
 Risk profile is low. The skill is a standalone `SKILL.md` text file — no compiled code, no npm package, no network calls initiated by the skill itself. It runs with the installing agent's normal permissions (as the README notes), so trust is delegated to the agent harness rather than to the skill. The only supply-chain surface is the optional `npx skills@latest` installer, which fetches from GitHub; manual installation from a downloaded `.skill` zip or a direct `cp` of `SKILL.md` eliminates that surface entirely. No credential handling, no data exfiltration vectors, no external service dependencies.
+
+## How to use it
+
+npx skills@latest add AaravKashyap12/advise-project-approach --skill advise-project-approach

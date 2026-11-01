@@ -5,12 +5,10 @@ url: "https://example.com"
 category: agent-pattern
 summary: "Five-action framework (Subagents, Cut/rewind, Reduce/compact, Upload/handoff, Burn/clear) for proactively managing an agent's context window, from a practitioner report of ~3000 hours in Claude Code"
 tags: [context-engineering, subagents, compaction, context-management, claude-code, attention]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

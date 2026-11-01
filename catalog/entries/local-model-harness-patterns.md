@@ -4,12 +4,10 @@ title: Local Model Harness Patterns
 category: agent-pattern
 summary: "Harness design patterns for running local LLMs as coding agents — subagent delegation, reasoning-level routing, loop detection with context cleanup, and speculative decoding"
 tags: [local-llm, harness, subagents, loop-detection, llama-cpp]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: ""
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

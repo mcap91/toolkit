@@ -7,10 +7,8 @@ summary: "Y Combinator-backed Claude Code/Codex plugin providing /mission comman
 tags: [claude-code, codex, multi-agent, orchestration, plugin, multi-model, yc]
 reviewed: 2026-07-12
 acquired: 2026-07-12
-supersedes: []
 license: proprietary
 security_flags: [requires-api-keys, cloud-service, waitlist]
-workflows: [agent-orchestration, task-decomposition, gtm]
 overlaps: [pilotfish, scheduled-multi-agent-coordinator]
 source: unknown
 ---

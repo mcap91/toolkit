@@ -5,12 +5,10 @@ url: "https://github.com/Vincentwei1021/anything2explainer"
 category: skill
 summary: "Claude Code / Codex skill that turns any topic into a narrated motion-graphics explainer video (1280×720 H.264) — 9-stage pipeline: research → narration → TTS voiceover → storyboard → parallel build agents writing Remotion (React/TS) components per shot → QC; black-canvas white-line-art style, word-boundary-aligned subtitles, chapter progress bar; Chinese and English; 1–3 hours wall clock; PolyForm Noncommercial"
 tags: [video, explainer, remotion, tts, motion-graphics, skill, multi-agent, chinese, english]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: PolyForm-Noncommercial-1.0.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

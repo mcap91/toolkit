@@ -5,12 +5,10 @@ url: "https://github.com/huggingface/smolagents"
 category: framework
 summary: "HuggingFace's minimal code-first agent framework — CodeAgent writes actions as Python (30% fewer steps than JSON tool calling), sandboxed execution via E2B/Blaxel/Docker, model/modality/tool-agnostic, CLI included; Apache-2.0, 26K stars, 207 contributors"
 tags: [agent-framework, code-agent, huggingface, sandbox, multi-modal, python]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [crewai]
 source: unknown
 ---

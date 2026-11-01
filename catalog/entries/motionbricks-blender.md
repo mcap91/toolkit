@@ -15,12 +15,10 @@ tags:
   - motion-import
   - ai-coding-agent-setup
   - tensorrt
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: GPL-3.0-or-later (add-on); Apache-2.0 (walker and recorder scripts)
 security_flags: []
-supersedes: []
 overlaps:
   - motionbricks
 ---

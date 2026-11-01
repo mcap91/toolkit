@@ -6,10 +6,8 @@ summary: "operational tip: delete state/log/global-state files if Codex performa
 tags: [codex, maintenance, performance]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

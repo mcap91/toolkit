@@ -27,13 +27,13 @@ export const tools: ToolDef[] = [
     name: 'index',
     description: 'Regenerate catalog/index.md from all entry files',
     inputSchema: dirSchema.extend({
-      format: z.enum(['full', 'decision_status', 'workflow', 'category']).default('full'),
+      format: z.enum(['full', 'category']).default('full'),
     }),
     handler: async (input) => {
       const dir = resolveDir(input.dir as string | undefined);
       return rebuildCatalogIndexes({
         dir,
-        format: input.format as 'full' | 'decision_status' | 'workflow' | 'category',
+        format: input.format as 'full' | 'category',
       });
     },
   },
@@ -57,12 +57,11 @@ export const tools: ToolDef[] = [
   },
   {
     name: 'search',
-    description: 'Survey search over catalog entries. Returns EVERY entry lexically matching your terms (word-prefix match, uncapped), plus up to semantic_n flagged semantic suggestions for concepts phrased differently. Expand your query into synonyms and related terms (e.g. "ocr" -> ["ocr", "text extraction", "document to markdown", "handwriting recognition"]) and pass them as terms; omitting terms treats the whole query as one all-tokens-must-match lookup term. Response reports per-term hit counts (swept_terms) and lexical_total — lexical_total 0 means an honest miss. Filters: decision_status, category.',
+    description: 'Survey search over catalog entries. Returns EVERY entry lexically matching your terms (word-prefix match, uncapped), plus up to semantic_n flagged semantic suggestions for concepts phrased differently. Expand your query into synonyms and related terms (e.g. "ocr" -> ["ocr", "text extraction", "document to markdown", "handwriting recognition"]) and pass them as terms; omitting terms treats the whole query as one all-tokens-must-match lookup term. Response reports per-term hit counts (swept_terms) and lexical_total — lexical_total 0 means an honest miss. Filters: category.',
     inputSchema: dirSchema.extend({
       query: z.string().max(2000),
       terms: z.array(z.string().min(1).max(200)).max(50).optional(),
       semantic_n: z.number().int().min(1).max(50).default(10),
-      decision_status: z.enum(['adopted', 'rejected', 'open']).optional(),
       category: z.string().optional(),
     }),
     handler: async (input) => {
@@ -79,7 +78,6 @@ export const tools: ToolDef[] = [
       const query = input.query as string;
       const terms = (input.terms as string[] | undefined) ?? [];
       const semantic_n = input.semantic_n as number;
-      const decision_status = input.decision_status as string | undefined;
       const category = input.category as string | undefined;
 
       const { stdout, stderr, code } = await runCatalogEmbedder(venvPython, [
@@ -88,7 +86,6 @@ export const tools: ToolDef[] = [
         '--dir', dir,
         ...terms.flatMap((t) => ['--term', t]),
         '--semantic-n', String(semantic_n),
-        ...(decision_status ? ['--decision-status', decision_status] : []),
         ...(category ? ['--category', category] : []),
       ]);
 

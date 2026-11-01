@@ -5,12 +5,10 @@ url: "https://iamaamir.github.io/system-one/"
 category: plugin
 summary: "Pi coding-agent extension registering a single system_one tool for bounded decisions (choice, noul, score) with calibrated probabilities; a thin wrapper over the provider-neutral system-one-core SDK, so any compatible 'System One' backend (TypeSafe Jev, Reflex, custom /v1/systemone endpoints) can sit behind it; pi-bifrost (same author) is a separate consumer of the same SDK"
 tags: [pi, pi-coding-agent, decision-making, tool-calling, provider-neutral, classification, extension, system-one-core, judge]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: NOASSERTION
 security_flags: [no-license]
-supersedes: []
 overlaps: [jev]
 source: unknown
 ---

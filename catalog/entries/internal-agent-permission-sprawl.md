@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: reference
 summary: "Incident writeup — an internal Q&A assistant scoped 'to read the wiki' answered with a confidential reorg spreadsheet including salary bands, because a broad Drive grant at setup indexed the HR folder; a follow-up audit found another wiki-summarizer bot holding inherited delete access and send-as-mail rights from its creator's account; thesis: over-broad access is itself the incident — 'an agent that can read everything will eventually read the thing it shouldn't'"
 tags: [agent-security, least-privilege, permissions, oauth-scopes, data-leak, internal-tools, access-audit, inherited-permissions]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

@@ -7,11 +7,9 @@ summary: "Textractor is a Python wrapper around Amazon Textract for document int
 tags: [ocr, document-extraction, aws, textract, table-extraction, form-extraction, pdf, cloud-service]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [paddleocr]
 license: Apache-2.0
 security_flags: [requires-cloud-credentials]
-workflows: []
 source: unknown
 ---
 

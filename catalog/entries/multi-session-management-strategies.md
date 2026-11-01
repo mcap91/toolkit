@@ -6,11 +6,9 @@ summary: "A Reddit discussion distilling practitioner strategies for managing 3+
 tags: [multi-session, agent-management, workflow, terminal-multiplexer, session-organization, best-practices]
 reviewed: 2026-09-02
 acquired: 2026-09-02
-supersedes: []
 overlaps: [herdr]
 license: ""
 security_flags: []
-workflows: []
 source: unknown
 ---
 

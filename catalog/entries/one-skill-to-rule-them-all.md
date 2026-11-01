@@ -7,10 +7,8 @@ summary: proposes NEW skills from observed patterns; complementary to superpower
 tags: [meta-skill, pattern-detection, skill-generation]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: CC-BY-4.0
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

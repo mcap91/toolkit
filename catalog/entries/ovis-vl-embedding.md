@@ -7,11 +7,9 @@ summary: "Omni-modal embedding model (2B and 9B variants) built on Qwen3.5 backb
 tags: [embeddings, multimodal, visual-document-retrieval, qwen, rag, cross-modal-search, vision-language, video-retrieval]
 reviewed: 2026-09-29
 acquired: 2026-09-29
-supersedes: []
 overlaps: []
 license: ""
 security_flags: [trust-remote-code]
-workflows: []
 source: unknown
 ---
 

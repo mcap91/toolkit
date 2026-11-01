@@ -1,13 +1,13 @@
 // packages/catalog-mcp/__tests__/schema.test.ts
 import { describe, it, expect } from 'vitest';
-import { entrySchema, CATEGORIES, DECISION_STATUSES, ENTRY_SOURCES, deriveSource } from '../src/core/schema.js';
+import { entrySchema, CATEGORIES, ENTRY_SOURCES, deriveSource } from '../src/core/schema.js';
 
 describe('entrySchema', () => {
   const validEntry = {
     name: 'test-tool',
     title: 'Test Tool',
     url: 'https://github.com/org/test-tool',
-    source: 'text' as const, // no source_url set, so source must be 'text' (or legacy 'unknown')
+    source: 'unknown' as const, // no source_url set; "unknown" is the legacy no-provenance value
     category: 'skill' as const,
     summary: 'looks promising',
     tags: ['testing'],
@@ -28,16 +28,24 @@ describe('entrySchema', () => {
   it('accepts entry with optional fields', () => {
     const full = {
       ...validEntry,
-      install: 'npm install test-tool',
-      workflows: ['scRNA-seq'],
+      topics: ['scRNA-seq'],
+      related: ['other-tool'],
       acquired: '2026-06-01',
       license: 'MIT',
       security_flags: ['no-tests'],
-      supersedes: ['old-tool'],
       overlaps: ['similar-tool'],
     };
     const result = entrySchema.safeParse(full);
     expect(result.success).toBe(true);
+  });
+
+  it('defaults topics and related to an empty array when omitted', () => {
+    const result = entrySchema.safeParse(validEntry);
+    expect(result.success).toBe(true);
+    if (result.success) {
+      expect(result.data.topics).toEqual([]);
+      expect(result.data.related).toEqual([]);
+    }
   });
 
   it('rejects entry missing required name', () => {
@@ -62,24 +70,33 @@ describe('entrySchema', () => {
   });
 });
 
-describe('entrySchema decision_status migration', () => {
+// WK-0099 schema v2: the catalog records what a tool is, not an adoption decision — these four
+// fields are retired and a strict schema must reject any entry still carrying one.
+describe('entrySchema retired fields (WK-0099 schema v2)', () => {
   const base = {
     name: 'foo-bar',
     title: 'Foo Bar',
-    source: 'text',
+    source: 'unknown',
     category: 'skill',
     summary: 'one-line take',
     tags: ['x'],
     reviewed: '2026-06-16',
   };
 
-  it('accepts an entry with no decision_status (open)', () => {
+  it('accepts an entry with none of the retired fields', () => {
     expect(entrySchema.safeParse(base).success).toBe(true);
   });
-  it('accepts decision_status adopted/rejected', () => {
-    for (const s of DECISION_STATUSES) {
-      expect(entrySchema.safeParse({ ...base, decision_status: s }).success).toBe(true);
-    }
+  it('rejects decision_status', () => {
+    expect(entrySchema.safeParse({ ...base, decision_status: 'adopted' }).success).toBe(false);
+  });
+  it('rejects workflows', () => {
+    expect(entrySchema.safeParse({ ...base, workflows: ['scRNA-seq'] }).success).toBe(false);
+  });
+  it('rejects install', () => {
+    expect(entrySchema.safeParse({ ...base, install: 'npm install foo' }).success).toBe(false);
+  });
+  it('rejects supersedes', () => {
+    expect(entrySchema.safeParse({ ...base, supersedes: ['old-tool'] }).success).toBe(false);
   });
   it('rejects the retired verdict field via .strict()', () => {
     expect(entrySchema.safeParse({ ...base, verdict: 'adopt' }).success).toBe(false);
@@ -93,9 +110,9 @@ describe('entrySchema decision_status migration', () => {
   });
 });
 
-// deriveSource is the one deterministic source of truth for "where did this entry come from"
-// (OR-4, WK-0086) — every other producer (write-entry, the schema refine below) relies
-// on it, so its host-matching rules must be pinned by test, including subdomains.
+// deriveSource is a deterministic host-mapping utility (OR-4, WK-0086); schema v2 no longer
+// enforces source/source_url agreement at the schema level (lint.ts carries the provenance
+// requirement instead), but the mapping itself is still pinned by test.
 describe('deriveSource (OR-4 host mapping)', () => {
   it('maps instagram.com to instagram', () => {
     expect(deriveSource('https://instagram.com/reel/abc123/')).toBe('instagram');
@@ -139,9 +156,10 @@ describe('deriveSource (OR-4 host mapping)', () => {
   });
 });
 
-// The schema is the enforcement point for OR-4's provenance rule: source must always agree with
-// what deriveSource would compute from source_url, except the legacy "unknown" escape hatch.
-describe('entrySchema source/source_url provenance (OR-4)', () => {
+// Schema v2 (WK-0099): source_url is optional at the schema level for every source value — the
+// "requires source_url when source is instagram/reddit/x/text" rule lives in lint.ts, not here,
+// so an entry can be validated in isolation without re-deriving provenance from a URL.
+describe('entrySchema source/source_url (WK-0099 schema v2)', () => {
   const base = {
     name: 'foo-bar',
     title: 'Foo Bar',
@@ -151,7 +169,7 @@ describe('entrySchema source/source_url provenance (OR-4)', () => {
     reviewed: '2026-06-16',
   };
 
-  it('accepts source matching the derivation from source_url', () => {
+  it('accepts source_url with a matching source', () => {
     const result = entrySchema.safeParse({
       ...base,
       source_url: 'https://www.instagram.com/reel/abc123/',
@@ -160,37 +178,28 @@ describe('entrySchema source/source_url provenance (OR-4)', () => {
     expect(result.success).toBe(true);
   });
 
-  it('rejects a source that does not match the derivation from source_url', () => {
-    const result = entrySchema.safeParse({
-      ...base,
-      source_url: 'https://www.instagram.com/reel/abc123/',
-      source: 'reddit',
-    });
-    expect(result.success).toBe(false);
-  });
-
-  it('rejects source: unknown when source_url is present (unknown is legacy-only)', () => {
+  it('accepts source: unknown even when source_url is present — schema no longer ties the two together', () => {
     const result = entrySchema.safeParse({
       ...base,
       source_url: 'https://github.com/org/repo',
       source: 'unknown',
     });
-    expect(result.success).toBe(false);
-  });
-
-  it('accepts source: unknown when source_url is absent (legacy entries)', () => {
-    const result = entrySchema.safeParse({ ...base, source: 'unknown' });
     expect(result.success).toBe(true);
   });
 
-  it('accepts source: text when source_url is absent', () => {
+  it('accepts source: unknown when source_url is absent (legacy entries)', () => {
+    const result = entrySchema.safeParse({ ...base, source: 'unknown' }).success;
+    expect(result).toBe(true);
+  });
+
+  it('accepts source: text without source_url at the schema level (lint enforces the requirement, not the schema)', () => {
     const result = entrySchema.safeParse({ ...base, source: 'text' });
     expect(result.success).toBe(true);
   });
 
-  it('rejects a non-text/unknown source when source_url is absent', () => {
+  it('accepts source: web without source_url at the schema level', () => {
     const result = entrySchema.safeParse({ ...base, source: 'web' });
-    expect(result.success).toBe(false);
+    expect(result.success).toBe(true);
   });
 
   it('rejects an entry with no source field at all', () => {

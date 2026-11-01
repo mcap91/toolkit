@@ -5,12 +5,10 @@ url: "https://github.com/haseebeqx/reddit-pain-research-skill"
 category: skill
 summary: "Codex skill for evidence-based Reddit customer-discovery research — plans a study, collects and clusters pain-point evidence, and produces falsifiable monetization hypotheses via deterministic Python helpers, gated by a human approval checkpoint before evidence collection begins."
 tags: [reddit, customer-research, market-research, codex-skill, pain-points, monetization, evidence-based, deterministic-helpers]
-workflows: []
 reviewed: 2026-08-09
 acquired: 2026-08-09
 license: LicenseRef-unknown
 security_flags: [no-license-stated, single-author]
-supersedes: []
 overlaps: []
 source: unknown
 ---

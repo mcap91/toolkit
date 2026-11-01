@@ -5,12 +5,10 @@ url: "https://automatetheboringstuff.com/"
 category: reference
 summary: "Al Sweigart's beginner Python book (fully revised 3rd edition), free to read online under a Creative Commons license: teaches Python fundamentals then practical automation — file/folder operations, regex, web scraping, Excel/Google Sheets, PDF/Word, SQLite, CSV/JSON/XML, scheduling, email/text notifications, image manipulation, OCR, keyboard/mouse control, and TTS/speech recognition. A companion workbook and a video course accompany it."
 tags: [python, automation, beginner, learning, book, web-scraping, scripting, creative-commons]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: CC-BY-NC-SA-3.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

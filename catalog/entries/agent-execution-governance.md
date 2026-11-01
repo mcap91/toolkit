@@ -4,12 +4,10 @@ title: Agent Execution Governance
 category: reference
 summary: "Discussion arguing the 'killer app' for AI agents is autonomous operational automation with trust infrastructure — identity, execution governance, verification receipts, routing, and observability — not consumer assistants"
 tags: [agent-governance, trust, execution, observability, auditability, agent-philosophy]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [harness-engineering]
 source: unknown
 ---

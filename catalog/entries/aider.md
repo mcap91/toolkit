@@ -5,12 +5,10 @@ url: "https://github.com/Aider-AI/aider"
 category: cli-tool
 summary: "Terminal AI pair-programming tool (Python) — edits code in a local git repo via chat with cloud or local LLMs, builds a repo map for large codebases, auto-commits each change with sensible messages, runs linters/tests after edits; 100+ languages, voice-to-code, image/web-page context; Apache-2.0, ~49k stars, last pushed May 2026"
 tags: [coding-agent, terminal, pair-programming, git, repo-map, python, multi-provider, local-llm, cli-tool]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: Apache-2.0
 security_flags: [stale-4-months, high-open-issue-count]
-supersedes: []
 overlaps: [pi-coding-agent]
 source: unknown
 ---

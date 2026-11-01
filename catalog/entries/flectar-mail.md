@@ -17,7 +17,6 @@ tags:
   - local-first
   - privacy
   - agplv3
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: AGPL-3.0
@@ -27,7 +26,6 @@ security_flags:
   - processes-email-content
   - optional-oauth-credentials
   - unsigned-or-unnotarized-builds
-supersedes: []
 overlaps: []
 source: instagram
 source_url: https://www.instagram.com/reel/DewW-AwCHKS/

@@ -5,12 +5,10 @@ url: "https://github.com/vllm-project/vllm"
 category: agent-pattern
 summary: Strategy for maximizing local GPU throughput by running multiple concurrent LLM agents via vLLM — exploits idle compute from memory-bandwidth bottleneck; 8-9x aggregate throughput over single-stream; per-agent throughput drops slightly but total throughput scales near-linearly with concurrency
 tags: [vllm, local-inference, parallel-agents, gpu, throughput, llama-cpp, concurrent-inference]
-workflows: []
 reviewed: 2026-07-01
 acquired: 2026-07-01
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

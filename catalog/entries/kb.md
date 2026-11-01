@@ -5,12 +5,10 @@ url: "https://github.com/mcap91/kb"
 category: framework
 summary: "Agent-facing toolkit providing a structured repo-local wiki (MCP + CLI), reviewed multi-agent dispatch with sandboxed launches and write-scope enforcement, and deterministic code-first graph extraction; runs from its own checkout and targets consuming repos via --dir; MCP servers for wiki (10 tools) and dispatch (9 tools); MIT"
 tags: [wiki, dispatch, multi-agent, mcp-server, graph, knowledge-management, claude-code, codex, agent-infrastructure]
-workflows: []
 reviewed: 2026-07-15
 acquired: 2026-07-15
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

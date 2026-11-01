@@ -5,12 +5,10 @@ url: "https://github.com/run-llama/ParseBench"
 category: framework
 summary: "LlamaIndex document parser benchmark — tests parsers across text, formatting, tables, charts, and page-location attribution; v1.0 with visual checks and scoring fixes (breaking change from v0.2)"
 tags: [benchmark, document-parsing, evaluation, llamaindex]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

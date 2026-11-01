@@ -22,7 +22,6 @@ tags:
   - gemma
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - strata
   - lm-studio
@@ -32,7 +31,6 @@ security_flags:
   - new-project
   - model-downloads-third-party
   - single-maintainer
-workflows: []
 source: unknown
 ---
 

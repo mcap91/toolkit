@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: reference
 summary: "Field notes from large-enterprise CIO conversations on context management for agentic systems — five observations: static ontologies are dead on arrival, the bottleneck is context selection not data access, enterprise semantics sits between metadata and abstract ontology, vendor semantics is not organizational semantics, and representing judgment (not just knowledge) is the hard problem"
 tags: [context-graphs, enterprise-ai, ontologies, semantic-layer, agent-memory]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [context-graphs-trillion-dollar-elephant, graphrag-agent-memory-linkedin-series]
 source: unknown
 ---

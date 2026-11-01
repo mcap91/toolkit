@@ -5,12 +5,10 @@ url: "https://github.com/milvus-io/milvus"
 category: framework
 summary: "Go/C++ cloud-native vector database — fully distributed K8s-native architecture, HNSW/IVF/DiskANN/CAGRA GPU indexes, dense + sparse + BM25 full-text + hybrid search, lake-native data access (v3.0) with Apache Iceberg/Parquet/Lance, multi-tenancy with hot/cold storage, Milvus Lite for embedded use; LF AI and Data Foundation; Apache-2.0"
 tags: [vector-database, distributed, kubernetes, hybrid-search, gpu, embeddings, rag, data-lake, go, cpp]
-workflows: []
 reviewed: 2026-09-29
 acquired: 2026-09-29
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [qdrant, weaviate, pgvector, chroma, lancedb]
 source: unknown
 ---

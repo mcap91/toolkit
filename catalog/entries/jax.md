@@ -4,15 +4,12 @@ title: JAX
 url: "https://github.com/jax-ml/jax"
 category: framework
 summary: "Python library for accelerator-oriented array computing and composable function transformations: jax.grad (autodiff to any order, forward/reverse), jax.jit (XLA compilation to CPU/GPU/TPU), and jax.vmap (auto-vectorization), plus sharding APIs to scale across thousands of devices. Apache-2.0; a research project, not an official Google product."
-install: pip install jax
 license: Apache-2.0
 tags: [machine-learning, autodiff, jit, xla, gpu, tpu, numpy, numerical-computing]
 reviewed: 2026-07-27
 acquired: 2026-07-27
-supersedes: []
 overlaps: []
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -31,3 +28,7 @@ The README notes JAX is a research project, not an official Google product, and 
 ## Security
 
 Apache-2.0 licensed. JAX is a numerical-computing library with no network service of its own; JIT compilation invokes XLA locally. No security flags recorded from the observed material.
+
+## How to use it
+
+pip install jax

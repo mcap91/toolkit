@@ -5,12 +5,10 @@ url: "https://github.com/a2aproject/A2A"
 category: reference
 summary: "Google/Linux Foundation open protocol for inter-agent communication — JSON-RPC 2.0 over HTTP, Agent Cards for discovery, async-first with streaming; SDKs in 6 languages; complements MCP (tool access) with agent-to-agent collaboration"
 tags: [a2a, protocol, agent-interop, multi-agent, google, linux-foundation]
-workflows: []
 reviewed: 2026-06-18
 acquired: 2026-06-18
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [awesome-a2a]
 source: unknown
 ---

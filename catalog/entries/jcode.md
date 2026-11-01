@@ -5,12 +5,10 @@ url: "https://github.com/1jehuang/jcode"
 category: framework
 summary: "Feature-rich Rust coding agent harness with exceptional performance (14ms boot, 28MB RAM), swarm collaboration, and 30+ provider integrations; compelling alternative harness to watch"
 tags: [cli-agent, rust, multi-provider, swarm, memory, browser-automation, performance]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: NOASSERTION
 security_flags: [curl-pipe-bash-install, self-dev-mode]
-supersedes: []
 overlaps: [claw-code, openclaw]
 source: unknown
 ---

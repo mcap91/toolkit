@@ -5,12 +5,10 @@ url: "https://reddit.com"
 category: agent-pattern
 summary: "Practitioner workflow for stretching Claude Fable usage limits by making Fable the orchestrator, not the worker — Haiku scouts locations, Sonnet researches and builds from specs, Opus refutes/reviews and debugs; extended with a ticket loop where an ephemeral Opus hand implements in a worktree, a cold Fable reviewer issues ACCEPT/REWORK verdicts, green-suite merges auto-revert on red, and the lead cuts releases"
 tags: [orchestration, model-routing, claude-fable, opus, sonnet, haiku, cost-optimization, worktree, code-review, ticket-loop, multi-agent]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-forum-content
 security_flags: []
-supersedes: []
 overlaps: [local-model-adversarial-workflow, deepseek-and-destroy, single-agent-synchronous-workflow]
 source: unknown
 ---

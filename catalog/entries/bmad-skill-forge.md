@@ -4,12 +4,9 @@ title: BMAD Skill Forge
 url: "https://github.com/armelhbobdad/bmad-module-skill-forge"
 category: skill-generator
 summary: strong fit for bioinformatics tool skill generation; start with Brief tier on samtools
-install: npx bmad-module-skill-forge install
 tags: [skill-generation, provenance, ast, cli-tools, meta-skill]
-workflows: [scRNA-seq, spatial]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: MIT
 security_flags: []
 overlaps: []
@@ -40,3 +37,7 @@ Requirements: Node.js >= 22, Python >= 3.10, `uv`. For Forge and above: `ast-gre
 Licensed MIT. The tool runs locally — no cloud service, no data leaves the machine except for optional GitHub CLI calls to fetch repository content and any opt-in friction/bug-report submissions. The `npx`-based install pulls from the npm registry, so pin to a specific version in production use (`npx bmad-module-skill-forge@<version> install`) and verify the package hash against a known-good release. The optional Snyk agent scan and skill-check validation are outbound-only calls; neither receives private repo contents unless you point SKF at a private repository.
 
 No prompt-injection surface exists in the generated skill files themselves — output is static Markdown and JSON with no executable content. The main operational risk is supply-chain: SKF chains several third-party tools (ast-grep, cocoindex-code, tessl, QMD) that are invoked at skill-generation time; review the installed versions and restrict network access if running against proprietary code. No `security_flags` are raised for normal usage against public repositories.
+
+## How to use it
+
+npx bmad-module-skill-forge install

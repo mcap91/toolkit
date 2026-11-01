@@ -5,12 +5,10 @@ url: "https://github.com/netblue30/firejail"
 category: cli-tool
 summary: "SUID Linux sandbox in C — restricts untrusted applications via namespaces, seccomp-bpf, capabilities, and optional Landlock/AppArmor/SELinux; 1,300+ bundled per-application profiles, desktop integration via firecfg, no daemon; GPL-2.0, ~7.6k stars, actively maintained since 2015"
 tags: [sandbox, linux, security, namespaces, seccomp, landlock, apparmor, isolation, suid]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: GPL-2.0
 security_flags: [suid-root-binary, cve-history]
-supersedes: []
 overlaps: [bubblewrap-containers]
 source: unknown
 ---

@@ -4,12 +4,10 @@ title: Production RAG as a System (8-Part Taxonomy)
 category: agent-pattern
 summary: "Practitioner taxonomy framing production RAG as an 8-part system (not a vector-database feature): 01 offline build time (parse/chunk/embed/index), 02 online query time (rewrite/retrieve/rerank/assemble/generate), 03 knowledge store (vectors+metadata+raw docs+freshness), 04 retrieval quality (hybrid search/filters/top-k/reranking), 05 answer quality (grounding/citations/structured output/fallback), 06 state/data layer (Postgres+Redis+object storage+vector index), 07 observability/evals (latency/recall/answer quality/hallucinations/cost), 08 safety operations (ACLs/PII protection/prompt-injection defense/caching/feedback); presented as a directory-tree mental model contrasting with the four-step chunk-embed-retrieve-prompt demo pipeline."
 tags: [rag, production-rag, retrieval, taxonomy, system-design, observability, safety, agent-pattern]
-workflows: []
 reviewed: 2026-08-25
 acquired: 2026-08-25
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: [agentic-rag, rag-retrieval-recipe, five-levels-of-chunking]
 source: unknown
 ---

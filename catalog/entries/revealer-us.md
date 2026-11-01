@@ -4,15 +4,12 @@ title: Revealer.US
 url: "https://revealer.us/"
 category: cli-tool
 summary: "OSINT platform for username, email, and phone lookup across 800+ live sources (social, gaming, forum, developer platforms) plus breach and stealer-log dataset search; results arrive as each source responds; AI Deep Search (paid) follows reused handles and writes cited reports with confidence scores; REST API for programmatic access; SaaS with free demo tier, paid from $12.99/mo; domain registered January 2026, low third-party trust score (27/100 Gridinsoft)"
-install: ""
 tags: [osint, username-lookup, email-lookup, breach-search, security, reconnaissance, api, saas]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: [shodan]
 license: Proprietary
 security_flags: [young-domain, low-trust-score, saas-only]
-workflows: []
 source: unknown
 ---
 

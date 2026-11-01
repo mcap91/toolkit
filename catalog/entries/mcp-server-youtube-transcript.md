@@ -5,12 +5,10 @@ url: "https://github.com/kimtaeyoon83/mcp-server-youtube-transcript"
 category: mcp-server
 summary: "MCP server exposing a single get_transcript tool for YouTube videos — language fallback, optional timestamps, ad-strip filtering, zero transcript-fetch dependencies; fills the YouTube-to-markdown gap for learning-vault capture"
 tags: [mcp, youtube, transcript, video, media-ingestion]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: [single-contributor]
-supersedes: []
 overlaps: []
 source: unknown
 ---

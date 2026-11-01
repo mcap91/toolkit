@@ -7,11 +7,9 @@ summary: "General-purpose command-line fuzzy finder and interactive terminal too
 tags: [fuzzy-finder, shell, cli, go, interactive, preview, productivity, terminal-toolkit]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://github.com/Rajsuthan/meridian"
 category: framework
 summary: "GPU-accelerated document processing pipeline — Docling (8 load-balanced instances) for PDF layout detection, Qwen3-VL via vLLM for table/figure/formula reading, Ollama for embeddings, Qdrant for vector storage; stateless Celery workers on CPU calling long-lived GPU services over HTTP; measured at 118 pages/min on a single H200; includes text-only path (pypdfium2, 1000 docs/min on CPU); Apache-2.0"
 tags: [document-parsing, ocr, vlm, vllm, docling, qdrant, celery, gpu, pdf, table-extraction, embeddings, qwen, batch-processing]
-workflows: []
 reviewed: 2026-09-03
 acquired: 2026-09-03
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [unstructured, docling-mcp]
 source: unknown
 ---

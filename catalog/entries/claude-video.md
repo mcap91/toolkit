@@ -5,12 +5,10 @@ url: "https://github.com/bradautomates/claude-video"
 category: skill
 summary: "Agent Skill that lets Claude (and 50+ other skill hosts) 'watch' a video from a URL or local path: yt-dlp fetches captions/video, ffmpeg extracts scene-aware or keyframe images (with a dedup pass and duration-aware frame budget), a timestamped transcript comes from native captions or a Whisper fallback (Groq/OpenAI), and the frames + transcript are handed to the model to answer grounded in what's on screen and in audio."
 tags: [claude-code, agent-skill, video, multimodal, yt-dlp, ffmpeg, whisper, transcription, plugin]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: MIT
 security_flags: [runs-external-binaries, downloads-arbitrary-urls, third-party-transcription-api]
-supersedes: []
 overlaps: []
 source: unknown
 ---

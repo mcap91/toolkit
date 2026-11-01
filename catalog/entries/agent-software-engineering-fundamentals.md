@@ -16,7 +16,6 @@ tags:
   - software-engineering
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - agent-first-architecture
   - harness-engineering
@@ -24,7 +23,6 @@ overlaps:
   - governance-first-multi-agent-architecture
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -7,11 +7,9 @@ summary: "Open-source non-autoregressive decision model from Convai Innovations 
 tags: [decision-models, open-source, classification, scoring, jev-alternative, modernbert, non-autoregressive, multilingual, apache-2, self-hosted]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: [ollama-system-one-api, cloudflare-clef]
 license: Apache-2.0
 security_flags: []
-workflows: []
 source: unknown
 ---
 

@@ -5,12 +5,10 @@ url: "https://code.claude.com/docs/en/advisor"
 category: reference
 summary: "Anthropic server-side tool that lets Claude consult a second, at-least-as-capable model at decision points (before committing to an approach, on recurring errors, before declaring done); the advisor receives the full conversation and returns guidance Claude applies; configured via /advisor, advisorModel, or --advisor; billed at the advisor model's rates; the concrete feature behind the advisor-strategy concept"
 tags: [claude-code, claude-api, advisor, model-escalation, cost-optimization, anthropic, server-tool]
-workflows: []
 reviewed: 2026-07-09
 acquired: 2026-07-09
 license: proprietary
 security_flags: [proprietary-feature, anthropic-api-only, token-billing-exposure]
-supersedes: []
 overlaps: [advisor-strategy, agent-teams]
 source: unknown
 ---

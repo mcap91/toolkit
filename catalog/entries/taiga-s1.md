@@ -7,11 +7,9 @@ summary: "1.2M-parameter System-1 decision model for building CAD parts in FreeC
 tags: [cad, freecad, decision-model, system-1, computer-use, tiny-model, cpu, agent-executor, manufacturing, 3d-modeling]
 reviewed: 2026-10-06
 acquired: 2026-10-06
-supersedes: []
 overlaps: []
 license: unknown
 security_flags: []
-workflows: []
 source: unknown
 ---
 

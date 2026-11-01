@@ -5,12 +5,10 @@ url: "https://github.com/actualbudget/actual"
 category: framework
 summary: "Local-first open-source personal finance app with envelope budgeting — NodeJS, sync across devices, self-hosted (Docker/Fly.io/PikaPods) or local desktop apps (Windows/Mac/Linux); community-driven with i18n via Weblate; MIT"
 tags: [personal-finance, budgeting, self-hosted, local-first, nodejs, electron]
-workflows: []
 reviewed: 2026-09-14
 acquired: 2026-09-14
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

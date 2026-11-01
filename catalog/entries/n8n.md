@@ -5,12 +5,10 @@ url: "https://github.com/n8n-io/n8n"
 category: framework
 summary: "Fair-code workflow automation platform (TypeScript) — visual node-based editor plus custom JS/Python code, 400+ integrations, native AI/agent capabilities (LangChain-based AI nodes, MCP client and server support), triggers/webhooks/schedules; self-hostable via Docker or paid n8n Cloud; Sustainable Use License + n8n Enterprise License (fair-code, not OSI open source); ~204k stars"
 tags: [workflow-automation, low-code, integrations, self-hosted, ai-agents, mcp, typescript, ipaas, fair-code]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: LicenseRef-SUL-fair-code
 security_flags: [fair-code-license-restrictions, workflow-credential-store]
-supersedes: []
 overlaps: [n8n-mcp, langflow]
 source: unknown
 ---

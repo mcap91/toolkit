@@ -5,12 +5,10 @@ url: "https://github.com/FrkAk/piyaz/"
 category: framework
 summary: "Agentic workspace where people and AI coding agents collaborate on projects — context network with dependency-graph task management, 6 MCP tools, end-to-end composer orchestration (Claude Code), plugins for Codex/Cursor/Antigravity; hosted + self-hostable, AGPL-3.0"
 tags: [project-management, agent-workspace, context-network, task-graph, mcp, multi-agent, claude-code]
-workflows: []
 reviewed: 2026-06-23
 acquired: 2026-06-23
 license: AGPL-3.0-only
 security_flags: [copyleft-license, cloud-hosted-default, oauth-required]
-supersedes: []
 overlaps: [openclaw]
 source: unknown
 ---

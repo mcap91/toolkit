@@ -4,15 +4,12 @@ title: SkillForge
 url: "https://github.com/tripleyak/SkillForge"
 category: meta-skill
 summary: "Evidence-driven skill creator for Claude Code/Codex — RED/GREEN baseline testing (fresh agent without skill vs. with skill), cross-runtime dedup and compilation, per-skill regression evals, ecosystem doctor for trigger collisions/duplicates, opt-in friction mining from session history, proactive advisor via hooks; MIT"
-install: "git clone https://github.com/tripleyak/SkillForge.git /tmp/skillforge && cp -r /tmp/skillforge ~/.claude/skills/skillforge"
 tags: [meta-skill, skill-creation, testing, evals, baseline, cross-runtime, ecosystem-health, claude-code, codex, dedup]
 reviewed: 2026-08-02
 acquired: 2026-08-02
-supersedes: []
 overlaps: [superpowers-writing-skills]
 license: MIT
 security_flags: []
-workflows: []
 source: unknown
 ---
 
@@ -49,3 +46,7 @@ v6 SKILL.md is 1,158 words (down from v5's 5,049). Depth lives in `references/` 
 ## Security
 
 MIT licensed. No security flags. All scripts are stdlib-only Python (PyYAML optional). The friction mining feature scans local session transcripts and requires explicit `--consent` flag. The proactive advisor uses Claude Code hooks but is opt-in and never auto-invokes. No network calls, no credential handling. The install script (`install_skillforge.py`) modifies Claude Code hooks configuration interactively.
+
+## How to use it
+
+git clone https://github.com/tripleyak/SkillForge.git /tmp/skillforge && cp -r /tmp/skillforge ~/.claude/skills/skillforge

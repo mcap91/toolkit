@@ -6,10 +6,8 @@ summary: good for knowledge retention and onboarding
 tags: [tutorials, onboarding, knowledge-retention]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: []
-workflows: []
 overlaps: []
 source: unknown
 ---

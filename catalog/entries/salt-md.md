@@ -19,7 +19,6 @@ tags:
   - wiki
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - kb
   - openwiki
@@ -31,7 +30,6 @@ security_flags:
   - network-service
   - copyleft-license
   - new-project
-workflows: []
 source: unknown
 ---
 

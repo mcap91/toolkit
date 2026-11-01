@@ -4,15 +4,12 @@ title: BreachDirectory
 url: "https://breachdirectory.org/"
 category: cli-tool
 summary: "Free breach lookup engine — searches billions of breached credentials and personal records by email, username, or domain; shows plaintext and hashed passwords from real data dumps; API available via RapidAPI (free basic tier, paid pro); dual-use OSINT tool for breach monitoring and credential exposure checking; proprietary, web-based"
-install: ""
 tags: [osint, breach-search, security, credentials, email-lookup, password, api, reconnaissance]
 reviewed: 2026-09-26
 acquired: 2026-09-26
-supersedes: []
 overlaps: [revealer-us, shodan]
 license: Proprietary
 security_flags: [dual-use, shows-partial-passwords]
-workflows: []
 source: unknown
 ---
 

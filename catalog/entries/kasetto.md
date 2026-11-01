@@ -5,12 +5,10 @@ url: "https://github.com/pivoshenko/kasetto"
 category: cli-tool
 summary: "Declarative environment manager for AI coding agents — one YAML config syncs skills, MCPs, commands, and instructions across 23 agents (Claude Code, Cursor, Codex, etc.) with lockfile pinning, secret injection, and per-agent format translation; Rust binary"
 tags: [environment-manager, skills, mcp, configuration, multi-agent, rust]
-workflows: []
 reviewed: 2026-09-16
 acquired: 2026-09-16
 license: MIT OR Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

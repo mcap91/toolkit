@@ -5,12 +5,10 @@ url: "https://github.com/hiyouga/LlamaFactory"
 category: framework
 summary: "Unified fine-tuning framework for 100+ LLMs and VLMs — zero-code web UI (LLaMA Board) and CLI; supports SFT, LoRA/QLoRA (2–8 bit), DPO/KTO/ORPO/PPO, reward modeling, pretraining; multimodal (image/video/audio); vLLM/SGLang inference; NVIDIA/AMD/Ascend NPU/CPU; used by Amazon, NVIDIA, Aliyun; ACL 2024; Apache 2.0"
 tags: [fine-tuning, lora, qlora, dpo, ppo, multimodal, web-ui, distributed-training, vllm]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [unsloth, axolotl, trl]
 source: unknown
 ---

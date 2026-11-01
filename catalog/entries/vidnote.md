@@ -5,12 +5,10 @@ url: "https://github.com/amingilani/vidnote"
 category: cli-tool
 summary: "Self-hosted video-lecture-to-markdown converter with slide screenshots (Whisper + PySceneDetect); 'heavily vibe-coded' single-purpose tool — useful concept for certification-course capture but low polish and bus-factor 1"
 tags: [video, transcription, slides, markdown, whisper, lecture-capture]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: UNLICENSED
 security_flags: [single-contributor, no-tests, no-license, vibe-coded]
-supersedes: []
 overlaps: [faster-whisper, whisperx]
 source: unknown
 ---

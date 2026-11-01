@@ -5,12 +5,10 @@ url: "https://claude.com/connectors/synthesize-bio"
 category: mcp-server
 summary: "Generates synthetic human gene expression profiles on demand via natural-language prompts — unique bioinformatics capability, but proprietary SaaS requiring account and external API trust."
 tags: [bioinformatics, rna-seq, gene-expression, synthetic-data, genomics, single-cell, bulk-rna]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-proprietary
 security_flags: [proprietary-saas, account-required, data-leaves-to-third-party, no-source-to-audit]
-supersedes: []
 overlaps: []
 source: unknown
 ---

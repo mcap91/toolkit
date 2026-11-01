@@ -5,12 +5,10 @@ url: "https://huggingface.co/docs/trl/en/index"
 category: framework
 summary: "Hugging Face full-stack post-training library — SFT, GRPO, DPO, reward modeling, PPO, and more; vLLM integration for online RL; Harbor sandboxed agent training; vision-language model alignment; co-located vLLM for GPU efficiency; integrated with transformers/PEFT/DeepSpeed/Liger Kernel; Apache 2.0"
 tags: [fine-tuning, rlhf, dpo, grpo, ppo, reward-modeling, huggingface, vllm, post-training]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps: [unsloth, axolotl, llamafactory]
 source: unknown
 ---

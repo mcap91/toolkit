@@ -19,12 +19,10 @@ tags:
   - nvfp4
   - fp8
   - inference-optimization
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: Apache-2.0
 security_flags: []
-supersedes: []
 overlaps:
   - llm-compressor
 ---

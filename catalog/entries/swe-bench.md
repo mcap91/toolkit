@@ -14,12 +14,10 @@ tags:
   - evaluation
   - contamination
   - reward-hacking
-workflows: []
 reviewed: 2026-10-28
 acquired: 2026-10-28
 license: N/A
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

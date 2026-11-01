@@ -14,12 +14,10 @@ tags:
   - level-design
   - game-development
   - history
-workflows: []
 reviewed: 2026-10-30
 acquired: 2026-10-30
 license: N/A
 security_flags: []
-supersedes: []
 overlaps: []
 ---
 

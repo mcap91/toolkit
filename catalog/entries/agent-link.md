@@ -5,12 +5,10 @@ url: "https://github.com/Riccardo8888/agent-link"
 category: mcp-server
 summary: "End-to-end encrypted channel between coding agents on different machines: the agents split work, hand off tasks, and report progress to each other. Transport is a shared private git repo (an orphan 'agent-link' branch) — no server, account, or open ports — with an optional relay for sub-second delivery. Installs an MCP server (link_* tools) plus a notification hook for Claude Code and/or Codex, and a human CLI. Frames are AES-256-GCM sealed and device-signed. Python 3.10+, one dependency, Windows/Linux/macOS."
 tags: [multi-agent, coding-agents, mcp, end-to-end-encryption, git, claude-code, codex, collaboration]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: NOASSERTION
 security_flags: [private-repo-required, no-forward-secrecy, carrier-sees-social-graph, untrusted-peer-input]
-supersedes: []
 overlaps: []
 source: unknown
 ---

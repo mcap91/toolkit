@@ -5,12 +5,10 @@ url: "https://dadhichgaurav1.medium.com/context-graphs-the-trillion-dollar-eleph
 category: reference
 summary: "Practitioner analysis of context graphs for enterprise AI — identifies five human challenges (implicit decisions, trust, outcome attribution, forgetting, change continuums) and six technical challenges (trace extraction UX, canonicalization, temporal extraction, storage architecture, data security, graph structure) that must be solved before context graphs become operational"
 tags: [context-graphs, enterprise-ai, knowledge-graphs, decision-traces, agent-memory]
-workflows: []
 reviewed: 2026-07-06
 acquired: 2026-07-06
 license: unlicensed
 security_flags: []
-supersedes: []
 overlaps: [graphrag-agent-memory-linkedin-series]
 source: unknown
 ---

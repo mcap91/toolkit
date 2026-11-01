@@ -5,12 +5,10 @@ url: "https://github.com/BuilderIO/skills"
 category: plugin
 summary: "Builder.io's pack of 15 composable agent skills (visual-plan, visual-recap, webmcp, agent-watchdog, plan-arbiter, efficient-fable, rewind, quick-recap, etc.) installable via npx @agent-native/skills across Claude Code, Codex, Cursor, Pi, OpenCode, and Copilot; doubles as a Claude Code / Cowork plugin marketplace; MIT, ~4.2k stars"
 tags: [skills, claude-code, codex, cursor, plugin-marketplace, visual-plans, orchestration, mcp, agent-native, builder-io]
-workflows: []
 reviewed: 2026-09-10
 acquired: 2026-09-10
 license: MIT
 security_flags: [hosted-service-default, screen-capture-integration]
-supersedes: []
 overlaps: [agent-skills-osmani, awesome-claude-code]
 source: unknown
 ---

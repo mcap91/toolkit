@@ -5,12 +5,10 @@ url: "https://github.com/repowise-dev/repowise"
 category: framework
 summary: "Local-first codebase-intelligence engine: index a repo once and keep it current per-commit, then serve it to coding agents via ~11 task-shaped MCP tools plus a CLI, local dashboard, VS Code extension, and a zero-LLM PR bot. Builds a five-layer index (dependency graph across 19 languages, git behavioral signals, generated wiki, mined architectural decisions, deterministic 1–10 code-health scores with concrete refactoring plans), plus change-risk scoring, dead-code detection, and reversible command-output 'distill'. Structural index needs no API key and runs offline; AGPL-3.0 with a commercial license option."
 tags: [codebase-intelligence, mcp, code-health, dependency-graph, agent-context, git-analytics, documentation, self-hosted, agpl]
-workflows: []
 reviewed: 2026-08-17
 acquired: 2026-08-17
 license: AGPL-3.0
 security_flags: [agpl-3.0-copyleft]
-supersedes: []
 overlaps: [graphify]
 source: unknown
 ---

@@ -5,12 +5,10 @@ url: "https://openrouter.ai/"
 category: framework
 summary: "Unified LLM API gateway supporting 200+ models — useful as infrastructure reference, not directly needed when using Claude natively."
 tags: [llm, api-gateway, model-routing, openai-compatible, infrastructure]
-workflows: []
 reviewed: 2026-06-10
 acquired: 2026-06-10
 license: LicenseRef-proprietary
 security_flags: [proprietary-saas, credentials-required, data-leaves-to-third-party]
-supersedes: []
 overlaps: []
 source: unknown
 ---

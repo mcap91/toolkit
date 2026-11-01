@@ -5,12 +5,10 @@ url: "https://github.com/mrdbourke/zero-to-mastery-ml"
 category: reference
 summary: "Comprehensive ML/DS course materials (NumPy, pandas, sklearn, TensorFlow); useful learning reference but not a tool or workflow component"
 tags: [machine-learning, data-science, course, numpy, pandas, scikit-learn, tensorflow, jupyter]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: NOASSERTION
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

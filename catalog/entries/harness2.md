@@ -18,7 +18,6 @@ tags:
   - python
 reviewed: 2026-10-26
 acquired: 2026-10-26
-supersedes: []
 overlaps:
   - autoharness
   - jit-agent
@@ -29,7 +28,6 @@ security_flags:
   - executor-sandbox-disabled
   - unrestricted-network
   - cloud-credentials-required
-workflows: []
 source: unknown
 ---
 

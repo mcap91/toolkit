@@ -6,11 +6,9 @@ summary: "Practitioner reference for calculating KV cache memory: formula (2 × 
 tags: [kv-cache, vram, local-inference, memory-sizing, gqa, llama-cpp, ollama, context-window]
 reviewed: 2026-08-31
 acquired: 2026-08-31
-supersedes: []
 overlaps: [turboquant, on-prem-llm-deployment-architecture, llmfit]
 license: N/A
 security_flags: []
-workflows: []
 source: unknown
 ---
 

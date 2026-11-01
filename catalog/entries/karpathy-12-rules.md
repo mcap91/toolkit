@@ -6,10 +6,8 @@ summary: All 12 rules adopted via setup-behavioral-baseline.sh — installs to ~
 tags: [claude-md, best-practices, token-budgets]
 reviewed: 2026-05-25
 acquired: 2026-05-25
-supersedes: []
 license: unknown
 security_flags: []
-workflows: []
 overlaps: [andrej-karpathy-skills]
 source: unknown
 ---

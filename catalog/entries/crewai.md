@@ -5,12 +5,10 @@ url: "https://github.com/crewAIInc/crewAI"
 category: framework
 summary: "Lean Python multi-agent orchestration framework — role-based Crews for autonomous collaboration + event-driven Flows for precise control; MIT, 100K+ certified devs, Claude Code skills plugin, independent of LangChain"
 tags: [multi-agent, orchestration, python, agent-framework, llm]
-workflows: []
 reviewed: 2026-06-19
 acquired: 2026-06-19
 license: MIT
 security_flags: [telemetry-default-on]
-supersedes: []
 overlaps: [architect-loop, weft]
 source: unknown
 ---

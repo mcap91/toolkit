@@ -5,12 +5,10 @@ url: "https://github.com/eugeneyan/applied-ml"
 category: reference
 summary: "Curated collection of ~400+ papers and engineering blog posts on data science & ML in production, maintained by Eugene Yan — organized by company (Airbnb, Uber, Netflix, Amazon, LinkedIn, etc.) and by application area (recommendation, search & ranking, feature stores, MLOps platforms, A/B testing, NLP, computer vision, and more)"
 tags: [ml-in-production, curated-list, engineering-blogs, papers, mlops, case-studies, recommendation-systems, search-ranking]
-workflows: []
 reviewed: 2026-09-25
 acquired: 2026-09-25
 license: MIT
 security_flags: []
-supersedes: []
 overlaps: []
 source: unknown
 ---

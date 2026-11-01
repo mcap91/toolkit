@@ -5,12 +5,10 @@ url: "https://github.com/pewdiepie-archdaemon/odysseus"
 category: framework
 summary: "Feature-rich self-hosted AI workspace with massive community momentum, but weeks-old with unsandboxed agent shell execution"
 tags: [self-hosted, ai-workspace, agents, local-models, docker, research, email, mcp]
-workflows: []
 reviewed: 2026-06-16
 acquired: 2026-06-16
 license: AGPL-3.0-or-later
 security_flags: [unsandboxed-shell, new-project]
-supersedes: []
 overlaps: [open-webui, headroom]
 source: unknown
 ---
