@@ -110,6 +110,9 @@ export const configSchema = z.object({
   url_patterns: z.array(z.string()),
   blocked_domains: z.array(blockedDomainSchema).default([]),
   min_clean_chars: z.number().default(200),
+  // WK-0098 (DEC-0004 amendment): semantic rescue off by default until proven; the lexical
+  // sweep is unaffected either way.
+  semantic_search: z.boolean().default(false),
 });
 
 export type BlockedDomain = z.infer<typeof blockedDomainSchema>;

@@ -152,6 +152,7 @@ def run_search(
     semantic_n: int = DEFAULT_SEMANTIC_N,
     decision_status: str | None = None,
     category: str | None = None,
+    semantic: bool = True,
 ) -> dict[str, Any]:
     # Input bounds — enforced here too, not only at CLI/Zod
     if not 1 <= semantic_n <= 50:
@@ -164,21 +165,25 @@ def run_search(
     if any(len(t) > MAX_TERM_CHARS for t in raw_terms):
         raise ValueError(f"term exceeds {MAX_TERM_CHARS} characters")
 
-    vector_data = read_vectors(dir)
-    if not is_valid(vector_data):
-        print(
-            "catalog-embedder: vector file missing or model mismatch — running build",
-            file=sys.stderr,
-        )
-        run_build(dir)
+    entry_vectors: dict[str, list[float]] = {}
+    query_vector: list[float] | None = None
+    # WK-0098 (DEC-0004 amendment): semantic off means no vector read/build and no query
+    # embedding — the model and the vector file are never touched.
+    if semantic:
         vector_data = read_vectors(dir)
-    entry_vectors: dict[str, list[float]] = (vector_data or {}).get("entries", {})
+        if not is_valid(vector_data):
+            print(
+                "catalog-embedder: vector file missing or model mismatch — running build",
+                file=sys.stderr,
+            )
+            run_build(dir)
+            vector_data = read_vectors(dir)
+        entry_vectors = (vector_data or {}).get("entries", {})
+
+        if query.strip():
+            [query_vector] = embeddings.embed_texts([query])
 
     raw = read_all_entries(dir / "catalog" / "entries")
-
-    query_vector: list[float] | None = None
-    if query.strip():
-        [query_vector] = embeddings.embed_texts([query])
 
     candidates: list[dict[str, Any]] = []
     for name, (frontmatter, body) in raw.items():

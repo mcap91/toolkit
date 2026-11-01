@@ -11,13 +11,22 @@ vi.mock('../src/core/embedder-subprocess.js', () => ({
   codeRoot: vi.fn(),
 }));
 
+// WK-0098: the search handler now reads `semantic_search` from config.json; mock loadConfig so
+// tests control it directly instead of needing a real catalog/config.json on disk per case.
+vi.mock('../src/core/config.js', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../src/core/config.js')>();
+  return { ...actual, loadConfig: vi.fn() };
+});
+
 import { tools } from '../src/tools.js';
 import { runCatalogEmbedder, venvPythonPath, codeRoot } from '../src/core/embedder-subprocess.js';
+import { loadConfig } from '../src/core/config.js';
 
 const searchTool = tools.find((t) => t.name === 'search')!;
 const mockRunCatalogEmbedder = vi.mocked(runCatalogEmbedder);
 const mockVenvPythonPath = vi.mocked(venvPythonPath);
 const mockCodeRoot = vi.mocked(codeRoot);
+const mockLoadConfig = vi.mocked(loadConfig);
 
 const EMPTY_RESPONSE = { results: [], swept_terms: [], lexical_total: 0, total: 0 };
 
@@ -26,8 +35,12 @@ describe('search tool', () => {
     mockRunCatalogEmbedder.mockReset();
     mockVenvPythonPath.mockReset();
     mockCodeRoot.mockReset();
+    mockLoadConfig.mockReset();
     mockCodeRoot.mockReturnValue('/code/root');
     mockVenvPythonPath.mockReturnValue(THIS_FILE); // real file on disk — existsSync passes
+    // Default config: semantic_search absent/false — this is the committed catalog/config.json
+    // default (WK-0098 OR-1).
+    mockLoadConfig.mockResolvedValue({ url_patterns: [], blocked_domains: [], min_clean_chars: 200, semantic_search: false });
     mockRunCatalogEmbedder.mockResolvedValue({
       stdout: JSON.stringify(EMPTY_RESPONSE),
       stderr: '',
@@ -45,6 +58,25 @@ describe('search tool', () => {
       expect.arrayContaining(['--query', 'ocr', '--semantic-n', '10']),
     );
     expect(args).not.toContain('--term');
+  });
+
+  // WK-0098: default catalog/config.json has semantic_search false — the channel stays off
+  // unless a caller explicitly flips that config key.
+  it('WK-0098: default config (semantic_search false) passes --no-semantic', async () => {
+    const input = searchTool.inputSchema.parse({ dir: '/repo', query: 'ocr' });
+    await searchTool.handler(input);
+
+    const args = mockRunCatalogEmbedder.mock.calls[0]![1];
+    expect(args).toContain('--no-semantic');
+  });
+
+  it('WK-0098: semantic_search true in config omits --no-semantic', async () => {
+    mockLoadConfig.mockResolvedValue({ url_patterns: [], blocked_domains: [], min_clean_chars: 200, semantic_search: true });
+    const input = searchTool.inputSchema.parse({ dir: '/repo', query: 'ocr' });
+    await searchTool.handler(input);
+
+    const args = mockRunCatalogEmbedder.mock.calls[0]![1];
+    expect(args).not.toContain('--no-semantic');
   });
 
   it('builds argv for a full call: repeated --term, --semantic-n, --category', async () => {
@@ -78,12 +110,16 @@ describe('search tool', () => {
     expect(searchTool.inputSchema.safeParse(base).success).toBe(true);
   });
 
-  it('returns the setup-instruction error object when the venv is missing', async () => {
+  // WK-0098 audit F5: a missing venv takes the lexical sweep down too (it runs in the same
+  // Python) — the error must say so instead of blaming "semantic search".
+  it('returns an honest error naming the lexical sweep when the venv is missing', async () => {
     mockVenvPythonPath.mockReturnValue(MISSING_FILE);
     const input = searchTool.inputSchema.parse({ dir: '/repo', query: 'ocr' });
     const result = await searchTool.handler(input) as { error: string };
 
-    expect(result.error).toMatch(/not available/i);
+    expect(result.error).toContain('lexical sweep');
+    expect(result.error).toContain(MISSING_FILE);
+    expect(result.error).not.toMatch(/semantic search not available/i);
     expect(mockRunCatalogEmbedder).not.toHaveBeenCalled();
   });
 

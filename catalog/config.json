@@ -10,5 +10,6 @@
     { "host": "twitter.com" },
     { "host": "linkedin.com", "allow_paths": ["/pulse/"] }
   ],
-  "min_clean_chars": 200
+  "min_clean_chars": 200,
+  "semantic_search": false
 }

@@ -26,6 +26,9 @@ def main(argv: list[str] | None = None) -> int:
     search_parser.add_argument("--semantic-n", dest="semantic_n", type=int, default=10)
     search_parser.add_argument("--decision-status", dest="decision_status", default=None)
     search_parser.add_argument("--category", dest="category", default=None)
+    # WK-0098 (DEC-0004 amendment): semantic rescue off by default at the caller (tools.ts); the
+    # flag lets this CLI be driven directly without the channel.
+    search_parser.add_argument("--no-semantic", dest="semantic", action="store_false", default=True)
 
     args = parser.parse_args(argv)
 
@@ -49,6 +52,7 @@ def main(argv: list[str] | None = None) -> int:
             semantic_n=args.semantic_n,
             decision_status=args.decision_status,
             category=args.category,
+            semantic=args.semantic,
         )
         json.dump(response, sys.stdout)
         sys.stdout.write("\n")

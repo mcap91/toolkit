@@ -57,7 +57,7 @@ export const tools: ToolDef[] = [
   },
   {
     name: 'search',
-    description: 'Survey search over catalog entries. Returns EVERY entry lexically matching your terms (word-prefix match, uncapped), plus up to semantic_n flagged semantic suggestions for concepts phrased differently. Expand your query into synonyms and related terms (e.g. "ocr" -> ["ocr", "text extraction", "document to markdown", "handwriting recognition"]) and pass them as terms; omitting terms treats the whole query as one all-tokens-must-match lookup term. Response reports per-term hit counts (swept_terms) and lexical_total — lexical_total 0 means an honest miss. Filters: category.',
+    description: 'Survey search over catalog entries. Returns EVERY entry lexically matching your terms (word-prefix match, uncapped) with per-term hit counts. Expand your query into synonyms and related terms (e.g. "ocr" -> ["ocr", "text extraction", "document to markdown", "handwriting recognition"]) and pass them as terms; omitting terms treats the whole query as one all-tokens-must-match lookup term. Response reports per-term hit counts (swept_terms) and lexical_total — lexical_total 0 means an honest miss. semantic_n is accepted and ignored unless semantic_search is true in catalog/config.json. Filters: category.',
     inputSchema: dirSchema.extend({
       query: z.string().max(2000),
       terms: z.array(z.string().min(1).max(200)).max(50).optional(),
@@ -71,7 +71,9 @@ export const tools: ToolDef[] = [
       const venvPython = venvPythonPath(codeRoot());
       if (!existsSync(venvPython)) {
         return {
-          error: 'Semantic search not available. Run: cd packages/catalog-embedder && uv venv && uv pip install -r requirements.txt',
+          // WK-0098 audit F5: the lexical sweep also runs in this venv, so a missing venv is not
+          // a "semantic unavailable" condition — it takes lexical search down too.
+          error: `catalog search unavailable: embedder venv missing at ${venvPython}; the lexical sweep runs in it too. Run: cd packages/catalog-embedder && uv venv && uv pip install -r requirements.txt`,
         };
       }
 
@@ -79,6 +81,10 @@ export const tools: ToolDef[] = [
       const terms = (input.terms as string[] | undefined) ?? [];
       const semantic_n = input.semantic_n as number;
       const category = input.category as string | undefined;
+      // WK-0098 (DEC-0004 amendment): semantic_search defaults to false; an unreadable
+      // config.json is treated as off too, per the same default.
+      const config = await loadConfig(dir).catch(() => ({ semantic_search: false }) as { semantic_search: boolean });
+      const semanticSearch = config.semantic_search;
 
       const { stdout, stderr, code } = await runCatalogEmbedder(venvPython, [
         'search',
@@ -87,6 +93,7 @@ export const tools: ToolDef[] = [
         ...terms.flatMap((t) => ['--term', t]),
         '--semantic-n', String(semantic_n),
         ...(category ? ['--category', category] : []),
+        ...(semanticSearch ? [] : ['--no-semantic']),
       ]);
 
       if (code !== 0) {
