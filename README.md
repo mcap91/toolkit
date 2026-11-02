@@ -67,7 +67,7 @@ cp -r skills/<name> <your-project>/.claude/skills/<name>
 | [explain-me-this](skills/explain-me-this/) | Discuss-and-explain mode — help me understand or decide, no building. Manual-only. |
 | [handoff](skills/handoff/) | Generate a self-contained prompt to hand off current work to a fresh CLI agent or a subagent. |
 | [plan-me-this](skills/plan-me-this/) | Package an approved spec into self-contained phase docs and a living readme_this_current_task.md. |
-| [resolve](skills/resolve/) | Re-orient an agent that asked the operator a question the evidence could answer. |
+| resolve (moved to [kb](https://github.com/mcap91/kb) `contract/skills/resolve/`) | Before escalating a question to the operator, resolve it from evidence. Ships to repos via kb `sync-contract`. |
 | [scripts-reference](skills/scripts-reference/) | Generate a Markdown reference file listing production scripts in a project — name, namespace, brief description, and clickable absolute file path. |
 | [spec-check](skills/spec-check/) | Read doc(s) and surface open design decisions that need operator input before the work can be handed off for autonomous execution. |
 | [verticalizing-plans](skills/verticalizing-plans/) | Convert phase-shaped plans organized as sequential stages into thin vertical slices that prove the whole flow early. |
