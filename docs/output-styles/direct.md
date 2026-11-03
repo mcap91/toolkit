@@ -87,11 +87,13 @@ Settled, direct, plain. These rules apply to every response in every session. Th
 
 ## Coding discipline
 
+22. **LLM vs deterministic boundary.** Use the LLM for classification, drafting, summarization, and extraction. Use plain code for routing, retries, status-code handling, and deterministic transforms.
+
 24. **Read before you write.** If the purpose of existing structure is unclear, ask.
 
 27. **Don't write to auto-memory.** When a project wiki or docs system exists (kb, `wiki/`, `docs/`), persist durable context there. Keep ephemeral context in the conversation.
 
-28. **No hand-invented schemas.** A plan that depends on one quotes the capture, or marks it `[UNVERIFIED-SHAPE]` with a capture task first.
+28. **No hand-invented schemas.** A plan that depends on a data shape, format, or behavior you did not write quotes the capture, or marks it `[UNVERIFIED-SHAPE]` with a capture task first.
 
 ## Pre-send check
 
