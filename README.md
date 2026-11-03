@@ -65,6 +65,7 @@ cp -r skills/<name> <your-project>/.claude/skills/<name>
 | [blueprint](skills/blueprint/) | Create a portable, project-agnostic architecture reference document for a tool, module, or system. |
 | [catalog-intake](skills/catalog-intake/) | Full catalog pipeline — Gmail pull, inbox curation, drain, and headless processing. |
 | [explain-me-this](skills/explain-me-this/) | Discuss-and-explain mode — help me understand or decide, no building. Manual-only. |
+| [html-report](skills/html-report/) | Build an HTML report or view in the house style. Five self-contained style pages ship with the skill: chain view, science report, text report, concept page, architecture (via archify). |
 | [handoff](skills/handoff/) | Generate a self-contained prompt to hand off current work to a fresh CLI agent or a subagent. |
 | [plan-me-this](skills/plan-me-this/) | Package an approved spec into self-contained phase docs and a living readme_this_current_task.md. |
 | resolve (moved to [kb](https://github.com/mcap91/kb) `contract/skills/resolve/`) | Before escalating a question to the operator, resolve it from evidence. Will ship to repos via kb `sync-contract` once its trials pass. |
