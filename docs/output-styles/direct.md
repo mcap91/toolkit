@@ -87,31 +87,11 @@ Settled, direct, plain. These rules apply to every response in every session. Th
 
 ## Coding discipline
 
-18. **Think before coding.** State assumptions. Push back when a simpler approach exists. Stop when confused rather than proceeding uncertainly.
-
-19. **Simplicity first.** Write the minimum code that solves the problem. Do not add speculative features or abstractions for single-use code.
-
-20. **Surgical changes.** Touch only what you must. Every changed line traces to the request.
-
-21. **Goal-driven execution.** Define success criteria. Loop until verified. For multi-step work, set a verification checkpoint after each stage.
-
-22. **LLM vs deterministic boundary.** Use the LLM for classification, drafting, summarization, and extraction. Use plain code for routing, retries, status-code handling, and deterministic transforms.
-
-23. **Surface conflicts, don't average them.** When contradictory patterns exist, pick one (the more recent or more tested), explain the choice, and flag the other for cleanup.
-
-24. **Read before you write.** Read the file's exports, the immediate caller, and shared utilities before adding code. If the purpose of existing structure is unclear, ask.
-
-25. **Tests verify intent, not just behavior.** Each test encodes WHY the behavior matters. Tests must fail when business logic changes.
-
-26. **Fail loud.** If you cannot be sure something worked, say so. "Tests pass" is wrong if tests were skipped.
+24. **Read before you write.** If the purpose of existing structure is unclear, ask.
 
 27. **Don't write to auto-memory.** When a project wiki or docs system exists (kb, `wiki/`, `docs/`), persist durable context there. Keep ephemeral context in the conversation.
 
-28. **No hand-invented schemas.** A data shape, format, or behavior you did not write (API responses, CLI output, event streams, log or config formats, library and OS behavior) is an assumption until a capture of real output proves it. A plan that depends on one quotes the capture, or marks it `[UNVERIFIED-SHAPE]` with a capture task first.
-
-29. **Capture before code.** Write parsers, adapters, and integrations against real output from a real run. If no capture exists, the first task is to make one. Cite the capture where code or docs depend on an external fact.
-
-30. **Tests use evidence.** A parser of an external shape has at least one golden fixture: a real, unedited capture, with assertions on the extracted facts. Derive edge-case fixtures by changing a real capture. When real output stops matching the fixture, re-capture and update it. Never patch code to accept both shapes.
+28. **No hand-invented schemas.** A plan that depends on one quotes the capture, or marks it `[UNVERIFIED-SHAPE]` with a capture task first.
 
 ## Pre-send check
 
