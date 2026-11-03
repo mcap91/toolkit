@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture style — use archify</title>
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('text-report-theme'); } catch (_) {}
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  /* This page is a pointer, set in the text-report style. Architecture diagrams are not hand-written HTML:
+     archify renders them from a typed JSON file. */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html[data-theme="dark"] { --bg:#0f1117; --card:#1a1d27; --card2:#1f2231; --border:rgba(255,255,255,0.10); --text:#e8e8ed; --text2:#a3a3b3; --muted:#6b6b7b; --link:#3987e5; --answer:#3987e5; --answer-bg:rgba(57,135,229,0.10); --warn:#f29a3a; --warn-bg:rgba(242,154,58,0.10); }
+  html[data-theme="light"] { --bg:#f4f5f7; --card:#fff; --card2:#f9fafb; --border:rgba(0,0,0,0.12); --text:#0f1117; --text2:#52514e; --muted:#898781; --link:#1f6fd1; --answer:#1f6fd1; --answer-bg:rgba(31,111,209,0.07); --warn:#c96f10; --warn-bg:rgba(201,111,16,0.08); }
+  body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 18px; line-height: 1.65; background: var(--bg); color: var(--text); padding: 40px 24px 80px; }
+  main { max-width: 720px; margin: 0 auto; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 32px; }
+  h1 { font-size: 32px; line-height: 1.2; }
+  .sub { color: var(--text2); margin-top: 8px; font-size: 16px; }
+  h2 { font-size: 24px; margin: 44px 0 12px; }
+  p { margin: 0 0 14px; }
+  ul, ol { margin: 0 0 14px 24px; } li { margin: 4px 0; }
+  a { color: var(--link); }
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.86em; background: var(--card2); border: 1px solid var(--border); border-radius: 4px; padding: 1px 5px; }
+  pre { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; overflow-x: auto; margin: 0 0 16px; }
+  pre code { background: none; border: none; padding: 0; }
+  #theme { background: var(--card); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px; font-size: 15px; cursor: pointer; white-space: nowrap; }
+  .answer { background: var(--answer-bg); border-left: 4px solid var(--answer); border-radius: 0 10px 10px 0; padding: 16px 20px; }
+  .answer p:last-child { margin: 0; }
+  .callout { border-left: 4px solid var(--warn); background: var(--warn-bg); border-radius: 0 10px 10px 0; padding: 12px 18px; margin: 0 0 16px; font-size: 16.5px; }
+  table { width: 100%; border-collapse: collapse; margin: 0 0 18px; font-size: 16px; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text2); font-size: 14px; }
+  td:first-child { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 14.5px; white-space: nowrap; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div>
+    <h1>Architecture style: use archify</h1>
+    <p class="sub">How to make a system diagram that matches the rest of this style set.</p>
+  </div>
+  <button id="theme" type="button">Light / dark</button>
+</header>
+
+<div class="answer">
+  <p>Do not hand-write architecture diagrams. Write a typed JSON file and let <a href="https://github.com/tt-a1i/archify">archify</a> render it. Use the <code>classic</code> preset, dark theme by default. Keep the JSON next to the HTML so the diagram can be changed and re-rendered.</p>
+</div>
+
+<h2>Why a tool, not a template</h2>
+<p>Archify validates the layout, routes, and labels before it writes the page. It also gives every diagram the same viewer: search, upstream and downstream tracing, light and dark themes, and PNG or SVG export. A hand-written diagram has none of this, and drifts from the JSON once someone edits it by hand.</p>
+
+<h2>Which diagram type</h2>
+<table>
+  <thead><tr><th>Type</th><th>Use it for</th></tr></thead>
+  <tbody>
+    <tr><td>architecture</td><td>Components, services, storage, trust boundaries.</td></tr>
+    <tr><td>workflow</td><td>Lane-based steps: CI, approvals, tool calls, runbooks.</td></tr>
+    <tr><td>sequence</td><td>Calls in time order: API calls, auth, async traces.</td></tr>
+    <tr><td>data-flow</td><td>Pipelines, lineage, privacy boundaries, consumers.</td></tr>
+    <tr><td>lifecycle</td><td>States, retries, waits, terminal outcomes.</td></tr>
+  </tbody>
+</table>
+<p>A boundary between two owners with allowed and never rules is a concept page, not an architecture diagram. Use concept.html for that.</p>
+
+<h2>House settings</h2>
+<ul>
+  <li><b>Preset:</b> <code>classic</code>. Theme: dark by default; the viewer toggles light.</li>
+  <li><b>Files:</b> <code>&lt;name&gt;.architecture.json</code> (the source) and <code>&lt;name&gt;.html</code> (the render), side by side.</li>
+  <li><b>Views:</b> add named views in <code>meta.views</code>, one per question a reader asks ("main path", "security model"), each with a one-line note.</li>
+  <li><b>Labels:</b> plain words, write-plain rules. No internal code names in labels a public reader sees.</li>
+  <li><b>Evidence:</b> where a node maps to code, use archify's source evidence mode to link the file at a pinned commit.</li>
+</ul>
+
+<h2>Steps</h2>
+<div class="callout">Install archify before the first run. It is an agent skill: <code>npx skills add tt-a1i/archify -g</code>.</div>
+<ol>
+  <li>Ask the agent for the diagram type and the components, citing the code or records it reads.</li>
+  <li>Have the agent write the JSON, then validate and deliver it with archify. Validation must pass before the HTML is replaced.</li>
+  <li>Open the HTML. Check each view in both themes.</li>
+  <li>Commit the JSON and the HTML together.</li>
+</ol>
+
+<h2>Reference</h2>
+<p>A worked example in the kb repo: <code>wiki/dashboard/kb-dispatch-v2.architecture.json</code> and its render <code>kb-dispatch-v2.html</code> (archify 2.17, <code>classic</code> preset, three views). The archify catalog entry lists the full command set.</p>
+
+</main>
+<script>
+  document.getElementById('theme').addEventListener('click', function () {
+    var r = document.documentElement;
+    var t = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', t);
+    try { localStorage.setItem('text-report-theme', t); } catch (_) {}
+  });
+</script>
+</body>
+</html>

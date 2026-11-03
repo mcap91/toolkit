@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chain style — one initiative and its next work items</title>
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('chain-theme'); } catch (_) {}
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+/* Chain style. Copy everything from here to the SPECIMEN-ONLY marker. Replace the content. */
+:root{
+  --mono:ui-monospace,'Cascadia Code','JetBrains Mono','SF Mono',Consolas,monospace;
+  --sans:ui-sans-serif,'Segoe UI',system-ui,-apple-system,'Helvetica Neue',sans-serif;
+  --r:8px;
+}
+html[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0a0c10; --surface:#12151c; --surface-2:#171b24;
+  --border:#232834; --border-strong:#313846;
+  --ink:#e6e9ef; --ink-2:#9aa4b2; --ink-3:#626c7d;
+  --done:#3fb865; --prog:#4d9dff; --blocked:#ff6b5e; --queued:#8b95a5;
+  --accent:#f0a831;
+  --done-bg:rgba(63,184,101,.10); --prog-bg:rgba(77,157,255,.10);
+  --blocked-bg:rgba(255,107,94,.10); --queued-bg:rgba(139,149,165,.10);
+  --accent-bg:rgba(240,168,49,.12);
+}
+/* DECISION: the light palette is derived for this page; the source view was dark-only. */
+html[data-theme="light"]{
+  color-scheme:light;
+  --bg:#f6f7f9; --surface:#ffffff; --surface-2:#f1f3f6;
+  --border:#dde1e8; --border-strong:#c3c9d3;
+  --ink:#11151c; --ink-2:#4a5361; --ink-3:#7a8494;
+  --done:#1f8f45; --prog:#1f6fd1; --blocked:#c9372c; --queued:#6b7585;
+  --accent:#b8740a;
+  --done-bg:rgba(31,143,69,.09); --prog-bg:rgba(31,111,209,.09);
+  --blocked-bg:rgba(201,55,44,.09); --queued-bg:rgba(107,117,133,.09);
+  --accent-bg:rgba(184,116,10,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink); font-family:var(--mono);
+  font-size:13px; line-height:1.55; padding:34px 30px 60px; max-width:1280px; margin:0 auto;
+  -webkit-font-smoothing:antialiased;
+}
+/* Ambient grid paper, fades out by 70% of the viewport height. */
+body::before{
+  content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.5;
+  background:
+    radial-gradient(1100px 500px at 78% -10%, var(--accent-bg), transparent 60%),
+    linear-gradient(var(--border) 1px, transparent 1px) 0 0/100% 46px,
+    linear-gradient(90deg, var(--border) 1px, transparent 1px) 0 0/46px 100%;
+  mask-image:linear-gradient(180deg,#000, transparent 70%);
+  -webkit-mask-image:linear-gradient(180deg,#000, transparent 70%);
+}
+
+/* Header */
+.head{display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:26px}
+h1{font-family:var(--sans); font-size:24px; font-weight:750; letter-spacing:-.02em; line-height:1.2; margin:0 0 8px}
+.subtitle{font-size:13px; color:var(--ink-2); margin-bottom:8px}
+.stamp{font-size:11.5px; color:var(--ink-3)}
+.stamp a{color:var(--accent); text-decoration:none; border-bottom:1px dotted color-mix(in srgb, var(--accent) 45%, transparent)}
+#theme{background:var(--surface); color:var(--ink-2); border:1px solid var(--border-strong); border-radius:6px; padding:6px 11px; font:inherit; font-size:11.5px; cursor:pointer; white-space:nowrap}
+
+/* Next actions callout */
+.next{background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--accent); border-radius:var(--r); padding:12px 16px; margin-bottom:26px}
+.next-title{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:6px}
+.next ol{margin-left:20px; font-family:var(--sans); font-size:12.5px}
+.next li{margin:3px 0}
+.next b{color:var(--ink); font-family:var(--mono)}
+
+/* Section scaffold: uppercase tracked label with a trailing hairline */
+.section{margin-bottom:22px}
+.section-title{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3); font-weight:600; margin-bottom:13px; display:flex; align-items:center; gap:10px}
+.section-title::after{content:''; flex:1; height:1px; background:var(--border)}
+
+/* Rows and cards: 3px status stripe, never a full-tint background */
+.row{display:flex; gap:14px; align-items:stretch}
+.row.single{justify-content:center}
+.row.single .card{width:100%; max-width:640px}
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--r);
+  padding:14px 16px 12px; position:relative; overflow:hidden; flex:1;
+  display:block; text-decoration:none; color:inherit; transition:border-color .12s;
+}
+.card::before{content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--c)}
+.card.done{--c:var(--done)} .card.prog{--c:var(--prog)} .card.blocked{--c:var(--blocked)}
+.card.accent{--c:var(--accent)} .card.todo{--c:var(--border-strong)}
+a.card:hover{border-color:var(--border-strong)}
+.cid{font-family:var(--mono); font-weight:700; color:var(--accent); font-size:13px}
+.ctitle{font-family:var(--sans); font-size:12.5px; color:var(--ink); margin-top:6px; line-height:1.5}
+.cmeta{font-size:11px; color:var(--ink-2); margin-top:6px; line-height:1.5}
+
+/* Status chips: dot in currentColor */
+.chip{display:inline-flex; align-items:center; gap:5px; padding:2px 9px; border-radius:5px; font-size:11px; font-weight:600; letter-spacing:.03em; white-space:nowrap; margin-top:10px}
+.chip::before{content:''; width:6px; height:6px; border-radius:50%; background:currentColor}
+.chip.done{color:var(--done); background:var(--done-bg); border:1px solid color-mix(in srgb, var(--done) 34%, transparent)}
+.chip.prog{color:var(--prog); background:var(--prog-bg); border:1px solid color-mix(in srgb, var(--prog) 34%, transparent)}
+.chip.blocked{color:var(--blocked); background:var(--blocked-bg); border:1px solid color-mix(in srgb, var(--blocked) 34%, transparent)}
+.chip.accent{color:var(--accent); background:var(--accent-bg); border:1px solid color-mix(in srgb, var(--accent) 34%, transparent)}
+.chip.todo{color:var(--ink-2); background:var(--surface-2); border:1px solid var(--border-strong)}
+.chip.parked{color:var(--ink-3); background:var(--surface); border:1px solid var(--border)}
+
+/* Connectors: CSS borders only, no SVG, no JS */
+.arrow-down{position:relative; width:2px; height:24px; background:var(--border-strong); margin:8px auto 14px}
+.arrow-down::after{content:''; position:absolute; left:50%; bottom:-6px; transform:translateX(-50%); border:5px solid transparent; border-top-color:var(--border-strong)}
+.arrow-down.dim{background:var(--border)}
+.arrow-down.dim::after{border-top-color:var(--border)}
+
+/* Fork and merge for one parallel pair */
+.fork,.merge{position:relative; width:100%; height:34px}
+.fork .f-stem{position:absolute; top:0; left:50%; width:2px; height:14px; background:var(--border-strong); transform:translateX(-50%)}
+.fork .f-bar{position:absolute; top:14px; left:25%; right:25%; height:2px; background:var(--border-strong)}
+.fork .f-drop{position:absolute; top:14px; width:2px; height:18px; background:var(--border-strong)}
+.fork .f-drop.left{left:25%; transform:translateX(-50%)}
+.fork .f-drop.right{left:75%; transform:translateX(-50%)}
+.fork .f-drop::after{content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:var(--border-strong)}
+.merge .m-drop{position:absolute; top:0; width:2px; height:14px; background:var(--border-strong)}
+.merge .m-drop.left{left:25%; transform:translateX(-50%)}
+.merge .m-drop.right{left:75%; transform:translateX(-50%)}
+.merge .m-bar{position:absolute; top:14px; left:25%; right:25%; height:2px; background:var(--border-strong)}
+.merge .m-stem{position:absolute; top:14px; left:50%; width:2px; height:20px; background:var(--border-strong); transform:translateX(-50%)}
+.merge .m-stem::after{content:''; position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); border:5px solid transparent; border-top-color:var(--border-strong)}
+.branches{display:flex; gap:14px; align-items:flex-start}
+.branch{flex:1; display:flex; flex-direction:column; gap:8px}
+.branch-label{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); text-align:center; margin-bottom:2px}
+
+/* Gate: the check that closes a band */
+.gate{margin-top:12px; border:1.5px dashed var(--done); background:var(--done-bg); border-radius:var(--r); padding:8px 14px; font-size:11.5px; color:var(--ink-2); text-align:center}
+.gate b{color:var(--done)}
+.band-caption{font-size:11px; color:var(--ink-2); text-align:center; margin-top:12px; line-height:1.6}
+
+/* Parked strip */
+.parked-strip{background:var(--surface); border:1px solid var(--border); border-radius:var(--r); padding:10px 14px; color:var(--ink-3); font-size:11.5px; line-height:1.7; opacity:.75}
+.section.parked .section-title{opacity:.75}
+
+@media (max-width:760px){ .row, .branches{flex-direction:column} .head{flex-direction:column} }
+
+/* ===== SPECIMEN-ONLY: the reference sections below this line. Do not copy. ===== */
+.spec{margin-top:56px; padding-top:20px; border-top:1px solid var(--border-strong)}
+.spec h2{font-family:var(--sans); font-size:17px; margin-bottom:12px}
+.spec p, .spec li{font-family:var(--sans); font-size:13px; color:var(--ink-2); line-height:1.6}
+.spec ol, .spec ul{margin-left:20px}
+.spec li{margin:4px 0}
+.spec code{font-family:var(--mono); font-size:12px; color:var(--ink)}
+.swatches{display:grid; grid-template-columns:repeat(auto-fill,minmax(170px,1fr)); gap:10px; margin-bottom:22px}
+.sw{background:var(--surface); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; font-size:11px}
+.sw i{display:block; height:34px; background:var(--v)}
+.sw div{padding:6px 9px; color:var(--ink-2)}
+.cls{display:inline-block; font-size:10px; color:var(--ink-3); border:1px dashed var(--border-strong); border-radius:4px; padding:0 5px; margin-left:6px; vertical-align:2px; font-weight:400; letter-spacing:0; text-transform:none}
+</style>
+</head>
+<body>
+
+<header class="head">
+  <div>
+    <h1>IN-NNNN — the chain <span class="cls">h1</span></h1>
+    <p class="subtitle">foundation done → milestone 1 → milestone 2 (one parallel pair) → milestone 3 → parked <span class="cls">.subtitle</span></p>
+    <p class="stamp">Generated YYYY-MM-DD from the records. The records win if they disagree. Siblings: <a href="#">IN-NNNN.html</a> <span class="cls">.stamp</span></p>
+  </div>
+  <button id="theme" type="button">light / dark</button>
+</header>
+
+<div class="next">
+  <div class="next-title">Next actions <span class="cls">.next</span></div>
+  <ol>
+    <li><b>WK-0003</b> — one sentence: the action and why it unblocks the chain.</li>
+    <li><b>WK-0004</b> — one sentence.</li>
+    <li><b>Operator</b> — the one ruling that is waiting on you.</li>
+  </ol>
+</div>
+
+<section class="section">
+  <div class="section-title">Foundation — done <span class="cls">.section-title</span></div>
+  <div class="row">
+    <div class="card done">
+      <div class="cid">WK-0001</div>
+      <div class="ctitle">Work item title in plain words</div>
+      <div class="cmeta">merged abc1234 · one line of proof</div>
+      <span class="chip done">done</span>
+    </div>
+    <div class="card done">
+      <div class="cid">WK-0002</div>
+      <div class="ctitle">Second foundation item</div>
+      <div class="cmeta">merged def5678</div>
+      <span class="chip done">done</span>
+    </div>
+  </div>
+</section>
+
+<div class="arrow-down"></div>
+
+<section class="section">
+  <div class="section-title">M1 — in build order</div>
+  <div class="row single">
+    <div class="card prog">
+      <div class="cid">1 · WK-0003 — IN PROGRESS <span class="cls">.card.prog</span></div>
+      <div class="ctitle">The item being built now</div>
+      <div class="cmeta">slice 1 of 3 merged · next slice named here</div>
+      <span class="chip prog">in progress</span>
+    </div>
+  </div>
+  <div class="arrow-down"></div>
+  <div class="row single">
+    <div class="card accent">
+      <div class="cid">2 · WK-0004 — NEXT <span class="cls">.card.accent</span></div>
+      <div class="ctitle">The one item that starts when the one above lands</div>
+      <span class="chip accent">next</span>
+    </div>
+  </div>
+  <div class="gate"><b>Gate:</b> the one check that closes M1, stated as a pass/fail test <span class="cls">.gate</span></div>
+</section>
+
+<div class="arrow-down"></div>
+
+<section class="section">
+  <div class="section-title">M2 — one parallel pair</div>
+  <div class="row single">
+    <div class="card todo">
+      <div class="cid">WK-0005</div>
+      <div class="ctitle">The item both branches depend on</div>
+      <span class="chip todo">todo</span>
+    </div>
+  </div>
+  <div class="fork"><div class="f-stem"></div><div class="f-bar"></div><div class="f-drop left"></div><div class="f-drop right"></div></div>
+  <div class="branches">
+    <div class="branch">
+      <div class="branch-label">branch a <span class="cls">.branch-label</span></div>
+      <div class="card todo"><div class="cid">WK-0006</div><div class="ctitle">Left branch item</div><span class="chip todo">todo</span></div>
+    </div>
+    <div class="branch">
+      <div class="branch-label">branch b</div>
+      <div class="card blocked"><div class="cid">WK-0007 <span class="cls">.card.blocked</span></div><div class="ctitle">Right branch item</div><div class="cmeta">blocked on: the named cause</div><span class="chip blocked">blocked</span></div>
+    </div>
+  </div>
+  <div class="merge"><div class="m-drop left"></div><div class="m-drop right"></div><div class="m-bar"></div><div class="m-stem"></div></div>
+  <div class="row single">
+    <div class="card todo"><div class="cid">WK-0008</div><div class="ctitle">The item that needs both branches</div><span class="chip todo">todo</span></div>
+  </div>
+  <div class="band-caption">One line on what closes this band. <span class="cls">.band-caption</span></div>
+</section>
+
+<div class="arrow-down dim"></div>
+
+<section class="section parked">
+  <div class="section-title">Parked</div>
+  <div class="parked-strip">WK-0009 · WK-0010 · WK-0011 <span class="cls">.parked-strip</span></div>
+</section>
+
+<!-- ===== SPECIMEN-ONLY ===== -->
+<section class="spec">
+  <h2>Palette</h2>
+  <div class="swatches">
+    <div class="sw" style="--v:var(--bg)"><i></i><div>--bg · page</div></div>
+    <div class="sw" style="--v:var(--surface)"><i></i><div>--surface · card</div></div>
+    <div class="sw" style="--v:var(--border-strong)"><i></i><div>--border-strong · arrows, todo stripe</div></div>
+    <div class="sw" style="--v:var(--ink)"><i></i><div>--ink · titles</div></div>
+    <div class="sw" style="--v:var(--ink-2)"><i></i><div>--ink-2 · meta</div></div>
+    <div class="sw" style="--v:var(--ink-3)"><i></i><div>--ink-3 · labels</div></div>
+    <div class="sw" style="--v:var(--done)"><i></i><div>--done</div></div>
+    <div class="sw" style="--v:var(--prog)"><i></i><div>--prog · in progress</div></div>
+    <div class="sw" style="--v:var(--blocked)"><i></i><div>--blocked</div></div>
+    <div class="sw" style="--v:var(--queued)"><i></i><div>--queued</div></div>
+    <div class="sw" style="--v:var(--accent)"><i></i><div>--accent · ids, next</div></div>
+  </div>
+
+  <h2>Rules</h2>
+  <ol>
+    <li>One page covers one initiative. It shows done work collapsed at the top, the next items in build order, and parked work as one strip at the bottom.</li>
+    <li>Order comes from <code>depends_on</code>, never from dates or ids. A band is a milestone. Arrows run top to bottom only.</li>
+    <li>Status is the 3px stripe on the card and the chip. Never tint the whole card. One color means one status on every page.</li>
+    <li>Exactly one card carries <code>.accent</code> ("next") per band. More than one means the order is not decided.</li>
+    <li>Use the fork and merge only for a real parallel pair. Show at most one fork per band. More branches means the band needs splitting.</li>
+    <li>Each card holds an id, a plain title of one line, and at most one meta line of proof (a commit, a count). Reasoning stays in the records.</li>
+    <li>Each band that has a gate shows it in <code>.gate</code>: one pass/fail sentence.</li>
+    <li>The next-actions callout holds at most five items. Each item names who acts.</li>
+    <li>Code generates the page from the records. The stamp says when, and says that the records win.</li>
+    <li>Mono font for the page, sans font for titles and the h1. No shadows, no gradients except the grid paper.</li>
+    <li>Test both themes. The layout collapses to one column below 760px.</li>
+  </ol>
+</section>
+
+<script>
+  document.getElementById('theme').addEventListener('click', function () {
+    var r = document.documentElement;
+    var t = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', t);
+    try { localStorage.setItem('chain-theme', t); } catch (_) {}
+  });
+</script>
+</body>
+</html>

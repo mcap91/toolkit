@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science report style — the question this page answers</title>
+<script>
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('report-theme'); } catch (_) {}
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
+<style>
+  /* Science report style. Copy everything from here to the SPECIMEN-ONLY marker. Replace the content.
+     Rules are at the bottom of this page. */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --font-sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+    --radius: 10px;
+  }
+  /* Semantic color slots:
+     --trunk = primary series (the thing we back)   --head = comparison series
+     --good / --bad = verdict colors only, never series colors
+     --conv / --rand = de-emphasized or placeholder elements */
+  html[data-theme="dark"] {
+    --bg: #0f1117; --card: #1a1d27; --card2: #1f2231;
+    --border: rgba(255,255,255,0.10);
+    --text: #e8e8ed; --text2: #a3a3b3; --muted: #6b6b7b;
+    --trunk: #3987e5; --trunk-bg: rgba(57,135,229,0.14);
+    --head: #f29a3a; --head-bg: rgba(242,154,58,0.14);
+    --conv: #9b9bab; --conv-bg: rgba(155,155,171,0.10);
+    --rand: #6b6b7b; --rand-bg: rgba(255,255,255,0.03);
+    --good: #2fb344; --bad: #e05252;
+  }
+  html[data-theme="light"] {
+    --bg: #f4f5f7; --card: #ffffff; --card2: #f9fafb;
+    --border: rgba(0,0,0,0.12);
+    --text: #0f1117; --text2: #52514e; --muted: #898781;
+    --trunk: #1f6fd1; --trunk-bg: rgba(31,111,209,0.10);
+    --head: #c96f10; --head-bg: rgba(201,111,16,0.10);
+    --conv: #6b6b7b; --conv-bg: rgba(0,0,0,0.04);
+    --rand: #898781; --rand-bg: rgba(0,0,0,0.02);
+    --good: #138a28; --bad: #c43030;
+  }
+
+  body {
+    font-family: var(--font-sans); font-size: 18px; line-height: 1.55;
+    background: var(--bg); color: var(--text);
+    padding: 40px 24px 80px;
+  }
+  main { max-width: 980px; margin: 0 auto; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 56px; }
+  h1 { font-size: 34px; line-height: 1.2; }
+  .sub { color: var(--text2); margin-top: 8px; }
+  h2 { font-size: 26px; margin-bottom: 6px; }
+  .lead { color: var(--text2); margin-bottom: 28px; }
+  section { margin-bottom: 80px; }
+  code, .mono { font-family: var(--font-mono); font-size: 0.88em; }
+  a { color: var(--trunk); }
+  #theme {
+    background: var(--card); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 14px; font-size: 15px; cursor: pointer; white-space: nowrap;
+  }
+
+  /* ---------- flow: vertical box-arrow diagram ---------- */
+  .flow { display: flex; flex-direction: column; align-items: flex-start; }
+  .step { display: grid; grid-template-columns: 360px 1fr; gap: 28px; align-items: center; width: 100%; }
+  .box {
+    border: 2px solid var(--border); border-radius: var(--radius);
+    background: var(--card); padding: 16px 20px; text-align: center;
+  }
+  .box .name { font-weight: 700; font-size: 20px; letter-spacing: 0.02em; }
+  .box .knobs { display: inline-block; margin-top: 6px; font-size: 15px; padding: 2px 10px; border-radius: 99px; background: rgba(128,128,128,0.15); }
+  .box.data { border-style: dashed; }
+  .box.trunk { border-color: var(--trunk); background: var(--trunk-bg); padding: 28px 20px; }
+  .box.trunk .name { color: var(--trunk); font-size: 24px; }
+  .box.head { border-color: var(--head); background: var(--head-bg); }
+  .box.head .name { color: var(--head); font-size: 22px; }
+  .box.conv { border-color: var(--conv); background: var(--conv-bg); border-style: dashed; }
+  .box.out { border-color: var(--good); }
+  .why { color: var(--text2); }
+  .why b { color: var(--text); }
+  .arrow { width: 360px; text-align: center; color: var(--muted); font-size: 26px; line-height: 1; padding: 6px 0; position: relative; }
+  .arrow small { position: absolute; left: 50%; margin-left: 22px; top: 10px; font-size: 14px; white-space: nowrap; }
+
+  /* ---------- comparison rows: setups side by side ---------- */
+  .legend { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 22px; font-size: 16px; color: var(--text2); }
+  .legend i { display: inline-block; width: 18px; height: 18px; border-radius: 4px; vertical-align: -3px; margin-right: 6px; }
+  .models { display: flex; flex-direction: column; gap: 14px; }
+  .model {
+    display: grid; grid-template-columns: 230px 1fr 34px 1fr 150px; align-items: center; gap: 10px;
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px;
+  }
+  .model .mname { font-family: var(--font-mono); font-size: 15px; font-weight: 700; }
+  .model .mname div { font-family: var(--font-sans); font-weight: 400; color: var(--text2); font-size: 14px; margin-top: 2px; }
+  .blk { border-radius: 8px; padding: 10px 12px; border: 2px solid; font-size: 15px; line-height: 1.3; text-align: center; }
+  .blk b { display: block; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.8; margin-bottom: 2px; }
+  .blk.rand { border-color: var(--rand); border-style: dashed; background: var(--rand-bg); color: var(--text2); }
+  .blk.trunkc { border-color: var(--trunk); background: var(--trunk-bg); }
+  .blk.headc { border-color: var(--head); background: var(--head-bg); }
+  .plus { text-align: center; color: var(--muted); font-size: 22px; }
+  .tags { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+  .tag { padding: 3px 8px; border-radius: 6px; text-align: center; }
+  .tag.yes { background: rgba(47,179,68,0.14); color: var(--good); }
+  .tag.no  { background: rgba(224,82,82,0.12); color: var(--bad); }
+  .tag.dim { background: rgba(128,128,128,0.12); color: var(--text2); }
+  .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+  .note { background: var(--card2); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; font-size: 16px; color: var(--text2); }
+  .note b { color: var(--text); display: block; margin-bottom: 4px; }
+
+  /* ---------- results: labeled bars + reference line, table, takeaways ---------- */
+  .bars { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 24px 16px; }
+  .bar-row { display: grid; grid-template-columns: 230px 1fr; gap: 14px; align-items: center; margin-bottom: 14px; }
+  .bar-row .mono { font-weight: 700; }
+  .track { position: relative; height: 34px; }
+  .fill { height: 100%; border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px; font-family: var(--font-mono); font-weight: 700; font-size: 15px; color: #fff; }
+  .ref { position: absolute; top: -8px; bottom: -8px; border-left: 2px dashed var(--text2); }
+  .axis { display: grid; grid-template-columns: 230px 1fr; gap: 14px; font-size: 14px; color: var(--text2); }
+  .axis div:last-child { position: relative; height: 22px; }
+  .axis span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  table { width: 100%; border-collapse: collapse; margin-top: 24px; font-size: 16px; background: var(--card); border-radius: var(--radius); overflow: hidden; }
+  th, td { padding: 10px 14px; text-align: right; border-bottom: 1px solid var(--border); }
+  th:first-child, td:first-child { text-align: left; font-family: var(--font-mono); font-size: 15px; }
+  th { color: var(--text2); font-weight: 600; font-size: 15px; }
+  td.best { color: var(--good); font-weight: 700; }
+  td.worse { color: var(--bad); }
+  tr.chosen td { background: rgba(47,179,68,0.12); font-weight: 700; }
+  .takeaways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 22px; }
+  .take { border-left: 4px solid var(--trunk); background: var(--card2); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; font-size: 16px; }
+  .take.warn { border-left-color: var(--head); }
+
+  /* ---------- mechanism: equation + two panels + dot rail ---------- */
+  .eq { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 16px; }
+  .eq .term { text-align: center; }
+  .eq .val { font-family: var(--font-mono); font-size: 28px; font-weight: 700; padding: 8px 16px; border-radius: 8px; border: 2px solid var(--border); }
+  .eq .lbl { font-size: 14px; color: var(--text2); margin-top: 6px; }
+  .eq .op { font-size: 28px; color: var(--muted); }
+  .eq .v-head { border-color: var(--head); color: var(--head); }
+  .eq .v-out { border-color: var(--good); color: var(--good); }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+  .panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; font-size: 16px; }
+  .panel h3 { font-size: 18px; margin-bottom: 8px; }
+  .panel.rule { border: 2px solid var(--good); }
+  /* Dot rail: two values per row on one shared scale. Shows a gap, not a total. */
+  .lines { margin-top: 12px; }
+  .line { display: grid; grid-template-columns: 44px 1fr; align-items: center; gap: 8px; height: 34px; }
+  .line .mono { font-weight: 700; font-size: 14px; }
+  .rail { position: relative; height: 2px; background: var(--border); }
+  .dot { position: absolute; top: -8px; width: 18px; height: 18px; border-radius: 50%; transform: translateX(-50%); }
+  .dot.a { background: var(--trunk); }
+  .dot.b { background: var(--head); }
+  .scale { display: grid; grid-template-columns: 44px 1fr; gap: 8px; font-size: 13px; color: var(--text2); }
+  .scale div:last-child { position: relative; height: 18px; }
+  .scale span { position: absolute; transform: translateX(-50%); }
+
+  /* ---------- words: glossary grid ---------- */
+  .words { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .word { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 18px; font-size: 16px; color: var(--text2); }
+  .word b { display: block; color: var(--text); font-size: 18px; margin-bottom: 4px; }
+
+  /* ---------- verdict + limits ---------- */
+  .next { background: var(--card); border: 2px dashed var(--trunk); border-radius: var(--radius); padding: 20px 22px; }
+  .limits { margin-top: 14px; background: var(--card2); border: 1px solid var(--border); border-left: 4px solid var(--head); border-radius: 0 var(--radius) var(--radius) 0; padding: 14px 18px; font-size: 16px; color: var(--text2); }
+  .limits b { color: var(--text); }
+  footer { color: var(--text2); font-size: 15px; border-top: 1px solid var(--border); padding-top: 20px; }
+  footer a { margin-right: 14px; white-space: nowrap; }
+
+  @media (max-width: 860px) {
+    .step { grid-template-columns: 1fr; gap: 8px; }
+    .arrow { width: 100%; }
+    .model { grid-template-columns: 1fr; }
+    .plus { display: none; }
+    .notes, .takeaways, .two, .words { grid-template-columns: 1fr; }
+    .bar-row, .axis { grid-template-columns: 1fr; }
+  }
+
+  /* ===== SPECIMEN-ONLY: palette and rules sections. Do not copy. ===== */
+  .spec { border-top: 1px solid var(--border); padding-top: 28px; }
+  .spec h2 { font-size: 22px; margin-bottom: 14px; }
+  .spec h3 { font-size: 17px; margin: 22px 0 8px; }
+  .spec ol, .spec ul { margin-left: 22px; color: var(--text2); font-size: 16px; }
+  .spec li { margin: 5px 0; }
+  .spec li b { color: var(--text); }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .sw { background: var(--card); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 13px; color: var(--text2); }
+  .sw i { display: block; height: 36px; background: var(--v); }
+  .sw div { padding: 6px 9px; }
+  .cls { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 400; color: var(--muted); border: 1px dashed var(--border); border-radius: 4px; padding: 0 5px; margin-left: 6px; vertical-align: 3px; letter-spacing: 0; text-transform: none; }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div>
+    <h1>The question this page answers, as one sentence</h1>
+    <p class="sub">What ran, when, and how much. One sentence of scope.</p>
+  </div>
+  <button id="theme" type="button">Light / dark</button>
+</header>
+
+<!-- 1. FLOW: how it works. Each box pairs with a one-line "why". -->
+<section>
+  <h2>1. How it works <span class="cls">.flow .step .box .why .arrow</span></h2>
+  <p class="lead">One sentence framing the diagram.</p>
+  <div class="flow">
+    <div class="step">
+      <div class="box data"><div class="name">Input</div></div>
+      <div class="why"><b>What it is.</b> One line. <span class="cls">.box.data</span></div>
+    </div>
+    <div class="arrow">↓<small>step label</small></div>
+    <div class="step">
+      <div class="box trunk"><div class="name">MAIN STAGE</div><div>what it does</div><div class="knobs">size or scale</div></div>
+      <div class="why"><b>Why it matters.</b> One or two lines. <span class="cls">.box.trunk</span></div>
+    </div>
+    <div class="arrow">↓</div>
+    <div class="step">
+      <div class="box head"><div class="name">Comparison stage</div></div>
+      <div class="why">The alternative being tested. <span class="cls">.box.head</span></div>
+    </div>
+    <div class="arrow">↓</div>
+    <div class="step">
+      <div class="box out"><div class="name">Output</div></div>
+      <div class="why">What comes out. <span class="cls">.box.out</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. WHAT VARIED: the compared setups, one row each. -->
+<section>
+  <h2>2. What varied <span class="cls">.models .model .blk .tag</span></h2>
+  <p class="lead">The only difference between the rows is X.</p>
+  <div class="legend">
+    <span><i style="background:var(--trunk-bg);border:2px solid var(--trunk)"></i>primary setup</span>
+    <span><i style="background:var(--head-bg);border:2px solid var(--head)"></i>comparison setup</span>
+    <span><i style="background:var(--rand-bg);border:2px dashed var(--rand)"></i>placeholder part</span>
+  </div>
+  <div class="models">
+    <div class="model">
+      <div class="mname">setup_a<div>one-line description</div></div>
+      <div class="blk trunkc"><b>Part</b>value</div>
+      <div class="plus">→</div>
+      <div class="blk rand"><b>Part</b>value</div>
+      <div class="tags"><span class="tag yes">property</span><span class="tag dim">property</span></div>
+    </div>
+    <div class="model">
+      <div class="mname">setup_b<div>one-line description</div></div>
+      <div class="blk headc"><b>Part</b>value</div>
+      <div class="plus">→</div>
+      <div class="blk rand"><b>Part</b>value</div>
+      <div class="tags"><span class="tag no">property</span><span class="tag dim">property</span></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div class="note"><b>Clarification.</b>One misconception, corrected. <span class="cls">.note</span></div>
+  </div>
+</section>
+
+<!-- 3. RESULTS: labeled bars + reference line, full table, 3 takeaways (>=1 warn). -->
+<section>
+  <h2>3. Results <span class="cls">.bars .ref table .takeaways</span></h2>
+  <p class="lead">Metric name. <b>Lower is better.</b> Reference line = what guessing scores.</p>
+  <div class="bars">
+    <div class="bar-row">
+      <div class="mono">setup_a</div>
+      <div class="track"><div class="fill" style="width:48%;background:var(--trunk)">0.77</div><div class="ref" style="left:62.5%"></div></div>
+    </div>
+    <div class="bar-row">
+      <div class="mono">setup_b</div>
+      <div class="track"><div class="fill" style="width:58%;background:var(--head)">0.93</div><div class="ref" style="left:62.5%"></div></div>
+    </div>
+    <div class="axis"><div></div><div><span style="left:0%">0</span><span style="left:62.5%">1.0 = guessing</span></div></div>
+  </div>
+  <table>
+    <thead><tr><th>Setup</th><th>Metric (lower is better)</th><th>Spread (95% CI)</th></tr></thead>
+    <tbody>
+      <tr class="chosen"><td>setup_a ✓ chosen</td><td class="best">0.77</td><td>0.71–0.83</td></tr>
+      <tr><td>setup_b</td><td class="worse">0.93</td><td>0.86–1.00</td></tr>
+    </tbody>
+  </table>
+  <div class="takeaways">
+    <div class="take"><b>Finding.</b> One fact and its number. <span class="cls">.take</span></div>
+    <div class="take"><b>Finding.</b> One fact and its number.</div>
+    <div class="take warn"><b>Limit.</b> One run each, no seeds. What that caps the claim at. <span class="cls">.take.warn</span></div>
+  </div>
+</section>
+
+<!-- 4. MECHANISM (optional): the one step a reader will ask about. -->
+<section>
+  <h2>4. Mechanism <span class="cls">.eq .two .panel .rail .dot</span></h2>
+  <p class="lead">The one step a reader will ask about, as an equation and two panels.</p>
+  <div class="eq">
+    <div class="term"><div class="val">2.10</div><div class="lbl">term one</div></div>
+    <div class="op">+</div>
+    <div class="term"><div class="val v-head">0.40</div><div class="lbl">term two</div></div>
+    <div class="op">=</div>
+    <div class="term"><div class="val v-out">2.50</div><div class="lbl">result</div></div>
+  </div>
+  <div class="two">
+    <div class="panel">
+      <h3>Gap between two values, per group</h3>
+      <div><span style="color:var(--trunk)">● measured</span> vs <span style="color:var(--head)">● predicted</span></div>
+      <div class="lines">
+        <div class="line"><span class="mono">g1</span><div class="rail"><span class="dot a" style="left:24%"></span><span class="dot b" style="left:73%"></span></div></div>
+        <div class="line"><span class="mono">g2</span><div class="rail"><span class="dot a" style="left:43%"></span><span class="dot b" style="left:72%"></span></div></div>
+        <div class="line"><span class="mono">g3</span><div class="rail"><span class="dot a" style="left:51%"></span><span class="dot b" style="left:78%"></span></div></div>
+        <div class="scale"><div></div><div><span style="left:0%">0</span><span style="left:50%">5</span><span style="left:100%">10</span></div></div>
+      </div>
+    </div>
+    <div class="panel rule">
+      <h3>The rule this sets <span class="cls">.panel.rule</span></h3>
+      <p>One sentence: what we now do, because of the panel on the left.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. WORDS: plain glossary. -->
+<section>
+  <h2>5. Words <span class="cls">.words .word</span></h2>
+  <div class="words">
+    <div class="word"><b>Term</b>Plain definition in two lines.</div>
+    <div class="word"><b>Term</b>Plain definition in two lines.</div>
+    <div class="word"><b>Term</b>Plain definition in two lines.</div>
+  </div>
+</section>
+
+<!-- 6. VERDICT + LIMITS -->
+<section>
+  <div class="next">
+    <h2 style="font-size:22px">The chosen outcome, as one sentence <span class="cls">.next</span></h2>
+    <p>Why, with the number. Then the open weaknesses, named.</p>
+  </div>
+  <div class="limits"><b>Limits.</b> Sample size. Who wrote the test. What was not measured. <span class="cls">.limits</span></div>
+</section>
+
+<!-- ===== SPECIMEN-ONLY ===== -->
+<section class="spec">
+  <h2>Palette</h2>
+  <div class="swatches">
+    <div class="sw" style="--v:var(--trunk)"><i></i><div>--trunk · primary series</div></div>
+    <div class="sw" style="--v:var(--head)"><i></i><div>--head · comparison</div></div>
+    <div class="sw" style="--v:var(--good)"><i></i><div>--good · verdict only</div></div>
+    <div class="sw" style="--v:var(--bad)"><i></i><div>--bad · verdict only</div></div>
+    <div class="sw" style="--v:var(--conv)"><i></i><div>--conv · de-emphasized</div></div>
+    <div class="sw" style="--v:var(--rand)"><i></i><div>--rand · placeholder</div></div>
+    <div class="sw" style="--v:var(--card)"><i></i><div>--card</div></div>
+    <div class="sw" style="--v:var(--text2)"><i></i><div>--text2 · secondary text</div></div>
+  </div>
+
+  <h2 style="margin-top:36px">Rules</h2>
+  <p style="color:var(--text2);font-size:16px">For a public-facing results page: an experiment report, an eval, a benchmark. Add rules with a date. Do not remove a rule without a note.</p>
+
+  <h3>Voice</h3>
+  <ol>
+    <li>Write for a busy reader with no project context. The first pass must land.</li>
+    <li>Follow the write-plain rules: active voice, short sentences, no em dashes, no semicolons, no filler. Instructions 20 words max. Descriptions 25 words max.</li>
+    <li>Define every term of art once, in place or in the Words section. If a reader needs a wiki, a record id, or an internal code name to follow a sentence, rewrite the sentence.</li>
+    <li>One claim per takeaway card. A card states the fact and the number, nothing else.</li>
+    <li>Label every number as <b>measured</b> or <b>estimate</b>. Never blend them in one figure.</li>
+    <li>State what did not work as prominently as what worked. Use a <code>.take.warn</code> card. A report with no warn card reads as marketing.</li>
+    <li>Put the honest limits (sample size, who wrote the test, what was not measured) in <code>.limits</code> near the verdict, not in a footnote.</li>
+    <li>Every metric names its direction at first use: "lower is better" or "higher is better".</li>
+    <li>Report spread when runs repeat: a range, or a 95% CI. One run gets a "one run, no seeds" warn card.</li>
+    <li>Sources close the page: a footer of links to the records and raw artifacts behind every number.</li>
+  </ol>
+
+  <h3>Page shape (section order)</h3>
+  <ol>
+    <li><b>Header</b>: the question the page answers, as one sentence. Subtitle: what ran, when, how much.</li>
+    <li><b>Flow</b>: how the thing works, as a vertical box-arrow diagram. Each box pairs with a one-line "why".</li>
+    <li><b>What varied</b>: the compared setups, one row each, same grid, differences highlighted.</li>
+    <li><b>Results</b>: bars with a reference line, then the full table, then 3 takeaway cards (at least one warn).</li>
+    <li><b>Mechanism</b> (optional): the one step a reader will ask about, as an equation or two panels.</li>
+    <li><b>Words</b>: a glossary grid. Plain definitions, two lines each.</li>
+    <li><b>Verdict</b>: the chosen outcome in the dashed <code>.next</code> box, with the why, then the limits block.</li>
+    <li><b>Outside comparison</b> (optional): our number vs a published number, and why they differ.</li>
+    <li><b>Footer</b>: linked sources and records.</li>
+  </ol>
+
+  <h3>Visual rules</h3>
+  <ul>
+    <li>Light and dark themes via <code>data-theme</code> on <code>&lt;html&gt;</code>, toggle in the header. Test both.</li>
+    <li>Two series colors: <code>--trunk</code> (the thing we back) and <code>--head</code> (the comparison). <code>--good</code> and <code>--bad</code> are verdict colors only, never series colors.</li>
+    <li>The blue-orange pair passes the colorblind checks but sits above the dark-mode lightness band. That is acceptable only because every bar prints its value on the mark. Keep direct value labels. Do not add a third unlabeled series.</li>
+    <li>Bars carry a dashed reference line where "no better than guessing" sits, labeled on the axis.</li>
+    <li>Use a dot rail, not bars, to show a gap between two values on one scale.</li>
+    <li>Tables mark the best cell green, the worst red, and the chosen row with a green wash and a check.</li>
+    <li>Max three takeaway cards per results block. Three columns on desktop, one on mobile.</li>
+    <li>No dual axes. No rainbow palettes. Label points selectively, not every point.</li>
+  </ul>
+
+  <h3>Checks before publishing</h3>
+  <ul>
+    <li>Zero internal vocabulary (record prefixes, tool names, seat names, project names) outside the footer.</li>
+    <li>Every claim traces to a linked source or a named artifact path.</li>
+    <li>Estimates labeled as estimates, with the assumption next to the number.</li>
+    <li>At least one warn card. Limits block present.</li>
+    <li><code>grep -nPi '[\x{2013}\x{2014}]|;|\b(leverag|utiliz|robust|seamless)' &lt;file&gt;</code> is clean outside code and CSS.</li>
+    <li>Both themes render. The mobile grid collapses.</li>
+  </ul>
+</section>
+
+<footer>
+  Sources:
+  <a href="#">record or artifact</a>
+  <a href="#">raw capture</a>
+</footer>
+
+</main>
+<script>
+  document.getElementById('theme').addEventListener('click', function () {
+    var r = document.documentElement;
+    var t = r.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    r.setAttribute('data-theme', t);
+    try { localStorage.setItem('report-theme', t); } catch (_) {}
+  });
+</script>
+</body>
+</html>
