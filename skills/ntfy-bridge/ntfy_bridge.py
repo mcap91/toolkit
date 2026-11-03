@@ -21,6 +21,7 @@ from datetime import date
 DEFAULT_REGISTRY_PATH = os.path.expanduser("~/.config/ntfy-bridge/channels.json")
 DEFAULT_SERVER = "https://ntfy.sh"
 CACHE_WINDOW_SECONDS = 43200  # ntfy.sh observed cache window (12h)
+DEFAULT_WAIT_INTERVAL_MINUTES = 20
 
 # Fixed precedence, low to high priority in iteration order below (first match wins).
 PRECEDENCE_ORDER = ["STOP", "FINISH UP", "PAUSE", "APPROVE", "CONTINUE", "STATUS"]
@@ -33,7 +34,7 @@ class NtfyBridgeError(Exception):
     """A user-facing error: unknown channel, wrong mode, bad input."""
 
 
-# --- vocabulary parser (Decision 7, pure function) -------------------------
+# --- vocabulary parser (pure function) --------------------------------------
 
 def normalize(text):
     text = text.strip()
@@ -281,30 +282,39 @@ def cmd_ask(args, registry_path, server, post_fn):
     return 0
 
 
+def _do_poll(entry, name, server, get_fn, now):
+    """One poll of a channel's reply topic: request, dedup, prune, parse, pick
+    the word acted on by precedence, mutate `entry` in place, return the
+    result dict. The only poll logic in the script; `poll` and `wait` both
+    call this so they can never drift apart.
+    """
+    _require_two_way(entry, name, "poll")
+    since = entry["cursor"]["since"]
+    url = f"{server}/{entry['reply_topic']}/json?poll=1&since={since}"
+    status, body = get_fn(url)
+    pending = entry.get("pending")
+    pending_code = pending["code"] if pending else None
+    new_cursor, matched, acted_on, superseded, unrecognized = process_poll(
+        body.decode("utf-8"), entry["cursor"], pending_code, now=now
+    )
+    entry["cursor"] = new_cursor
+    approved = acted_on is not None and acted_on.startswith("APPROVE ")
+    if approved:
+        entry["pending"] = None
+    entry["unrecognized_total"] = entry.get("unrecognized_total", 0) + unrecognized
+    return {
+        "matched": matched,
+        "acted_on": acted_on,
+        "superseded": superseded,
+        "unrecognized": unrecognized,
+        "unrecognized_total": entry["unrecognized_total"],
+    }
+
+
 def cmd_poll(args, registry_path, server, get_fn):
     def fn(data):
         entry = _require_channel(data, args.name)
-        _require_two_way(entry, args.name, "poll")
-        since = entry["cursor"]["since"]
-        url = f"{server}/{entry['reply_topic']}/json?poll=1&since={since}"
-        status, body = get_fn(url)
-        pending = entry.get("pending")
-        pending_code = pending["code"] if pending else None
-        new_cursor, matched, acted_on, superseded, unrecognized = process_poll(
-            body.decode("utf-8"), entry["cursor"], pending_code, now=time.time()
-        )
-        entry["cursor"] = new_cursor
-        approved = acted_on is not None and acted_on.startswith("APPROVE ")
-        if approved:
-            entry["pending"] = None
-        entry["unrecognized_total"] = entry.get("unrecognized_total", 0) + unrecognized
-        return {
-            "matched": matched,
-            "acted_on": acted_on,
-            "superseded": superseded,
-            "unrecognized": unrecognized,
-            "unrecognized_total": entry["unrecognized_total"],
-        }
+        return _do_poll(entry, args.name, server, get_fn, now=time.time())
 
     try:
         result = transact(registry_path, fn)
@@ -312,6 +322,81 @@ def cmd_poll(args, registry_path, server, get_fn):
         raise NtfyBridgeError(f"poll failed: {e}") from e
     print(json.dumps(result, indent=2, sort_keys=True))
     return 0
+
+
+# --- wait: the blocking poll loop -------------------------------------------
+
+def _classify_error(exc):
+    """Sort a wait-loop failure: "transient" keeps waiting, "permanent" stops.
+    Connection errors, timeouts, HTTP 5xx, and HTTP 429 are transient; every
+    other failure (other HTTP 4xx, bad config, a corrupt registry, an unknown
+    or one-way channel) is permanent.
+    """
+    if isinstance(exc, urllib.error.HTTPError):
+        return "transient" if exc.code == 429 or 500 <= exc.code < 600 else "permanent"
+    if isinstance(exc, (TimeoutError, urllib.error.URLError, OSError)):
+        return "transient"
+    return "permanent"
+
+
+def _error_label(exc):
+    """Stderr label for a transient failure: error class and HTTP status only."""
+    if isinstance(exc, urllib.error.HTTPError):
+        return f"http {exc.code}"
+    if isinstance(exc, TimeoutError):
+        return "timeout"
+    return "connection error"
+
+
+def _resolve_wait_interval(flag_value, entry):
+    interval = flag_value if flag_value is not None else entry.get("interval_minutes")
+    if interval is None:
+        interval = DEFAULT_WAIT_INTERVAL_MINUTES
+    if interval <= 0:
+        raise NtfyBridgeError(f"invalid interval: {interval} (must be a positive number of minutes)")
+    return interval
+
+
+def _stamp(epoch_seconds):
+    return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(epoch_seconds))
+
+
+def cmd_wait(args, registry_path, server, get_fn, sleep_fn, time_fn):
+    try:
+        data = read_registry(registry_path)
+        entry = _require_channel(data, args.name)
+        _require_two_way(entry, args.name, "wait")
+        interval = _resolve_wait_interval(args.interval, entry)
+    except NtfyBridgeError:
+        raise
+    except Exception as e:
+        raise NtfyBridgeError(str(e)) from e
+
+    def fn(data):
+        entry = _require_channel(data, args.name)
+        return _do_poll(entry, args.name, server, get_fn, now=time_fn())
+
+    while True:
+        try:
+            result = transact(registry_path, fn)
+        except Exception as e:
+            if _classify_error(e) == "permanent":
+                raise NtfyBridgeError(str(e)) from e
+            print(f"{_stamp(time_fn())} transient: {_error_label(e)}", file=sys.stderr, flush=True)
+            sleep_fn(interval * 60)
+            continue
+
+        now = time_fn()
+        print(
+            f"{_stamp(now)} channel={args.name} matched={len(result['matched'])} "
+            f"unrecognized={result['unrecognized']} next_poll={_stamp(now + interval * 60)}",
+            file=sys.stderr,
+            flush=True,
+        )
+        if result["acted_on"] is not None:
+            print(json.dumps(result, indent=2, sort_keys=True))
+            return 0
+        sleep_fn(interval * 60)
 
 
 # --- CLI ---------------------------------------------------------------------
@@ -346,10 +431,14 @@ def build_parser():
     p = sub.add_parser("poll")
     p.add_argument("--name", required=True)
 
+    p = sub.add_parser("wait")
+    p.add_argument("--name", required=True)
+    p.add_argument("--interval", type=float, default=None)
+
     return parser
 
 
-def main(argv=None, *, http_get=http_get, http_post=http_post):
+def main(argv=None, *, http_get=http_get, http_post=http_post, sleep_fn=time.sleep, time_fn=time.time):
     parser = build_parser()
     args = parser.parse_args(argv)
 
@@ -369,6 +458,8 @@ def main(argv=None, *, http_get=http_get, http_post=http_post):
             return cmd_ask(args, registry_path, server, http_post)
         if args.command == "poll":
             return cmd_poll(args, registry_path, server, http_get)
+        if args.command == "wait":
+            return cmd_wait(args, registry_path, server, http_get, sleep_fn, time_fn)
         raise NtfyBridgeError(f"unknown command: {args.command}")
     except NtfyBridgeError as e:
         print(f"error: {e}", file=sys.stderr)

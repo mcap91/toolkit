@@ -16,14 +16,10 @@ python3 <path-to-this-skill>/ntfy_bridge.py list
 python3 <path-to-this-skill>/ntfy_bridge.py create --name NAME --mode one-way --purpose "..." --repo "..."
 ```
 
-The `wait` subcommand (the blocking poll loop, Decision 9) is not implemented yet — it ships in a later
-handoff, gated on a background-command probe. Until then, the two-way loop below is run by hand: `poll`
-once per wake-up, never scheduled by the agent itself.
-
 ## Mode choice
 
 Pipeline, job, or run means one-way. Unattended session, or "I want to reply", means two-way. Unclear
-means ask the operator. (Decision 4.)
+means ask the operator.
 
 ## Setup flow
 
@@ -38,8 +34,6 @@ means ask the operator. (Decision 4.)
 6. Wait for the operator to confirm receipt at the terminal before leaving the session unattended. Do
    not proceed to unattended operation on silence here — this confirmation is not a veto window.
 
-(Decision 3, AC2.)
-
 ## One-way wiring
 
 One-way pipelines do not call the script. Setup wires an env var holding the topic plus an inline
@@ -52,17 +46,32 @@ curl -s -m 10 -H "Title: <title>" -H "Priority: <priority>" -d "<body>" "https:/
 
 Use default priority for routine milestones (start, in-progress milestones); use `Priority: high` for
 failure and done — it buzzes through phone defaults. A failed notification is logged and does not stop
-the pipeline. (Decision 2.)
+the pipeline.
 
 ## Two-way loop
 
-The poll loop is code, not the agent's judgment. Run `wait` (once it ships) as a Claude Code background
-command so the harness wakes the agent on exit; act on whatever vocabulary word it prints, then re-arm
-`wait` again. Never schedule polls yourself — no sleeping, no manual timers. The interval is: the
-`--interval` flag, then the channel's registry entry, then a default of 20 minutes.
+The poll loop is code, not the agent's judgment. Run:
+
+```
+python3 <path-to-this-skill>/ntfy_bridge.py wait --name NAME [--interval MINUTES]
+```
+
+as a Claude Code background command (`run_in_background`) so the harness wakes the agent when it exits.
+`wait` polls immediately, then every interval, until a vocabulary word arrives; it prints the same JSON
+object `poll` prints (`matched`, `acted_on`, `superseded`, `unrecognized`, `unrecognized_total`) and
+exits 0. Act on `acted_on`, report any `superseded` words to the operator, then re-arm `wait` again.
+Never schedule polls yourself — no sleeping, no manual timers.
+
+Transient network trouble (a connection error, a timeout, HTTP 5xx, or HTTP 429) is retried inside
+`wait` itself: it logs one line to stderr and keeps waiting, so no action is needed. A non-zero exit is
+a permanent error instead — an HTTP 4xx other than 429, an unknown or one-way channel, a corrupt
+registry, or a bad interval: read stderr for the cause, report it to the operator, and do not re-arm
+until it's fixed.
+
+The interval is: the `--interval` flag, then the channel's registry entry, then a default of 20 minutes.
 
 Use `ask` for every question that needs an operator decision, and always state the null default in the
-question text (what happens if 20 minutes pass with no reply). (Decision 9.)
+question text (what happens if the interval passes with no reply).
 
 ## Vocabulary
 
@@ -85,7 +94,7 @@ acted on by fixed precedence — `STOP` > `FINISH UP` > `PAUSE` > `APPROVE <code
 its question stays pending, and the operator can resend it.
 
 Each `ask` generates one code and replaces any previous pending question — the old code goes stale. A
-code matches once, then clears. (Decision 7 and its amendment.)
+code matches once, then clears.
 
 ## FINISH UP
 
@@ -108,13 +117,11 @@ operator; none of that fits an unattended agent acting on a one-word instruction
    commit local and say so.
 6. Send one high-priority `FINISHED: <sha>, pushed yes/no, checkpoint at <path>`, then stop polling.
 
-(Decision 8.)
-
 ## Content rules
 
 Topics are public by obscurity: anyone who knows a topic can read and post to it. So message bodies
 never carry secrets, emails, record contents, or repo content — only status lines (suite names,
-pass/fail counts, durations, costs). (AC8.)
+pass/fail counts, durations, costs).
 
 Never put a topic name in a repo, a commit, a doc, or a screenshot. The topic itself is the only lock on
 the channel.
@@ -124,9 +131,9 @@ the channel.
 Channels are long-lived, one per purpose — no calendar rotation. Rotate a channel's topics when a leak
 is suspected: the topic was seen in a commit or a screenshot, or `unrecognized_total` is above 0 on a
 live channel. Any `unrecognized_total` above 0 gets reported to the operator with a rotate proposal; it
-is the leak signal, since inbound is otherwise a closed vocabulary. (Decision 5.)
+is the leak signal, since inbound is otherwise a closed vocabulary.
 
 ## Two-way is Claude Code only
 
 Two-way channels (the `wait`/poll loop) target Claude Code only in this version. Codex and other
-harnesses are out of scope here — a later WK. (Decision 10.)
+harnesses are out of scope for now.

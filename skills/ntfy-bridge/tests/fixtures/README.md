@@ -1,7 +1,6 @@
 # ntfy-bridge test fixtures
 
-Captured 2026-11-02 from `https://ntfy.sh` with `curl -s -m 10`, unedited (WK-0108 Capture section,
-overseer ruling 2026-11-02 20:39).
+Captured 2026-11-02 from `https://ntfy.sh` with `curl -s -m 10`, unedited.
 
 The topic in every line below (`capture-1e21cce7798001e6`) is a burned capture topic: never registered
 in any channel registry, never subscribed to on a phone, never reused for a live channel. The
@@ -35,8 +34,8 @@ not a hand patch.
   why the cursor must not use those forms).
 - `poll-since-id.jsonl` / `.headers.txt` through `poll-since-id5.jsonl` / `.headers.txt` — `since=<id>`
   for each of the six message ids in turn: each returns every message with `time >=` that message's
-  time, minus the id itself, not "strictly after this id" — the behavior Decision 7's cursor
-  requirement (timestamp cursor, never an id cursor) exists to avoid.
+  time, minus the id itself, not "strictly after this id" — the behavior that a timestamp cursor
+  (never an id cursor) exists to avoid.
 - `poll-since-last-id.jsonl` / `.headers.txt` and `poll-since-last-id-repeat.jsonl` / `.headers.txt` —
   `since=<last id>` polled twice: both calls re-return the same same-second message, showing an id
   cursor is not idempotent across repeats.

@@ -50,18 +50,83 @@ class RecordingPost:
         return 200, b"{}"
 
 
-def run_main(argv, http_get=None, http_post=None):
+def run_main(argv, http_get=None, http_post=None, sleep_fn=None, time_fn=None):
     kwargs = {}
     if http_get is not None:
         kwargs["http_get"] = http_get
     if http_post is not None:
         kwargs["http_post"] = http_post
+    if sleep_fn is not None:
+        kwargs["sleep_fn"] = sleep_fn
+    if time_fn is not None:
+        kwargs["time_fn"] = time_fn
     out, err = io.StringIO(), io.StringIO()
     with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
         code = ntfy_bridge.main(argv, **kwargs)
     stdout_text = out.getvalue()
     parsed = json.loads(stdout_text) if stdout_text.strip() else None
     return code, parsed, stdout_text, err.getvalue()
+
+
+def single_message_line(fixture_name, index):
+    """One real captured message, sliced out of a multi-message fixture by line index."""
+    return load_fixture(fixture_name).splitlines()[index] + b"\n"
+
+
+def unexpected_get(url):
+    raise AssertionError(f"http_get must not be called: {url}")
+
+
+class FakeSleep:
+    """Fake sleep_fn: records seconds requested, never actually blocks."""
+
+    def __init__(self):
+        self.calls = []
+
+    def __call__(self, seconds):
+        self.calls.append(seconds)
+
+
+class FakeClock:
+    """Fake time_fn: a fixed value, so timestamps never depend on real wall time."""
+
+    def __init__(self, value=1793680600.0):
+        self.value = value
+
+    def __call__(self):
+        return self.value
+
+
+class FailNthGet:
+    """Fake http_get: raises `error` on call number `fail_at` (1-based), otherwise
+    serves canned bodies from `bodies` in order."""
+
+    def __init__(self, bodies, error, fail_at=2):
+        self.bodies = list(bodies)
+        self.error = error
+        self.fail_at = fail_at
+        self.call_count = 0
+
+    def __call__(self, url):
+        self.call_count += 1
+        if self.call_count == self.fail_at:
+            raise self.error
+        return 200, self.bodies.pop(0)
+
+
+class SnapshottingGet:
+    """Fake http_get: wraps another fake, recording the registry's on-disk bytes
+    at the start of every call, so a test can prove a failed poll left it untouched."""
+
+    def __init__(self, inner, registry_path):
+        self.inner = inner
+        self.registry_path = registry_path
+        self.snapshots = []
+
+    def __call__(self, url):
+        with open(self.registry_path, "rb") as f:
+            self.snapshots.append(f.read())
+        return self.inner(url)
 
 
 class RegistryTestCase(unittest.TestCase):
@@ -96,14 +161,14 @@ class RegistryTestCase(unittest.TestCase):
 
 
 class ParserTests(unittest.TestCase):
-    """normalize()/parse_message() — Decision 7's closed vocabulary, pure function."""
+    """normalize()/parse_message() — the closed vocabulary, pure function."""
 
     def test_normalize_collapses_whitespace_uppercases_strips_one_trailing_period(self):
         # real captured body: server trims outer whitespace, leaves internal runs
         self.assertEqual(ntfy_bridge.normalize("finish   up."), "FINISH UP")
 
     def test_every_vocabulary_word_matches_after_normalization(self):
-        # each Decision 7 word must match once normalized, case- and spacing-insensitive
+        # each vocabulary word must match once normalized, case- and spacing-insensitive
         self.assertEqual(ntfy_bridge.parse_message("STOP", None), "STOP")
         self.assertEqual(ntfy_bridge.parse_message("  stop  ", None), "STOP")
         self.assertEqual(ntfy_bridge.parse_message("finish   up.", None), "FINISH UP")
@@ -125,7 +190,7 @@ class ParserTests(unittest.TestCase):
         self.assertIsNone(ntfy_bridge.parse_message("approve 0000", "3F9A"))
 
     def test_stale_code_is_null_after_a_second_ask(self):
-        # a new ask makes the previous code stale (Decision 7 amendment)
+        # a new ask makes the previous code stale
         self.assertIsNone(ntfy_bridge.parse_message("approve 3f9a", "AAAA"))
 
     def test_approve_with_no_pending_question_is_null(self):
@@ -295,6 +360,174 @@ class PollRequestAndErrorTests(RegistryTestCase):
     def test_unknown_channel_exits_non_zero(self):
         code, _, _, err = run_main(["poll", "--name", "does-not-exist"])
         self.assertNotEqual(code, 0)
+
+
+class WaitLoopTests(RegistryTestCase):
+    """wait — the blocking poll loop: it must call the exact same poll logic as
+    `poll` on every iteration, and classify every failure as transient (keep
+    waiting) or permanent (stop) per the fixed rule in _classify_error.
+    """
+
+    # "STOP" and "finish   up." sliced out of the real poll-several capture, each a
+    # different message id, so each is a genuinely new arrival across separate polls.
+    STOP_LINE = single_message_line("poll-several.jsonl", 2)
+    FINISH_UP_LINE = single_message_line("poll-several.jsonl", 1)
+
+    def test_word_on_third_poll_exits_after_exactly_three_polls_with_right_json(self):
+        # the loop must stop on the very poll that first produces a word, not later
+        self.create_channel("third-poll-chan")
+        get = RecordingGet([load_fixture("poll-one.jsonl"), load_fixture("poll-zero.jsonl"), self.STOP_LINE])
+        code, result, _, err = run_main(
+            ["wait", "--name", "third-poll-chan", "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
+        )
+        self.assertEqual(code, 0, err)
+        self.assertEqual(len(get.urls), 3)
+        self.assertEqual(
+            result,
+            {
+                "matched": ["STOP"],
+                "acted_on": "STOP",
+                "superseded": [],
+                "unrecognized": 0,
+                "unrecognized_total": 1,  # "capture one" from poll 1
+            },
+        )
+
+    def test_first_poll_happens_before_any_sleep(self):
+        # the loop must poll immediately, never sleep first
+        self.create_channel("order-chan")
+        order = []
+        bodies = [load_fixture("poll-zero.jsonl"), self.STOP_LINE]
+
+        def get(url):
+            order.append("poll")
+            return 200, bodies.pop(0)
+
+        def sleep(seconds):
+            order.append("sleep")
+
+        code, _, _, err = run_main(["wait", "--name", "order-chan", "--interval", "1"], http_get=get, sleep_fn=sleep)
+        self.assertEqual(code, 0, err)
+        self.assertEqual(order, ["poll", "sleep", "poll"])
+
+    def test_unrecognized_or_empty_polls_keep_waiting_until_a_word_arrives(self):
+        # a poll with only unrecognized messages, or none, must not end the loop
+        self.create_channel("keep-waiting-chan")
+        get = RecordingGet([load_fixture("poll-one.jsonl"), load_fixture("poll-zero.jsonl"), self.STOP_LINE])
+        code, result, _, err = run_main(
+            ["wait", "--name", "keep-waiting-chan", "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
+        )
+        self.assertEqual(code, 0, err)
+        self.assertEqual(len(get.urls), 3)  # all three polls ran; nothing exited early
+        self.assertEqual(result["acted_on"], "STOP")
+
+    def test_interval_resolution_order_and_sleep_receives_seconds(self):
+        # flag beats the registry entry beats the 20-minute default; sleep gets minutes*60
+        scenarios = [
+            ("flag-chan", 5, ["--interval", "2"], 2 * 60),
+            ("registry-chan", 5, [], 5 * 60),
+            ("default-chan", None, [], ntfy_bridge.DEFAULT_WAIT_INTERVAL_MINUTES * 60),
+        ]
+        for name, registry_interval, extra_flags, expected_seconds in scenarios:
+            with self.subTest(name=name):
+                create_args = ["create", "--name", name, "--mode", "two-way", "--purpose", "t", "--repo", "r"]
+                if registry_interval is not None:
+                    create_args += ["--interval", str(registry_interval)]
+                code, _, _, err = run_main(create_args)
+                self.assertEqual(code, 0, err)
+
+                get = RecordingGet([load_fixture("poll-zero.jsonl"), self.STOP_LINE])
+                sleep = FakeSleep()
+                code, result, _, err = run_main(
+                    ["wait", "--name", name] + extra_flags, http_get=get, sleep_fn=sleep
+                )
+                self.assertEqual(code, 0, err)
+                self.assertEqual(sleep.calls, [expected_seconds])
+
+    def test_zero_or_negative_interval_is_refused(self):
+        # a non-positive interval is a config error: refuse before ever touching HTTP
+        self.create_channel("bad-interval-chan")
+        for bad in ("0", "-5"):
+            with self.subTest(interval=bad):
+                code, _, _, err = run_main(
+                    ["wait", "--name", "bad-interval-chan", "--interval", bad], http_get=unexpected_get
+                )
+                self.assertNotEqual(code, 0)
+
+    def test_transient_errors_keep_waiting_and_leave_registry_unchanged(self):
+        # connection error, timeout, 500, 503, 429: logged, loop continues, no write on the failed poll
+        errors = {
+            "connection-error": urllib.error.URLError("simulated connection failure"),
+            "timeout": TimeoutError("simulated timeout"),
+            "http-500": urllib.error.HTTPError("http://x", 500, "Internal Server Error", None, None),
+            "http-503": urllib.error.HTTPError("http://x", 503, "Service Unavailable", None, None),
+            "http-429": urllib.error.HTTPError("http://x", 429, "Too Many Requests", None, None),
+        }
+        for label, error in errors.items():
+            with self.subTest(label=label):
+                name = f"transient-{label}"
+                self.create_channel(name)
+                inner = FailNthGet([load_fixture("poll-one.jsonl"), self.STOP_LINE], error, fail_at=2)
+                get = SnapshottingGet(inner, self.registry_path)
+                code, result, _, err = run_main(
+                    ["wait", "--name", name, "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
+                )
+                self.assertEqual(code, 0, err)
+                self.assertEqual(result["acted_on"], "STOP")
+                self.assertEqual(inner.call_count, 3)  # the failed poll did not stop the loop
+                # snapshot before the failing call must equal the snapshot before the next one
+                self.assertEqual(get.snapshots[1], get.snapshots[2])
+
+    def test_permanent_http_errors_exit_non_zero_leaving_last_good_poll(self):
+        # HTTP 4xx other than 429 is a permanent error: stop, do not retry
+        for code_ in (400, 403, 404):
+            with self.subTest(code=code_):
+                name = f"permanent-http-{code_}"
+                self.create_channel(name)
+                error = urllib.error.HTTPError("http://x", code_, "client error", None, None)
+                inner = FailNthGet([load_fixture("poll-one.jsonl")], error, fail_at=2)
+                get = SnapshottingGet(inner, self.registry_path)
+                result_code, _, _, err = run_main(
+                    ["wait", "--name", name, "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
+                )
+                self.assertNotEqual(result_code, 0)
+                self.assertTrue(err.strip())  # the cause is on stderr
+                self.assertEqual(inner.call_count, 2)  # no retry after a permanent error
+                with open(self.registry_path, "rb") as f:
+                    after = f.read()
+                self.assertEqual(after, get.snapshots[1])  # unchanged since the last good poll
+
+    def test_corrupt_registry_exits_non_zero_with_cause_and_is_not_touched(self):
+        # an unreadable registry is a permanent error, caught before any HTTP call
+        self.create_channel("corrupt-chan")
+        with open(self.registry_path, "w") as f:
+            f.write("{not valid json")
+        code, _, _, err = run_main(["wait", "--name", "corrupt-chan"], http_get=unexpected_get)
+        self.assertNotEqual(code, 0)
+        self.assertTrue(err.strip())
+        with open(self.registry_path) as f:
+            self.assertEqual(f.read(), "{not valid json")
+
+    def test_restart_after_printed_word_does_not_return_it_again(self):
+        # the cursor persists on disk: a replayed message must not fire its word twice
+        name = "restart-chan"
+        self.create_channel(name)
+        get1 = RecordingGet([self.STOP_LINE])
+        code1, result1, _, err1 = run_main(
+            ["wait", "--name", name, "--interval", "1"], http_get=get1, sleep_fn=FakeSleep()
+        )
+        self.assertEqual(code1, 0, err1)
+        self.assertEqual(result1["acted_on"], "STOP")
+
+        # a fresh wait, as if the process had restarted, replays the same message once
+        # more (the server's cache), then serves one genuinely new message
+        get2 = RecordingGet([self.STOP_LINE, self.FINISH_UP_LINE])
+        code2, result2, _, err2 = run_main(
+            ["wait", "--name", name, "--interval", "1"], http_get=get2, sleep_fn=FakeSleep()
+        )
+        self.assertEqual(code2, 0, err2)
+        self.assertEqual(result2["acted_on"], "FINISH UP")
+        self.assertIn("matched=0", err2)  # the replayed STOP did not fire again
 
 
 class RegistryDefaultPathTests(unittest.TestCase):

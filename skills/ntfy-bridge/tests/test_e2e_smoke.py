@@ -1,7 +1,7 @@
 """End-to-end smoke test: runs ntfy_bridge.py as a real subprocess against a
 localhost http.server that replays the golden fixtures. Never contacts ntfy.sh
-(NTFY_BRIDGE_SERVER always points at 127.0.0.1); the only real-network tests
-are the later live runs (WK-0108 AC6).
+(NTFY_BRIDGE_SERVER always points at 127.0.0.1); real-network checks against a
+live ntfy.sh channel are separate, manual, and out of scope here.
 """
 import http.server
 import json
@@ -44,8 +44,9 @@ class FixtureReplayHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._record()
-        body = FixtureReplayHandler.poll_bodies.pop(0) if FixtureReplayHandler.poll_bodies else b""
-        self.send_response(200)
+        item = FixtureReplayHandler.poll_bodies.pop(0) if FixtureReplayHandler.poll_bodies else b""
+        status, body = item if isinstance(item, tuple) else (200, item)
+        self.send_response(status)
         self.send_header("Content-Type", "application/x-ndjson")
         self.send_header("Content-Length", str(len(body)))
         self.end_headers()
@@ -124,6 +125,64 @@ class SmokeTest(unittest.TestCase):
         self.assertEqual(len(get_paths), 2)  # poll, poll
         for p in get_paths:
             self.assertTrue(p.startswith(f"/{reply_topic}/json?poll=1&since="))
+
+    def run_wait(self, name, *extra_args):
+        return subprocess.run(
+            [sys.executable, SCRIPT, "wait", "--name", name, "--interval", "0.01", *extra_args],
+            env=self.env,
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+
+    def test_wait_polls_twice_then_exits_with_json_on_a_vocabulary_word(self):
+        FixtureReplayHandler.poll_bodies = [b"", load_fixture("poll-several.jsonl")]
+        create = self.run_cli(
+            "create", "--name", "wait-smoke", "--mode", "two-way",
+            "--purpose", "smoke test", "--repo", "test-repo",
+        )
+        self.assertEqual(create.returncode, 0, create.stderr)
+        entry = json.loads(create.stdout)
+
+        proc = self.run_wait("wait-smoke")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        result = json.loads(proc.stdout)
+        self.assertEqual(result["acted_on"], "STOP")
+
+        get_paths = [p for m, p in FixtureReplayHandler.requests if m == "GET"]
+        self.assertGreaterEqual(len(get_paths), 2)
+        self.assertTrue(proc.stderr.strip())  # the live log line
+        self.assertNotIn(entry["reply_topic"], proc.stderr)
+        self.assertNotIn("capture", proc.stderr)  # no message text leaks into the log
+
+    def test_wait_retries_a_503_then_exits_with_json(self):
+        FixtureReplayHandler.poll_bodies = [(503, b""), load_fixture("poll-several.jsonl")]
+        create = self.run_cli(
+            "create", "--name", "wait-smoke-503", "--mode", "two-way",
+            "--purpose", "smoke test", "--repo", "test-repo",
+        )
+        self.assertEqual(create.returncode, 0, create.stderr)
+        entry = json.loads(create.stdout)
+
+        proc = self.run_wait("wait-smoke-503")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        result = json.loads(proc.stdout)
+        self.assertEqual(result["acted_on"], "STOP")
+        self.assertIn("503", proc.stderr)  # the transient retry is logged
+        self.assertNotIn(entry["reply_topic"], proc.stderr)
+        self.assertNotIn("capture", proc.stderr)
+
+    def test_wait_exits_non_zero_on_a_404(self):
+        FixtureReplayHandler.poll_bodies = [(404, b"")]
+        create = self.run_cli(
+            "create", "--name", "wait-smoke-404", "--mode", "two-way",
+            "--purpose", "smoke test", "--repo", "test-repo",
+        )
+        self.assertEqual(create.returncode, 0, create.stderr)
+
+        proc = self.run_wait("wait-smoke-404")
+        self.assertNotEqual(proc.returncode, 0)
+        self.assertIn("404", proc.stderr)  # the cause is on stderr
 
 
 if __name__ == "__main__":
