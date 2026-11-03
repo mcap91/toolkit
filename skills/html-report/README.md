@@ -1,8 +1,8 @@
 # html-report
 
-A Claude Code skill and a set of self-contained HTML style pages, one per kind of output. Agents use it to build HTML
-reports and views that look like one set. People use the pages directly as a visual reference: open one to see its
-colors, boxes, arrows, charts, and rules.
+A Claude Code skill and a set of self-contained HTML reference pages, one per kind of output. Agents use them as
+visual examples, so the HTML reports and views they build look like one family. People open a page to see its colors,
+boxes, arrows, charts, and rules.
 
 ## Install
 
@@ -29,19 +29,22 @@ These are visual styles. `docs/output-styles/` is a different thing: the voice r
 
 ## Use
 
-Ask the agent for a report and name the kind ("write this up as a science report"), or run `/html-report`. The agent
-picks the page, copies its CSS (everything above the `SPECIMEN-ONLY` marker), keeps the class names, replaces the
-content, and runs the checks. `SKILL.md` holds the agent's steps.
+The pages are visual references, not templates. A new page should look like it belongs to the family (palette, type,
+cards, stripes, chips, arrows, charts, restraint), but its layout and sections follow its own content. Mixing parts
+from several references is fine; leaving out what the content does not need is expected.
 
-By hand: open the page, copy its `<head>` CSS and theme script down to the `SPECIMEN-ONLY` marker, copy the markup of
-the components you need, and replace the placeholder text.
+Ask the agent for a page, or run `/html-report`. `SKILL.md` tells the agent what carries over and what does not.
+By hand: open the nearest reference, take the CSS variables and components that fit (reusable CSS sits above the
+`SPECIMEN-ONLY` marker), and build the page around your content.
 
 ## Rules for every page
+
+These bind the reference pages themselves. Pages built from them share 1 to 3.
 
 1. Self-contained: one HTML file, no external CSS, fonts, or scripts. It opens offline.
 2. Light and dark themes via `data-theme` on `<html>`, with a toggle. Test both.
 3. Prose follows the write-plain rules.
-4. No work or project content in a style page. Use placeholders (WK-0001, owner A, setup_a).
+4. No work or project content in a reference page. Use placeholders (WK-0001, owner A, setup_a).
 5. Add a rule to a page with a date. Do not remove a rule without a note.
 
 ## Update a style
@@ -85,5 +88,6 @@ Each page was taken from a page that worked, then stripped to placeholders (2026
 
 ## Changes
 
+- 2026-11-02: SKILL.md rewritten: the pages are visual references, not templates (operator).
 - 2026-11-02: first set of five pages. Moved from `docs/html-report-styles/` into this skill so a copied skill carries
   its pages.

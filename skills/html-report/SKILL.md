@@ -1,66 +1,55 @@
 ---
 name: html-report
-description: Build an HTML report or view in the house style. Five self-contained style pages ship with this skill (chain view of an initiative and its next work items, science report with charts, text report, concept/boundary page, architecture via archify). Use when the user asks for an HTML report, results page, write-up, dashboard page, chain view, concept page, or diagram, or says "/html-report", "make this a page", or "write this up as a report".
+description: House visual style for HTML reports and views. Five reference pages ship with this skill as visual examples (chain view of an initiative, science report with charts, text report, concept/boundary page, architecture via archify). Use when building any HTML report, results page, write-up, dashboard page, chain view, concept page, or diagram, or when the user says "/html-report" or "make this a page".
 ---
 
 # html-report
 
-Build one self-contained HTML page by copying the matching style page in `styles/` (next to this file). Copy its CSS
-and markup, replace the content, follow its rules, run the checks. Do not invent a new look.
+The pages in `styles/` are visual references, not templates. They show what the house style looks like: the palette,
+the type, the cards, stripes, chips, arrows, charts, and the restraint. Your page should look like it belongs to the
+same family. Its layout, sections, and components follow its own content, not the reference.
 
-## 1. Pick the style
+## The references
 
-| The page is... | Style |
+| Reference | Shows the look of |
 |---|---|
-| one initiative and its next work items, in build order | `styles/chain.html` |
-| results with numbers: experiment, eval, benchmark, comparison | `styles/science-report.html` |
-| prose with no charts: status, investigation, proposal, postmortem | `styles/text-report.html` |
-| a boundary: two owners, what crosses, who may write what | `styles/concept.html` |
-| a system diagram: components, flows, sequences, states | `styles/architecture.html` (use archify; do not hand-write) |
+| `styles/chain.html` | a flow of work items: status stripes, chips, arrows, a fork and merge, a gate |
+| `styles/science-report.html` | results: box-and-arrow flow, compared setups, bars with a reference line, tables, takeaway cards, a dot rail |
+| `styles/text-report.html` | prose: answer box, callouts, numbered steps, quoted captures |
+| `styles/concept.html` | a boundary: owner boxes, a bridge, allowed and never rows |
+| `styles/architecture.html` | system diagrams are rendered with archify, not hand-written |
 
-If two fit, pick the one with fewer components that still carries the content. If none fits, use `text-report.html`
-and say so in your reply. If the repo already has a generator for this view (for example a chain-view command), run
-the generator instead of writing the page by hand.
+Look at the one or two nearest to what you are building. Mixing parts from several is fine.
 
-## 2. Read the style page in full
+## What carries over
 
-Read the chosen page end to end before writing: its CSS, its markup, and its Rules section at the bottom. The rules
-are binding for the page you build.
+- **The family look:** the neutrals and accent colors, the fonts, the card and border treatment, the spacing. Reuse
+  the CSS variables and components that fit; write new components in the same spirit when none fits.
+- **Color means something:** one color per meaning, kept the same across the page. Status colors for status, series
+  colors for series, verdict colors (good/bad) only for verdicts.
+- **Self-contained:** one HTML file, no external CSS, fonts, or scripts. It opens offline.
+- **Light and dark themes**, with a toggle.
+- **Plain prose:** the write-plain rules. Lead with the answer or the question the page answers.
+- **Numbers trace to sources**, linked at the end. Label estimates as estimates.
 
-## 3. Build the page
+The Rules section at the bottom of each reference records what worked for that kind of page. Treat it as guidance,
+not as a checklist to satisfy.
 
-1. Start a new file. Copy the `<head>` from the style page: the theme script and every CSS line **above** the
-   `SPECIMEN-ONLY` marker. Do not copy CSS below the marker.
-2. Copy the markup of the components you need. Keep the class names and CSS variable names as they are.
-3. Replace every placeholder with real content. Remove every `<span class="cls">` label and the specimen sections
-   (Palette, Rules).
-4. Keep the theme toggle button and its script.
-5. Add nothing external: no CDN links, web fonts, or scripts. One file that opens offline.
-6. Write the prose with the write-plain rules (active voice, short sentences, plain words, no em dashes).
-7. Every number traces to a source. Link the sources in the footer.
+## What does not carry over
 
-Save where the user says. If they did not say, follow the repo's convention for generated pages, or ask once.
+- The section order, the number of sections, or any placeholder text.
+- The `SPECIMEN-ONLY` parts: class-name labels, palette swatches, the Rules section.
+- Components the content does not need. Leave out anything that is there only because a reference had it.
 
-## 4. Check before you reply
+## Before you reply
 
-- Render the page in both themes if a headless browser is available, and look at the screenshots:
+If a headless browser is available, render the page in both themes and look at it:
 
-  ```
-  B=$(find ~/.cache/ms-playwright -name chrome-headless-shell -type f | head -1)
-  "$B" --no-sandbox --hide-scrollbars --window-size=1280,1600 --screenshot=/tmp/light.png "file://<abs path>"
-  "$B" --no-sandbox --hide-scrollbars --window-size=1280,1600 --blink-settings=preferredColorScheme=0 --screenshot=/tmp/dark.png "file://<abs path>"
-  ```
+```
+B=$(find ~/.cache/ms-playwright -name chrome-headless-shell -type f | head -1)
+"$B" --no-sandbox --hide-scrollbars --window-size=1280,1600 --screenshot=/tmp/light.png "file://<abs path>"
+"$B" --no-sandbox --hide-scrollbars --window-size=1280,1600 --blink-settings=preferredColorScheme=0 --screenshot=/tmp/dark.png "file://<abs path>"
+```
 
-  If no browser is available, say the page was not rendered.
-- Run the style page's own checklist (science-report and text-report have one).
-- `grep -nPi '[\x{2013}\x{2014}]|\b(leverag|utiliz|robust|seamless)' <file>` is clean outside code and CSS.
-- If the page is for readers outside the project, it carries no internal vocabulary (record ids, tool names, code
-  names) outside the footer.
-
-In your reply, give the file path, the style used, and whether both themes were rendered.
-
-## Do not
-
-- Do not edit the style pages in `styles/` while building a report. Changing a style follows `README.md`.
-- Do not mix two styles in one page.
-- Do not add colors outside the style's palette, or charts to a text report.
+If not, say the page was not rendered. Do not edit the reference pages while building a report; changing a reference
+follows `README.md`.
