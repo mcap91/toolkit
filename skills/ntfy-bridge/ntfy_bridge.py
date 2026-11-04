@@ -25,7 +25,7 @@ DEFAULT_WAIT_INTERVAL_MINUTES = 20
 
 # Fixed precedence, low to high priority in iteration order below (first match wins).
 PRECEDENCE_ORDER = ["STOP", "FINISH UP", "PAUSE", "APPROVE", "CONTINUE", "STATUS"]
-NAME_RE = re.compile(r"^[a-z0-9-]{1,12}$")
+NAME_RE = re.compile(r"^[a-z0-9]([a-z0-9-]{0,10}[a-z0-9])?$")
 APPROVE_RE = re.compile(r"^APPROVE ([0-9A-F]{4})$")
 EXACT_WORDS = {"STOP", "FINISH UP", "PAUSE", "CONTINUE", "STATUS"}
 # Phone-typable topic suffix: lowercase letters and digits minus look-alikes.
@@ -207,7 +207,8 @@ def cmd_create(args, registry_path):
     if not NAME_RE.match(args.name):
         raise NtfyBridgeError(
             f"invalid channel name: {args.name!r} "
-            "(must be 1-12 characters of lowercase letters, digits, and hyphens)"
+            "(must be 1-12 characters of lowercase letters, digits, and hyphens, "
+            "starting and ending with a letter or digit)"
         )
 
     def fn(data):

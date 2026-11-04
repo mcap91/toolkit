@@ -353,6 +353,76 @@ class CreateRotateTests(RegistryTestCase):
             entry["topic"], re.compile(r"^max-name-len-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
         )
 
+    def test_create_refuses_leading_hyphen_leaving_registry_unchanged(self):
+        self.create_channel("seed-chan", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        code, _, _, err = run_main(
+            ["create", "--name=-x", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_create_refuses_all_hyphens_leaving_registry_unchanged(self):
+        self.create_channel("seed-chan", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        code, _, _, err = run_main(
+            ["create", "--name=---", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_create_refuses_trailing_hyphen_leaving_registry_unchanged(self):
+        self.create_channel("seed-chan", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        code, _, _, err = run_main(
+            ["create", "--name", "abc-", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_create_refuses_two_char_name_ending_in_hyphen(self):
+        code, _, _, err = run_main(
+            ["create", "--name", "a-", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+
+    def test_create_accepts_single_letter_name(self):
+        entry = self.create_channel("a", mode="one-way")
+        self.assertRegex(
+            entry["topic"], re.compile(r"^a-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
+        )
+
+    def test_create_accepts_letter_digit_name(self):
+        entry = self.create_channel("a1", mode="one-way")
+        self.assertRegex(
+            entry["topic"], re.compile(r"^a1-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
+        )
+
+    def test_create_accepts_internal_hyphen_name(self):
+        entry = self.create_channel("tst-eval", mode="one-way")
+        self.assertRegex(
+            entry["topic"], re.compile(r"^tst-eval-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
+        )
+
+    def test_create_accepts_twelve_char_name_with_internal_hyphen(self):
+        entry = self.create_channel("abcdef-ghijk", mode="one-way")
+        self.assertRegex(
+            entry["topic"], re.compile(r"^abcdef-ghijk-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
+        )
+
     def test_rotate_gives_new_format_topics_to_a_pre_existing_long_name(self):
         # a registry entry with an old-style name (over 12 chars) and an old-format
         # topic must still rotate cleanly into the new topic format.
