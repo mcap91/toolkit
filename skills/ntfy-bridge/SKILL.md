@@ -73,8 +73,11 @@ object `poll` prints (`matched`, `acted_on`, `superseded`, `unrecognized`, `unre
 exits 0. Act on `acted_on`, report any `superseded` words to the operator, then re-arm `wait` again.
 Never schedule polls yourself — no sleeping, no manual timers.
 
-When the session ends on its own — the task is done, not cut short by `STOP` or `FINISH UP` — send one
-done message, then stop. Do not re-arm `wait` after that.
+When the session ends on its own — the task is done, not cut short by `STOP` or `FINISH UP` — a `wait`
+armed earlier is usually still running in the background. Send one done message. Then stop that running
+background `wait`: in Claude Code, stop the background task. Do not re-arm `wait` after that. This
+differs from `STOP` and `FINISH UP`: there, `wait` has already exited by delivering the matched word, so
+there is nothing left to stop.
 
 Transient network trouble (a connection error, a timeout, HTTP 5xx, or HTTP 429) is retried inside
 `wait` itself: it logs one line to stderr and keeps waiting, so no action is needed. A non-zero exit is
