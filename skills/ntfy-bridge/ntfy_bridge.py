@@ -204,7 +204,7 @@ def cmd_list(args, registry_path):
 
 
 def cmd_create(args, registry_path):
-    if not NAME_RE.match(args.name):
+    if not NAME_RE.fullmatch(args.name):
         raise NtfyBridgeError(
             f"invalid channel name: {args.name!r} "
             "(must be 1-12 characters of lowercase letters, digits, and hyphens, "

@@ -393,11 +393,32 @@ class CreateRotateTests(RegistryTestCase):
         self.assertEqual(before, after)
 
     def test_create_refuses_two_char_name_ending_in_hyphen(self):
+        self.create_channel("seed-chan", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
         code, _, _, err = run_main(
             ["create", "--name", "a-", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
         )
         self.assertNotEqual(code, 0)
         self.assertIn("invalid channel name", err)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_create_refuses_name_with_trailing_newline_leaving_registry_unchanged(self):
+        # Python's $ matches before a final newline, so NAME_RE.match alone would
+        # accept "tst-eval\n" and corrupt the topic; must use a full-string match.
+        self.create_channel("seed-chan", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        code, _, _, err = run_main(
+            ["create", "--name", "tst-eval\n", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
 
     def test_create_accepts_single_letter_name(self):
         entry = self.create_channel("a", mode="one-way")
