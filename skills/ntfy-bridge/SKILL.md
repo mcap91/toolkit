@@ -21,6 +21,12 @@ python3 <path-to-this-skill>/ntfy_bridge.py create --name NAME --mode one-way --
 Pipeline, job, or run means one-way. Unattended session, or "I want to reply", means two-way. Unclear
 means ask the operator.
 
+## Bare invocation
+
+If the operator gives no purpose, run `list` first and show them the existing channels. Then ask one
+question: is this for a pipeline, or for an unattended session? The answer sets the purpose and the
+mode. Once both are set, run the setup flow below.
+
 ## Setup flow
 
 "Set up an ntfy connection for X" runs this flow from any repo:
@@ -28,9 +34,10 @@ means ask the operator.
 1. Run `list`. Reuse a registry entry if one already fits the purpose, or propose a new channel name.
 2. Pick the mode from the rule above, or ask the operator if it's unclear.
 3. Run `create` with the chosen name, mode, purpose, and repo.
-4. Tell the operator to subscribe to the printed topic (and reply topic, if two-way) on their phone —
-   subscription is manual, the script cannot do it for them.
-5. Send a test message (`send` for one-way wiring, or a direct `send` call for two-way).
+4. Tell the operator to subscribe on their phone: install the ntfy app, keep the default server
+   `ntfy.sh`, and add the printed topic (and the reply topic too, if two-way). Subscription is manual —
+   the script cannot do it for them.
+5. Send the test message with the script's `send` command.
 6. Wait for the operator to confirm receipt at the terminal before leaving the session unattended. Do
    not proceed to unattended operation on silence here — this confirmation is not a veto window.
 
@@ -48,6 +55,10 @@ Use default priority for routine milestones (start, in-progress milestones); use
 failure and done — it buzzes through phone defaults. A failed notification is logged and does not stop
 the pipeline.
 
+Setup prints the `export NTFY_TOPIC=...` line and stops there. The operator sets it themselves, in
+their own shell profile or the job scheduler's environment. The agent never writes a topic into any
+file inside a repo — not a script, not `.env`, not a config file, not a doc.
+
 ## Two-way loop
 
 The poll loop is code, not the agent's judgment. Run:
@@ -61,6 +72,9 @@ as a Claude Code background command (`run_in_background`) so the harness wakes t
 object `poll` prints (`matched`, `acted_on`, `superseded`, `unrecognized`, `unrecognized_total`) and
 exits 0. Act on `acted_on`, report any `superseded` words to the operator, then re-arm `wait` again.
 Never schedule polls yourself — no sleeping, no manual timers.
+
+When the session ends on its own — the task is done, not cut short by `STOP` or `FINISH UP` — send one
+done message, then stop. Do not re-arm `wait` after that.
 
 Transient network trouble (a connection error, a timeout, HTTP 5xx, or HTTP 429) is retried inside
 `wait` itself: it logs one line to stderr and keeps waiting, so no action is needed. A non-zero exit is
@@ -124,7 +138,8 @@ never carry secrets, emails, record contents, or repo content — only status li
 pass/fail counts, durations, costs).
 
 Never put a topic name in a repo, a commit, a doc, or a screenshot. The topic itself is the only lock on
-the channel.
+the channel. This is why one-way setup prints the `export NTFY_TOPIC=...` line instead of writing it
+anywhere — see One-way wiring above.
 
 ## Rotation
 
