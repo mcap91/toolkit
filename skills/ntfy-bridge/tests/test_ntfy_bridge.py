@@ -312,6 +312,79 @@ class CreateRotateTests(RegistryTestCase):
         self.assertEqual(rotated["unrecognized_total"], 0)
         self.assertEqual(len(rotated["rotations"]), 1)
 
+    def test_topic_format_is_name_dash_ten_phone_typable_chars(self):
+        # topic = <name>-<10 chars from the look-alike-free alphabet>; outbound and
+        # reply topics must still draw independent random parts.
+        entry = self.create_channel("fmt-chan", mode="two-way")
+        pattern = re.compile(r"^fmt-chan-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
+        self.assertRegex(entry["topic"], pattern)
+        self.assertRegex(entry["reply_topic"], pattern)
+        self.assertNotEqual(entry["topic"], entry["reply_topic"])
+
+    def test_create_refuses_name_over_twelve_chars(self):
+        code, _, _, err = run_main(
+            ["create", "--name", "thirteen-chr1", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+
+    def test_create_refuses_uppercase_name(self):
+        code, _, _, err = run_main(
+            ["create", "--name", "UPPERNAME", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("invalid channel name", err)
+
+    def test_create_refuses_empty_name_leaving_registry_unchanged(self):
+        self.create_channel("seed-chan", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        code, _, _, err = run_main(
+            ["create", "--name", "", "--mode", "one-way", "--purpose", "p", "--repo", "r"]
+        )
+        self.assertNotEqual(code, 0)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_create_accepts_twelve_char_name(self):
+        entry = self.create_channel("max-name-len", mode="one-way")
+        self.assertRegex(
+            entry["topic"], re.compile(r"^max-name-len-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
+        )
+
+    def test_rotate_gives_new_format_topics_to_a_pre_existing_long_name(self):
+        # a registry entry with an old-style name (over 12 chars) and an old-format
+        # topic must still rotate cleanly into the new topic format.
+        legacy_name = "legacy-long-channel-name"
+
+        def fn(data):
+            data[legacy_name] = {
+                "topic": f"{legacy_name}-{'a' * 12}",
+                "reply_topic": f"{legacy_name}-{'b' * 12}",
+                "mode": "two-way",
+                "purpose": "legacy",
+                "repo": "r",
+                "created": "2026-01-01",
+                "interval_minutes": None,
+                "cursor": {"since": 0, "seen": {"x": 1}},
+                "pending": {"code": "AAAA", "asked": "2026-01-01"},
+                "unrecognized_total": 3,
+                "rotations": [],
+            }
+
+        ntfy_bridge.transact(self.registry_path, fn)
+
+        code, rotated, _, err = run_main(["rotate", "--name", legacy_name])
+        self.assertEqual(code, 0, err)
+        pattern = re.compile(rf"^{legacy_name}-[abcdefghjkmnpqrstuvwxyz23456789]{{10}}$")
+        self.assertRegex(rotated["topic"], pattern)
+        self.assertRegex(rotated["reply_topic"], pattern)
+        self.assertEqual(rotated["cursor"], {"since": rotated["cursor"]["since"], "seen": {}})
+        self.assertIsNone(rotated["pending"])
+        self.assertEqual(rotated["unrecognized_total"], 0)
+        self.assertEqual(len(rotated["rotations"]), 1)
+
 
 class OneWayRefusalTests(RegistryTestCase):
     """One-way channels must refuse ask and poll outright."""
@@ -325,8 +398,8 @@ class OneWayRefusalTests(RegistryTestCase):
         self.assertIn("one-way", err)
 
     def test_one_way_refuses_poll(self):
-        self.create_channel("one-way-chan2", mode="one-way")
-        code, _, _, err = run_main(["poll", "--name", "one-way-chan2"])
+        self.create_channel("one-way-ch2", mode="one-way")
+        code, _, _, err = run_main(["poll", "--name", "one-way-ch2"])
         self.assertNotEqual(code, 0)
         self.assertIn("one-way", err)
 
@@ -375,10 +448,10 @@ class WaitLoopTests(RegistryTestCase):
 
     def test_word_on_third_poll_exits_after_exactly_three_polls_with_right_json(self):
         # the loop must stop on the very poll that first produces a word, not later
-        self.create_channel("third-poll-chan")
+        self.create_channel("third-poll")
         get = RecordingGet([load_fixture("poll-one.jsonl"), load_fixture("poll-zero.jsonl"), self.STOP_LINE])
         code, result, _, err = run_main(
-            ["wait", "--name", "third-poll-chan", "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
+            ["wait", "--name", "third-poll", "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
         )
         self.assertEqual(code, 0, err)
         self.assertEqual(len(get.urls), 3)
@@ -412,10 +485,10 @@ class WaitLoopTests(RegistryTestCase):
 
     def test_unrecognized_or_empty_polls_keep_waiting_until_a_word_arrives(self):
         # a poll with only unrecognized messages, or none, must not end the loop
-        self.create_channel("keep-waiting-chan")
+        self.create_channel("keep-wait-ch")
         get = RecordingGet([load_fixture("poll-one.jsonl"), load_fixture("poll-zero.jsonl"), self.STOP_LINE])
         code, result, _, err = run_main(
-            ["wait", "--name", "keep-waiting-chan", "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
+            ["wait", "--name", "keep-wait-ch", "--interval", "1"], http_get=get, sleep_fn=FakeSleep()
         )
         self.assertEqual(code, 0, err)
         self.assertEqual(len(get.urls), 3)  # all three polls ran; nothing exited early
@@ -425,7 +498,7 @@ class WaitLoopTests(RegistryTestCase):
         # flag beats the registry entry beats the 20-minute default; sleep gets minutes*60
         scenarios = [
             ("flag-chan", 5, ["--interval", "2"], 2 * 60),
-            ("registry-chan", 5, [], 5 * 60),
+            ("registry-ch", 5, [], 5 * 60),
             ("default-chan", None, [], ntfy_bridge.DEFAULT_WAIT_INTERVAL_MINUTES * 60),
         ]
         for name, registry_interval, extra_flags, expected_seconds in scenarios:
@@ -446,26 +519,26 @@ class WaitLoopTests(RegistryTestCase):
 
     def test_zero_or_negative_interval_is_refused(self):
         # a non-positive interval is a config error: refuse before ever touching HTTP
-        self.create_channel("bad-interval-chan")
+        self.create_channel("bad-interval")
         for bad in ("0", "-5"):
             with self.subTest(interval=bad):
                 code, _, _, err = run_main(
-                    ["wait", "--name", "bad-interval-chan", "--interval", bad], http_get=unexpected_get
+                    ["wait", "--name", "bad-interval", "--interval", bad], http_get=unexpected_get
                 )
                 self.assertNotEqual(code, 0)
 
     def test_transient_errors_keep_waiting_and_leave_registry_unchanged(self):
         # connection error, timeout, 500, 503, 429: logged, loop continues, no write on the failed poll
         errors = {
-            "connection-error": urllib.error.URLError("simulated connection failure"),
+            "conn": urllib.error.URLError("simulated connection failure"),
             "timeout": TimeoutError("simulated timeout"),
-            "http-500": urllib.error.HTTPError("http://x", 500, "Internal Server Error", None, None),
-            "http-503": urllib.error.HTTPError("http://x", 503, "Service Unavailable", None, None),
-            "http-429": urllib.error.HTTPError("http://x", 429, "Too Many Requests", None, None),
+            "500": urllib.error.HTTPError("http://x", 500, "Internal Server Error", None, None),
+            "503": urllib.error.HTTPError("http://x", 503, "Service Unavailable", None, None),
+            "429": urllib.error.HTTPError("http://x", 429, "Too Many Requests", None, None),
         }
         for label, error in errors.items():
             with self.subTest(label=label):
-                name = f"transient-{label}"
+                name = f"tr-{label}"
                 self.create_channel(name)
                 inner = FailNthGet([load_fixture("poll-one.jsonl"), self.STOP_LINE], error, fail_at=2)
                 get = SnapshottingGet(inner, self.registry_path)
@@ -482,7 +555,7 @@ class WaitLoopTests(RegistryTestCase):
         # HTTP 4xx other than 429 is a permanent error: stop, do not retry
         for code_ in (400, 403, 404):
             with self.subTest(code=code_):
-                name = f"permanent-http-{code_}"
+                name = f"perm-{code_}"
                 self.create_channel(name)
                 error = urllib.error.HTTPError("http://x", code_, "client error", None, None)
                 inner = FailNthGet([load_fixture("poll-one.jsonl")], error, fail_at=2)

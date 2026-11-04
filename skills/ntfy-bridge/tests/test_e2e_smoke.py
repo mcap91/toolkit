@@ -158,13 +158,13 @@ class SmokeTest(unittest.TestCase):
     def test_wait_retries_a_503_then_exits_with_json(self):
         FixtureReplayHandler.poll_bodies = [(503, b""), load_fixture("poll-several.jsonl")]
         create = self.run_cli(
-            "create", "--name", "wait-smoke-503", "--mode", "two-way",
+            "create", "--name", "wait-sm-503", "--mode", "two-way",
             "--purpose", "smoke test", "--repo", "test-repo",
         )
         self.assertEqual(create.returncode, 0, create.stderr)
         entry = json.loads(create.stdout)
 
-        proc = self.run_wait("wait-smoke-503")
+        proc = self.run_wait("wait-sm-503")
         self.assertEqual(proc.returncode, 0, proc.stderr)
         result = json.loads(proc.stdout)
         self.assertEqual(result["acted_on"], "STOP")
@@ -175,12 +175,12 @@ class SmokeTest(unittest.TestCase):
     def test_wait_exits_non_zero_on_a_404(self):
         FixtureReplayHandler.poll_bodies = [(404, b"")]
         create = self.run_cli(
-            "create", "--name", "wait-smoke-404", "--mode", "two-way",
+            "create", "--name", "wait-sm-404", "--mode", "two-way",
             "--purpose", "smoke test", "--repo", "test-repo",
         )
         self.assertEqual(create.returncode, 0, create.stderr)
 
-        proc = self.run_wait("wait-smoke-404")
+        proc = self.run_wait("wait-sm-404")
         self.assertNotEqual(proc.returncode, 0)
         self.assertIn("404", proc.stderr)  # the cause is on stderr
 

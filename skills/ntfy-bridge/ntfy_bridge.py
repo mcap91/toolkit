@@ -25,9 +25,12 @@ DEFAULT_WAIT_INTERVAL_MINUTES = 20
 
 # Fixed precedence, low to high priority in iteration order below (first match wins).
 PRECEDENCE_ORDER = ["STOP", "FINISH UP", "PAUSE", "APPROVE", "CONTINUE", "STATUS"]
-NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+NAME_RE = re.compile(r"^[a-z0-9-]{1,12}$")
 APPROVE_RE = re.compile(r"^APPROVE ([0-9A-F]{4})$")
 EXACT_WORDS = {"STOP", "FINISH UP", "PAUSE", "CONTINUE", "STATUS"}
+# Phone-typable topic suffix: lowercase letters and digits minus look-alikes.
+TOPIC_SUFFIX_ALPHABET = "abcdefghjkmnpqrstuvwxyz23456789"
+TOPIC_SUFFIX_LENGTH = 10
 
 
 class NtfyBridgeError(Exception):
@@ -163,7 +166,8 @@ def transact(path, fn):
 
 
 def _new_topic(name):
-    return f"{name}-{secrets.token_hex(6)}"
+    suffix = "".join(secrets.choice(TOPIC_SUFFIX_ALPHABET) for _ in range(TOPIC_SUFFIX_LENGTH))
+    return f"{name}-{suffix}"
 
 
 def _require_channel(data, name):
@@ -201,7 +205,10 @@ def cmd_list(args, registry_path):
 
 def cmd_create(args, registry_path):
     if not NAME_RE.match(args.name):
-        raise NtfyBridgeError(f"invalid channel name: {args.name!r} (must match ^[a-z0-9][a-z0-9-]*$)")
+        raise NtfyBridgeError(
+            f"invalid channel name: {args.name!r} "
+            "(must be 1-12 characters of lowercase letters, digits, and hyphens)"
+        )
 
     def fn(data):
         if args.name in data:
