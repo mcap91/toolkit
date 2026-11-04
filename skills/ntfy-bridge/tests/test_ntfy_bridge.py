@@ -509,12 +509,14 @@ class WaitLoopTests(RegistryTestCase):
             self.assertEqual(f.read(), "{not valid json")
 
     def test_restart_after_printed_word_does_not_return_it_again(self):
-        # the cursor persists on disk: a replayed message must not fire its word twice
+        # the cursor persists on disk: a replayed message must not fire its word twice.
+        # Clock pinned to the fixture era (real wall time would prune the "seen" id
+        # past the 12h cache window and defeat the dedup this test proves).
         name = "restart-chan"
         self.create_channel(name)
         get1 = RecordingGet([self.STOP_LINE])
         code1, result1, _, err1 = run_main(
-            ["wait", "--name", name, "--interval", "1"], http_get=get1, sleep_fn=FakeSleep()
+            ["wait", "--name", name, "--interval", "1"], http_get=get1, sleep_fn=FakeSleep(), time_fn=FakeClock()
         )
         self.assertEqual(code1, 0, err1)
         self.assertEqual(result1["acted_on"], "STOP")
@@ -523,7 +525,7 @@ class WaitLoopTests(RegistryTestCase):
         # more (the server's cache), then serves one genuinely new message
         get2 = RecordingGet([self.STOP_LINE, self.FINISH_UP_LINE])
         code2, result2, _, err2 = run_main(
-            ["wait", "--name", name, "--interval", "1"], http_get=get2, sleep_fn=FakeSleep()
+            ["wait", "--name", name, "--interval", "1"], http_get=get2, sleep_fn=FakeSleep(), time_fn=FakeClock()
         )
         self.assertEqual(code2, 0, err2)
         self.assertEqual(result2["acted_on"], "FINISH UP")

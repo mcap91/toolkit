@@ -13,7 +13,7 @@ import threading
 import unittest
 
 HERE = os.path.dirname(__file__)
-SCRIPT = os.path.join(HERE, "..", "ntfy_bridge.py")
+SCRIPT = os.path.join(HERE, "pinned_clock_launcher.py")
 FIXTURES = os.path.join(HERE, "fixtures")
 
 

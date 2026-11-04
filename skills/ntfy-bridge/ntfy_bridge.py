@@ -311,10 +311,10 @@ def _do_poll(entry, name, server, get_fn, now):
     }
 
 
-def cmd_poll(args, registry_path, server, get_fn):
+def cmd_poll(args, registry_path, server, get_fn, time_fn):
     def fn(data):
         entry = _require_channel(data, args.name)
-        return _do_poll(entry, args.name, server, get_fn, now=time.time())
+        return _do_poll(entry, args.name, server, get_fn, now=time_fn())
 
     try:
         result = transact(registry_path, fn)
@@ -457,7 +457,7 @@ def main(argv=None, *, http_get=http_get, http_post=http_post, sleep_fn=time.sle
         if args.command == "ask":
             return cmd_ask(args, registry_path, server, http_post)
         if args.command == "poll":
-            return cmd_poll(args, registry_path, server, http_get)
+            return cmd_poll(args, registry_path, server, http_get, time_fn)
         if args.command == "wait":
             return cmd_wait(args, registry_path, server, http_get, sleep_fn, time_fn)
         raise NtfyBridgeError(f"unknown command: {args.command}")
