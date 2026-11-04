@@ -36,9 +36,9 @@ mode. Once both are set, run the setup flow below.
 2. Pick the mode from the rule above, or ask the operator if it's unclear.
 3. Run `create` with the chosen name, mode, purpose, and repo.
 4. Tell the operator to subscribe on their phone: install the ntfy app, keep the default server
-   `ntfy.sh`, and add the printed topic (and the reply topic too, if two-way). The app can show a
-   display name for each subscription, so a short topic is no harder to tell apart on the phone.
-   Subscription is manual — the script cannot do it for them.
+   `ntfy.sh`, and add the printed topic. A channel has exactly one topic; for a two-way channel the
+   operator replies from inside that same subscription in the app — a channel never has a second
+   topic to reply on. Subscription is manual — the script cannot do it for them.
 5. Send the test message with the script's `send` command.
 6. Wait for the operator to confirm receipt at the terminal before leaving the session unattended. Do
    not proceed to unattended operation on silence here — this confirmation is not a veto window.
@@ -141,6 +141,10 @@ operator; none of that fits an unattended agent acting on a one-word instruction
 Topics are public by obscurity: anyone who knows a topic can read and post to it. So message bodies
 never carry secrets, emails, record contents, or repo content — only status lines (suite names,
 pass/fail counts, durations, costs).
+
+Because a two-way channel has only one topic, anyone who learns it can read it and post control words
+too — which is why topics stay secret, and why `APPROVE` never covers a destructive or spend-raising
+action.
 
 Never put a topic name in a repo, a commit, a doc, or a screenshot. The topic itself is the only lock on
 the channel. This is why one-way setup prints the `export NTFY_TOPIC=...` line instead of writing it

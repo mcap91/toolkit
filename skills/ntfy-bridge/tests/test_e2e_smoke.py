@@ -97,7 +97,8 @@ class SmokeTest(unittest.TestCase):
         )
         self.assertEqual(create.returncode, 0, create.stderr)
         entry = json.loads(create.stdout)
-        topic, reply_topic = entry["topic"], entry["reply_topic"]
+        topic = entry["topic"]
+        self.assertNotIn("reply_topic", entry)
 
         send = self.run_cli("send", "--name", "smoke-chan", "--message", "hello")
         self.assertEqual(send.returncode, 0, send.stderr)
@@ -110,7 +111,11 @@ class SmokeTest(unittest.TestCase):
         poll1 = self.run_cli("poll", "--name", "smoke-chan")
         self.assertEqual(poll1.returncode, 0, poll1.stderr)
         result1 = json.loads(poll1.stdout)
-        self.assertEqual(result1["unrecognized"], 1)  # "capture one" is not a vocabulary word
+        # do_POST always answers send/ask with publish-1.json, whose id is the
+        # same id poll-one.jsonl serves back as "capture one" -- send and ask
+        # already marked it seen, so the echo on this first poll is dropped,
+        # not counted as unrecognized.
+        self.assertEqual(result1["unrecognized"], 0)
 
         poll2 = self.run_cli("poll", "--name", "smoke-chan")
         self.assertEqual(poll2.returncode, 0, poll2.stderr)
@@ -124,7 +129,7 @@ class SmokeTest(unittest.TestCase):
         self.assertEqual(post_paths, [f"/{topic}", f"/{topic}"])  # send, then ask
         self.assertEqual(len(get_paths), 2)  # poll, poll
         for p in get_paths:
-            self.assertTrue(p.startswith(f"/{reply_topic}/json?poll=1&since="))
+            self.assertTrue(p.startswith(f"/{topic}/json?poll=1&since="))
 
     def run_wait(self, name, *extra_args):
         return subprocess.run(
@@ -152,7 +157,7 @@ class SmokeTest(unittest.TestCase):
         get_paths = [p for m, p in FixtureReplayHandler.requests if m == "GET"]
         self.assertGreaterEqual(len(get_paths), 2)
         self.assertTrue(proc.stderr.strip())  # the live log line
-        self.assertNotIn(entry["reply_topic"], proc.stderr)
+        self.assertNotIn(entry["topic"], proc.stderr)
         self.assertNotIn("capture", proc.stderr)  # no message text leaks into the log
 
     def test_wait_retries_a_503_then_exits_with_json(self):
@@ -169,7 +174,7 @@ class SmokeTest(unittest.TestCase):
         result = json.loads(proc.stdout)
         self.assertEqual(result["acted_on"], "STOP")
         self.assertIn("503", proc.stderr)  # the transient retry is logged
-        self.assertNotIn(entry["reply_topic"], proc.stderr)
+        self.assertNotIn(entry["topic"], proc.stderr)
         self.assertNotIn("capture", proc.stderr)
 
     def test_wait_exits_non_zero_on_a_404(self):
@@ -183,6 +188,33 @@ class SmokeTest(unittest.TestCase):
         proc = self.run_wait("wait-sm-404")
         self.assertNotEqual(proc.returncode, 0)
         self.assertIn("404", proc.stderr)  # the cause is on stderr
+
+    def test_ask_echo_is_dropped_and_a_vocabulary_word_in_the_same_poll_is_acted_on(self):
+        # do_POST always answers with publish-1.json; poll-one.jsonl carries that
+        # exact message back -- the real shape of the agent's own question
+        # echoing on the channel's one topic. Paired with a genuinely new STOP
+        # message (a different id, sliced from poll-several.jsonl), the echo
+        # must be dropped silently while STOP is still acted on.
+        echo_line = load_fixture("poll-one.jsonl")
+        stop_line = load_fixture("poll-several.jsonl").splitlines()[2] + b"\n"
+        FixtureReplayHandler.poll_bodies = [echo_line + stop_line]
+
+        create = self.run_cli(
+            "create", "--name", "echo-smoke", "--mode", "two-way",
+            "--purpose", "smoke test", "--repo", "test-repo",
+        )
+        self.assertEqual(create.returncode, 0, create.stderr)
+
+        ask = self.run_cli(
+            "ask", "--name", "echo-smoke", "--question", "proceed?", "--if-no-reply", "CONTINUE"
+        )
+        self.assertEqual(ask.returncode, 0, ask.stderr)
+
+        proc = self.run_wait("echo-smoke")
+        self.assertEqual(proc.returncode, 0, proc.stderr)
+        result = json.loads(proc.stdout)
+        self.assertEqual(result["acted_on"], "STOP")
+        self.assertEqual(result["unrecognized"], 0)
 
 
 if __name__ == "__main__":

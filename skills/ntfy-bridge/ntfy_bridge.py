@@ -217,7 +217,6 @@ def cmd_create(args, registry_path):
         now = int(time.time())
         entry = {
             "topic": _new_topic(args.name),
-            "reply_topic": _new_topic(args.name) if args.mode == "two-way" else None,
             "mode": args.mode,
             "purpose": args.purpose,
             "repo": args.repo,
@@ -241,8 +240,7 @@ def cmd_rotate(args, registry_path):
         entry = _require_channel(data, args.name)
         now = int(time.time())
         entry["topic"] = _new_topic(args.name)
-        if entry["mode"] == "two-way":
-            entry["reply_topic"] = _new_topic(args.name)
+        entry.pop("reply_topic", None)
         entry["cursor"] = {"since": now, "seen": {}}
         entry["pending"] = None
         entry["unrecognized_total"] = 0
@@ -254,17 +252,37 @@ def cmd_rotate(args, registry_path):
     return 0
 
 
-def cmd_send(args, registry_path, server, post_fn):
-    data = read_registry(registry_path)
-    entry = _require_channel(data, args.name)
-    headers = {}
-    if args.title is not None:
-        headers["Title"] = args.title
-    if args.priority is not None:
-        headers["Priority"] = args.priority
-    url = f"{server}/{entry['topic']}"
+def _record_own_publish(entry, body):
+    """Mark a message this script just published (send/ask) as already seen,
+    using the publish response's id/time -- the same shape and the same
+    cursor seen-set that poll's dedup already prunes to the 12h cache window.
+    Without this, the agent's own question would come back on the next poll
+    and either count as unrecognized or get parsed as a reply to itself.
+    """
     try:
-        post_fn(url, args.message, headers)
+        obj = json.loads(body.decode("utf-8"))
+        msg_id = obj["id"]
+        msg_time = obj["time"]
+    except (ValueError, KeyError, TypeError) as e:
+        raise NtfyBridgeError(f"publish response missing id/time: {e}") from e
+    entry["cursor"]["seen"][msg_id] = msg_time
+
+
+def cmd_send(args, registry_path, server, post_fn):
+    def fn(data):
+        entry = _require_channel(data, args.name)
+        headers = {}
+        if args.title is not None:
+            headers["Title"] = args.title
+        if args.priority is not None:
+            headers["Priority"] = args.priority
+        url = f"{server}/{entry['topic']}"
+        status, body = post_fn(url, args.message, headers)
+        _record_own_publish(entry, body)
+        return entry
+
+    try:
+        entry = transact(registry_path, fn)
     except (urllib.error.URLError, OSError) as e:
         raise NtfyBridgeError(f"send failed: {e}") from e
     print(json.dumps({"name": args.name, "topic": entry["topic"], "sent": True}, indent=2, sort_keys=True))
@@ -276,9 +294,10 @@ def cmd_ask(args, registry_path, server, post_fn):
         entry = _require_channel(data, args.name)
         _require_two_way(entry, args.name, "ask")
         code = secrets.token_hex(2).upper()
-        body = f"{args.question}\nReply APPROVE {code}.\n{args.if_no_reply}"
+        body_text = f"{args.question}\nReply APPROVE {code}.\n{args.if_no_reply}"
         url = f"{server}/{entry['topic']}"
-        post_fn(url, body, {"Priority": "high"})
+        status, body = post_fn(url, body_text, {"Priority": "high"})
+        _record_own_publish(entry, body)
         entry["pending"] = {"code": code, "asked": date.today().isoformat()}
         return code
 
@@ -291,14 +310,14 @@ def cmd_ask(args, registry_path, server, post_fn):
 
 
 def _do_poll(entry, name, server, get_fn, now):
-    """One poll of a channel's reply topic: request, dedup, prune, parse, pick
+    """One poll of a channel's one topic: request, dedup, prune, parse, pick
     the word acted on by precedence, mutate `entry` in place, return the
     result dict. The only poll logic in the script; `poll` and `wait` both
     call this so they can never drift apart.
     """
     _require_two_way(entry, name, "poll")
     since = entry["cursor"]["since"]
-    url = f"{server}/{entry['reply_topic']}/json?poll=1&since={since}"
+    url = f"{server}/{entry['topic']}/json?poll=1&since={since}"
     status, body = get_fn(url)
     pending = entry.get("pending")
     pending_code = pending["code"] if pending else None

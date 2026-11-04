@@ -37,17 +37,26 @@ class RecordingGet:
 
 
 class RecordingPost:
-    """Fake http_post: records calls, optionally raises like a network failure."""
+    """Fake http_post: records calls, optionally raises like a network failure.
+    Returns a publish-response shape (id/time) by default -- callers that do
+    not care about the own-message-drop mechanism can ignore it; a test that
+    does care passes a real captured `body` instead."""
 
-    def __init__(self, raise_error=False):
+    def __init__(self, raise_error=False, body=None):
         self.calls = []
         self.raise_error = raise_error
+        self._body = body
+        self._next_id = 0
 
     def __call__(self, url, body, headers):
         self.calls.append((url, body, dict(headers)))
         if self.raise_error:
             raise urllib.error.URLError("simulated network failure")
-        return 200, b"{}"
+        if self._body is not None:
+            return 200, self._body
+        self._next_id += 1
+        fake = json.dumps({"id": f"fake-id-{self._next_id}", "time": 1793680600}).encode()
+        return 200, fake
 
 
 def run_main(argv, http_get=None, http_post=None, sleep_fn=None, time_fn=None):
@@ -285,18 +294,16 @@ class CreateRotateTests(RegistryTestCase):
         )
         self.assertNotEqual(code, 0)
 
-    def test_create_gives_independent_random_topics(self):
+    def test_create_two_way_writes_one_topic_and_no_reply_topic(self):
+        # A channel has exactly one topic; no reply_topic is written.
         entry_a = self.create_channel("chan-a", mode="two-way")
         entry_b = self.create_channel("chan-b", mode="two-way")
-        self.assertNotEqual(entry_a["topic"], entry_a["reply_topic"])
-        self.assertNotEqual(entry_a["reply_topic"], entry_a["topic"] + "-reply")
-        hex_a_topic = entry_a["topic"].rsplit("-", 1)[-1]
-        hex_a_reply = entry_a["reply_topic"].rsplit("-", 1)[-1]
-        self.assertNotEqual(hex_a_topic, hex_a_reply)
+        self.assertIn("topic", entry_a)
+        self.assertNotIn("reply_topic", entry_a)
+        self.assertNotIn("reply_topic", entry_b)
         self.assertNotEqual(entry_a["topic"], entry_b["topic"])
-        self.assertNotEqual(entry_a["reply_topic"], entry_b["reply_topic"])
 
-    def test_rotate_replaces_both_topics_and_resets_state(self):
+    def test_rotate_replaces_the_topic_and_resets_state(self):
         entry = self.create_channel("rot-chan", mode="two-way")
         post = RecordingPost()
         get = RecordingGet([load_fixture("poll-one.jsonl")])
@@ -306,20 +313,18 @@ class CreateRotateTests(RegistryTestCase):
         code, rotated, _, err = run_main(["rotate", "--name", "rot-chan"])
         self.assertEqual(code, 0, err)
         self.assertNotEqual(rotated["topic"], entry["topic"])
-        self.assertNotEqual(rotated["reply_topic"], entry["reply_topic"])
+        self.assertNotIn("reply_topic", rotated)
         self.assertEqual(rotated["cursor"]["seen"], {})
         self.assertIsNone(rotated["pending"])
         self.assertEqual(rotated["unrecognized_total"], 0)
         self.assertEqual(len(rotated["rotations"]), 1)
 
     def test_topic_format_is_name_dash_ten_phone_typable_chars(self):
-        # topic = <name>-<10 chars from the look-alike-free alphabet>; outbound and
-        # reply topics must still draw independent random parts.
+        # topic = <name>-<10 chars from the look-alike-free alphabet>.
         entry = self.create_channel("fmt-chan", mode="two-way")
         pattern = re.compile(r"^fmt-chan-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
         self.assertRegex(entry["topic"], pattern)
-        self.assertRegex(entry["reply_topic"], pattern)
-        self.assertNotEqual(entry["topic"], entry["reply_topic"])
+        self.assertNotIn("reply_topic", entry)
 
     def test_create_refuses_name_over_twelve_chars(self):
         code, _, _, err = run_main(
@@ -444,9 +449,10 @@ class CreateRotateTests(RegistryTestCase):
             entry["topic"], re.compile(r"^abcdef-ghijk-[abcdefghjkmnpqrstuvwxyz23456789]{10}$")
         )
 
-    def test_rotate_gives_new_format_topics_to_a_pre_existing_long_name(self):
-        # a registry entry with an old-style name (over 12 chars) and an old-format
-        # topic must still rotate cleanly into the new topic format.
+    def test_rotate_gives_new_format_topic_to_a_pre_existing_long_name(self):
+        # a registry entry with an old-style name (over 12 chars), an old-format
+        # topic, and a leftover reply_topic (the old two-topic shape) must still
+        # rotate cleanly into the new one-topic format, with reply_topic dropped.
         legacy_name = "legacy-long-channel-name"
 
         def fn(data):
@@ -470,7 +476,7 @@ class CreateRotateTests(RegistryTestCase):
         self.assertEqual(code, 0, err)
         pattern = re.compile(rf"^{legacy_name}-[abcdefghjkmnpqrstuvwxyz23456789]{{10}}$")
         self.assertRegex(rotated["topic"], pattern)
-        self.assertRegex(rotated["reply_topic"], pattern)
+        self.assertNotIn("reply_topic", rotated)
         self.assertEqual(rotated["cursor"], {"since": rotated["cursor"]["since"], "seen": {}})
         self.assertIsNone(rotated["pending"])
         self.assertEqual(rotated["unrecognized_total"], 0)
@@ -508,6 +514,15 @@ class PollRequestAndErrorTests(RegistryTestCase):
             m = since_re.search(url)
             self.assertIsNotNone(m, f"no numeric since= in {url}")
 
+    def test_poll_url_uses_the_channel_topic(self):
+        # There is no separate topic for replies; poll reads the one topic.
+        entry = self.create_channel("topic-url-ch", mode="two-way")
+        get = RecordingGet([load_fixture("poll-zero.jsonl")])
+        run_main(["poll", "--name", "topic-url-ch"], http_get=get)
+        self.assertEqual(len(get.urls), 1)
+        topic = entry["topic"]
+        self.assertTrue(get.urls[0].startswith(f"http://example.invalid/{topic}/json?poll=1&since="))
+
     def test_http_error_leaves_registry_byte_identical(self):
         self.create_channel("err-chan", mode="two-way")
         with open(self.registry_path, "rb") as f:
@@ -524,6 +539,127 @@ class PollRequestAndErrorTests(RegistryTestCase):
     def test_unknown_channel_exits_non_zero(self):
         code, _, _, err = run_main(["poll", "--name", "does-not-exist"])
         self.assertNotEqual(code, 0)
+
+
+class OwnMessageDropTests(RegistryTestCase):
+    """send/ask must mark their own published message as already seen (by the
+    publish response's real id/time), so a later poll on the channel's one
+    topic never parses the agent's own message as a reply or counts it as
+    unrecognized.
+    """
+
+    def test_ask_echo_on_next_poll_yields_no_match_and_no_unrecognized(self):
+        # publish-1.json is the real captured publish response for the exact
+        # message poll-one.jsonl later serves back (same id/time) -- the shape
+        # of an agent's own question coming back on its next poll.
+        self.create_channel("echo-chan")
+        post = RecordingPost(body=load_fixture("publish-1.json"))
+        code, _, _, err = run_main(
+            ["ask", "--name", "echo-chan", "--question", "proceed?", "--if-no-reply", "CONTINUE"],
+            http_post=post,
+        )
+        self.assertEqual(code, 0, err)
+
+        # clock pinned to the fixture era: a real wall clock would eventually
+        # prune the own-message id past the 12h cache window and defeat dedup.
+        get = RecordingGet([load_fixture("poll-one.jsonl")])
+        code, result, _, err = run_main(
+            ["poll", "--name", "echo-chan"], http_get=get, time_fn=FakeClock()
+        )
+        self.assertEqual(code, 0, err)
+        self.assertEqual(result["matched"], [])
+        self.assertEqual(result["unrecognized"], 0)
+
+    def test_ask_echo_still_dropped_after_a_simulated_restart(self):
+        # each run_main call reloads the registry from disk with no in-memory
+        # state carried over, so two separate calls already simulate a process
+        # restart; the own-message id, written to disk by ask, must still be
+        # recognized as already-seen after that reload.
+        self.create_channel("echo-restart")
+        post = RecordingPost(body=load_fixture("publish-1.json"))
+        code, _, _, err = run_main(
+            ["ask", "--name", "echo-restart", "--question", "proceed?", "--if-no-reply", "CONTINUE"],
+            http_post=post,
+        )
+        self.assertEqual(code, 0, err)
+
+        get1 = RecordingGet([load_fixture("poll-one.jsonl")])
+        code1, result1, _, err1 = run_main(
+            ["poll", "--name", "echo-restart"], http_get=get1, time_fn=FakeClock()
+        )
+        self.assertEqual(code1, 0, err1)
+        self.assertEqual((result1["matched"], result1["unrecognized"]), ([], 0))
+
+        get2 = RecordingGet([load_fixture("poll-one.jsonl")])
+        code2, result2, _, err2 = run_main(
+            ["poll", "--name", "echo-restart"], http_get=get2, time_fn=FakeClock()
+        )
+        self.assertEqual(code2, 0, err2)
+        self.assertEqual((result2["matched"], result2["unrecognized"]), ([], 0))
+
+    def test_operator_stop_in_same_poll_as_echoed_own_message_is_still_acted_on(self):
+        # poll-several carries the same "capture one" id as the ask echo, plus
+        # a real STOP message with a different id: the STOP must still be
+        # recognized even though the echoed own message in the same batch is
+        # dropped.
+        self.create_channel("echo-stop-ch")
+        post = RecordingPost(body=load_fixture("publish-1.json"))
+        code, _, _, err = run_main(
+            ["ask", "--name", "echo-stop-ch", "--question", "proceed?", "--if-no-reply", "CONTINUE"],
+            http_post=post,
+        )
+        self.assertEqual(code, 0, err)
+
+        get = RecordingGet([load_fixture("poll-several.jsonl")])
+        code, result, _, err = run_main(
+            ["poll", "--name", "echo-stop-ch"], http_get=get, time_fn=FakeClock()
+        )
+        self.assertEqual(code, 0, err)
+        self.assertEqual(result["acted_on"], "STOP")
+
+    def test_send_records_its_own_message_as_seen(self):
+        self.create_channel("send-echo-ch")
+        post = RecordingPost(body=load_fixture("publish-1.json"))
+        code, _, _, err = run_main(
+            ["send", "--name", "send-echo-ch", "--message", "hello"], http_post=post
+        )
+        self.assertEqual(code, 0, err)
+
+        get = RecordingGet([load_fixture("poll-one.jsonl")])
+        code, result, _, err = run_main(
+            ["poll", "--name", "send-echo-ch"], http_get=get, time_fn=FakeClock()
+        )
+        self.assertEqual(code, 0, err)
+        self.assertEqual((result["matched"], result["unrecognized"]), ([], 0))
+
+    def test_ask_publish_response_with_no_id_is_an_error_and_records_nothing(self):
+        self.create_channel("bad-ask-chan")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        post = RecordingPost(body=b"{}")
+        code, _, _, err = run_main(
+            ["ask", "--name", "bad-ask-chan", "--question", "q?", "--if-no-reply", "CONTINUE"],
+            http_post=post,
+        )
+        self.assertNotEqual(code, 0)
+        self.assertTrue(err.strip())
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_send_publish_response_with_no_id_is_an_error_and_records_nothing(self):
+        self.create_channel("bad-send-ch")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        post = RecordingPost(body=b"not json")
+        code, _, _, err = run_main(
+            ["send", "--name", "bad-send-ch", "--message", "hello"], http_post=post
+        )
+        self.assertNotEqual(code, 0)
+        self.assertTrue(err.strip())
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
 
 
 class WaitLoopTests(RegistryTestCase):
