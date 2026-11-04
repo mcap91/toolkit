@@ -67,6 +67,7 @@ cp -r skills/<name> <your-project>/.claude/skills/<name>
 | [explain-me-this](skills/explain-me-this/) | Discuss-and-explain mode — help me understand or decide, no building. Manual-only. |
 | [html-report](skills/html-report/) | Build an HTML report or view in the house style. Five self-contained style pages ship with the skill: chain view, science report, text report, concept page, architecture (via archify). |
 | [handoff](skills/handoff/) | Generate a self-contained prompt to hand off current work to a fresh CLI agent or a subagent. |
+| [ntfy-bridge](skills/ntfy-bridge/) | Set up a phone bridge over ntfy.sh — one-way notifications for pipelines, or a two-way channel for an unattended Claude Code session to receive operator replies. |
 | [plan-me-this](skills/plan-me-this/) | Package an approved spec into self-contained phase docs and a living readme_this_current_task.md. |
 | resolve (moved to [kb](https://github.com/mcap91/kb) `contract/skills/resolve/`) | Before escalating a question to the operator, resolve it from evidence. Will ship to repos via kb `sync-contract` once its trials pass. |
 | [scripts-reference](skills/scripts-reference/) | Generate a Markdown reference file listing production scripts in a project — name, namespace, brief description, and clickable absolute file path. |
