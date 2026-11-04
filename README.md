@@ -69,7 +69,7 @@ cp -r skills/<name> <your-project>/.claude/skills/<name>
 | [handoff](skills/handoff/) | Generate a self-contained prompt to hand off current work to a fresh CLI agent or a subagent. |
 | [ntfy-bridge](skills/ntfy-bridge/) | Set up a phone bridge over ntfy.sh — one-way notifications for pipelines, or a two-way channel for an unattended Claude Code session to receive operator replies. |
 | [plan-me-this](skills/plan-me-this/) | Package an approved spec into self-contained phase docs and a living readme_this_current_task.md. |
-| resolve (moved to [kb](https://github.com/mcap91/kb) `contract/skills/resolve/`) | Before escalating a question to the operator, resolve it from evidence. Will ship to repos via kb `sync-contract` once its trials pass. |
+| resolve (moved to [kb](https://github.com/mcap91/kb) `contract/skills/resolve/`) | Before escalating a question to the operator, resolve it from evidence. Ships to every kb repo via `sync-contract` (`.claude/skills/` and `.agents/skills/`). |
 | [scripts-reference](skills/scripts-reference/) | Generate a Markdown reference file listing production scripts in a project — name, namespace, brief description, and clickable absolute file path. |
 | [spec-check](skills/spec-check/) | Read doc(s) and surface open design decisions that need operator input before the work can be handed off for autonomous execution. |
 | [verticalizing-plans](skills/verticalizing-plans/) | Convert phase-shaped plans organized as sequential stages into thin vertical slices that prove the whole flow early. |
