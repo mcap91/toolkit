@@ -252,7 +252,7 @@ def cmd_rotate(args, registry_path):
     return 0
 
 
-def _record_own_publish(entry, body):
+def _record_own_publish(entry, body, action):
     """Mark a message this script just published (send/ask) as already seen,
     using the publish response's id/time -- the same shape and the same
     cursor seen-set that poll's dedup already prunes to the 12h cache window.
@@ -264,7 +264,19 @@ def _record_own_publish(entry, body):
         msg_id = obj["id"]
         msg_time = obj["time"]
     except (ValueError, KeyError, TypeError) as e:
-        raise NtfyBridgeError(f"publish response missing id/time: {e}") from e
+        if action == "ask":
+            raise NtfyBridgeError(
+                "ask published the message to the topic, but the publish response had no "
+                "usable id/time, so it was not recorded: it may come back on a later poll "
+                "as one unrecognized message, and its APPROVE code is not pending, so a "
+                "reply with that code will not match -- run ask again rather than resend "
+                "the same text"
+            ) from e
+        raise NtfyBridgeError(
+            "send published the message to the topic, but the publish response had no "
+            "usable id/time, so it was not recorded: it may come back on a later poll as "
+            "one unrecognized message"
+        ) from e
     entry["cursor"]["seen"][msg_id] = msg_time
 
 
@@ -278,13 +290,13 @@ def cmd_send(args, registry_path, server, post_fn):
             headers["Priority"] = args.priority
         url = f"{server}/{entry['topic']}"
         status, body = post_fn(url, args.message, headers)
-        _record_own_publish(entry, body)
+        _record_own_publish(entry, body, "send")
         return entry
 
     try:
         entry = transact(registry_path, fn)
     except (urllib.error.URLError, OSError) as e:
-        raise NtfyBridgeError(f"send failed: {e}") from e
+        raise NtfyBridgeError(f"send failed, nothing was sent to the topic: {e}") from e
     print(json.dumps({"name": args.name, "topic": entry["topic"], "sent": True}, indent=2, sort_keys=True))
     return 0
 
@@ -297,14 +309,14 @@ def cmd_ask(args, registry_path, server, post_fn):
         body_text = f"{args.question}\nReply APPROVE {code}.\n{args.if_no_reply}"
         url = f"{server}/{entry['topic']}"
         status, body = post_fn(url, body_text, {"Priority": "high"})
-        _record_own_publish(entry, body)
+        _record_own_publish(entry, body, "ask")
         entry["pending"] = {"code": code, "asked": date.today().isoformat()}
         return code
 
     try:
         code = transact(registry_path, fn)
     except (urllib.error.URLError, OSError) as e:
-        raise NtfyBridgeError(f"ask failed: {e}") from e
+        raise NtfyBridgeError(f"ask failed, nothing was sent to the topic: {e}") from e
     print(json.dumps({"name": args.name, "code": code, "sent": True}, indent=2, sort_keys=True))
     return 0
 

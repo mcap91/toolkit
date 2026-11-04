@@ -532,6 +532,21 @@ class PollRequestAndErrorTests(RegistryTestCase):
             ["ask", "--name", "err-chan", "--question", "q?", "--if-no-reply", "CONTINUE"], http_post=post
         )
         self.assertNotEqual(code, 0)
+        self.assertIn("nothing was sent", err)
+        with open(self.registry_path, "rb") as f:
+            after = f.read()
+        self.assertEqual(before, after)
+
+    def test_send_http_error_says_nothing_was_sent_and_leaves_registry_unchanged(self):
+        self.create_channel("send-err", mode="one-way")
+        with open(self.registry_path, "rb") as f:
+            before = f.read()
+        post = RecordingPost(raise_error=True)
+        code, _, _, err = run_main(
+            ["send", "--name", "send-err", "--message", "hello"], http_post=post
+        )
+        self.assertNotEqual(code, 0)
+        self.assertIn("nothing was sent", err)
         with open(self.registry_path, "rb") as f:
             after = f.read()
         self.assertEqual(before, after)
@@ -642,7 +657,11 @@ class OwnMessageDropTests(RegistryTestCase):
             http_post=post,
         )
         self.assertNotEqual(code, 0)
-        self.assertTrue(err.strip())
+        self.assertIn("published", err)
+        self.assertIn("not recorded", err)
+        self.assertIn("unrecognized", err)
+        self.assertIn("not pending", err)
+        self.assertIn("run ask again", err)
         with open(self.registry_path, "rb") as f:
             after = f.read()
         self.assertEqual(before, after)
@@ -656,7 +675,10 @@ class OwnMessageDropTests(RegistryTestCase):
             ["send", "--name", "bad-send-ch", "--message", "hello"], http_post=post
         )
         self.assertNotEqual(code, 0)
-        self.assertTrue(err.strip())
+        self.assertIn("published", err)
+        self.assertIn("not recorded", err)
+        self.assertIn("unrecognized", err)
+        self.assertNotIn("not pending", err)
         with open(self.registry_path, "rb") as f:
             after = f.read()
         self.assertEqual(before, after)

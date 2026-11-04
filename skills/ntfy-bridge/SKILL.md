@@ -85,7 +85,9 @@ Transient network trouble (a connection error, a timeout, HTTP 5xx, or HTTP 429)
 `wait` itself: it logs one line to stderr and keeps waiting, so no action is needed. A non-zero exit is
 a permanent error instead — an HTTP 4xx other than 429, an unknown or one-way channel, a corrupt
 registry, or a bad interval: read stderr for the cause, report it to the operator, and do not re-arm
-until it's fixed.
+until it's fixed. When `send` or `ask` itself exits non-zero, read stderr: if it says the message was
+published but not recorded, do not resend that text — run `ask` again if its code is not pending —
+whereas if it says nothing was sent, the publish failed and resending is safe.
 
 The interval is: the `--interval` flag, then the channel's registry entry, then a default of 20 minutes.
 
